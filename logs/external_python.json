@@ -1,0 +1,40 @@
+{
+  "status": "success",
+  "json_sha256": "c045652c5c06a6a5042f36edd44228cfb0b54c7ba3ff4adf86247a8360150a4f",
+  "versions": {
+    "python": "3.11.16",
+    "cadquery": "2.8.0",
+    "cadquery_ocp": "7.9.3.1"
+  },
+  "checks": {
+    "cadquery_box": {
+      "path": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\models\\cadquery_box.step",
+      "solid_count": 1,
+      "face_count": 6,
+      "edge_count": 12,
+      "valid": true
+    },
+    "fusion_run01": {
+      "path": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\models\\fusion_script_box_run01.step",
+      "solid_count": 1,
+      "face_count": 6,
+      "edge_count": 12,
+      "valid": true
+    },
+    "fusion_run02": {
+      "path": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\models\\fusion_script_box_run02.step",
+      "solid_count": 1,
+      "face_count": 6,
+      "edge_count": 12,
+      "valid": true
+    },
+    "manual_box_hole": {
+      "path": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\models\\manual_box_hole.step",
+      "solid_count": 1,
+      "face_count": 7,
+      "edge_count": 15,
+      "valid": true
+    }
+  },
+  "failures": []
+}

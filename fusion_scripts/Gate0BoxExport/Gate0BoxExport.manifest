@@ -1,0 +1,11 @@
+{
+  "autodeskProduct": "Fusion",
+  "type": "script",
+  "author": "Shuo Ding",
+  "description": {
+    "": "Gate 0 shared-JSON box creation and STEP export smoke test"
+  },
+  "version": "0.1.0",
+  "supportedOS": "windows",
+  "editEnabled": true
+}

@@ -1,0 +1,9 @@
+name: cadseq
+channels:
+  - conda-forge
+dependencies:
+  - cadquery=2.8.0
+  - python=3.11
+
+# Normalized from `conda env export -n cadseq --from-history`.
+# The actual package channel is conda-forge; the machine-specific prefix is omitted.

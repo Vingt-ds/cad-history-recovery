@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+.vscode/
+*.tmp
+*.bak
+
+# Fusion may leave lock/recovery files beside active documents.
+*.f3d.lock
+
+# Local environment/setup diagnostics are retained on the workstation but are
+# not part of the research deliverable. Runtime inference/replay logs remain tracked.
+logs/conda_*
+logs/pip_install_attempt*.txt
+logs/cadquery_pip_exit_crash.md
+logs/fusion_run*_attempt*
+logs/fusion_run*_success.png

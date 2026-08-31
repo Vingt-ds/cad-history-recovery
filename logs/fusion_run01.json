@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "run_id": "run01",
+  "json_sha256": "c045652c5c06a6a5042f36edd44228cfb0b54c7ba3ff4adf86247a8360150a4f",
+  "fusion_version": "2704.1.53",
+  "python_version": "3.14.0",
+  "body_count": 1,
+  "face_count": 6,
+  "output_path": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\models\\fusion_script_box_run01.step",
+  "document_name": "无标题",
+  "ascii_path_fallback": false
+}

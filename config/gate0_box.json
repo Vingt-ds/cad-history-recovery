@@ -1,0 +1,10 @@
+{
+  "schema_version": "gate0-0.1",
+  "units": "mm",
+  "model": {
+    "type": "box",
+    "width": 60.0,
+    "depth": 40.0,
+    "height": 20.0
+  }
+}
