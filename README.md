@@ -2,17 +2,24 @@
 
 This repository contains a deterministic, semi-automatic pipeline under development for converting history-free B-rep/STEP models into plausible, replayable CAD construction sequences.
 
-> **Current status:** Gate 0 is closed and Gate 1 is in progress. The 30-case raw B-rep benchmark and schema v0.1 static validator are implemented. Fusion known-sequence replay and automatic B-rep-to-history inference have not started and are not claimed here.
+> **Current status:** Gate 0 and Gate 1 are closed. Schema v0.1 known sequences can be validated and replayed in Fusion for `New + distance` and `Cut + through_all`. The 30-case raw B-rep benchmark is frozen. Automatic B-rep-to-history inference has not started and is not claimed here.
 
-## Gate 1 current scope
+## Gate 1 completed scope
 
 - 30 fixed raw STEP inputs: 15 development and 15 held-out;
 - 27 deterministic CadQuery sources and three Fusion-manual sources;
 - schema v0.1 known-sequence examples for a box and a box with one through-hole;
-- one shared pure-standard-library validator for external Python and future Fusion replay;
+- one shared pure-standard-library validator used by external Python and Fusion replay;
 - explicit rejection fixtures for unsupported Cut distance, broken loop references, invalid operation-cap references, and invalid frames.
+- Fusion replay of Line/Circle sketches, outer loops, `New + distance`, semantic `operation_cap`, and `Cut + through_all`;
+- XY/XZ/YZ origin planes plus fixed RX30/RY45 frame cases with world-coordinate checks;
+- explicit `semantic_reference_failed` handling and audited absolute-frame fallback;
+- deterministic geometry inspection and bidirectional sampled surface-distance calibration;
+- three stable box replays and three stable box-with-through-hole replays, with native F3D, STEP, JSON logs, and screenshots.
 
-The held-out split is assembled but is not frozen until the planned manifest, hashes, and lock are created. It must not be described as blind or unseen data.
+The benchmark is frozen by `benchmarks/manifest.json` and `benchmarks/freeze.lock.json`. After the freeze, the 15-case held-out split is excluded from rule and threshold development. It is a frozen held-out set, not a blind or previously unseen set.
+
+The verified Gate 1 report is available at [`logs/gate1_report.md`](logs/gate1_report.md).
 
 ## Gate 0 scope
 
@@ -43,15 +50,19 @@ The environment definition is in [`environment/environment.yml`](environment/env
 ## Repository layout
 
 ```text
-config/          Shared Gate 0 JSON input
-docs/            Reuse and engineering audit notes
+benchmarks/      Frozen 30-case STEP benchmark, manifest, hashes, lock, and thumbnails
+config/          Gate 0 input and Gate 1 replay request
+docs/            Reuse audit, schema definition, and Gate 1 engineering log
 environment/     Conda definition and verified package record
-evidence/        Manual Fusion timeline evidence and export settings
-external/        CadQuery smoke test and consolidated verifier
-fusion_scripts/  Fusion Python script and manifest
-logs/            Structured run logs and Gate 0 verification report
+evidence/        Gate 0 evidence and Gate 1 Fusion replay screenshots
+external/        Benchmark, geometry-validation, freeze, and Gate verification tools
+fusion_scripts/  Gate 0 export and Gate 1 known-sequence replay scripts
+logs/            Structured run logs and Gate 0/Gate 1 verification reports
 models/          Native Fusion and STEP evidence models
-tests/           Automated Gate 0 regression tests
+replay_outputs/  Native F3D, STEP, and JSON replay evidence
+sequences/       Known-valid and intentionally invalid schema fixtures
+shared/          Pure-standard-library frame and sequence validation modules
+tests/           Automated Gate 0/Gate 1 regression tests
 ```
 
 ## Reproduce the external checks
@@ -73,14 +84,15 @@ Run the regression tests and consolidated verifier:
 
 ```powershell
 python -m unittest discover -s tests -v
-python external/verify_gate0.py
+python external/verify_gate0.py --project-root .
+python external/verify_gate1.py
 ```
 
 The smoke test expects the committed Gate 0 STEP evidence under `models/`. It generates or refreshes `models/cadquery_box.step` and `logs/external_python.json`.
 
-## Fusion script
+## Fusion scripts
 
-In Fusion, open **Utilities -> Scripts and Add-ins**, add the checkout's `fusion_scripts/Gate0BoxExport` folder, and run `Gate0BoxExport`.
+In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export and `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay.
 
 The script:
 
@@ -114,13 +126,13 @@ Gate 0 did **not** implement:
 
 Those capabilities were deferred to later gates. Learning-based inference remains outside the project scope.
 
-Gate 1 has not yet implemented:
+Gate 1 does **not** claim:
 
-- Fusion replay of schema v0.1 operations;
-- runtime `operation_cap` resolution or Cut-intersection checks;
-- geometric-distance and volume-IoU validation;
-- the formal benchmark manifest/hash lock;
-- automatic B-rep feature or history inference.
+- automatic B-rep feature or construction-history inference;
+- `Add/Join`, `Cut + distance`, blind holes, multiple holes, or fillet/chamfer recovery;
+- arbitrary Face/Edge/Vertex references or general topological naming;
+- a universal geometric acceptance threshold or production volume-IoU acceptance rule;
+- byte-for-byte deterministic Fusion STEP exports; the verified claim is geometric stability.
 
 ## References and reuse boundary
 
