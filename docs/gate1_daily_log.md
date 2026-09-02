@@ -105,3 +105,27 @@ This checkpoint supports only one outer loop followed by `new + distance`. `oper
 ### Next session entry point
 
 Implement `operation_cap` resolution and `cut + through_all`, verify that Cut reduces body volume, and preserve explicit `semantic_reference_failed` and `boolean_no_intersection` failures. Do not add blind-hole Cut, multiple holes, Add, or automatic B-rep inference.
+
+## 2026-09-02 — September 5 semantic-cap and through-all Cut task completed ahead of schedule
+
+**Daily target:** resolve a parent New Extrude cap without persistent face IDs, replay one circular through-all Cut, and preserve explicit failure and fallback semantics.
+
+### Completed evidence
+
+- `operation_cap` now resolves only a previously successful New Extrude stored in the current replay. `positive_end_cap` uses that feature's end cap and `negative_end_cap` its start cap; missing or non-unique caps return `semantic_reference_failed`.
+- `cut + through_all` uses Fusion's through-all extent and the declared world direction relative to the actual sketch normal. The executor requires one body before and after Cut and returns `boolean_no_intersection` if body volume does not decrease.
+- The first `box_hole_run01` was preserved as a real failure: sketching a circle on a body face produced two Fusion profiles, invalidating the executor's earlier assumption that every Sketch must have exactly one profile.
+- A red test reproduced the selection problem with two profile regions. The fix selects the unique single-outer-loop profile whose boundary curve count matches the declared JSON loop; it does not silently select Fusion profile index zero.
+- `box_hole_run02` completed with the normalized four-operation history. Fusion volume decreased from `48.0 cm^3` to `46.42920367320504 cm^3`.
+- Independent STEP re-import for `box_hole_run02` found one valid Solid, seven Faces, 15 Edges including the periodic cylinder seam, volume `46429.203673205106 mm^3`, and bbox `(0, 60) x (0, 40) x (0, 20) mm`.
+- The success log records `profile_count=2` for the cap Sketch and `replay_mode=semantic`, so the repaired behavior remains auditable.
+- `box_rx30_run02` repeated the fixed rotated case after logging was extended. Its log records `replay_mode=absolute_fallback`, its sequence SHA-256 matches the correction-bearing JSON, and its STEP volume and six-coordinate bbox match run01.
+- Automated coverage includes a missing-parent unit case that returns `semantic_reference_failed`. A natural Fusion runtime cap-resolution failure was not manufactured because all supported single-profile New Extrusions resolve one cap face.
+
+### Scope boundary
+
+Only one isolated circular through-hole is implemented. The executor still rejects inner-loop base extrusion, blind Cut, multiple holes, Add, arbitrary face references, and automatic inference. The `boolean_no_intersection` volume guard is implemented but has not yet been exercised by a deliberately non-intersecting Fusion fixture.
+
+### Next session entry point
+
+Implement the Gate 1 geometry-validation baseline and benchmark freeze. Do not tune final acceptance thresholds from held-out results, and do not start B-rep history inference.

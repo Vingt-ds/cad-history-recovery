@@ -1,5 +1,5 @@
 {
   "request_version": "gate1-replay-0.1",
-  "sequence_path": "sequences/known/cylinder_xy.json",
-  "run_id": "cylinder_xy_run01"
+  "sequence_path": "sequences/known/box_rx30.json",
+  "run_id": "box_rx30_run02"
 }

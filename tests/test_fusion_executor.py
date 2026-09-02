@@ -1,7 +1,10 @@
 import importlib.util
 import json
 import math
+import sys
+import types
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -128,6 +131,13 @@ class FusionExecutorStaticContractTests(unittest.TestCase):
             "parallel_alignment_error",
             "plane_offset_mm",
             "unsupported_operation_combination",
+            "ThroughAllExtentDefinition.create",
+            "CutFeatureOperation",
+            "setOneSideExtent",
+            "semantic_reference_failed",
+            "boolean_no_intersection",
+            '"replay_mode": sequence["replay_mode"]',
+            "profileLoops",
         ]
         missing = [token for token in required_tokens if token not in self.source]
         self.assertEqual(missing, [], f"Fusion executor is missing required contracts: {missing}")
@@ -145,8 +155,66 @@ class FusionExecutorStaticContractTests(unittest.TestCase):
         sequence_path = PROJECT_ROOT / request["sequence_path"]
         self.assertEqual(sequence_path.parent, PROJECT_ROOT / "sequences" / "known")
         self.assertTrue(sequence_path.is_file())
-        self.assertTrue(request["run_id"].endswith("_run01"))
+        self.assertRegex(request["run_id"], r"_run\d{2}$")
         self.assertNotIn("overwrite", request)
+
+
+class FusionExecutorSemanticReferenceTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        adsk = types.ModuleType("adsk")
+        core = types.ModuleType("adsk.core")
+        fusion = types.ModuleType("adsk.fusion")
+        adsk.core = core
+        adsk.fusion = fusion
+        with patch.dict(
+            sys.modules,
+            {"adsk": adsk, "adsk.core": core, "adsk.fusion": fusion},
+        ):
+            cls.executor = load_module(
+                "gate1_sequence_replay",
+                PROJECT_ROOT
+                / "fusion_scripts"
+                / "Gate1SequenceReplay"
+                / "Gate1SequenceReplay.py",
+            )
+
+    def test_missing_parent_feature_returns_semantic_reference_failed(self):
+        reference = {
+            "type": "operation_cap",
+            "operation_id": "extrude_base",
+            "role": "positive_end_cap",
+            "offset_mm": 0,
+        }
+        with self.assertRaises(self.executor.ReplayError) as raised:
+            self.executor._resolve_operation_cap(reference, {})
+        self.assertEqual(raised.exception.code, "semantic_reference_failed")
+
+    def test_profile_resolution_chooses_declared_single_loop_region(self):
+        class Collection:
+            def __init__(self, items):
+                self.items = items
+                self.count = len(items)
+
+            def item(self, index):
+                return self.items[index]
+
+        class ProfileLoop:
+            def __init__(self, curve_count):
+                self.isOuter = True
+                self.profileCurves = Collection([object()] * curve_count)
+
+        class Profile:
+            def __init__(self, curve_counts):
+                self.profileLoops = Collection(
+                    [ProfileLoop(curve_count) for curve_count in curve_counts]
+                )
+
+        outer_face_region = Profile([4, 1])
+        circle_interior = Profile([1])
+        profiles = Collection([outer_face_region, circle_interior])
+        selected = self.executor._select_profile(profiles, expected_curve_count=1)
+        self.assertIs(selected, circle_interior)
 
 
 if __name__ == "__main__":
