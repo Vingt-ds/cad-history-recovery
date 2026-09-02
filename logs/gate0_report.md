@@ -17,7 +17,7 @@ Overall automated status: **PASS** (22/22 checks passed)
 | PASS | `artifact:evidence/02_reimported_timeline.png` | 765202 bytes |
 | PASS | `artifact:evidence/export_settings.md` | 1207 bytes |
 | PASS | `artifact:docs/gate0_reuse_audit.md` | 2264 bytes |
-| PASS | `artifact:environment/environment.yml` | 270 bytes |
+| PASS | `artifact:environment/environment.yml` | 281 bytes |
 | PASS | `artifact:environment/pip-freeze.txt` | 4998 bytes |
 | PASS | `artifact:logs/fusion_run01.json` | 461 bytes |
 | PASS | `artifact:logs/fusion_run02.json` | 461 bytes |
