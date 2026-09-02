@@ -182,6 +182,10 @@ Begin the September 7 Gate 1 closure audit: verify the required three consecutiv
 
 The optional Add/Join experiment was not started. Gate 1's required New and Cut paths are complete, while Add remains excluded from schema v0.1. Spending the optional budget would enlarge the supported contract immediately before closure without contributing to the mandatory Gate criteria.
 
-### Remaining closure action
+### Closure result
 
-Run the final full regression and Gate 0/Gate 1 verifiers, commit all closure evidence, confirm a clean worktree, and create the local `gate1-forward-path` tag. Gate 2 must not start before those actions pass.
+- Final regression passed: 85/85 tests.
+- Gate 0 regression passed: 22/22 checks.
+- Gate 1 unified verification passed: 8/8 checks.
+- All repository JSON parsed, the frozen benchmark hashes matched, and `git diff --check` reported no whitespace errors.
+- Closure evidence was committed on `gate1-known-sequence`; the local `gate1-forward-path` tag is created only after confirming a clean worktree.
