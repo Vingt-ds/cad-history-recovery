@@ -48,6 +48,12 @@ class BenchmarkMatrixFileTests(unittest.TestCase):
         self.assertEqual(by_id["T-C02"]["expected_behavior"], "reject_unsupported_fillet")
         self.assertEqual(by_id["T-C03"]["expected_behavior"], "reject_unsupported_blind_hole")
 
+    def test_completed_fusion_manual_cases_are_not_still_marked_pending(self):
+        data = self.load_matrix()
+        by_id = {case["case_id"]: case for case in data["cases"]}
+        self.assertEqual(by_id["T-H04"]["geometry"]["kind"], "manual_completed")
+        self.assertEqual(by_id["T-C03"]["geometry"]["kind"], "manual_completed")
+
     def test_step_files_are_git_binary_to_preserve_frozen_hashes(self):
         self.assertTrue(ATTRIBUTES_PATH.is_file(), "Gate 1 requires .gitattributes")
         attributes = ATTRIBUTES_PATH.read_text(encoding="utf-8").splitlines()

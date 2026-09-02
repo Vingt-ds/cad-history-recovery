@@ -1,0 +1,106 @@
+{
+  "calibration_version": "gate1-0.1",
+  "contract": "calibration_only_no_general_acceptance_threshold",
+  "same_file": {
+    "sampling": {
+      "minimum_per_face": 32,
+      "requested_total_budget": 4096,
+      "seed_source": "first_8_bytes_of_file_sha256",
+      "global_mean_weighting": "source_face_area"
+    },
+    "a": {
+      "path": "benchmarks\\inputs\\development\\D-S01.step",
+      "sha256": "b58b5c4886db8ceb58f72f5224f6bf7783109ff6a7a2384257e8dd7842455048",
+      "solid_count": 1,
+      "is_valid": true,
+      "volume_mm3": 48000.0,
+      "surface_area_mm2": 8800.0,
+      "bbox_mm": {
+        "xmin": 0.0,
+        "xmax": 60.0,
+        "ymin": 0.0,
+        "ymax": 40.0,
+        "zmin": 0.0,
+        "zmax": 20.0
+      }
+    },
+    "b": {
+      "path": "benchmarks\\inputs\\development\\D-S01.step",
+      "sha256": "b58b5c4886db8ceb58f72f5224f6bf7783109ff6a7a2384257e8dd7842455048",
+      "solid_count": 1,
+      "is_valid": true,
+      "volume_mm3": 48000.0,
+      "surface_area_mm2": 8800.0,
+      "bbox_mm": {
+        "xmin": 0.0,
+        "xmax": 60.0,
+        "ymin": 0.0,
+        "ymax": 40.0,
+        "zmin": 0.0,
+        "zmax": 20.0
+      }
+    },
+    "surface_distance_mm": {
+      "a_to_b_mean_mm": 0.0,
+      "a_to_b_p95_mm": 0.0,
+      "b_to_a_mean_mm": 0.0,
+      "b_to_a_p95_mm": 0.0,
+      "symmetric_mean_mm": 0.0,
+      "symmetric_p95_mm": 0.0,
+      "max_face_p95_mm": 0.0
+    }
+  },
+  "roundtrip": {
+    "sampling": {
+      "minimum_per_face": 32,
+      "requested_total_budget": 4096,
+      "seed_source": "first_8_bytes_of_file_sha256",
+      "global_mean_weighting": "source_face_area"
+    },
+    "a": {
+      "path": "benchmarks\\inputs\\development\\D-S01.step",
+      "sha256": "b58b5c4886db8ceb58f72f5224f6bf7783109ff6a7a2384257e8dd7842455048",
+      "solid_count": 1,
+      "is_valid": true,
+      "volume_mm3": 48000.0,
+      "surface_area_mm2": 8800.0,
+      "bbox_mm": {
+        "xmin": 0.0,
+        "xmax": 60.0,
+        "ymin": 0.0,
+        "ymax": 40.0,
+        "zmin": 0.0,
+        "zmax": 20.0
+      }
+    },
+    "b": {
+      "path": "benchmarks\\calibration\\D-S01_cadquery_roundtrip.step",
+      "sha256": "a11c0987d8511ddfdec1183be6d625074d8558604b9ac28c17b81a3c544b9175",
+      "solid_count": 1,
+      "is_valid": true,
+      "volume_mm3": 48000.0,
+      "surface_area_mm2": 8800.0,
+      "bbox_mm": {
+        "xmin": 0.0,
+        "xmax": 60.0,
+        "ymin": 0.0,
+        "ymax": 40.0,
+        "zmin": 0.0,
+        "zmax": 20.0
+      }
+    },
+    "surface_distance_mm": {
+      "a_to_b_mean_mm": 0.7221336851273231,
+      "a_to_b_p95_mm": 1.4268324398403818,
+      "b_to_a_mean_mm": 0.7181021253652878,
+      "b_to_a_p95_mm": 1.3971582896942907,
+      "symmetric_mean_mm": 0.7201179052463055,
+      "symmetric_p95_mm": 1.4268324398403818,
+      "max_face_p95_mm": 1.570690377260211
+    }
+  },
+  "repeatability": {
+    "same_file_exact": true,
+    "roundtrip_exact": true
+  }
+}

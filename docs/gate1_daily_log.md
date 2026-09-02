@@ -129,3 +129,35 @@ Only one isolated circular through-hole is implemented. The executor still rejec
 ### Next session entry point
 
 Implement the Gate 1 geometry-validation baseline and benchmark freeze. Do not tune final acceptance thresholds from held-out results, and do not start B-rep history inference.
+
+## 2026-09-02 — September 6 validation and freeze task completed ahead of schedule
+
+**Daily target:** establish deterministic Gate 1 geometry diagnostics, calibrate STEP round-trip sampling behavior, and freeze the 30-case benchmark before any inference-rule development.
+
+### Completed evidence
+
+- Pre-freeze import audit confirmed all 30 STEP files are one valid Solid. The two completed Fusion-manual cases are now marked `manual_completed`, not the stale `manual_pending` state.
+- Added deterministic STEP inspection for Solid count, validity, volume, surface area, and all six bounding-box coordinates.
+- Surface sampling guarantees at least 32 points per Face and at least 4096 points per model. Remaining samples are distributed by Face area; directional global means are explicitly weighted by source-Face area.
+- The random seed is the first eight bytes of each file's SHA-256. Python's process-randomized `hash()` is not used.
+- Surface diagnostics report A-to-B and B-to-A mean and p95 distances, `symmetric_p95_mm`, and the worst p95 over every source Face in both directions. No Face correspondence algorithm was introduced.
+- Self-comparison of `D-S01.step` produced zero distance because it reuses identical deterministic samples.
+- CadQuery STEP round-trip calibration remained geometrically identical in volume, area, and six-coordinate bbox. Independent deterministic samples produced `symmetric_p95_mm = 1.4007279107850243` and `max_face_p95_mm = 1.4559122410622107`.
+- Repeating both self and round-trip comparisons reproduced the saved metrics exactly in the current environment.
+- These values are calibration evidence for the current sampling budget, not general geometric acceptance thresholds.
+- The benchmark was frozen as `gate1-frozen-0.1`: 15 development and 15 held-out cases, with path, source, expected labels, size, and SHA-256 for every STEP.
+- Freeze manifest SHA-256: `c92ac078a5feccce3f7fd53fe4c67a5fbd30c276bb27418948ad46c1a62c8e30`.
+- `benchmarks/freeze.lock.json` now blocks benchmark regeneration and overwrite through the generator.
+- Full regression: 81 tests passed; the frozen-manifest verifier passed; all 34 repository JSON files parsed; Gate 0 remained 22/22 PASS.
+
+### Preserved warning
+
+Importing CadQuery currently emits upstream `ezdxf`/`pyparsing` deprecation warnings. They did not change test outcomes or geometry, and no dependency version was changed during this Gate. The warning remains visible rather than being globally suppressed.
+
+### Scope boundary
+
+The held-out set is now excluded from rule and threshold development. This checkpoint did not run automatic history inference, tune a final acceptance threshold, add Face matching, or implement Add, blind-hole recovery, multiple holes, or Fillet recovery.
+
+### Next session entry point
+
+Begin the September 7 Gate 1 closure audit: verify the required three consecutive box and box-hole replays from preserved Fusion evidence, assemble the unified Gate report, and only then decide whether the optional 45-minute Add test is justified. Do not start Gate 2 before Gate 1 is formally tagged.

@@ -1,7 +1,7 @@
 {
-  "matrix_version": "gate1-draft-0.1",
+  "matrix_version": "gate1-frozen-0.1",
   "units": "mm",
-  "frozen": false,
+  "frozen": true, "frozen_at": "2026-09-02T09:16:11.078484+00:00",
   "freeze_after": "2026-09-06",
   "frames": {
     "XY": {"normal": [0, 0, 1], "x_axis": [1, 0, 0]},
@@ -40,10 +40,10 @@
     {"case_id":"T-H01","split":"held_out","source":"cadquery","family":"through_hole","expected_scope":"supported","expected_behavior":"reconstruct_automatically","output_step":"benchmarks/inputs/held_out/T-H01.step","geometry":{"kind":"profile_extrusion_with_hole","frame_id":"XY","origin":[-10,6,0],"profile":{"type":"rectangle","width":58,"height":36},"direction_sign":1,"distance_mm":19,"hole":{"center":[39,13],"radius_mm":4.5,"extent":"through_all"}}},
     {"case_id":"T-H02","split":"held_out","source":"cadquery","family":"through_hole","expected_scope":"supported","expected_behavior":"reconstruct_automatically","output_step":"benchmarks/inputs/held_out/T-H02.step","geometry":{"kind":"profile_extrusion_with_hole","frame_id":"XZ","origin":[4,12,42],"profile":{"type":"rectangle","width":54,"height":37},"direction_sign":-1,"distance_mm":20,"hole":{"center":[27,18.5],"radius_mm":5,"extent":"through_all"}}},
     {"case_id":"T-H03","split":"held_out","source":"cadquery","family":"through_hole","expected_scope":"supported","expected_behavior":"reconstruct_automatically","output_step":"benchmarks/inputs/held_out/T-H03.step","geometry":{"kind":"profile_extrusion_with_hole","frame_id":"YZ","origin":[-2,-5,3],"profile":{"type":"rectangle","width":48,"height":30},"direction_sign":1,"distance_mm":16,"hole":{"center":[15,20],"radius_mm":3.5,"extent":"through_all"}}},
-    {"case_id":"T-H04","split":"held_out","source":"fusion_manual","family":"through_hole","expected_scope":"supported","expected_behavior":"reconstruct_automatically","output_step":"benchmarks/inputs/held_out/T-H04.step","geometry":{"kind":"manual_pending","description":"YZ 50x30 profile, +X 18 extrusion, diameter-8 through-hole at local (32,12)"}},
+    {"case_id":"T-H04","split":"held_out","source":"fusion_manual","family":"through_hole","expected_scope":"supported","expected_behavior":"reconstruct_automatically","output_step":"benchmarks/inputs/held_out/T-H04.step","geometry":{"kind":"manual_completed","description":"YZ 50x30 profile, +X 18 extrusion, diameter-8 through-hole at local (32,12)"}},
 
     {"case_id":"T-C01","split":"held_out","source":"cadquery","family":"ambiguous","expected_scope":"ambiguous","expected_behavior":"detect_ambiguity_and_emit_canonical_candidate","output_step":"benchmarks/inputs/held_out/T-C01.step","geometry":{"kind":"box","origin":[0,0,0],"size":[20,20,20]}},
     {"case_id":"T-C02","split":"held_out","source":"cadquery","family":"unsupported_fillet","expected_scope":"unsupported","expected_behavior":"reject_unsupported_fillet","output_step":"benchmarks/inputs/held_out/T-C02.step","geometry":{"kind":"filleted_box","origin":[0,0,0],"size":[40,30,20],"fillet_radius_mm":3}},
-    {"case_id":"T-C03","split":"held_out","source":"fusion_manual","family":"unsupported_blind_hole","expected_scope":"unsupported","expected_behavior":"reject_unsupported_blind_hole","output_step":"benchmarks/inputs/held_out/T-C03.step","geometry":{"kind":"manual_pending","description":"XY 50x35x20 box, diameter-10 blind hole at local (35,17.5), cut depth 8"}}
+    {"case_id":"T-C03","split":"held_out","source":"fusion_manual","family":"unsupported_blind_hole","expected_scope":"unsupported","expected_behavior":"reject_unsupported_blind_hole","output_step":"benchmarks/inputs/held_out/T-C03.step","geometry":{"kind":"manual_completed","description":"XY 50x35x20 box, diameter-10 blind hole at local (35,17.5), cut depth 8"}}
   ]
 }
