@@ -1,0 +1,9 @@
+{
+  "schema_version": "cadseq-0.1", "model_id": "known_box_rx30", "units": "mm",
+  "tolerance": {"length_mm": 1e-6, "angular_rad": 1e-8}, "replay_status": "pending", "replay_mode": "absolute_fallback",
+  "corrections": [{"correction_id": "rotation_rx30", "correction_number": 1, "operation_id": "sketch_base", "reason": "fixed Gate 1 rotated-frame replay case", "before": {"reference_type": "origin_plane"}, "after": {"reference_type": "absolute_frame"}}],
+  "operations": [
+    {"operation_id": "sketch_base", "operation_type": "sketch", "dependencies": [], "replay_status": "pending", "sketch_plane": {"semantic_reference": {"type": "absolute_frame", "correction_id": "rotation_rx30"}, "frame": {"origin": [0,0,0], "normal": [0,-0.5,0.8660254037844386], "x_axis": [1,0,0]}}, "loops": [{"loop_id": "base_outer", "loop_type": "outer", "primitives": [{"primitive_id": "line_1", "type": "line", "start": [0,0], "end": [48,0]}, {"primitive_id": "line_2", "type": "line", "start": [48,0], "end": [48,26]}, {"primitive_id": "line_3", "type": "line", "start": [48,26], "end": [0,26]}, {"primitive_id": "line_4", "type": "line", "start": [0,26], "end": [0,0]}]}]},
+    {"operation_id": "extrude_base", "operation_type": "extrude", "dependencies": ["sketch_base"], "replay_status": "pending", "profile": {"sketch_id": "sketch_base", "outer_loop_id": "base_outer", "inner_loop_ids": []}, "direction": [0,-0.5,0.8660254037844386], "extent": {"type": "distance", "distance_mm": 19}, "boolean_type": "new"}
+  ]
+}

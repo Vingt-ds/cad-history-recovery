@@ -1,0 +1,26 @@
+{
+  "status": "success",
+  "run_id": "box_yz_run01",
+  "model_id": "known_box_yz",
+  "request_sha256": "a0dc25d180067af28ae8787f97cafce8bdd26335554b686ff6c52925d3345be2",
+  "sequence_sha256": "8fc7216d85f21bcfcc2cfb18bc41f595f9c4ad2644cde072cace8434fe36e3ef",
+  "fusion_version": "2704.1.53",
+  "python_version": "3.14.0",
+  "body_count": 1,
+  "face_count": 6,
+  "world_frame_max_error_mm": 0.0,
+  "operations": [
+    {
+      "operation_id": "sketch_base",
+      "status": "success"
+    },
+    {
+      "operation_id": "extrude_base",
+      "status": "success"
+    }
+  ],
+  "outputs": {
+    "f3d": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\replay_outputs\\box_yz_run01.f3d",
+    "step": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\replay_outputs\\box_yz_run01.step"
+  }
+}

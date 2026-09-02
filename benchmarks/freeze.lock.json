@@ -1,0 +1,9 @@
+{
+  "lock_version": "gate1-0.1",
+  "frozen_at": "2026-09-02T09:16:11.078484+00:00",
+  "matrix_path": "benchmarks/case_matrix.json",
+  "matrix_sha256": "ca0dcfc3b7019dc85e98c701f7afa7a2543b0a448a52b78637de8425ffaac701",
+  "manifest_path": "benchmarks/manifest.json",
+  "manifest_sha256": "c92ac078a5feccce3f7fd53fe4c67a5fbd30c276bb27418948ad46c1a62c8e30",
+  "generator_overwrite_allowed": false
+}

@@ -1,0 +1,26 @@
+{
+  "status": "success",
+  "run_id": "cylinder_xy_run01",
+  "model_id": "known_cylinder_xy",
+  "request_sha256": "f33d268c807167e30dbe99d2040554ae12c65dc0ea97b38831474c7cbbc276ff",
+  "sequence_sha256": "c289d76194678eaa010eb1123f45f0f106abd55016e1c9d304a27e021de058f1",
+  "fusion_version": "2704.1.53",
+  "python_version": "3.14.0",
+  "body_count": 1,
+  "face_count": 3,
+  "world_frame_max_error_mm": 0.0,
+  "operations": [
+    {
+      "operation_id": "sketch_base",
+      "status": "success"
+    },
+    {
+      "operation_id": "extrude_base",
+      "status": "success"
+    }
+  ],
+  "outputs": {
+    "f3d": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\replay_outputs\\cylinder_xy_run01.f3d",
+    "step": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\replay_outputs\\cylinder_xy_run01.step"
+  }
+}

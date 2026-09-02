@@ -1,0 +1,8 @@
+{
+  "schema_version": "cadseq-0.1", "model_id": "known_box_xz", "units": "mm",
+  "tolerance": {"length_mm": 1e-6, "angular_rad": 1e-8}, "replay_status": "pending", "replay_mode": "semantic", "corrections": [],
+  "operations": [
+    {"operation_id": "sketch_base", "operation_type": "sketch", "dependencies": [], "replay_status": "pending", "sketch_plane": {"semantic_reference": {"type": "origin_plane", "role": "XZ"}, "frame": {"origin": [0,0,0], "normal": [0,1,0], "x_axis": [1,0,0]}}, "loops": [{"loop_id": "base_outer", "loop_type": "outer", "primitives": [{"primitive_id": "line_1", "type": "line", "start": [0,0], "end": [50,0]}, {"primitive_id": "line_2", "type": "line", "start": [50,0], "end": [50,30]}, {"primitive_id": "line_3", "type": "line", "start": [50,30], "end": [0,30]}, {"primitive_id": "line_4", "type": "line", "start": [0,30], "end": [0,0]}]}]},
+    {"operation_id": "extrude_base", "operation_type": "extrude", "dependencies": ["sketch_base"], "replay_status": "pending", "profile": {"sketch_id": "sketch_base", "outer_loop_id": "base_outer", "inner_loop_ids": []}, "direction": [0,1,0], "extent": {"type": "distance", "distance_mm": 18}, "boolean_type": "new"}
+  ]
+}

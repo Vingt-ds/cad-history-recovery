@@ -1,0 +1,11 @@
+{
+  "autodeskProduct": "Fusion",
+  "type": "script",
+  "author": "Shuo Ding",
+  "description": {
+    "": "Gate 1 known-sequence Sketch and New Extrude replay"
+  },
+  "version": "0.1.0",
+  "supportedOS": "windows",
+  "editEnabled": true
+}
