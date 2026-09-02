@@ -1,0 +1,28 @@
+{
+  "schema_version": "cadseq-0.1",
+  "model_id": "known_box_hole",
+  "units": "mm",
+  "tolerance": {"length_mm": 1e-6, "angular_rad": 1e-8},
+  "replay_status": "pending",
+  "replay_mode": "semantic",
+  "corrections": [],
+  "operations": [
+    {
+      "operation_id": "sketch_base", "operation_type": "sketch", "dependencies": [], "replay_status": "pending",
+      "sketch_plane": {"semantic_reference": {"type": "origin_plane", "role": "XY"}, "frame": {"origin": [0,0,0], "normal": [0,0,1], "x_axis": [1,0,0]}},
+      "loops": [{"loop_id": "base_outer", "loop_type": "outer", "primitives": [
+        {"primitive_id": "line_1", "type": "line", "start": [0,0], "end": [60,0]},
+        {"primitive_id": "line_2", "type": "line", "start": [60,0], "end": [60,40]},
+        {"primitive_id": "line_3", "type": "line", "start": [60,40], "end": [0,40]},
+        {"primitive_id": "line_4", "type": "line", "start": [0,40], "end": [0,0]}
+      ]}]
+    },
+    {"operation_id": "extrude_base", "operation_type": "extrude", "dependencies": ["sketch_base"], "replay_status": "pending", "profile": {"sketch_id": "sketch_base", "outer_loop_id": "base_outer", "inner_loop_ids": []}, "direction": [0,0,1], "extent": {"type": "distance", "distance_mm": 20}, "boolean_type": "new"},
+    {
+      "operation_id": "sketch_hole", "operation_type": "sketch", "dependencies": ["extrude_base"], "replay_status": "pending",
+      "sketch_plane": {"semantic_reference": {"type": "operation_cap", "operation_id": "extrude_base", "role": "positive_end_cap", "offset_mm": 0}, "frame": {"origin": [0,0,20], "normal": [0,0,1], "x_axis": [1,0,0]}},
+      "loops": [{"loop_id": "hole_profile", "loop_type": "outer", "primitives": [{"primitive_id": "circle_1", "type": "circle", "center": [30,20], "radius_mm": 5}]}]
+    },
+    {"operation_id": "cut_hole", "operation_type": "extrude", "dependencies": ["extrude_base", "sketch_hole"], "replay_status": "pending", "profile": {"sketch_id": "sketch_hole", "outer_loop_id": "hole_profile", "inner_loop_ids": []}, "direction": [0,0,-1], "extent": {"type": "through_all"}, "boolean_type": "cut"}
+  ]
+}

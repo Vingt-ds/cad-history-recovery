@@ -1,0 +1,10 @@
+{
+  "schema_version": "cadseq-0.1", "model_id": "invalid_cut_distance", "units": "mm",
+  "tolerance": {"length_mm": 1e-6, "angular_rad": 1e-8}, "replay_status": "pending", "replay_mode": "semantic", "corrections": [],
+  "operations": [
+    {"operation_id": "sketch_base", "operation_type": "sketch", "dependencies": [], "replay_status": "pending", "sketch_plane": {"semantic_reference": {"type": "origin_plane", "role": "XY"}, "frame": {"origin": [0,0,0], "normal": [0,0,1], "x_axis": [1,0,0]}}, "loops": [{"loop_id": "base_outer", "loop_type": "outer", "primitives": [{"primitive_id": "base_circle", "type": "circle", "center": [0,0], "radius_mm": 20}]}]},
+    {"operation_id": "extrude_base", "operation_type": "extrude", "dependencies": ["sketch_base"], "replay_status": "pending", "profile": {"sketch_id": "sketch_base", "outer_loop_id": "base_outer", "inner_loop_ids": []}, "direction": [0,0,1], "extent": {"type": "distance", "distance_mm": 20}, "boolean_type": "new"},
+    {"operation_id": "sketch_hole", "operation_type": "sketch", "dependencies": ["extrude_base"], "replay_status": "pending", "sketch_plane": {"semantic_reference": {"type": "operation_cap", "operation_id": "extrude_base", "role": "positive_end_cap", "offset_mm": 0}, "frame": {"origin": [0,0,20], "normal": [0,0,1], "x_axis": [1,0,0]}}, "loops": [{"loop_id": "hole_profile", "loop_type": "outer", "primitives": [{"primitive_id": "hole_circle", "type": "circle", "center": [5,0], "radius_mm": 3}]}]},
+    {"operation_id": "cut_hole", "operation_type": "extrude", "dependencies": ["extrude_base", "sketch_hole"], "replay_status": "pending", "profile": {"sketch_id": "sketch_hole", "outer_loop_id": "hole_profile", "inner_loop_ids": []}, "direction": [0,0,-1], "extent": {"type": "distance", "distance_mm": 8}, "boolean_type": "cut"}
+  ]
+}

@@ -48,3 +48,27 @@ The held-out split is assembled but is not yet frozen; the formal hashes, manife
 ### Next session entry point
 
 Begin the September 3 task: complete the third-party source matrix, freeze schema v0.1, implement the shared standard-library validator, and add valid/invalid JSON fixtures. Do not begin automatic B-rep inference.
+
+## 2026-09-02 — September 3 schema task completed ahead of schedule
+
+**Daily target:** freeze the narrow known-sequence contract and implement one validator shared by external Python and the future Fusion executor.
+
+### Completed evidence
+
+- Added a third-party source matrix that separates architectural reference, direct API use, licence uncertainty, and prohibited neural/search components. No third-party source code was copied.
+- Defined `cadseq-0.1` with millimetres, explicit tolerances, ordered operation IDs/dependencies, Line/Circle loops, semantic/world frames, replay state, and correction audit fields.
+- Frozen compatibility matrix: only `new + distance` and `cut + through_all` are accepted. `add` remains excluded until the optional P1 Fusion test passes; `cut + distance` remains unsupported.
+- Added known fixtures for a `60 x 40 x 20 mm` box and the normalized `base New Extrusion -> circle Sketch on positive operation cap -> through-all Cut` history.
+- Added named invalid fixtures for Cut distance, missing loop reference, invalid operation-cap reference, and non-unit frame.
+- Implemented `shared/sequence_validator.py` using only the Python standard library. It returns structured `code`, `path`, and `message` errors and never normalizes vectors silently.
+- Static validation covers unique IDs, earlier-only dependencies, profile/loop references, outer/inner role consistency, closed line loops, positive circle radii/distances, unit and orthogonal frames, named-plane origins, operation-cap frame/plane consistency, Extrude direction alignment, compatibility rules, prior-body Cut checks, and explicit absolute-frame correction records.
+- TDD evidence: missing artifacts failed first; valid fixtures failed against the validator stub; invalid/cross-reference cases then failed against the permissive validator before the minimal rules were implemented.
+- Full regression result: 55 tests passed. Six sequence JSON files parsed successfully, the validator imports only `math`, and Gate 0 remains 22/22 PASS.
+
+### Scope boundary
+
+This checkpoint performs static schema validation only. It does not resolve Fusion faces, prove Cut intersection, replay operations, tune thresholds, inspect held-out labels for rule development, or infer any history from B-rep.
+
+### Next session entry point
+
+Begin the September 4 task: implement the Fusion executor for Line/Circle Sketches, outer-loop profiles, and `new + distance`, then test XY/XZ/YZ plus the fixed 30-degree and 45-degree frames. Do not implement Cut or automatic inference in that session.

@@ -2,7 +2,17 @@
 
 This repository contains a deterministic, semi-automatic pipeline under development for converting history-free B-rep/STEP models into plausible, replayable CAD construction sequences.
 
-> **Current status:** Gate 0 only. The Fusion and external-Python execution environments are connected and verified. Automatic B-rep-to-history inference has not started and is not claimed here.
+> **Current status:** Gate 0 is closed and Gate 1 is in progress. The 30-case raw B-rep benchmark and schema v0.1 static validator are implemented. Fusion known-sequence replay and automatic B-rep-to-history inference have not started and are not claimed here.
+
+## Gate 1 current scope
+
+- 30 fixed raw STEP inputs: 15 development and 15 held-out;
+- 27 deterministic CadQuery sources and three Fusion-manual sources;
+- schema v0.1 known-sequence examples for a box and a box with one through-hole;
+- one shared pure-standard-library validator for external Python and future Fusion replay;
+- explicit rejection fixtures for unsupported Cut distance, broken loop references, invalid operation-cap references, and invalid frames.
+
+The held-out split is assembled but is not frozen until the planned manifest, hashes, and lock are created. It must not be described as blind or unseen data.
 
 ## Gate 0 scope
 
@@ -93,7 +103,7 @@ The committed `run01` and `run02` outputs are frozen evidence. The script intent
 
 ## Current limitations
 
-Gate 0 does **not** implement:
+Gate 0 did **not** implement:
 
 - automatic feature or construction-history inference;
 - the final editable sequence schema;
@@ -102,7 +112,15 @@ Gate 0 does **not** implement:
 - benchmark development/test splits;
 - advanced operations such as fillet, chamfer, revolve, sweep, loft, shell, or patterns.
 
-Those capabilities belong to later gates. Learning-based inference is outside the project scope.
+Those capabilities were deferred to later gates. Learning-based inference remains outside the project scope.
+
+Gate 1 has not yet implemented:
+
+- Fusion replay of schema v0.1 operations;
+- runtime `operation_cap` resolution or Cut-intersection checks;
+- geometric-distance and volume-IoU validation;
+- the formal benchmark manifest/hash lock;
+- automatic B-rep feature or history inference.
 
 ## References and reuse boundary
 
