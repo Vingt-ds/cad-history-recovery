@@ -1,0 +1,28 @@
+{
+  "status": "success",
+  "run_id": "box_stability_run01",
+  "model_id": "known_box",
+  "replay_mode": "semantic",
+  "request_sha256": "810d23581506c3ec5cd2adcc4e257df12e59c0c437266bdb47e3511e138d04e9",
+  "sequence_sha256": "bd8d5854ea0669c5379fde277c8e59e8af62dc4a860f9e9b81ebd1fa413ac9ec",
+  "fusion_version": "2704.1.53",
+  "python_version": "3.14.0",
+  "body_count": 1,
+  "face_count": 6,
+  "world_frame_max_error_mm": 0.0,
+  "operations": [
+    {
+      "operation_id": "sketch_base",
+      "status": "success",
+      "profile_count": 1
+    },
+    {
+      "operation_id": "extrude_base",
+      "status": "success"
+    }
+  ],
+  "outputs": {
+    "f3d": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\replay_outputs\\box_stability_run01.f3d",
+    "step": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\replay_outputs\\box_stability_run01.step"
+  }
+}

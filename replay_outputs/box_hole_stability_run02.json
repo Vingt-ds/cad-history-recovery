@@ -1,0 +1,39 @@
+{
+  "status": "success",
+  "run_id": "box_hole_stability_run02",
+  "model_id": "known_box_hole",
+  "replay_mode": "semantic",
+  "request_sha256": "82d0cc756f83517686cb258c720a7f82c37be73f01bccfcbcd4a06a3eeecc621",
+  "sequence_sha256": "e188921c83d876614307a37e4dfb25b7507c238a7b99dcab93851cdf402efef6",
+  "fusion_version": "2704.1.53",
+  "python_version": "3.14.0",
+  "body_count": 1,
+  "face_count": 7,
+  "world_frame_max_error_mm": 0.0,
+  "operations": [
+    {
+      "operation_id": "sketch_base",
+      "status": "success",
+      "profile_count": 1
+    },
+    {
+      "operation_id": "extrude_base",
+      "status": "success"
+    },
+    {
+      "operation_id": "sketch_hole",
+      "status": "success",
+      "profile_count": 2
+    },
+    {
+      "operation_id": "cut_hole",
+      "status": "success",
+      "volume_before_cm3": 48.0,
+      "volume_after_cm3": 46.42920367320504
+    }
+  ],
+  "outputs": {
+    "f3d": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\replay_outputs\\box_hole_stability_run02.f3d",
+    "step": "E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\replay_outputs\\box_hole_stability_run02.step"
+  }
+}

@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 import tempfile
 import unittest
@@ -81,6 +82,15 @@ class GeometryValidationTests(unittest.TestCase):
         self.assertTrue(report["repeatability"]["roundtrip_exact"])
         self.assertEqual(report["same_file"]["surface_distance_mm"]["symmetric_p95_mm"], 0.0)
         self.assertNotIn('"acceptance_threshold":', json.dumps(report))
+
+    def test_recalibration_reuses_the_frozen_roundtrip_artifact(self):
+        with tempfile.TemporaryDirectory() as directory:
+            roundtrip = Path(directory) / "roundtrip.step"
+            geometry_validation.calibrate_baseline(self.step_path, roundtrip, total_budget=4096)
+            os.utime(roundtrip, (1, 1))
+            frozen_mtime_ns = roundtrip.stat().st_mtime_ns
+            geometry_validation.calibrate_baseline(self.step_path, roundtrip, total_budget=4096)
+            self.assertEqual(roundtrip.stat().st_mtime_ns, frozen_mtime_ns)
 
 
 if __name__ == "__main__":

@@ -182,7 +182,11 @@ def roundtrip_step(source_path, output_path):
 
 
 def calibrate_baseline(reference_path, roundtrip_path, total_budget=4096):
-    roundtrip_step(reference_path, roundtrip_path)
+    roundtrip_path = Path(roundtrip_path)
+    if roundtrip_path.exists():
+        _load_single_valid_solid(roundtrip_path)
+    else:
+        roundtrip_step(reference_path, roundtrip_path)
     same_first = compare_step_files(reference_path, reference_path, total_budget)
     same_second = compare_step_files(reference_path, reference_path, total_budget)
     roundtrip_first = compare_step_files(reference_path, roundtrip_path, total_budget)
