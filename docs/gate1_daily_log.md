@@ -72,3 +72,36 @@ This checkpoint performs static schema validation only. It does not resolve Fusi
 ### Next session entry point
 
 Begin the September 4 task: implement the Fusion executor for Line/Circle Sketches, outer-loop profiles, and `new + distance`, then test XY/XZ/YZ plus the fixed 30-degree and 45-degree frames. Do not implement Cut or automatic inference in that session.
+
+## 2026-09-02 — September 4 Fusion New-Extrude task completed ahead of schedule
+
+**Daily target:** replay known Line/Circle outer-loop sketches and `new + distance` extrusions in Fusion on the three origin planes and two fixed rotated frames.
+
+### Completed evidence
+
+- Added a single-request Fusion executor that imports the shared standard-library validator, creates a fresh design document, refuses to overwrite evidence, replays one outer loop, and exports native F3D, STEP, and a structured JSON log.
+- JSON sketch coordinates are transformed through the declared right-handed world frame, converted with Fusion's unit manager, written with `modelToSketchSpace`, and checked with `sketchToModelSpace` after forcing the sketch-space point onto the actual plane.
+- The executor checks the actual Fusion sketch-plane normal against the declared frame and chooses the Extrude sign from the actual plane normal rather than assuming that all origin planes share one orientation.
+- TDD evidence: the executor API contract failed against the initial script stub; frame conversion functions failed before implementation; explicit plane-alignment and point-on-plane checks were then added through a second red-green cycle.
+- Six Fusion replays completed in fresh documents and produced non-empty F3D, STEP, and success logs:
+  - `box_xy_run01`: volume `48000 mm^3`, bbox `(0, 60) x (0, 40) x (0, 20) mm`.
+  - `box_xz_run01`: volume `27000 mm^3`, bbox `(0, 50) x (0, 18) x (-30, 0) mm`.
+  - `box_yz_run01`: volume `21504 mm^3`, bbox `(0, 16) x (0, 48) x (0, 28) mm`.
+  - `box_rx30_run01`: volume approximately `23712 mm^3`, bbox `(0, 48) x (-9.5, 22.5166604984) x (0, 29.4544826719) mm`.
+  - `box_ry45_run01`: volume approximately `22176 mm^3`, bbox approximately `(0, 43.8406204336) x (0, 28) x (-31.1126983722, 12.7279220614) mm`.
+  - `cylinder_xy_run01`: volume `11309.733552923255 mm^3`, bbox `(-12, 12) x (-12, 12) x (0, 25) mm`.
+- Independent CadQuery re-import found one valid Solid in every STEP. Box cases have six Faces and 12 Edges; the cylinder has three Faces and three Edges.
+- Fusion reported `world_frame_max_error_mm` between `0.0` and `4.440892098500626e-15` across all six cases.
+- Full Python regression reached 67 tests passing; Gate 0 remained 22/22 PASS and all 21 JSON files parsed.
+
+### Preserved issue
+
+Two simultaneous `conda run` processes competed for Conda's temporary activation file and one command failed before starting Python. The same full test command passed when run serially. Gate commands will therefore remain serial; no project code or environment package was changed for this external tool race.
+
+### Scope boundary
+
+This checkpoint supports only one outer loop followed by `new + distance`. `operation_cap`, Cut, Add, automatic inference, and held-out threshold development remain unimplemented. Rotated frames are deliberately limited to the fixed RX30 and RY45 fixtures.
+
+### Next session entry point
+
+Implement `operation_cap` resolution and `cut + through_all`, verify that Cut reduces body volume, and preserve explicit `semantic_reference_failed` and `boolean_no_intersection` failures. Do not add blind-hole Cut, multiple holes, Add, or automatic B-rep inference.
