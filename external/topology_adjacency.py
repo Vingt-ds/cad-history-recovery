@@ -99,6 +99,11 @@ def _measure_relation(edge_record, face_1, face_2, face_1_use):
 def inspect_adjacency(path, model_id):
     """Return face adjacency for one STEP without a second geometry import."""
     summary, context = brep_inspection.inspect_step_with_context(Path(path), model_id)
+    return build_adjacency(summary, context)
+
+
+def build_adjacency(summary, context):
+    """Build adjacency from an already imported canonical inspection context."""
     uses_by_edge = _edge_uses_by_face(context)
     face_by_id = {record["face_id"]: record for record in context["faces"]}
     relations = []
@@ -153,7 +158,7 @@ def inspect_adjacency(path, model_id):
 
     return {
         "adjacency_schema": "face-adjacency-0.1",
-        "model_id": str(model_id),
+        "model_id": summary["model_id"],
         "source_step_sha256": summary["source_step_sha256"],
         "angle_convention": {
             "face_1": "lower_canonical_face_id",
