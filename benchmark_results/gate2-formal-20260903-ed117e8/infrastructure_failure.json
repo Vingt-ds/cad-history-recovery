@@ -1,0 +1,30 @@
+{
+  "affected_case_count": 6,
+  "assessment_schema": "gate2-infrastructure-failure-0.1",
+  "completed_replay_case_count": 4,
+  "corrective_commit": "6b029a72d57c459d27758eac683aa25fdb586ce5",
+  "disposition": "retained_as_partial_infrastructure_run_not_gate2_algorithm_outcome",
+  "evidence": [
+    "batch_replay_log.json",
+    "cases/*/replay/replay_log.json",
+    "replay_request_used.json"
+  ],
+  "failure_code": "nonparametric_plane_in_parametric_environment",
+  "failed_case_ids": [
+    "D-S03",
+    "D-S05",
+    "D-S06",
+    "D-S08",
+    "D-S09",
+    "D-S10"
+  ],
+  "geometry_outcome": "not_finalized",
+  "observed_error": {
+    "error_code": "fusion_exception",
+    "message": "3 : Environment is not supported"
+  },
+  "request_sha256": "5d9b0b4fde50898654782cc823ba310b0660966f476085bf4ed04ea4c3a2b272",
+  "root_cause": "All six inferred_brep absolute-frame cases used ConstructionPlaneInput.setByPlane. Fusion documents were parametric or hybrid, while Autodesk documents setByPlane as direct-modeling-only. The four origin_named cases did not use this API and completed replay.",
+  "run_id": "gate2-formal-20260903-ed117e8",
+  "status": "infrastructure_failure"
+}

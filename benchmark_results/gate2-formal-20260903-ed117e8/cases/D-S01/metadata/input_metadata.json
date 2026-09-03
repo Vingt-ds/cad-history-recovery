@@ -1,0 +1,11 @@
+{
+  "metadata_schema": "gate2-input-metadata-0.1",
+  "model_id": "D-S01",
+  "relative_path": "benchmarks/inputs/development/D-S01.step",
+  "run_id": "gate2-formal-20260903-ed117e8",
+  "source": "cadquery",
+  "source_step_sha256": "b58b5c4886db8ceb58f72f5224f6bf7783109ff6a7a2384257e8dd7842455048",
+  "split": "development",
+  "units": "mm",
+  "valid_step": true
+}
