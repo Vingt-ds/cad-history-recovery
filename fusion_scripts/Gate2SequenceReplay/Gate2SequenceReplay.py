@@ -3,6 +3,7 @@
 import hashlib
 import importlib.util
 import json
+import math
 import os
 import platform
 import re
@@ -151,27 +152,69 @@ def _error_code(exc):
     return code if isinstance(code, str) and code else "fusion_exception"
 
 
-def _absolute_frame_plane(component, frame, units):
-    origin = adsk.core.Point3D.create(
-        units.convert(float(frame["origin"][0]), "mm", units.internalUnits),
-        units.convert(float(frame["origin"][1]), "mm", units.internalUnits),
-        units.convert(float(frame["origin"][2]), "mm", units.internalUnits),
-    )
-    normal = adsk.core.Vector3D.create(*[float(value) for value in frame["normal"]])
-    geometry = adsk.core.Plane.create(origin, normal)
+def _offset_plane(component, base_plane, offset_mm, units):
     plane_input = component.constructionPlanes.createInput()
-    if not plane_input.setByPlane(geometry):
-        raise ReplayError("construction_plane_failed", "setByPlane returned false")
+    offset = units.convert(float(offset_mm), "mm", units.internalUnits)
+    if not plane_input.setByOffset(base_plane, adsk.core.ValueInput.createByReal(offset)):
+        raise ReplayError("construction_plane_failed", "setByOffset returned false")
     plane = component.constructionPlanes.add(plane_input)
     if plane is None:
         raise ReplayError("construction_plane_failed", "Fusion returned a null plane")
     return plane
 
 
+def _absolute_frame_plane(component, frame, units, angular_tolerance):
+    origin = tuple(float(value) for value in frame["origin"])
+    normal = tuple(float(value) for value in frame["normal"])
+    axis_aligned = (
+        ((0.0, 0.0, 1.0), component.xYConstructionPlane),
+        ((0.0, 1.0, 0.0), component.xZConstructionPlane),
+        ((1.0, 0.0, 0.0), component.yZConstructionPlane),
+    )
+    for base_normal, base_plane in axis_aligned:
+        alignment = sum(a * b for a, b in zip(normal, base_normal))
+        if abs(abs(alignment) - 1.0) <= angular_tolerance:
+            offset_mm = sum(a * b for a, b in zip(origin, base_normal))
+            if abs(offset_mm) <= 1e-9:
+                return base_plane
+            return _offset_plane(component, base_plane, offset_mm, units)
+
+    x_axis = tuple(float(value) for value in frame["x_axis"])
+    if (
+        max(abs(a - b) for a, b in zip(x_axis, (1.0, 0.0, 0.0)))
+        > angular_tolerance
+        or abs(normal[0]) > angular_tolerance
+    ):
+        raise ReplayError(
+            "unsupported_absolute_frame",
+            "Gate 2 supports global-axis offsets and rotation about global X",
+        )
+    angle = math.atan2(-normal[1], normal[2])
+    plane_input = component.constructionPlanes.createInput()
+    if not plane_input.setByAngle(
+        component.xConstructionAxis,
+        adsk.core.ValueInput.createByReal(angle),
+        component.xYConstructionPlane,
+    ):
+        raise ReplayError("construction_plane_failed", "setByAngle returned false")
+    plane = component.constructionPlanes.add(plane_input)
+    if plane is None:
+        raise ReplayError("construction_plane_failed", "Fusion returned a null plane")
+    offset_mm = sum(a * b for a, b in zip(origin, normal))
+    if abs(offset_mm) <= 1e-9:
+        return plane
+    return _offset_plane(component, plane, offset_mm, units)
+
+
 def _plane_resolver(core, component, operation, angular_tolerance, extrude_features, units):
     reference = operation["sketch_plane"]["semantic_reference"]
     if reference["type"] == "absolute_frame":
-        return _absolute_frame_plane(component, operation["sketch_plane"]["frame"], units)
+        return _absolute_frame_plane(
+            component,
+            operation["sketch_plane"]["frame"],
+            units,
+            angular_tolerance,
+        )
     return core._sketch_plane(component, operation, angular_tolerance, extrude_features)
 
 

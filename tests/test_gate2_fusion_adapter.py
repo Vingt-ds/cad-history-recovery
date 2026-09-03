@@ -65,8 +65,8 @@ class Gate2FusionAdapterTests(unittest.TestCase):
         source = self.gate2_path.read_text(encoding="utf-8")
         for token in (
             "gate2_replay_request.json",
-            "Plane.create",
-            "setByPlane",
+            "setByOffset",
+            "setByAngle",
             "documents.add",
             "document.close(False)",
             "replay_log.json",
@@ -74,6 +74,7 @@ class Gate2FusionAdapterTests(unittest.TestCase):
             "_run_sequence",
         ):
             self.assertIn(token, source)
+        self.assertNotIn("setByPlane", source)
 
     def test_batch_paths_require_exact_cases_nonrectangular_first_and_stay_in_project(self):
         gate2 = load_with_fake_adsk("gate2_adapter_paths", self.gate2_path)
@@ -107,41 +108,26 @@ class Gate2FusionAdapterTests(unittest.TestCase):
             "world_frame_error_exceeded",
         )
 
-    def test_absolute_frame_plane_uses_declared_origin_and_normal(self):
-        gate2 = load_with_fake_adsk("gate2_adapter_absolute_plane", self.gate2_path)
+    def test_axis_aligned_absolute_frame_uses_parametric_offset_plane(self):
+        gate2 = load_with_fake_adsk("gate2_adapter_parametric_offset", self.gate2_path)
 
-        class Point3D:
+        class ValueInput:
             @staticmethod
-            def create(x, y, z):
-                return (x, y, z)
-
-        class Vector3D:
-            @staticmethod
-            def create(x, y, z):
-                return (x, y, z)
-
-        class Plane:
-            @staticmethod
-            def create(origin, normal):
-                return {"origin": origin, "normal": normal}
+            def createByReal(value):
+                return value
 
         class PlaneInput:
-            def __init__(self):
-                self.geometry = None
-
-            def setByPlane(self, geometry):
-                self.geometry = geometry
+            def setByOffset(self, base_plane, offset):
+                self.definition = ("offset", base_plane, offset)
                 return True
 
         class ConstructionPlanes:
-            def __init__(self):
-                self.plane_input = PlaneInput()
-
             def createInput(self):
-                return self.plane_input
+                return PlaneInput()
 
-            def add(self, plane_input):
-                return plane_input.geometry
+            @staticmethod
+            def add(plane_input):
+                return plane_input.definition
 
         class Units:
             internalUnits = "cm"
@@ -150,14 +136,64 @@ class Gate2FusionAdapterTests(unittest.TestCase):
             def convert(value, source, target):
                 return value / 10.0
 
-        gate2.adsk.core.Point3D = Point3D
-        gate2.adsk.core.Vector3D = Vector3D
-        gate2.adsk.core.Plane = Plane
-        component = types.SimpleNamespace(constructionPlanes=ConstructionPlanes())
-        frame = {"origin": [10, -20, 30], "normal": [0, 0, -1]}
-        plane = gate2._absolute_frame_plane(component, frame, Units())
-        self.assertEqual(plane["origin"], (1.0, -2.0, 3.0))
-        self.assertEqual(plane["normal"], (0.0, 0.0, -1.0))
+        gate2.adsk.core.ValueInput = ValueInput
+        component = types.SimpleNamespace(
+            xYConstructionPlane="XY",
+            xZConstructionPlane="XZ",
+            yZConstructionPlane="YZ",
+            constructionPlanes=ConstructionPlanes(),
+        )
+        frame = {
+            "origin": [23.0, 20.0, 32.725388601],
+            "normal": [0.0, -1.0, 0.0],
+            "x_axis": [1.0, 0.0, 0.0],
+        }
+
+        plane = gate2._absolute_frame_plane(component, frame, Units(), 1e-8)
+
+        self.assertEqual(plane, ("offset", "XZ", 2.0))
+
+    def test_rotated_absolute_frame_uses_parametric_angle_plane(self):
+        gate2 = load_with_fake_adsk("gate2_adapter_parametric_angle", self.gate2_path)
+
+        class ValueInput:
+            @staticmethod
+            def createByReal(value):
+                return value
+
+        class PlaneInput:
+            def setByAngle(self, axis, angle, base_plane):
+                self.definition = ("angle", axis, angle, base_plane)
+                return True
+
+        class ConstructionPlanes:
+            def createInput(self):
+                return PlaneInput()
+
+            @staticmethod
+            def add(plane_input):
+                return plane_input.definition
+
+        gate2.adsk.core.ValueInput = ValueInput
+        component = types.SimpleNamespace(
+            xConstructionAxis="X_AXIS",
+            xYConstructionPlane="XY",
+            xZConstructionPlane="XZ",
+            yZConstructionPlane="YZ",
+            constructionPlanes=ConstructionPlanes(),
+        )
+        frame = {
+            "origin": [24.0, -4.75, 8.227241336],
+            "normal": [0.0, 0.866025403781, 0.500000000007],
+            "x_axis": [1.0, 0.0, 0.0],
+        }
+
+        plane = gate2._absolute_frame_plane(component, frame, None, 1e-8)
+
+        self.assertEqual(plane[0], "angle")
+        self.assertEqual(plane[1], "X_AXIS")
+        self.assertAlmostEqual(plane[2], -1.04719755119, places=10)
+        self.assertEqual(plane[3], "XY")
 
     def test_case_outputs_are_never_overwritten(self):
         gate2 = load_with_fake_adsk("gate2_adapter_no_overwrite", self.gate2_path)
