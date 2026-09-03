@@ -1,0 +1,18 @@
+{
+  "case_ids": [
+    "D-S01",
+    "D-S02",
+    "D-S03",
+    "D-S04",
+    "D-S05",
+    "D-S06",
+    "D-S07",
+    "D-S08",
+    "D-S09",
+    "D-S10"
+  ],
+  "manifest_schema": "gate2-debug-manifest-0.1",
+  "run_id": "gate2-debug-analysis-20260903",
+  "run_kind": "debug",
+  "terminal_gate_claim": false
+}

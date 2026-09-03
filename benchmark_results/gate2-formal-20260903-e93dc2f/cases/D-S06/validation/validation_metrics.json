@@ -1,0 +1,27 @@
+{
+  "bbox_coordinate_errors_mm": {
+    "xmax": 0.0,
+    "xmin": 0.0,
+    "ymax": 0.0,
+    "ymin": 0.0,
+    "zmax": 0.0,
+    "zmin": 0.0
+  },
+  "bbox_max_coordinate_error_mm": 0.0,
+  "bbox_pass": true,
+  "geometry_pass": true,
+  "max_face_p95_mm": 1.3788016973408341,
+  "max_face_p95_ratio": 0.02208982804893489,
+  "rebuild_sha256": "e645bdbc3e34c793f95c4ca3aae94fc0c7da36a7db1e265049975a68bf8a4f22",
+  "reference_sha256": "c4163a85e200790b016d2c77eb97fed31cfd2fd2e435e888ed0b490ac6b8f5d6",
+  "surface_mode": "threshold",
+  "surface_pass": true,
+  "surface_sort_value": 0.02208982804893489,
+  "symmetric_p95_mm": 1.2615296830934655,
+  "symmetric_p95_ratio": 0.020211009191464156,
+  "valid_single_solid": true,
+  "validation_schema": "gate2-candidate-validation-0.1",
+  "volume_error_mm3": 0.0,
+  "volume_limit_mm3": 2.6300000000000002e-05,
+  "volume_pass": true
+}

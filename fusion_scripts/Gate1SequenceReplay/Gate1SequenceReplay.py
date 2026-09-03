@@ -225,7 +225,14 @@ def _select_profile(profiles, expected_curve_count):
     return matches[0]
 
 
-def _run_sequence(sequence, component, design, world_point, parallel_alignment_error):
+def _run_sequence(
+    sequence,
+    component,
+    design,
+    world_point,
+    parallel_alignment_error,
+    plane_resolver=None,
+):
     units = design.unitsManager
     sketches = {}
     extrude_features = {}
@@ -238,9 +245,18 @@ def _run_sequence(sequence, component, design, world_point, parallel_alignment_e
         operation_id = operation["operation_id"]
         operation_type = operation["operation_type"]
         if operation_type == "sketch":
-            plane = _sketch_plane(
-                component, operation, angular_tolerance, extrude_features
-            )
+            if plane_resolver is None:
+                plane = _sketch_plane(
+                    component, operation, angular_tolerance, extrude_features
+                )
+            else:
+                plane = plane_resolver(
+                    component,
+                    operation,
+                    angular_tolerance,
+                    extrude_features,
+                    units,
+                )
             sketch = component.sketches.add(plane)
             declared_normal = tuple(
                 float(value) for value in operation["sketch_plane"]["frame"]["normal"]

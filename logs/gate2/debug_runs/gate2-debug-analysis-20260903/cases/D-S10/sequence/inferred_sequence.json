@@ -1,0 +1,168 @@
+{
+  "corrections": [],
+  "model_id": "D-S10",
+  "operations": [
+    {
+      "dependencies": [],
+      "loops": [
+        {
+          "loop_id": "base_outer",
+          "loop_type": "outer",
+          "primitives": [
+            {
+              "end": [
+                25.74238299,
+                -0.768313237
+              ],
+              "primitive_id": "line_1",
+              "start": [
+                25.74238299,
+                -15.768313237
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                9.74238299,
+                -0.768313237
+              ],
+              "primitive_id": "line_2",
+              "start": [
+                25.74238299,
+                -0.768313237
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                16.74238299,
+                19.231686763
+              ],
+              "primitive_id": "line_3",
+              "start": [
+                9.74238299,
+                -0.768313237
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -6.25761701,
+                15.231686763
+              ],
+              "primitive_id": "line_4",
+              "start": [
+                16.74238299,
+                19.231686763
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -19.25761701,
+                24.231686763
+              ],
+              "primitive_id": "line_5",
+              "start": [
+                -6.25761701,
+                15.231686763
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -19.25761701,
+                -15.768313237
+              ],
+              "primitive_id": "line_6",
+              "start": [
+                -19.25761701,
+                24.231686763
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                25.74238299,
+                -15.768313237
+              ],
+              "primitive_id": "line_7",
+              "start": [
+                -19.25761701,
+                -15.768313237
+              ],
+              "type": "line"
+            }
+          ]
+        }
+      ],
+      "operation_id": "sketch_base",
+      "operation_type": "sketch",
+      "replay_status": "pending",
+      "sketch_plane": {
+        "frame": {
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "origin": [
+            17.0,
+            9.25761701,
+            20.768313237
+          ],
+          "x_axis": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "frame_provenance": {
+          "base_face_id": "face-000",
+          "source_face_outward_normal": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "source_step_sha256": "3b203cf5e140eeb66059b7150942a5c390196e87d9c5b0d4143c9fc0f09e343f"
+        },
+        "frame_source": "inferred_brep",
+        "semantic_reference": {
+          "type": "absolute_frame"
+        }
+      }
+    },
+    {
+      "boolean_type": "new",
+      "dependencies": [
+        "sketch_base"
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "extent": {
+        "distance_mm": 13.0,
+        "type": "distance"
+      },
+      "operation_id": "extrude_base",
+      "operation_type": "extrude",
+      "profile": {
+        "inner_loop_ids": [],
+        "outer_loop_id": "base_outer",
+        "sketch_id": "sketch_base"
+      },
+      "replay_status": "pending"
+    }
+  ],
+  "replay_mode": "automatic",
+  "replay_status": "pending",
+  "schema_version": "cadseq-0.2",
+  "source_step_sha256": "3b203cf5e140eeb66059b7150942a5c390196e87d9c5b0d4143c9fc0f09e343f",
+  "tolerance": {
+    "angular_rad": 1e-08,
+    "length_mm": 1e-06
+  },
+  "units": "mm"
+}

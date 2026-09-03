@@ -1,0 +1,44 @@
+{
+  "model_id": "D-S07",
+  "ranking": {
+    "ambiguous": false,
+    "candidates": [
+      {
+        "candidate_id": "extrusion-face-001-face-002",
+        "distance_mm": 28.0,
+        "primitive_count": 1,
+        "validation": {
+          "bbox_coordinate_errors_mm": {
+            "xmax": 0.0,
+            "xmin": 0.0,
+            "ymax": 0.0,
+            "ymin": 0.0,
+            "zmax": 0.0,
+            "zmin": 0.0
+          },
+          "bbox_max_coordinate_error_mm": 0.0,
+          "bbox_pass": true,
+          "geometry_pass": true,
+          "max_face_p95_mm": 0.0,
+          "max_face_p95_ratio": 0.0,
+          "rebuild_sha256": "88b3e7bf4e23f06ff674cb6194d040819286292be57dccb797674646913e62cc",
+          "reference_sha256": "0416e9c3a62fa9ceef0ef1170e69bdbb8a5f76c9cc5a0dc5188447d4f6d4e0b9",
+          "surface_mode": "threshold",
+          "surface_pass": true,
+          "surface_sort_value": 0.0,
+          "symmetric_p95_mm": 0.0,
+          "symmetric_p95_ratio": 0.0,
+          "valid_single_solid": true,
+          "validation_schema": "gate2-candidate-validation-0.1",
+          "volume_error_mm3": 0.0,
+          "volume_limit_mm3": 2.0792033717615702e-05,
+          "volume_pass": true
+        }
+      }
+    ],
+    "qualified_candidate_count": 1,
+    "ranking_schema": "gate2-final-ranking-0.1",
+    "selected_candidate_id": "extrusion-face-001-face-002"
+  },
+  "source_step_sha256": "0416e9c3a62fa9ceef0ef1170e69bdbb8a5f76c9cc5a0dc5188447d4f6d4e0b9"
+}

@@ -1,0 +1,30 @@
+{
+  "benchmark_manifest_sha256": "c92ac078a5feccce3f7fd53fe4c67a5fbd30c276bb27418948ad46c1a62c8e30",
+  "case_ids": [
+    "D-S01",
+    "D-S02",
+    "D-S03",
+    "D-S04",
+    "D-S05",
+    "D-S06",
+    "D-S07",
+    "D-S08",
+    "D-S09",
+    "D-S10"
+  ],
+  "created_at_utc": "2026-09-03T05:18:58.392590+00:00",
+  "environment_ref": "environment.json",
+  "git_commit": "ed117e801c1622ff4bedd88c34110ed53d1fb93b",
+  "git_dirty_at_start": false,
+  "manifest_schema": "gate2-run-manifest-0.1",
+  "matrix_sha256": "ca0dcfc3b7019dc85e98c701f7afa7a2543b0a448a52b78637de8425ffaac701",
+  "run_id": "gate2-formal-20260903-ed117e8",
+  "schema_versions": {
+    "brep_summary": "brep-summary-0.1",
+    "sequence": "cadseq-0.2"
+  },
+  "seed_policy": "first_8_bytes_of_reference_step_sha256_shared_by_comparison_pair",
+  "selection_rule": "development && single_extrusion && case_id in D-S01..D-S10",
+  "validation_protocol_ref": "../../config/gate2_validation_protocol.json",
+  "validation_protocol_sha256": "8656e3882ee8c71c310b3ad5afe85177cf8e1d2e67d1bff6d03e13d64148c05a"
+}

@@ -1,0 +1,66 @@
+{
+  "candidates": [
+    {
+      "base_face_id": "face-001",
+      "boundary_match_kind": "translated_full_circle",
+      "candidate_id": "extrusion-face-001-face-002",
+      "checks": {
+        "area_match": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_full_circle",
+            "matched_edges": 1
+          },
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": -1.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 28.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 1.0,
+          "pass": true,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 28.0,
+      "extrusion_direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "opposite_face_id": "face-002",
+      "rejection_reasons": [],
+      "score_components": {
+        "passed_hard_checks": 6,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "status": "accepted"
+    }
+  ],
+  "candidates_schema": "extrusion-candidates-0.1",
+  "model_id": "D-S07",
+  "ordering": "passed_hard_checks_desc_then_candidate_id",
+  "source_step_sha256": "0416e9c3a62fa9ceef0ef1170e69bdbb8a5f76c9cc5a0dc5188447d4f6d4e0b9"
+}

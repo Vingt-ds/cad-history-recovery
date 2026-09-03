@@ -1,0 +1,16 @@
+{
+  "ambiguous": false,
+  "completed_stages": [
+    "input_validation",
+    "brep_inspection",
+    "candidate_generation",
+    "profile_reconstruction",
+    "cadquery_validation",
+    "sequence_generation"
+  ],
+  "inference_log_schema": "gate2-inference-log-0.1",
+  "model_id": "D-S10",
+  "qualified_candidate_count": 1,
+  "selected_candidate_id": "extrusion-face-000-face-001",
+  "status": "awaiting_fusion"
+}

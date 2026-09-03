@@ -1,0 +1,9 @@
+{
+  "case_id": "D-S09",
+  "error": "[{\"code\": \"invalid_schema_version\", \"path\": \"$.schema_version\", \"message\": \"expected cadseq-0.1\"}]",
+  "error_code": "sequence_validation_failed",
+  "fusion_version": "2704.1.53",
+  "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "status": "failure",
+  "traceback": "Traceback (most recent call last):\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 242, in run\n    records.append(_replay_case(app, core, case_id, case_paths))\n                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 165, in _replay_case\n    raise ReplayError(\n        \"sequence_validation_failed\", json.dumps(validation[\"errors\"], ensure_ascii=False)\n    )\n__main__E%3A%2F%E7%A0%94%E7%A9%B6%E7%94%9F%2F%E7%94%B3%E8%AF%B7%2F%E5%A2%A8%E5%B0%94%E6%9C%AC%2F%E7%AC%AC%E4%B8%83%E6%89%B9%2FXingang%20Li%2FProject%2FProject%2Fcad-history-recovery%2Ffusion_scripts%2FGate2SequenceReplay%2FGate2SequenceReplay_py.ReplayError: [{\"code\": \"invalid_schema_version\", \"path\": \"$.schema_version\", \"message\": \"expected cadseq-0.1\"}]\n"
+}

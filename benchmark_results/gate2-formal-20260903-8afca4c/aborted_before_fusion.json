@@ -1,0 +1,7 @@
+{
+  "status": "aborted_before_fusion",
+  "fusion_started": false,
+  "terminal_gate_claim": false,
+  "reason": "Preflight regression detected that Fusion could reuse a stale cached Gate1SequenceReplay module. The run manifest is immutable, so this run must not execute code from a later corrective commit.",
+  "replacement_required": true
+}

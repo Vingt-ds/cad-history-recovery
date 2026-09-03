@@ -1,0 +1,172 @@
+{
+  "case_count": 10,
+  "cases": [
+    {
+      "body_count": 1,
+      "case_id": "D-S04",
+      "face_count": 8,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S04",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "57370d7ac269b8a17f4b6cc7d60124e8be8566e1815b3f38cbae9ffc3f316077",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S01",
+      "face_count": 6,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S01",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "8e9c1fa986a574565f085b02183d5636d86912fd0774bf0ebc4eebbdc879eec7",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S02",
+      "face_count": 5,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S02",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "efdd6cc6ac137a8fc1ff2e14a369349328d01e00ccf6cbc309ff62af1be4bb30",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "case_id": "D-S03",
+      "error": "3 : Environment is not supported",
+      "error_code": "fusion_exception",
+      "fusion_version": "2704.1.53",
+      "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+      "status": "failure",
+      "traceback": "Traceback (most recent call last):\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 263, in run\n    records.append(_replay_case(app, core, case_id, case_paths))\n                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 201, in _replay_case\n    operation_records, world_frame_max_error_mm = core._run_sequence(\n                                                  ~~~~~~~~~~~~~~~~~~^\n        sequence,\n        ^^^^^^^^^\n    ...<4 lines>...\n        plane_resolver=resolver,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\fusion_scripts\\Gate1SequenceReplay\\Gate1SequenceReplay.py\", line 253, in _run_sequence\n    plane = plane_resolver(\n        component,\n    ...<3 lines>...\n        units,\n    )\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 198, in <lambda>\n    resolver = lambda comp, op, angle, features, units: _plane_resolver(\n                                                        ~~~~~~~~~~~~~~~^\n        core, comp, op, angle, features, units\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 174, in _plane_resolver\n    return _absolute_frame_plane(component, operation[\"sketch_plane\"][\"frame\"], units)\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 165, in _absolute_frame_plane\n    plane = component.constructionPlanes.add(plane_input)\n  File \"C:\\Users/29548/AppData/Local/Autodesk/webdeploy/production/61bf25b220a2d0307c84c301e65a59ac225d9a1e/Api/Python/packages\\adsk\\fusion.py\", line 26953, in add\n    return _fusion.ConstructionPlanes_add(self, input)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nRuntimeError: 3 : Environment is not supported\n"
+    },
+    {
+      "case_id": "D-S05",
+      "error": "3 : Environment is not supported",
+      "error_code": "fusion_exception",
+      "fusion_version": "2704.1.53",
+      "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+      "status": "failure",
+      "traceback": "Traceback (most recent call last):\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 263, in run\n    records.append(_replay_case(app, core, case_id, case_paths))\n                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 201, in _replay_case\n    operation_records, world_frame_max_error_mm = core._run_sequence(\n                                                  ~~~~~~~~~~~~~~~~~~^\n        sequence,\n        ^^^^^^^^^\n    ...<4 lines>...\n        plane_resolver=resolver,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\fusion_scripts\\Gate1SequenceReplay\\Gate1SequenceReplay.py\", line 253, in _run_sequence\n    plane = plane_resolver(\n        component,\n    ...<3 lines>...\n        units,\n    )\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 198, in <lambda>\n    resolver = lambda comp, op, angle, features, units: _plane_resolver(\n                                                        ~~~~~~~~~~~~~~~^\n        core, comp, op, angle, features, units\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 174, in _plane_resolver\n    return _absolute_frame_plane(component, operation[\"sketch_plane\"][\"frame\"], units)\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 165, in _absolute_frame_plane\n    plane = component.constructionPlanes.add(plane_input)\n  File \"C:\\Users/29548/AppData/Local/Autodesk/webdeploy/production/61bf25b220a2d0307c84c301e65a59ac225d9a1e/Api/Python/packages\\adsk\\fusion.py\", line 26953, in add\n    return _fusion.ConstructionPlanes_add(self, input)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nRuntimeError: 3 : Environment is not supported\n"
+    },
+    {
+      "case_id": "D-S06",
+      "error": "3 : Environment is not supported",
+      "error_code": "fusion_exception",
+      "fusion_version": "2704.1.53",
+      "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+      "status": "failure",
+      "traceback": "Traceback (most recent call last):\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 263, in run\n    records.append(_replay_case(app, core, case_id, case_paths))\n                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 201, in _replay_case\n    operation_records, world_frame_max_error_mm = core._run_sequence(\n                                                  ~~~~~~~~~~~~~~~~~~^\n        sequence,\n        ^^^^^^^^^\n    ...<4 lines>...\n        plane_resolver=resolver,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\fusion_scripts\\Gate1SequenceReplay\\Gate1SequenceReplay.py\", line 253, in _run_sequence\n    plane = plane_resolver(\n        component,\n    ...<3 lines>...\n        units,\n    )\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 198, in <lambda>\n    resolver = lambda comp, op, angle, features, units: _plane_resolver(\n                                                        ~~~~~~~~~~~~~~~^\n        core, comp, op, angle, features, units\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 174, in _plane_resolver\n    return _absolute_frame_plane(component, operation[\"sketch_plane\"][\"frame\"], units)\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 165, in _absolute_frame_plane\n    plane = component.constructionPlanes.add(plane_input)\n  File \"C:\\Users/29548/AppData/Local/Autodesk/webdeploy/production/61bf25b220a2d0307c84c301e65a59ac225d9a1e/Api/Python/packages\\adsk\\fusion.py\", line 26953, in add\n    return _fusion.ConstructionPlanes_add(self, input)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nRuntimeError: 3 : Environment is not supported\n"
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S07",
+      "face_count": 3,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S07",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "2b0bc9ee8cf3939190ecfe7f2b9ab145ac8f8d4b64e3751234ace3bf21a914a6",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "case_id": "D-S08",
+      "error": "3 : Environment is not supported",
+      "error_code": "fusion_exception",
+      "fusion_version": "2704.1.53",
+      "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+      "status": "failure",
+      "traceback": "Traceback (most recent call last):\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 263, in run\n    records.append(_replay_case(app, core, case_id, case_paths))\n                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 201, in _replay_case\n    operation_records, world_frame_max_error_mm = core._run_sequence(\n                                                  ~~~~~~~~~~~~~~~~~~^\n        sequence,\n        ^^^^^^^^^\n    ...<4 lines>...\n        plane_resolver=resolver,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\fusion_scripts\\Gate1SequenceReplay\\Gate1SequenceReplay.py\", line 253, in _run_sequence\n    plane = plane_resolver(\n        component,\n    ...<3 lines>...\n        units,\n    )\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 198, in <lambda>\n    resolver = lambda comp, op, angle, features, units: _plane_resolver(\n                                                        ~~~~~~~~~~~~~~~^\n        core, comp, op, angle, features, units\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 174, in _plane_resolver\n    return _absolute_frame_plane(component, operation[\"sketch_plane\"][\"frame\"], units)\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 165, in _absolute_frame_plane\n    plane = component.constructionPlanes.add(plane_input)\n  File \"C:\\Users/29548/AppData/Local/Autodesk/webdeploy/production/61bf25b220a2d0307c84c301e65a59ac225d9a1e/Api/Python/packages\\adsk\\fusion.py\", line 26953, in add\n    return _fusion.ConstructionPlanes_add(self, input)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nRuntimeError: 3 : Environment is not supported\n"
+    },
+    {
+      "case_id": "D-S09",
+      "error": "3 : Environment is not supported",
+      "error_code": "fusion_exception",
+      "fusion_version": "2704.1.53",
+      "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+      "status": "failure",
+      "traceback": "Traceback (most recent call last):\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 263, in run\n    records.append(_replay_case(app, core, case_id, case_paths))\n                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 201, in _replay_case\n    operation_records, world_frame_max_error_mm = core._run_sequence(\n                                                  ~~~~~~~~~~~~~~~~~~^\n        sequence,\n        ^^^^^^^^^\n    ...<4 lines>...\n        plane_resolver=resolver,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\fusion_scripts\\Gate1SequenceReplay\\Gate1SequenceReplay.py\", line 253, in _run_sequence\n    plane = plane_resolver(\n        component,\n    ...<3 lines>...\n        units,\n    )\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 198, in <lambda>\n    resolver = lambda comp, op, angle, features, units: _plane_resolver(\n                                                        ~~~~~~~~~~~~~~~^\n        core, comp, op, angle, features, units\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 174, in _plane_resolver\n    return _absolute_frame_plane(component, operation[\"sketch_plane\"][\"frame\"], units)\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 165, in _absolute_frame_plane\n    plane = component.constructionPlanes.add(plane_input)\n  File \"C:\\Users/29548/AppData/Local/Autodesk/webdeploy/production/61bf25b220a2d0307c84c301e65a59ac225d9a1e/Api/Python/packages\\adsk\\fusion.py\", line 26953, in add\n    return _fusion.ConstructionPlanes_add(self, input)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nRuntimeError: 3 : Environment is not supported\n"
+    },
+    {
+      "case_id": "D-S10",
+      "error": "3 : Environment is not supported",
+      "error_code": "fusion_exception",
+      "fusion_version": "2704.1.53",
+      "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+      "status": "failure",
+      "traceback": "Traceback (most recent call last):\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 263, in run\n    records.append(_replay_case(app, core, case_id, case_paths))\n                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 201, in _replay_case\n    operation_records, world_frame_max_error_mm = core._run_sequence(\n                                                  ~~~~~~~~~~~~~~~~~~^\n        sequence,\n        ^^^^^^^^^\n    ...<4 lines>...\n        plane_resolver=resolver,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\fusion_scripts\\Gate1SequenceReplay\\Gate1SequenceReplay.py\", line 253, in _run_sequence\n    plane = plane_resolver(\n        component,\n    ...<3 lines>...\n        units,\n    )\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 198, in <lambda>\n    resolver = lambda comp, op, angle, features, units: _plane_resolver(\n                                                        ~~~~~~~~~~~~~~~^\n        core, comp, op, angle, features, units\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 174, in _plane_resolver\n    return _absolute_frame_plane(component, operation[\"sketch_plane\"][\"frame\"], units)\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py\", line 165, in _absolute_frame_plane\n    plane = component.constructionPlanes.add(plane_input)\n  File \"C:\\Users/29548/AppData/Local/Autodesk/webdeploy/production/61bf25b220a2d0307c84c301e65a59ac225d9a1e/Api/Python/packages\\adsk\\fusion.py\", line 26953, in add\n    return _fusion.ConstructionPlanes_add(self, input)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nRuntimeError: 3 : Environment is not supported\n"
+    }
+  ],
+  "failure_count": 6,
+  "request_sha256": "5d9b0b4fde50898654782cc823ba310b0660966f476085bf4ed04ea4c3a2b272",
+  "run_id": "gate2-formal-20260903-ed117e8",
+  "status": "complete",
+  "success_count": 4
+}

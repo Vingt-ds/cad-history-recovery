@@ -95,12 +95,21 @@ def _sample_face(face, count, rng, chord_tolerance_mm):
     )
 
 
-def sample_step_surface(path, total_budget=4096, minimum_per_face=32, chord_tolerance_mm=0.05):
+def sample_step_surface(
+    path,
+    total_budget=4096,
+    minimum_per_face=32,
+    chord_tolerance_mm=0.05,
+    seed_sha256=None,
+):
     import numpy as np
 
     path = Path(path)
-    digest = hashlib.sha256(path.read_bytes()).digest()
-    sha256 = digest.hex()
+    file_digest = hashlib.sha256(path.read_bytes()).digest()
+    sha256 = file_digest.hex()
+    digest = file_digest if seed_sha256 is None else bytes.fromhex(seed_sha256)
+    if len(digest) != 32:
+        raise GeometryValidationError("seed_sha256 must contain 32 bytes")
     seed = int.from_bytes(digest[:8], byteorder="big", signed=False)
     rng = np.random.default_rng(seed)
     faces = _load_single_valid_solid(path).Faces()
@@ -144,9 +153,19 @@ def _direction_metrics(source, target):
     }
 
 
-def compare_step_files(path_a, path_b, total_budget=4096, minimum_per_face=32):
-    sample_a = sample_step_surface(path_a, total_budget, minimum_per_face)
-    sample_b = sample_step_surface(path_b, total_budget, minimum_per_face)
+def compare_step_files(
+    path_a,
+    path_b,
+    total_budget=4096,
+    minimum_per_face=32,
+    shared_seed_sha256=None,
+):
+    sample_a = sample_step_surface(
+        path_a, total_budget, minimum_per_face, seed_sha256=shared_seed_sha256
+    )
+    sample_b = sample_step_surface(
+        path_b, total_budget, minimum_per_face, seed_sha256=shared_seed_sha256
+    )
     a_to_b = _direction_metrics(sample_a, sample_b)
     b_to_a = _direction_metrics(sample_b, sample_a)
     distances = {
@@ -162,7 +181,9 @@ def compare_step_files(path_a, path_b, total_budget=4096, minimum_per_face=32):
         "sampling": {
             "minimum_per_face": int(minimum_per_face),
             "requested_total_budget": int(total_budget),
-            "seed_source": "first_8_bytes_of_file_sha256",
+            "seed_source": "first_8_bytes_of_shared_sha256"
+            if shared_seed_sha256 is not None
+            else "first_8_bytes_of_file_sha256",
             "global_mean_weighting": "source_face_area",
         },
         "a": inspect_step(path_a),
