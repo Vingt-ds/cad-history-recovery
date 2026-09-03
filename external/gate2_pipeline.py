@@ -11,6 +11,9 @@ import profile_reconstruction
 import result_package
 
 
+EXPECTED_CASE_IDS = [f"D-S{index:02d}" for index in range(1, 11)]
+
+
 def _write_json(path, data):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -35,6 +38,29 @@ def create_debug_run(project_root, run_id, case_ids):
         },
     )
     return run_dir
+
+
+def write_replay_request(project_root, run_dir, run_id, case_ids, output_path):
+    project_root = Path(project_root).resolve()
+    run_dir = Path(run_dir).resolve()
+    output_path = Path(output_path).resolve()
+    if not run_dir.is_relative_to(project_root) or not output_path.is_relative_to(project_root):
+        raise result_package.ResultPackageError("path_outside_project")
+    if sorted(case_ids) != EXPECTED_CASE_IDS or len(set(case_ids)) != 10:
+        raise result_package.ResultPackageError("gate2_case_selection_mismatch")
+    if output_path.exists():
+        raise FileExistsError(f"refusing to overwrite replay request: {output_path}")
+    ordered = ["D-S04"] + [case_id for case_id in EXPECTED_CASE_IDS if case_id != "D-S04"]
+    _write_json(
+        output_path,
+        {
+            "request_version": "gate2-replay-0.1",
+            "run_id": run_id,
+            "run_relative_path": run_dir.relative_to(project_root).as_posix(),
+            "case_ids": ordered,
+        },
+    )
+    return output_path
 
 
 def _metadata(run_id, case, input_path):

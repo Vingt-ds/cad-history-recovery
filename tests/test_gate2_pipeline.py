@@ -58,6 +58,23 @@ class Gate2AnalysisPipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(result_package.ResultPackageError, "run_exists"):
             gate2_pipeline.create_debug_run(self.root, "pipeline-debug", ["D-S04"])
 
+    def test_replay_request_is_project_relative_nonoverwriting_and_runs_d_s04_first(self):
+        run_dir = self.root / "benchmark_results" / "formal-run"
+        run_dir.mkdir(parents=True)
+        output = self.root / "config" / "gate2_replay_request.json"
+        case_ids = [f"D-S{index:02d}" for index in range(1, 11)]
+        gate2_pipeline.write_replay_request(
+            self.root, run_dir, "formal-run", case_ids, output
+        )
+        request = json.loads(output.read_text(encoding="utf-8"))
+        self.assertEqual(request["case_ids"][0], "D-S04")
+        self.assertEqual(set(request["case_ids"]), set(case_ids))
+        self.assertEqual(request["run_relative_path"], "benchmark_results/formal-run")
+        with self.assertRaisesRegex(FileExistsError, "refusing to overwrite"):
+            gate2_pipeline.write_replay_request(
+                self.root, run_dir, "formal-run", case_ids, output
+            )
+
     def test_case_failure_is_isolated_and_valid_case_stays_pending_fusion(self):
         run_dir = gate2_pipeline.create_debug_run(
             self.root, "pipeline-isolation", ["D-S02", "D-S04"]
