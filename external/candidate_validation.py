@@ -78,10 +78,15 @@ def rebuild_sequence_step(sequence, output_path):
 
 def validate_sequence_candidate(reference_path, sequence, output_path, protocol):
     output = rebuild_sequence_step(sequence, output_path)
+    return validate_replay_step(reference_path, output, protocol)
+
+
+def validate_replay_step(reference_path, replay_path, protocol):
+    """Validate an existing replay STEP without inventing or rebuilding geometry."""
     sampling = protocol["sampling"]
     comparison = geometry_validation.compare_step_files(
         reference_path,
-        output,
+        replay_path,
         total_budget=int(sampling["total_budget"]),
         minimum_per_face=int(sampling["minimum_per_face"]),
         shared_seed_sha256=geometry_validation._sha256(reference_path),

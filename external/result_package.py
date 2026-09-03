@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -79,6 +80,7 @@ def create_run(
     benchmark_manifest_sha256,
     case_ids,
     environment,
+    validation_protocol_sha256=None,
 ):
     """Create immutable run metadata; an existing run directory is never reused."""
     if not isinstance(run_id, str) or RUN_ID_PATTERN.fullmatch(run_id) is None:
@@ -90,6 +92,7 @@ def create_run(
     manifest = {
         "manifest_schema": "gate2-run-manifest-0.1",
         "run_id": run_id,
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "git_commit": str(git_commit),
         "git_dirty_at_start": bool(git_dirty_at_start),
         "matrix_sha256": matrix_sha256,
@@ -97,7 +100,9 @@ def create_run(
         "selection_rule": "development && single_extrusion && case_id in D-S01..D-S10",
         "case_ids": list(case_ids),
         "schema_versions": {"brep_summary": "brep-summary-0.1", "sequence": "cadseq-0.2"},
-        "seed_policy": "first_8_bytes_of_file_sha256",
+        "validation_protocol_ref": "../../config/gate2_validation_protocol.json",
+        "validation_protocol_sha256": validation_protocol_sha256,
+        "seed_policy": "first_8_bytes_of_reference_step_sha256_shared_by_comparison_pair",
         "environment_ref": "environment.json",
     }
     _write_json(run_dir / "manifest.json", manifest)
@@ -157,9 +162,14 @@ def audit_case_package(case_dir):
         if terminal == "manual_success":
             require("sequence/manual_correction.json")
     elif terminal == "failed":
-        for field in ("failure_stage", "failure_code", "error_summary", "not_applicable_reason"):
+        for field in ("failure_stage", "failure_code", "error_summary"):
             if not isinstance(status.get(field), str) or not status[field]:
                 invalid.append(f"final_status.{field}")
+        if not (case_dir / "validation" / "validation_metrics.json").is_file():
+            if not isinstance(status.get("not_applicable_reason"), str) or not status[
+                "not_applicable_reason"
+            ]:
+                invalid.append("final_status.not_applicable_reason")
     elif terminal == "unsupported":
         for field in ("scope_rule", "not_applicable_reason"):
             if not isinstance(status.get(field), str) or not status[field]:

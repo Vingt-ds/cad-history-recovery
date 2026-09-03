@@ -45,11 +45,16 @@ class RunLayoutTests(unittest.TestCase):
                 benchmark_manifest_sha256="b" * 64,
                 case_ids=["D-S01"],
                 environment={"python": "3.11"},
+                validation_protocol_sha256="c" * 64,
             )
             manifest = json.loads((run / "manifest.json").read_text(encoding="utf-8"))
             self.assertFalse(manifest["git_dirty_at_start"])
             self.assertEqual(manifest["case_ids"], ["D-S01"])
             self.assertEqual(manifest["environment_ref"], "environment.json")
+            self.assertEqual(manifest["validation_protocol_sha256"], "c" * 64)
+            self.assertEqual(manifest["validation_protocol_ref"], "../../config/gate2_validation_protocol.json")
+            self.assertIn("shared_by_comparison_pair", manifest["seed_policy"])
+            self.assertRegex(manifest["created_at_utc"], r"\+00:00$")
             with self.assertRaisesRegex(result_package.ResultPackageError, "run_exists"):
                 result_package.create_run(
                     root,

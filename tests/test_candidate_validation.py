@@ -115,6 +115,23 @@ class CandidateValidationTests(unittest.TestCase):
         self.assertAlmostEqual(source["volume_mm3"], translated["volume_mm3"], places=6)
         self.assertAlmostEqual(translated["bbox_mm"]["xmin"] - source["bbox_mm"]["xmin"], 5.0, places=8)
 
+    def test_existing_replay_step_is_validated_without_rebuilding_it(self):
+        replay = (
+            PROJECT_ROOT
+            / "logs"
+            / "gate2"
+            / "day5"
+            / "D-S04"
+            / "candidate_rebuilds"
+            / "extrusion-face-006-face-007.step"
+        )
+        result = candidate_validation.validate_replay_step(
+            self.step("D-S04"), replay, self.diagnostic_protocol()
+        )
+        self.assertTrue(result["geometry_pass"])
+        self.assertEqual(result["reference_sha256"], geometry_validation._sha256(self.step("D-S04")))
+        self.assertEqual(result["rebuild_sha256"], geometry_validation._sha256(replay))
+
     @staticmethod
     def validated(candidate_id, distance, primitive_count, volume_error, bbox_error, surface, passed=True):
         return {
