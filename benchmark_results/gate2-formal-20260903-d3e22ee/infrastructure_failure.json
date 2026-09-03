@@ -1,0 +1,22 @@
+{
+  "affected_case_count": 10,
+  "assessment_schema": "gate2-infrastructure-failure-0.1",
+  "cases_reaching_fusion_modeling": 0,
+  "corrective_commit": "e5dfc35ad34038fe9d8d90455961a4ce017b3a90",
+  "disposition": "retained_as_failed_infrastructure_run_not_gate2_algorithm_outcome",
+  "evidence": [
+    "batch_replay_log.json",
+    "cases/*/replay/replay_log.json",
+    "replay_request_used.json"
+  ],
+  "failure_code": "stale_fusion_shared_module_cache",
+  "geometry_outcome": "not_evaluated",
+  "observed_error": {
+    "error_code": "sequence_validation_failed",
+    "message": "invalid_schema_version: expected cadseq-0.1"
+  },
+  "request_sha256": "58a8347b8b3d070aee92397050db980503d694f76008f505f8567d976c1976ae",
+  "root_cause": "The current Gate 2 replay core was loaded from disk, but its Gate 1 shared-loader imported sequence_validator and frame_math by their cached module names. A long-lived Fusion session therefore reused the earlier cadseq-0.1-only validator before any case reached modeling.",
+  "run_id": "gate2-formal-20260903-d3e22ee",
+  "status": "infrastructure_failure"
+}
