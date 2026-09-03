@@ -265,11 +265,15 @@ def recover_sequence(path, model_id, candidate_id=None):
     adjacency = topology_adjacency.build_adjacency(summary, context)
     candidates = extrusion_inference.generate_candidates(summary, adjacency)["candidates"]
     candidate = _select_candidate(candidates, candidate_id)
+    return sequence_from_summary(summary, candidate)
+
+
+def sequence_from_summary(summary, candidate):
     reconstructed = reconstruct_profile(summary, candidate)
     plane = reconstructed["sketch_plane"]
     return {
         "schema_version": "cadseq-0.2",
-        "model_id": str(model_id),
+        "model_id": summary["model_id"],
         "source_step_sha256": summary["source_step_sha256"],
         "units": "mm",
         "tolerance": {

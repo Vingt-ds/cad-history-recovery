@@ -1,0 +1,229 @@
+{
+  "calibration_records": [
+    {
+      "bbox_diagonal_mm": 74.83314773547883,
+      "case_id": "D-S01",
+      "comparison_sha256": "587fcc1247136272b8abc79a8374bd4f3eaaa7b36554a1f387d885c4bc455194",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.0,
+      "max_face_p95_ratio": 0.0,
+      "numeric_repeatable": true,
+      "reference_sha256": "b58b5c4886db8ceb58f72f5224f6bf7783109ff6a7a2384257e8dd7842455048",
+      "symmetric_p95_mm": 0.0,
+      "symmetric_p95_ratio": 0.0
+    },
+    {
+      "bbox_diagonal_mm": 74.83314773547883,
+      "case_id": "D-S01",
+      "comparison_sha256": "1c7cb4b710b6a17ae4fb06e0170a47770caa1e3589132f143ef717853e38b939",
+      "kind": "perturbation",
+      "max_face_p95_mm": 5.000000000000007,
+      "max_face_p95_ratio": 0.06681531047810618,
+      "numeric_repeatable": true,
+      "reference_sha256": "b58b5c4886db8ceb58f72f5224f6bf7783109ff6a7a2384257e8dd7842455048",
+      "symmetric_p95_mm": 5.0,
+      "symmetric_p95_ratio": 0.0668153104781061
+    },
+    {
+      "bbox_diagonal_mm": 54.5985347788875,
+      "case_id": "D-S02",
+      "comparison_sha256": "d3e70a990d81a7d526e7dc0329dfd1427b3daf01eadab5fda200b84a693fafe5",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.0,
+      "max_face_p95_ratio": 0.0,
+      "numeric_repeatable": true,
+      "reference_sha256": "19b6f62d433a09219217e19915efbf6db009493159226c05a30f2c63dc218715",
+      "symmetric_p95_mm": 0.0,
+      "symmetric_p95_ratio": 0.0
+    },
+    {
+      "bbox_diagonal_mm": 60.06662967072947,
+      "case_id": "D-S03",
+      "comparison_sha256": "07934be057ede5fc0aeefe43f7938b8977a8cbc452c3456b47bab72a1bd2a891",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.0,
+      "max_face_p95_ratio": 0.0,
+      "numeric_repeatable": true,
+      "reference_sha256": "b2adfed35199cb0a859a9d1fc72331abbc0c3dd4ce299b689eef70daf14fa4e4",
+      "symmetric_p95_mm": 0.0,
+      "symmetric_p95_ratio": 0.0
+    },
+    {
+      "bbox_diagonal_mm": 58.172158288995945,
+      "case_id": "D-S04",
+      "comparison_sha256": "85fe9195443b7fb3d5c0db382d30ad26cfaa08b50ef18e3b809602efd4beb34d",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.0,
+      "max_face_p95_ratio": 0.0,
+      "numeric_repeatable": true,
+      "reference_sha256": "9bdfcae1e8d698f6952f1f76ad948ae077c9bdf6d81b6b27e7734f9947323245",
+      "symmetric_p95_mm": 0.0,
+      "symmetric_p95_ratio": 0.0
+    },
+    {
+      "bbox_diagonal_mm": 58.172158288995945,
+      "case_id": "D-S04",
+      "comparison_sha256": "35634f64fb0445b938a4dc22bfafde0ff9efd1857dc20cf175463e91750f1e1c",
+      "kind": "perturbation",
+      "max_face_p95_mm": 5.000000000000007,
+      "max_face_p95_ratio": 0.08595177052156625,
+      "numeric_repeatable": true,
+      "reference_sha256": "9bdfcae1e8d698f6952f1f76ad948ae077c9bdf6d81b6b27e7734f9947323245",
+      "symmetric_p95_mm": 5.0,
+      "symmetric_p95_ratio": 0.08595177052156612
+    },
+    {
+      "bbox_diagonal_mm": 60.30754513325841,
+      "case_id": "D-S05",
+      "comparison_sha256": "598aa46bf5e38abbc7dd70756dccc01bf8bd9dbcbce123b3ea968fed6b0d55a5",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.0,
+      "max_face_p95_ratio": 0.0,
+      "numeric_repeatable": true,
+      "reference_sha256": "a9dcf9bd60de3e0b3cf0e61ad51777310df883aa234bf5a33d1890efdb293d39",
+      "symmetric_p95_mm": 0.0,
+      "symmetric_p95_ratio": 0.0
+    },
+    {
+      "bbox_diagonal_mm": 62.41794613730894,
+      "case_id": "D-S06",
+      "comparison_sha256": "5cc63f934e12950153a6ccac8fd30453fa660ea27379ebd6a9cecf3748d35604",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.0,
+      "max_face_p95_ratio": 0.0,
+      "numeric_repeatable": true,
+      "reference_sha256": "c4163a85e200790b016d2c77eb97fed31cfd2fd2e435e888ed0b490ac6b8f5d6",
+      "symmetric_p95_mm": 0.0,
+      "symmetric_p95_ratio": 0.0
+    },
+    {
+      "bbox_diagonal_mm": 50.83306010855534,
+      "case_id": "D-S07",
+      "comparison_sha256": "33dbfd1ab7564ccae9b8080a1adb7e3fde939a2267806f1440114ad8830c986a",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.7642028934974571,
+      "max_face_p95_ratio": 0.015033580348408727,
+      "numeric_repeatable": true,
+      "reference_sha256": "0416e9c3a62fa9ceef0ef1170e69bdbb8a5f76c9cc5a0dc5188447d4f6d4e0b9",
+      "symmetric_p95_mm": 0.6999490065018347,
+      "symmetric_p95_ratio": 0.013769562662705633
+    },
+    {
+      "bbox_diagonal_mm": 50.83306010855534,
+      "case_id": "D-S07",
+      "comparison_sha256": "7ec1b6ec609499e40ff94c50e42c03b6808ba66d07b210e2850dc5f529d808fa",
+      "kind": "perturbation",
+      "max_face_p95_mm": 4.9999999999999964,
+      "max_face_p95_ratio": 0.09836118442057915,
+      "numeric_repeatable": true,
+      "reference_sha256": "0416e9c3a62fa9ceef0ef1170e69bdbb8a5f76c9cc5a0dc5188447d4f6d4e0b9",
+      "symmetric_p95_mm": 4.976976722167284,
+      "symmetric_p95_ratio": 0.09790826504520521
+    },
+    {
+      "bbox_diagonal_mm": 57.48912940722327,
+      "case_id": "D-S08",
+      "comparison_sha256": "4cda3026b59b09148a041e2ef5f2197e5847dc4ed505053aa3559db56fba3091",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.0,
+      "max_face_p95_ratio": 0.0,
+      "numeric_repeatable": true,
+      "reference_sha256": "42bf51057113c3c8a515770fe743d15a7b1ae30eea9cd32d03a0d00ad05db8f5",
+      "symmetric_p95_mm": 0.0,
+      "symmetric_p95_ratio": 0.0
+    },
+    {
+      "bbox_diagonal_mm": 64.78142557045008,
+      "case_id": "D-S09",
+      "comparison_sha256": "955d72e930436fd9ca9c9bfb9aa71254239c8beb40475ddef04e4c6de348e5fb",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.0,
+      "max_face_p95_ratio": 0.0,
+      "numeric_repeatable": true,
+      "reference_sha256": "92991300e3bd1395d9e45f4d57e5994d8e137646053b258040e7633bebe17507",
+      "symmetric_p95_mm": 0.0,
+      "symmetric_p95_ratio": 0.0
+    },
+    {
+      "bbox_diagonal_mm": 64.78142557045008,
+      "case_id": "D-S09",
+      "comparison_sha256": "de98c49f261763560d222c58b8f7ff1a838b9e5628943d11491109c6546614de",
+      "kind": "perturbation",
+      "max_face_p95_mm": 5.000000000000007,
+      "max_face_p95_ratio": 0.07718261764033713,
+      "numeric_repeatable": true,
+      "reference_sha256": "92991300e3bd1395d9e45f4d57e5994d8e137646053b258040e7633bebe17507",
+      "symmetric_p95_mm": 5.0,
+      "symmetric_p95_ratio": 0.07718261764033701
+    },
+    {
+      "bbox_diagonal_mm": 61.59545437774047,
+      "case_id": "D-S10",
+      "comparison_sha256": "624e708ecf46bc6e095fa1393c513b514a48d1009506cf684520ff00cc8c1d83",
+      "kind": "roundtrip",
+      "max_face_p95_mm": 0.0,
+      "max_face_p95_ratio": 0.0,
+      "numeric_repeatable": true,
+      "reference_sha256": "3b203cf5e140eeb66059b7150942a5c390196e87d9c5b0d4143c9fc0f09e343f",
+      "symmetric_p95_mm": 0.0,
+      "symmetric_p95_ratio": 0.0
+    }
+  ],
+  "controlled_perturbation": {
+    "benchmark_member": false,
+    "case_ids": [
+      "D-S01",
+      "D-S04",
+      "D-S07",
+      "D-S09"
+    ],
+    "translation_mm": [
+      5.0,
+      0.0,
+      0.0
+    ]
+  },
+  "frozen": true,
+  "hard_conditions": {
+    "bbox_coordinate_tolerance_mm": 1e-06,
+    "single_valid_solid": true,
+    "volume_absolute_tolerance_mm3": 1e-06,
+    "volume_relative_tolerance": 1e-09
+  },
+  "protocol_schema": "gate2-validation-0.1",
+  "sampling": {
+    "minimum_per_face": 32,
+    "numeric_repeatability_required": true,
+    "seed_policy": "first_8_bytes_of_reference_step_sha256_shared_by_comparison_pair",
+    "total_budget": 4096
+  },
+  "selection_rule": "frozen matrix development single_extrusion D-S01..D-S10",
+  "surface": {
+    "intervals": {
+      "max_face_p95_ratio": {
+        "perturbation": [
+          0.06681531047810618,
+          0.09836118442057915
+        ],
+        "roundtrip": [
+          0.0,
+          0.015033580348408727
+        ]
+      },
+      "symmetric_p95_ratio": {
+        "perturbation": [
+          0.0668153104781061,
+          0.09790826504520521
+        ],
+        "roundtrip": [
+          0.0,
+          0.013769562662705633
+        ]
+      }
+    },
+    "max_face_p95_ratio_threshold": 0.04092444541325745,
+    "mode": "threshold",
+    "normalization": "reference_bbox_diagonal_mm",
+    "symmetric_p95_ratio_threshold": 0.04029243657040586
+  }
+}
