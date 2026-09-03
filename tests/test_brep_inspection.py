@@ -5,12 +5,35 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "external"))
 
+import cadquery as cq
 import brep_inspection
+
+
+class _SolidSelection:
+    def __init__(self, solids):
+        self._solids = list(solids)
+
+    def vals(self):
+        return self._solids
+
+
+class _ImportedShape:
+    def __init__(self, solids):
+        self._solids = _SolidSelection(solids)
+
+    def solids(self):
+        return self._solids
+
+
+class _InvalidSolid:
+    def isValid(self):
+        return False
 
 
 class BRepInspectionTests(unittest.TestCase):
@@ -96,6 +119,64 @@ class BRepInspectionTests(unittest.TestCase):
                     {"_identity": "topology-b", "_signature": ["line", 1.0]},
                 ],
             )
+
+    def test_coincident_geometry_with_distinct_incidence_is_not_merged(self):
+        records = brep_inspection.assign_canonical_ids(
+            "edge",
+            [
+                {"_identity": "topology-a", "_signature": ["line", 1.0, ["vertex-0", "vertex-1"]]},
+                {"_identity": "topology-b", "_signature": ["line", 1.0, ["vertex-2", "vertex-3"]]},
+            ],
+        )
+        self.assertEqual(len(records), 2)
+        self.assertEqual({record["edge_id"] for record in records}, {"edge-000", "edge-001"})
+
+    def test_existing_invalid_step_has_structured_import_error(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "invalid.step"
+            path.write_text("not a STEP file", encoding="utf-8")
+            with self.assertRaisesRegex(brep_inspection.BRepInspectionError, "step_import_failed"):
+                brep_inspection.inspect_step(path, "invalid")
+
+    def test_zero_solid_import_has_structured_error(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "zero.step"
+            path.touch()
+            with mock.patch.object(
+                cq.importers,
+                "importStep",
+                return_value=_ImportedShape([]),
+            ):
+                with self.assertRaisesRegex(brep_inspection.BRepInspectionError, "zero_solid"):
+                    brep_inspection.inspect_step(path, "zero")
+
+    def test_multiple_solid_import_has_structured_error(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "multiple.step"
+            path.touch()
+            with mock.patch.object(
+                cq.importers,
+                "importStep",
+                return_value=_ImportedShape([object(), object()]),
+            ):
+                with self.assertRaisesRegex(brep_inspection.BRepInspectionError, "multiple_solids:2"):
+                    brep_inspection.inspect_step(path, "multiple")
+
+    def test_invalid_solid_import_has_structured_error(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "invalid-solid.step"
+            path.touch()
+            with mock.patch.object(
+                cq.importers,
+                "importStep",
+                return_value=_ImportedShape([_InvalidSolid()]),
+            ):
+                with self.assertRaisesRegex(brep_inspection.BRepInspectionError, "invalid_solid"):
+                    brep_inspection.inspect_step(path, "invalid-solid")
+
+    def test_non_finite_geometry_has_structured_error(self):
+        with self.assertRaisesRegex(brep_inspection.BRepInspectionError, "non_finite_geometry"):
+            brep_inspection._q(float("nan"))
 
     def test_missing_step_has_structured_error_code(self):
         with self.assertRaisesRegex(brep_inspection.BRepInspectionError, "step_not_found"):

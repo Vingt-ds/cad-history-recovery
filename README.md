@@ -2,7 +2,22 @@
 
 This repository contains a deterministic, semi-automatic pipeline under development for converting history-free B-rep/STEP models into plausible, replayable CAD construction sequences.
 
-> **Current status:** Gate 0 and Gate 1 are closed. Schema v0.1 known sequences can be validated and replayed in Fusion for `New + distance` and `Cut + through_all`. The 30-case raw B-rep benchmark is frozen. Automatic B-rep-to-history inference has not started and is not claimed here.
+> **Current status:** Gate 0, Gate 1, and Gate 2 are closed. The frozen 30-case B-rep input set remains unchanged. Within the frozen ten-case development single-extrusion subset, the Gate 2 fact-derived pipeline automatically inferred, Fusion-replayed, and geometrically validated 10/10 cases. This result does not claim arbitrary B-rep history recovery.
+
+## Gate 2 completed scope
+
+- one STEP import feeding a deterministic CadQuery/OCP B-rep fact layer;
+- canonical Solid/Face/Wire/Edge/Vertex facts and minimal attributed face adjacency;
+- explainable extrusion hypotheses with retained acceptance and rejection evidence;
+- one simple 3--8-edge Line-only outer profile or one standalone complete Circle;
+- `cadseq-0.2` root-frame provenance for named origin planes and inferred B-rep frames;
+- CadQuery candidate reconstruction, deterministic final ranking, and calibrated geometry validation;
+- a Gate 2 Fusion batch adapter reusing the Gate 1 Sketch/New Extrude replay core;
+- immutable run-level manifests, environment snapshots, case logs, native F3D files, replay STEP files, validation metrics, and terminal statuses.
+
+The formal run `gate2-formal-20260903-e93dc2f` produced 10/10 automatic successes, 10/10 geometry passes, and 10/10 complete result packages. `D-S01` and `D-S09` retain `ambiguous=true` because multiple histories satisfy the frozen acceptance protocol. Two earlier infrastructure-failure runs are preserved and are not counted as algorithm outcomes.
+
+The verified Gate 2 report is available at [`benchmark_results/gate2-formal-20260903-e93dc2f/gate2_verification_report.json`](benchmark_results/gate2-formal-20260903-e93dc2f/gate2_verification_report.json), with the closure summary at [`logs/gate2/gate2_closure_report.md`](logs/gate2/gate2_closure_report.md). The audited completion tag is `gate2-forward-path`.
 
 ## Gate 1 completed scope
 
@@ -50,19 +65,20 @@ The environment definition is in [`environment/environment.yml`](environment/env
 ## Repository layout
 
 ```text
-benchmarks/      Frozen 30-case STEP benchmark, manifest, hashes, lock, and thumbnails
-config/          Gate 0 input and Gate 1 replay request
-docs/            Reuse audit, schema definition, and Gate 1 engineering log
+benchmark_results/ Immutable Gate 2 formal runs and per-case result packages
+benchmarks/        Frozen 30-case STEP input set, manifest, hashes, lock, and thumbnails
+config/            Gate 0 input, Gate 1 replay request, and frozen Gate 2 validation protocol
+docs/              Reuse audit, sequence schemas, and Gate 2 design/implementation plans
 environment/     Conda definition and verified package record
 evidence/        Gate 0 evidence and Gate 1 Fusion replay screenshots
-external/        Benchmark, geometry-validation, freeze, and Gate verification tools
-fusion_scripts/  Gate 0 export and Gate 1 known-sequence replay scripts
-logs/            Structured run logs and Gate 0/Gate 1 verification reports
+external/        B-rep inspection, inference, validation, pipeline, and Gate verification tools
+fusion_scripts/  Gate 0 export plus Gate 1 and Gate 2 replay scripts
+logs/            Structured run logs and Gate 0/Gate 1/Gate 2 verification reports
 models/          Native Fusion and STEP evidence models
 replay_outputs/  Native F3D, STEP, and JSON replay evidence
-sequences/       Known-valid and intentionally invalid schema fixtures
+sequences/       Known-valid and intentionally invalid cadseq fixtures
 shared/          Pure-standard-library frame and sequence validation modules
-tests/           Automated Gate 0/Gate 1 regression tests
+tests/           Automated Gate 0/Gate 1/Gate 2 regression tests
 ```
 
 ## Reproduce the external checks
@@ -86,15 +102,16 @@ Run the regression tests and consolidated verifier:
 python -m unittest discover -s tests -v
 python external/verify_gate0.py --project-root .
 python external/verify_gate1.py
+python external/verify_gate2.py benchmark_results/gate2-formal-20260903-e93dc2f
 ```
 
 The smoke test expects the committed Gate 0 STEP evidence under `models/`. It generates or refreshes `models/cadquery_box.step` and `logs/external_python.json`.
 
 ## Fusion scripts
 
-In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export and `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay.
+In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export, `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay, and `fusion_scripts/Gate2SequenceReplay` for a pipeline-prepared Gate 2 batch request.
 
-The script:
+The Gate 0 smoke script:
 
 1. reads `config/gate0_box.json`;
 2. validates the schema and millimetre units;
@@ -104,6 +121,8 @@ The script:
 6. exports STEP and writes a structured run log.
 
 The committed `run01` and `run02` outputs are frozen evidence. The script intentionally refuses to overwrite them. Use a disposable checkout or preserve/move those four run artifacts before performing a fresh two-run experiment.
+
+The Gate 2 adapter creates a fresh Fusion document for each case, reuses the validated Gate 1 Sketch/New Extrude core, creates inferred construction planes parametrically, and refuses to overwrite existing case outputs. The completed formal request is preserved as `benchmark_results/gate2-formal-20260903-e93dc2f/replay_request_used.json`; no active replay request remains in `config/` after closure.
 
 ## Gate 0 evidence
 
@@ -133,6 +152,15 @@ Gate 1 does **not** claim:
 - arbitrary Face/Edge/Vertex references or general topological naming;
 - a universal geometric acceptance threshold or production volume-IoU acceptance rule;
 - byte-for-byte deterministic Fusion STEP exports; the verified claim is geometric stability.
+
+Gate 2 does **not** claim:
+
+- recovery of the designer's unique original construction history;
+- generalization beyond the frozen ten-case development single-extrusion subset;
+- held-out benchmark performance, which remains reserved for the later frozen evaluation;
+- mixed curves, arcs, splines, inner or multiple profile loops, or profiles outside the verified 3--8 Line range;
+- multi-feature recovery such as automatic holes, fillets, chamfers, revolves, sweeps, lofts, shells, or patterns;
+- universal validity of the calibrated surface thresholds outside the frozen Gate 2 protocol and environment.
 
 ## References and reuse boundary
 
