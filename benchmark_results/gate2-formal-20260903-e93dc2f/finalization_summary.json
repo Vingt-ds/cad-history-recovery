@@ -1,0 +1,62 @@
+{
+  "cases": {
+    "D-S01": {
+      "ambiguous": true,
+      "selected_candidate_id": "extrusion-face-002-face-003",
+      "terminal_status": "automatic_success"
+    },
+    "D-S02": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "D-S03": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-000-face-001",
+      "terminal_status": "automatic_success"
+    },
+    "D-S04": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-006-face-007",
+      "terminal_status": "automatic_success"
+    },
+    "D-S05": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-008-face-009",
+      "terminal_status": "automatic_success"
+    },
+    "D-S06": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "D-S07": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "D-S08": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-000-face-001",
+      "terminal_status": "automatic_success"
+    },
+    "D-S09": {
+      "ambiguous": true,
+      "selected_candidate_id": "extrusion-face-004-face-005",
+      "terminal_status": "automatic_success"
+    },
+    "D-S10": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-000-face-001",
+      "terminal_status": "automatic_success"
+    }
+  },
+  "finalization_schema": "gate2-finalization-0.1",
+  "run_id": "gate2-formal-20260903-e93dc2f",
+  "terminal_status_counts": {
+    "automatic_success": 10,
+    "failed": 0,
+    "manual_success": 0,
+    "unsupported": 0
+  }
+}

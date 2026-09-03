@@ -1,0 +1,280 @@
+{
+  "case_count": 10,
+  "cases": [
+    {
+      "body_count": 1,
+      "case_id": "D-S04",
+      "face_count": 8,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S04",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "57370d7ac269b8a17f4b6cc7d60124e8be8566e1815b3f38cbae9ffc3f316077",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S01",
+      "face_count": 6,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S01",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "8e9c1fa986a574565f085b02183d5636d86912fd0774bf0ebc4eebbdc879eec7",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S02",
+      "face_count": 5,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S02",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "efdd6cc6ac137a8fc1ff2e14a369349328d01e00ccf6cbc309ff62af1be4bb30",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S03",
+      "face_count": 7,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S03",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "5b26df79758c07bf9aede7dfa30a2f4e0f210ba76eea8310198f7f99fc5008cd",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S05",
+      "face_count": 10,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S05",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "681e3f1acac31a5c7dc261c2684db4e101a1977b0deef091e582a2f05e0920a7",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S06",
+      "face_count": 10,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S06",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "78ebf43bb5756bd8f7ae149e5f9ec7fbb8680567e35caa353cb65aca53bff5cb",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S07",
+      "face_count": 3,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S07",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "2b0bc9ee8cf3939190ecfe7f2b9ab145ac8f8d4b64e3751234ace3bf21a914a6",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S08",
+      "face_count": 8,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S08",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "83b5666c85c953dd145190d051b79b40944f0f6931334f1c60e28a713f1fd42c",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S09",
+      "face_count": 6,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S09",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "d59bb38b81356f3f785f6f170aad7fef70611e2a47dddefef4a5b48844ccad79",
+      "status": "success",
+      "world_frame_max_error_mm": 9.784089452593437e-11
+    },
+    {
+      "body_count": 1,
+      "case_id": "D-S10",
+      "face_count": 9,
+      "fusion_version": "2704.1.53",
+      "model_id": "D-S10",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "442ed3e713d1320ce4afc04055ea646e9bb3ab6331a0323198540b3d84d9ffe5",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    }
+  ],
+  "failure_count": 0,
+  "request_sha256": "54a031c51c08bdac1f65e1f47c55e4c55102908590ffbc4254d79942b500afbb",
+  "run_id": "gate2-formal-20260903-e93dc2f",
+  "status": "complete",
+  "success_count": 10
+}

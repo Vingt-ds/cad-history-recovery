@@ -1,0 +1,16 @@
+{
+  "awaiting_fusion_case_ids": [
+    "D-S01",
+    "D-S02",
+    "D-S03",
+    "D-S04",
+    "D-S05",
+    "D-S06",
+    "D-S07",
+    "D-S08",
+    "D-S09",
+    "D-S10"
+  ],
+  "failed_case_ids": [],
+  "run_id": "gate2-formal-20260903-e93dc2f"
+}
