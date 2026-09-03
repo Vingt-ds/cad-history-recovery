@@ -186,6 +186,114 @@ class Gate2FusionAdapterTests(unittest.TestCase):
                 loaded = gate2._load_core(directory)
         self.assertEqual(loaded.marker, "fresh-file")
 
+    def test_gate2_shared_loader_ignores_stale_fusion_module_cache(self):
+        gate2 = load_with_fake_adsk("gate2_adapter_shared_reload", self.gate2_path)
+        sequence = json.loads(
+            (
+                PROJECT_ROOT
+                / "logs"
+                / "gate2"
+                / "day5"
+                / "D-S04"
+                / "sequence"
+                / "inferred_sequence.json"
+            ).read_text(encoding="utf-8")
+        )
+        stale_validator = types.ModuleType("sequence_validator")
+        stale_validator.validate_sequence = lambda data: {
+            "valid": False,
+            "errors": [{"code": "invalid_schema_version"}],
+        }
+        stale_frame_math = types.ModuleType("frame_math")
+        stale_frame_math.world_point = lambda frame, point: "stale-world-point"
+        stale_frame_math.parallel_alignment_error = lambda left, right: -1.0
+
+        with patch.dict(
+            sys.modules,
+            {
+                "sequence_validator": stale_validator,
+                "frame_math": stale_frame_math,
+            },
+        ):
+            validate_sequence, world_point, alignment_error = gate2._load_shared(
+                str(PROJECT_ROOT)
+            )
+
+        self.assertTrue(validate_sequence(sequence)["valid"])
+        self.assertEqual(
+            world_point(
+                {
+                    "origin": [1.0, 2.0, 3.0],
+                    "normal": [0.0, 0.0, 1.0],
+                    "x_axis": [1.0, 0.0, 0.0],
+                },
+                [4.0, 5.0],
+            ),
+            (5.0, 7.0, 3.0),
+        )
+        self.assertEqual(alignment_error([1.0, 0.0, 0.0], [1.0, 0.0, 0.0]), 0.0)
+
+    def test_replay_case_bypasses_all_stale_modules_before_modeling_v02(self):
+        gate2 = load_with_fake_adsk("gate2_adapter_replay_reload", self.gate2_path)
+        sequence_path = (
+            PROJECT_ROOT
+            / "logs"
+            / "gate2"
+            / "day5"
+            / "D-S04"
+            / "sequence"
+            / "inferred_sequence.json"
+        )
+        sequence = json.loads(sequence_path.read_text(encoding="utf-8"))
+        self.assertEqual(sequence["schema_version"], "cadseq-0.2")
+
+        stale_gate1 = types.ModuleType("Gate1SequenceReplay")
+        stale_validator = types.ModuleType("sequence_validator")
+        stale_validator.validate_sequence = lambda data: {
+            "valid": False,
+            "errors": [{"code": "invalid_schema_version"}],
+        }
+        stale_frame_math = types.ModuleType("frame_math")
+        stale_frame_math.world_point = lambda frame, point: "stale-world-point"
+        stale_frame_math.parallel_alignment_error = lambda left, right: -1.0
+
+        class ReachedModeling(Exception):
+            pass
+
+        class Documents:
+            @staticmethod
+            def add(document_type):
+                raise ReachedModeling
+
+        gate2.adsk.core.DocumentTypes = types.SimpleNamespace(
+            FusionDesignDocumentType=object()
+        )
+        app = types.SimpleNamespace(documents=Documents())
+
+        with tempfile.TemporaryDirectory() as directory:
+            replay_dir = Path(directory) / "replay"
+            case_paths = {
+                "sequence": str(sequence_path),
+                "replay_dir": str(replay_dir),
+                "f3d": str(replay_dir / "replay.f3d"),
+                "step": str(replay_dir / "replay.step"),
+                "log": str(replay_dir / "replay_log.json"),
+            }
+            with patch.dict(
+                sys.modules,
+                {
+                    "adsk": gate2.adsk,
+                    "adsk.core": gate2.adsk.core,
+                    "adsk.fusion": gate2.adsk.fusion,
+                    "Gate1SequenceReplay": stale_gate1,
+                    "sequence_validator": stale_validator,
+                    "frame_math": stale_frame_math,
+                },
+            ):
+                core = gate2._load_core(str(PROJECT_ROOT))
+                with self.assertRaises(ReachedModeling):
+                    gate2._replay_case(app, core, "D-S04", case_paths)
+
 
 if __name__ == "__main__":
     unittest.main()

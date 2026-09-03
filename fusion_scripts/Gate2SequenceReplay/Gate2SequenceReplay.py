@@ -41,6 +41,27 @@ def _load_core(project_root):
     return module
 
 
+def _load_shared(project_root):
+    shared_dir = os.path.join(project_root, "shared")
+
+    def load_current(module_name, filename):
+        path = os.path.join(shared_dir, filename)
+        spec = importlib.util.spec_from_file_location(module_name, path)
+        if spec is None or spec.loader is None:
+            raise ReplayError("shared_load_failed", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    frame_math = load_current("_gate2_frame_math_current", "frame_math.py")
+    validator = load_current("_gate2_sequence_validator_current", "sequence_validator.py")
+    return (
+        validator.validate_sequence,
+        frame_math.world_point,
+        frame_math.parallel_alignment_error,
+    )
+
+
 def _load_json(path):
     with open(path, "r", encoding="utf-8") as handle:
         return json.load(handle)
@@ -159,7 +180,7 @@ def _replay_case(app, core, case_id, case_paths):
         raise ReplayError("sequence_not_found", case_paths["sequence"])
     _assert_outputs_absent(case_paths)
     sequence = _load_json(case_paths["sequence"])
-    validate_sequence, world_point, parallel_alignment_error = core._load_shared(_project_root())
+    validate_sequence, world_point, parallel_alignment_error = _load_shared(_project_root())
     validation = validate_sequence(sequence)
     if not validation["valid"]:
         raise ReplayError(
