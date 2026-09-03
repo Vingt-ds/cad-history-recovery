@@ -182,6 +182,12 @@ def _unique_wrappers(shapes):
 
 
 def inspect_step(path, model_id):
+    summary, _ = inspect_step_with_context(path, model_id)
+    return summary
+
+
+def inspect_step_with_context(path, model_id):
+    """Inspect once and return canonical facts plus private topology wrappers."""
     import cadquery as cq
     from OCP.BRepTools import BRepTools_WireExplorer
 
@@ -302,7 +308,7 @@ def inspect_step(path, model_id):
         "edges": public_edges,
         "vertices": public_vertices,
     }
-    return {
+    summary = {
         "brep_summary_schema": "brep-summary-0.1",
         "model_id": str(model_id),
         "source_step_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
@@ -323,6 +329,14 @@ def inspect_step(path, model_id):
         },
         "solids": [solid_record],
     }
+    context = {
+        "solid": solid,
+        "vertices": vertex_records,
+        "edges": edge_records,
+        "wires": wire_records,
+        "faces": face_records,
+    }
+    return summary, context
 
 
 def _public(record):
