@@ -1,6 +1,7 @@
 """Batch-replay Gate 2 sequences through the validated Gate 1 replay core."""
 
 import hashlib
+import importlib.util
 import json
 import os
 import platform
@@ -26,12 +27,18 @@ def _project_root():
 
 
 def _load_core(project_root):
-    gate1_dir = os.path.join(project_root, "fusion_scripts", "Gate1SequenceReplay")
-    if gate1_dir not in sys.path:
-        sys.path.insert(0, gate1_dir)
-    import Gate1SequenceReplay
-
-    return Gate1SequenceReplay
+    core_path = os.path.join(
+        project_root,
+        "fusion_scripts",
+        "Gate1SequenceReplay",
+        "Gate1SequenceReplay.py",
+    )
+    spec = importlib.util.spec_from_file_location("_gate2_gate1_replay_core", core_path)
+    if spec is None or spec.loader is None:
+        raise ReplayError("core_load_failed", core_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 def _load_json(path):

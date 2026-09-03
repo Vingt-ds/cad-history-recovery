@@ -1,0 +1,17 @@
+{
+  "case_ids": [
+    "D-S04",
+    "D-S01",
+    "D-S02",
+    "D-S03",
+    "D-S05",
+    "D-S06",
+    "D-S07",
+    "D-S08",
+    "D-S09",
+    "D-S10"
+  ],
+  "request_version": "gate2-replay-0.1",
+  "run_id": "gate2-formal-20260903-8afca4c",
+  "run_relative_path": "benchmark_results/gate2-formal-20260903-8afca4c"
+}

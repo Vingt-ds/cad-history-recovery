@@ -173,6 +173,19 @@ class Gate2FusionAdapterTests(unittest.TestCase):
                 gate2._assert_outputs_absent(paths)
             self.assertEqual(existing.read_bytes(), b"existing")
 
+    def test_gate1_core_is_loaded_from_current_file_not_stale_module_cache(self):
+        gate2 = load_with_fake_adsk("gate2_adapter_core_reload", self.gate2_path)
+        with tempfile.TemporaryDirectory() as directory:
+            core_dir = Path(directory) / "fusion_scripts" / "Gate1SequenceReplay"
+            core_dir.mkdir(parents=True)
+            (core_dir / "Gate1SequenceReplay.py").write_text(
+                "marker = 'fresh-file'\n", encoding="utf-8"
+            )
+            stale = types.SimpleNamespace(marker="stale-cache")
+            with patch.dict(sys.modules, {"Gate1SequenceReplay": stale}):
+                loaded = gate2._load_core(directory)
+        self.assertEqual(loaded.marker, "fresh-file")
+
 
 if __name__ == "__main__":
     unittest.main()

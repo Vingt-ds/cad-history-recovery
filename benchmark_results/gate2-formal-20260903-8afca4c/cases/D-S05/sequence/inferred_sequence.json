@@ -1,0 +1,180 @@
+{
+  "corrections": [],
+  "model_id": "D-S05",
+  "operations": [
+    {
+      "dependencies": [],
+      "loops": [
+        {
+          "loop_id": "base_outer",
+          "loop_type": "outer",
+          "primitives": [
+            {
+              "end": [
+                -6.0,
+                -23.725388601
+              ],
+              "primitive_id": "line_1",
+              "start": [
+                -6.0,
+                2.274611399
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                6.0,
+                -23.725388601
+              ],
+              "primitive_id": "line_2",
+              "start": [
+                -6.0,
+                -23.725388601
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                6.0,
+                2.274611399
+              ],
+              "primitive_id": "line_3",
+              "start": [
+                6.0,
+                -23.725388601
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                23.0,
+                2.274611399
+              ],
+              "primitive_id": "line_4",
+              "start": [
+                6.0,
+                2.274611399
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                23.0,
+                12.274611399
+              ],
+              "primitive_id": "line_5",
+              "start": [
+                23.0,
+                2.274611399
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -23.0,
+                12.274611399
+              ],
+              "primitive_id": "line_6",
+              "start": [
+                23.0,
+                12.274611399
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -23.0,
+                2.274611399
+              ],
+              "primitive_id": "line_7",
+              "start": [
+                -23.0,
+                12.274611399
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -6.0,
+                2.274611399
+              ],
+              "primitive_id": "line_8",
+              "start": [
+                -23.0,
+                2.274611399
+              ],
+              "type": "line"
+            }
+          ]
+        }
+      ],
+      "operation_id": "sketch_base",
+      "operation_type": "sketch",
+      "replay_status": "pending",
+      "sketch_plane": {
+        "frame": {
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "origin": [
+            23.0,
+            20.0,
+            32.725388601
+          ],
+          "x_axis": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "frame_provenance": {
+          "base_face_id": "face-008",
+          "source_face_outward_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "source_step_sha256": "a9dcf9bd60de3e0b3cf0e61ad51777310df883aa234bf5a33d1890efdb293d39"
+        },
+        "frame_source": "inferred_brep",
+        "semantic_reference": {
+          "type": "absolute_frame"
+        }
+      }
+    },
+    {
+      "boolean_type": "new",
+      "dependencies": [
+        "sketch_base"
+      ],
+      "direction": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "extent": {
+        "distance_mm": 15.0,
+        "type": "distance"
+      },
+      "operation_id": "extrude_base",
+      "operation_type": "extrude",
+      "profile": {
+        "inner_loop_ids": [],
+        "outer_loop_id": "base_outer",
+        "sketch_id": "sketch_base"
+      },
+      "replay_status": "pending"
+    }
+  ],
+  "replay_mode": "automatic",
+  "replay_status": "pending",
+  "schema_version": "cadseq-0.2",
+  "source_step_sha256": "a9dcf9bd60de3e0b3cf0e61ad51777310df883aa234bf5a33d1890efdb293d39",
+  "tolerance": {
+    "angular_rad": 1e-08,
+    "length_mm": 1e-06
+  },
+  "units": "mm"
+}
