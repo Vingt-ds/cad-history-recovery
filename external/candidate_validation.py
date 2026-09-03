@@ -170,6 +170,13 @@ def rank_validated_candidates(candidates):
 def validate_inferred_candidates(reference_path, model_id, output_dir, protocol):
     """Rebuild and validate every fact-accepted candidate from one STEP import."""
     summary, context = brep_inspection.inspect_step_with_context(reference_path, model_id)
+    result = validate_inferred_facts(reference_path, summary, context, output_dir, protocol)
+    result["brep_summary"] = summary
+    return result
+
+
+def validate_inferred_facts(reference_path, summary, context, output_dir, protocol):
+    """Validate candidates using an already imported canonical fact context."""
     adjacency = topology_adjacency.build_adjacency(summary, context)
     inference = extrusion_inference.generate_candidates(summary, adjacency)
     output_dir = Path(output_dir)
@@ -196,7 +203,7 @@ def validate_inferred_candidates(reference_path, model_id, output_dir, protocol)
         )
         sequences[candidate["candidate_id"]] = sequence
     return {
-        "model_id": str(model_id),
+        "model_id": summary["model_id"],
         "source_step_sha256": summary["source_step_sha256"],
         "inference": inference,
         "ranking": rank_validated_candidates(validated),

@@ -46,6 +46,19 @@ class CandidateValidationTests(unittest.TestCase):
         self.assertEqual(result["surface_pass"], None)
         self.assertEqual(result["surface_mode"], "diagnostic_only")
 
+    def test_inference_validation_returns_the_single_import_fact_summary(self):
+        with tempfile.TemporaryDirectory() as directory:
+            result = candidate_validation.validate_inferred_candidates(
+                self.step("D-S04"),
+                "D-S04",
+                Path(directory),
+                self.diagnostic_protocol(),
+            )
+        summary = result["brep_summary"]
+        self.assertEqual(summary["model_id"], "D-S04")
+        self.assertEqual(summary["source_step_sha256"], result["source_step_sha256"])
+        self.assertNotIn("run_id", summary)
+
     def test_final_ranking_is_deterministic_and_marks_multiple_qualified_candidates_ambiguous(self):
         candidates = [
             self.validated("candidate-b", 20.0, 4, 0.0, 0.0, 0.02),
