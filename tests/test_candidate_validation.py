@@ -148,6 +148,10 @@ class CandidateValidationTests(unittest.TestCase):
 
 
 class Gate2CalibrationProtocolTests(unittest.TestCase):
+    def test_frozen_protocol_is_git_binary_to_preserve_checksum(self):
+        attributes = (PROJECT_ROOT / ".gitattributes").read_text(encoding="utf-8").splitlines()
+        self.assertIn("config/gate2_validation_protocol.json binary", attributes)
+
     def test_frozen_protocol_matches_checksum_and_calibration_contract(self):
         protocol_path = PROJECT_ROOT / "config" / "gate2_validation_protocol.json"
         checksum_path = PROJECT_ROOT / "config" / "gate2_validation_protocol.json.sha256"
