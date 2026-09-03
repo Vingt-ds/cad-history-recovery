@@ -1,11 +1,14 @@
 """Shared standard-library validator for CAD sequence schema v0.1."""
 
 import math
+import re
 
 
 SCHEMA_VERSION = "cadseq-0.1"
+SCHEMA_VERSION_V02 = "cadseq-0.2"
 REPLAY_STATUSES = {"pending", "success", "failed", "unsupported"}
 REPLAY_MODES = {"semantic", "absolute_fallback"}
+REPLAY_MODES_V02 = {"automatic", "absolute_fallback"}
 ORIGIN_PLANES = {
     "XY": (0.0, 0.0, 1.0),
     "XZ": (0.0, 1.0, 0.0),
@@ -63,11 +66,11 @@ def _points_close(left, right, tolerance):
     return math.dist(left, right) <= tolerance
 
 
-def _validate_header(data):
+def _validate_header(data, schema_version):
     if not isinstance(data, dict):
         _fail("invalid_document", "$", "document must be a JSON object")
-    if data.get("schema_version") != SCHEMA_VERSION:
-        _fail("invalid_schema_version", "$.schema_version", f"expected {SCHEMA_VERSION}")
+    if data.get("schema_version") != schema_version:
+        _fail("invalid_schema_version", "$.schema_version", f"expected {schema_version}")
     if data.get("units") != "mm":
         _fail("invalid_units", "$.units", "units must be mm")
     if not isinstance(data.get("model_id"), str) or not data["model_id"]:
@@ -83,7 +86,8 @@ def _validate_header(data):
     )
     if data.get("replay_status") not in REPLAY_STATUSES:
         _fail("invalid_replay_status", "$.replay_status", "unsupported replay status")
-    if data.get("replay_mode") not in REPLAY_MODES:
+    replay_modes = REPLAY_MODES_V02 if schema_version == SCHEMA_VERSION_V02 else REPLAY_MODES
+    if data.get("replay_mode") not in replay_modes:
         _fail("invalid_replay_mode", "$.replay_mode", "unsupported replay mode")
     if not isinstance(data.get("corrections"), list):
         _fail("invalid_corrections", "$.corrections", "corrections must be a list")
@@ -187,11 +191,27 @@ def _validate_semantic_reference(
     dependencies,
     length_tolerance,
     angular_tolerance,
+    schema_version,
 ):
     if not isinstance(reference, dict):
         _fail("invalid_semantic_reference", path, "semantic_reference must be an object")
     reference_type = reference.get("type")
+    sketch_plane = operation["sketch_plane"]
+    frame_source = sketch_plane.get("frame_source")
     if reference_type == "origin_plane":
+        if schema_version == SCHEMA_VERSION_V02:
+            if frame_source != "origin_named":
+                _fail(
+                    "frame_source_reference_mismatch",
+                    f"{path.rsplit('.', 1)[0]}.frame_source",
+                    "origin_plane requires frame_source origin_named",
+                )
+            if data.get("replay_mode") != "automatic":
+                _fail(
+                    "frame_source_replay_mode_mismatch",
+                    "$.replay_mode",
+                    "origin_named requires automatic replay mode",
+                )
         role = reference.get("role")
         if role not in ORIGIN_PLANES:
             _fail("invalid_origin_plane", f"{path}.role", "role must be XY, XZ, or YZ")
@@ -205,6 +225,12 @@ def _validate_semantic_reference(
                 "frame origin is not on the named origin plane",
             )
     elif reference_type == "operation_cap":
+        if schema_version == SCHEMA_VERSION_V02 and "frame_source" in sketch_plane:
+            _fail(
+                "operation_cap_frame_source_forbidden",
+                f"{path.rsplit('.', 1)[0]}.frame_source",
+                "operation_cap is a semantic reference and has no frame_source",
+            )
         reference_id = reference.get("operation_id")
         referenced = seen.get(reference_id)
         if (
@@ -267,6 +293,51 @@ def _validate_semantic_reference(
                 "frame origin is not on the referenced operation cap",
             )
     elif reference_type == "absolute_frame":
+        if schema_version == SCHEMA_VERSION_V02:
+            if frame_source == "inferred_brep":
+                if data.get("replay_mode") != "automatic":
+                    _fail(
+                        "frame_source_replay_mode_mismatch",
+                        "$.replay_mode",
+                        "inferred_brep requires automatic replay mode",
+                    )
+                provenance = sketch_plane.get("frame_provenance")
+                if (
+                    not isinstance(provenance, dict)
+                    or not isinstance(provenance.get("source_step_sha256"), str)
+                    or re.fullmatch(r"[0-9a-f]{64}", provenance["source_step_sha256"]) is None
+                    or not isinstance(provenance.get("base_face_id"), str)
+                    or not provenance["base_face_id"]
+                ):
+                    _fail(
+                        "invalid_frame_provenance",
+                        f"{path.rsplit('.', 1)[0]}.frame_provenance",
+                        "inferred_brep requires STEP SHA-256 and base face ID",
+                    )
+                outward = _unit_vector(
+                    provenance.get("source_face_outward_normal"),
+                    f"{path.rsplit('.', 1)[0]}.frame_provenance.source_face_outward_normal",
+                    angular_tolerance,
+                )
+                if abs(_dot(outward, frame["normal"]) + 1.0) > angular_tolerance:
+                    _fail(
+                        "invalid_frame_provenance",
+                        f"{path.rsplit('.', 1)[0]}.frame_provenance.source_face_outward_normal",
+                        "base-face outward normal must oppose inferred extrusion frame normal",
+                    )
+                if "correction_id" in reference:
+                    _fail(
+                        "frame_source_reference_mismatch",
+                        f"{path}.correction_id",
+                        "automatic inferred frame cannot cite a manual correction",
+                    )
+                return
+            if frame_source != "manual_correction":
+                _fail(
+                    "frame_source_reference_mismatch",
+                    f"{path.rsplit('.', 1)[0]}.frame_source",
+                    "absolute_frame requires inferred_brep or manual_correction",
+                )
         correction_id = reference.get("correction_id")
         if (
             data.get("replay_mode") != "absolute_fallback"
@@ -290,7 +361,14 @@ def _validate_semantic_reference(
 
 
 def _validate_sketch(
-    data, operation, path, seen, dependencies, length_tolerance, angular_tolerance
+    data,
+    operation,
+    path,
+    seen,
+    dependencies,
+    length_tolerance,
+    angular_tolerance,
+    schema_version,
 ):
     sketch_plane = operation.get("sketch_plane")
     if not isinstance(sketch_plane, dict):
@@ -323,6 +401,7 @@ def _validate_sketch(
         dependencies,
         length_tolerance,
         angular_tolerance,
+        schema_version,
     )
     loops = operation.get("loops")
     if not isinstance(loops, list) or not loops:
@@ -336,11 +415,21 @@ def _validate_sketch(
         if loop_id in loop_map:
             _fail("duplicate_loop_id", f"{path}.loops[{index}].loop_id", "loop_id is duplicated")
         loop_map[loop_id] = loop_type
-    return {"normal": frame["normal"], "loops": loop_map}
+    return {
+        "normal": frame["normal"],
+        "loops": loop_map,
+        "frame_source": sketch_plane.get("frame_source"),
+    }
 
 
 def _validate_extrude(
-    operation, path, sketches, dependencies, angular_tolerance, new_body_seen
+    operation,
+    path,
+    sketches,
+    dependencies,
+    angular_tolerance,
+    new_body_seen,
+    schema_version,
 ):
     profile = operation.get("profile")
     if not isinstance(profile, dict):
@@ -397,6 +486,16 @@ def _validate_extrude(
             f"{path}.direction",
             "Extrude direction must be parallel or antiparallel to Sketch normal",
         )
+    if (
+        schema_version == SCHEMA_VERSION_V02
+        and sketch["frame_source"] == "inferred_brep"
+        and _dot(direction, sketch["normal"]) < 1.0 - angular_tolerance
+    ):
+        _fail(
+            "inferred_direction_mismatch",
+            f"{path}.direction",
+            "inferred_brep Extrude direction must equal the canonical frame normal",
+        )
     boolean_type = operation.get("boolean_type")
     if boolean_type not in {"new", "cut"}:
         _fail(
@@ -419,8 +518,8 @@ def _validate_extrude(
     return boolean_type == "new" or new_body_seen
 
 
-def _validate(data):
-    length_tolerance, angular_tolerance = _validate_header(data)
+def _validate_document(data, schema_version):
+    length_tolerance, angular_tolerance = _validate_header(data, schema_version)
     seen = {}
     sketches = {}
     new_body_seen = False
@@ -457,6 +556,7 @@ def _validate(data):
                 dependencies,
                 length_tolerance,
                 angular_tolerance,
+                schema_version,
             )
         elif operation_type == "extrude":
             new_body_seen = _validate_extrude(
@@ -466,10 +566,18 @@ def _validate(data):
                 dependencies,
                 angular_tolerance,
                 new_body_seen,
+                schema_version,
             )
         else:
             _fail("unsupported_operation_type", f"{path}.operation_type", "expected sketch or extrude")
         seen[operation_id] = operation
+
+
+def _validate(data):
+    schema_version = data.get("schema_version") if isinstance(data, dict) else None
+    if schema_version not in {SCHEMA_VERSION, SCHEMA_VERSION_V02}:
+        schema_version = SCHEMA_VERSION
+    _validate_document(data, schema_version)
 
 
 def validate_sequence(data):
