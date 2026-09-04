@@ -107,7 +107,7 @@ def _surface_facts(face):
         sphere = adaptor.Sphere()
         parameters = {
             "center_mm": _point(sphere.Location()),
-            "axis_direction": _point(sphere.Axis().Direction(), 12),
+            "axis_direction": _point(sphere.Position().Direction(), 12),
             "x_direction": _point(sphere.XAxis().Direction(), 12),
             "radius_mm": _q(sphere.Radius()),
         }
@@ -125,9 +125,17 @@ def _surface_facts(face):
 
 
 def _curve_facts(edge):
+    from OCP.BRep import BRep_Tool
     from OCP.BRepAdaptor import BRepAdaptor_Curve
     from OCP.GeomAbs import GeomAbs_CurveType
 
+    if BRep_Tool.Degenerated_s(edge.wrapped):
+        return (
+            "other",
+            {"ocp_curve_type": "degenerate"},
+            [0.0, 0.0],
+            {"is_degenerate": True},
+        )
     adaptor = BRepAdaptor_Curve(edge.wrapped)
     curve_type = adaptor.GetType()
     first = _q(adaptor.FirstParameter(), 12)
@@ -181,6 +189,21 @@ def _unique_wrappers(shapes):
     return unique
 
 
+def _all_unique_edges(solid):
+    import cadquery as cq
+    from OCP.TopAbs import TopAbs_EDGE
+    from OCP.TopExp import TopExp_Explorer
+
+    wrapped = []
+    explorer = TopExp_Explorer(solid.wrapped, TopAbs_EDGE)
+    while explorer.More():
+        current = explorer.Current()
+        if not any(current.IsSame(item) for item in wrapped):
+            wrapped.append(current)
+        explorer.Next()
+    return [cq.Shape.cast(item) for item in wrapped]
+
+
 def inspect_step(path, model_id):
     summary, _ = inspect_step_with_context(path, model_id)
     return summary
@@ -216,7 +239,7 @@ def inspect_step_with_context(path, model_id):
     vertex_records = assign_canonical_ids("vertex", vertex_records)
 
     edge_records = []
-    for index, edge in enumerate(_unique_wrappers(solid.Edges())):
+    for index, edge in enumerate(_all_unique_edges(solid)):
         curve_type, parameters, parameter_range, extra = _curve_facts(edge)
         vertex_ids = sorted(_find_same(v.wrapped, vertex_records)["vertex_id"] for v in edge.Vertices())
         public = {

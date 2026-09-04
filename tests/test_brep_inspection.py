@@ -90,6 +90,25 @@ class BRepInspectionTests(unittest.TestCase):
                 normal = face["surface_parameters"]["normal"]
                 self.assertAlmostEqual(sum(value * value for value in normal), 1.0, places=10)
 
+    def test_valid_filleted_solid_records_degenerate_edges_as_other(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "filleted.step"
+            cq.exporters.export(
+                cq.Workplane("XY").box(40, 30, 20).edges().fillet(3), str(path)
+            )
+            solid = brep_inspection.inspect_step(path, "filleted")["solids"][0]
+
+        edge_ids = {edge["edge_id"] for edge in solid["edges"]}
+        self.assertTrue(
+            all(
+                {use["edge_id"] for use in wire["edge_uses"]} <= edge_ids
+                for wire in solid["wires"]
+            )
+        )
+        degenerate = [edge for edge in solid["edges"] if edge.get("is_degenerate")]
+        self.assertTrue(degenerate)
+        self.assertTrue(all(edge["curve_type"] == "other" for edge in degenerate))
+
     def test_cli_is_byte_deterministic_across_independent_processes(self):
         with tempfile.TemporaryDirectory() as directory:
             first = Path(directory) / "first.json"
