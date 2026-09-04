@@ -174,7 +174,7 @@ def _line_points(edge, orientation):
     return start, end
 
 
-def reconstruct_profile(summary, candidate):
+def reconstruct_profile(summary, candidate, outer_wire_id=None):
     if candidate.get("status") != "accepted":
         raise ProfileReconstructionError("candidate_not_accepted")
     solid = summary["solids"][0]
@@ -182,9 +182,15 @@ def reconstruct_profile(summary, candidate):
     wires = {item["wire_id"]: item for item in solid["wires"]}
     edges = {item["edge_id"]: item for item in solid["edges"]}
     base_face = faces[candidate["base_face_id"]]
-    if len(base_face["wire_uses"]) != 1:
-        raise ProfileReconstructionError("multiple_profile_loops")
-    wire = wires[base_face["wire_uses"][0]["wire_id"]]
+    if outer_wire_id is None:
+        if len(base_face["wire_uses"]) != 1:
+            raise ProfileReconstructionError("multiple_profile_loops")
+        wire = wires[base_face["wire_uses"][0]["wire_id"]]
+    else:
+        incident_wire_ids = [item["wire_id"] for item in base_face["wire_uses"]]
+        if outer_wire_id not in incident_wire_ids or outer_wire_id not in wires:
+            raise ProfileReconstructionError("selected_profile_wire_not_incident")
+        wire = wires[outer_wire_id]
     edge_uses = wire["edge_uses"]
     edge_types = {edges[item["edge_id"]]["curve_type"] for item in edge_uses}
     plane = _frame_for_candidate(summary, candidate, base_face)
