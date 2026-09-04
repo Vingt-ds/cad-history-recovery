@@ -1,2 +1,3 @@
 *.step binary
 config/gate2_validation_protocol.json binary
+config/gate3_validation_protocol.json binary
