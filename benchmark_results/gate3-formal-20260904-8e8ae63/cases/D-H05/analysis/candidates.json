@@ -1,0 +1,484 @@
+{
+  "ambiguous": false,
+  "candidates_schema": "gate3-candidate-evidence-0.1",
+  "coupled_candidates": {
+    "candidates": [
+      {
+        "base": {
+          "base_face_id": "face-002",
+          "distance_mm": 20.0,
+          "end_face_ids": [
+            "face-002",
+            "face-003"
+          ],
+          "extrusion_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "matched_outer_edge_pairs": [
+            [
+              "edge-000",
+              "edge-003"
+            ],
+            [
+              "edge-007",
+              "edge-009"
+            ],
+            [
+              "edge-008",
+              "edge-010"
+            ],
+            [
+              "edge-011",
+              "edge-014"
+            ]
+          ],
+          "opposite_face_id": "face-003",
+          "outer_wire_ids": [
+            "wire-001",
+            "wire-004"
+          ],
+          "source_face_outward_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        },
+        "candidate_id": "coupled-face-002-face-003-face-004",
+        "checks": [
+          {
+            "measurement": {
+              "status": "accepted"
+            },
+            "name": "accepted_hole_fact_group",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "end_faces": [
+                {
+                  "face_id": "face-002",
+                  "orientation": "reversed"
+                },
+                {
+                  "face_id": "face-003",
+                  "orientation": "forward"
+                }
+              ],
+              "supported_orientations": [
+                "forward",
+                "reversed"
+              ]
+            },
+            "name": "supported_end_face_orientations",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "normal_dot": -1.0,
+              "tolerance": 1e-08
+            },
+            "name": "opposite_end_face_normals",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "distance_mm": 20.0,
+              "tolerance_mm": 1e-06
+            },
+            "name": "positive_base_distance",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "cut_direction": [
+                0.0,
+                -1.0,
+                0.0
+              ],
+              "normal_dot_cut_direction": -1.0,
+              "support_face_id": "face-003",
+              "support_face_outward_normal": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "tolerance": 1e-08
+            },
+            "name": "cut_direction_into_material_from_support_face",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "residual_mm": 0.0,
+              "tolerance_mm": 1e-06
+            },
+            "name": "end_face_centroid_alignment",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "expected_edge_count": 4,
+              "matched_edge_pairs": [
+                [
+                  "edge-000",
+                  "edge-003"
+                ],
+                [
+                  "edge-007",
+                  "edge-009"
+                ],
+                [
+                  "edge-008",
+                  "edge-010"
+                ],
+                [
+                  "edge-011",
+                  "edge-014"
+                ]
+              ],
+              "tolerance_mm": 1e-06
+            },
+            "name": "outer_wire_translation",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "coverage": 1.0,
+              "required": 1.0
+            },
+            "name": "outer_side_connection_coverage",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "absolute_dot": 1.0,
+              "tolerance": 1e-08
+            },
+            "name": "hole_axis_parallel_to_base",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "base_distance_mm": 20.0,
+              "cylinder_span_mm": 20.0,
+              "error_mm": 0.0,
+              "tolerance_mm": 1e-06
+            },
+            "name": "cylinder_span_matches_base_distance",
+            "passed": true,
+            "reason": null
+          }
+        ],
+        "hole": {
+          "axis": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "circle_edge_ids": [
+            "edge-004",
+            "edge-005"
+          ],
+          "cylinder_face_id": "face-004",
+          "inner_wire_ids": [
+            "wire-005",
+            "wire-007"
+          ],
+          "planar_face_ids": [
+            "face-002",
+            "face-003"
+          ],
+          "radius_mm": 5.0
+        },
+        "rejection_reasons": [],
+        "semantic_replay": {
+          "cut_direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "operation_cap": {
+            "offset_mm": 0.0,
+            "operation_id": "extrude_base",
+            "role": "positive_end_cap",
+            "type": "operation_cap"
+          },
+          "support_face_id": "face-003"
+        },
+        "status": "accepted"
+      }
+    ],
+    "coupled_candidates_schema": "coupled-through-hole-candidates-0.1",
+    "model_id": "D-H05",
+    "ordering": "candidate_id",
+    "rejection_reasons": [],
+    "source_step_sha256": "19297b837c824f5de90535092494ba5b9a3be1b6d823aab7014e14626e19b9a6"
+  },
+  "hole_facts": {
+    "hole_fact_groups": [
+      {
+        "checks": [
+          {
+            "measurement": {
+              "count": 1
+            },
+            "name": "single_cylindrical_face",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "circle_edge_ids": [
+                "edge-004",
+                "edge-005"
+              ]
+            },
+            "name": "two_full_circle_boundaries",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "inner_wire_ids": [
+                "wire-005",
+                "wire-007"
+              ],
+              "planar_face_ids": [
+                "face-002",
+                "face-003"
+              ]
+            },
+            "name": "circles_on_two_planar_inner_wires",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "circle_radii_mm": [
+                5.0,
+                5.0
+              ],
+              "circle_radius_error_mm": 0.0,
+              "cylinder_radius_error_mm": 0.0,
+              "cylinder_radius_mm": 5.0,
+              "tolerance_mm": 1e-06
+            },
+            "name": "circle_radii_match_cylinder",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "max_axis_residual_mm": 0.0,
+              "tolerance_mm": 1e-06
+            },
+            "name": "circle_centres_on_cylinder_axis",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "angular_tolerance": 1e-08,
+              "direction_residual": 0.0,
+              "linear_tolerance_mm": 1e-06,
+              "separation_mm": 20.0
+            },
+            "name": "positive_coaxial_circle_separation",
+            "passed": true,
+            "reason": null
+          }
+        ],
+        "circle_edge_ids": [
+          "edge-004",
+          "edge-005"
+        ],
+        "cylinder_face_id": "face-004",
+        "diagnostic_adjacency": [
+          {
+            "classification": "convex",
+            "relation_id": "relation-004",
+            "shared_edge_id": "edge-004",
+            "signed_angle_rad": 1.570796326795
+          },
+          {
+            "classification": "convex",
+            "relation_id": "relation-005",
+            "shared_edge_id": "edge-005",
+            "signed_angle_rad": 1.570796326795
+          }
+        ],
+        "inner_wire_ids": [
+          "wire-005",
+          "wire-007"
+        ],
+        "measured_axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "measured_radius_mm": 5.0,
+        "planar_face_ids": [
+          "face-002",
+          "face-003"
+        ],
+        "rejection_reasons": [],
+        "status": "accepted"
+      }
+    ],
+    "model_id": "D-H05",
+    "planar_wire_roles": [
+      {
+        "checks": [
+          {
+            "measurement": {
+              "wire_ids": [
+                "wire-001",
+                "wire-005"
+              ]
+            },
+            "name": "exactly_two_face_wires",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "wire_ids": [
+                "wire-001"
+              ]
+            },
+            "name": "one_line_outer_wire",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "wire_ids": [
+                "wire-005"
+              ]
+            },
+            "name": "one_full_circle_inner_wire",
+            "passed": true,
+            "reason": null
+          }
+        ],
+        "face_id": "face-002",
+        "inner_circle_edge_ids": [
+          "edge-004"
+        ],
+        "inner_circle_wire_ids": [
+          "wire-005"
+        ],
+        "outer_wire_id": "wire-001",
+        "outer_wire_kind": "line_only"
+      },
+      {
+        "checks": [
+          {
+            "measurement": {
+              "wire_ids": [
+                "wire-004",
+                "wire-007"
+              ]
+            },
+            "name": "exactly_two_face_wires",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "wire_ids": [
+                "wire-004"
+              ]
+            },
+            "name": "one_line_outer_wire",
+            "passed": true,
+            "reason": null
+          },
+          {
+            "measurement": {
+              "wire_ids": [
+                "wire-007"
+              ]
+            },
+            "name": "one_full_circle_inner_wire",
+            "passed": true,
+            "reason": null
+          }
+        ],
+        "face_id": "face-003",
+        "inner_circle_edge_ids": [
+          "edge-005"
+        ],
+        "inner_circle_wire_ids": [
+          "wire-007"
+        ],
+        "outer_wire_id": "wire-004",
+        "outer_wire_kind": "line_only"
+      }
+    ],
+    "rejection_reasons": [],
+    "source_step_sha256": "19297b837c824f5de90535092494ba5b9a3be1b6d823aab7014e14626e19b9a6",
+    "through_hole_facts_schema": "through-hole-facts-0.1",
+    "tolerances": {
+      "angular": 1e-08,
+      "linear_mm": 1e-06
+    }
+  },
+  "model_id": "D-H05",
+  "pre_fusion_validation": {
+    "base_geometry_pass": true,
+    "bbox_coordinate_errors_mm": {
+      "xmax": 0.0,
+      "xmin": 0.0,
+      "ymax": 0.0,
+      "ymin": 0.0,
+      "zmax": 0.0,
+      "zmin": 0.0
+    },
+    "bbox_max_coordinate_error_mm": 0.0,
+    "bbox_pass": true,
+    "feature_checks": {
+      "axis_angle": true,
+      "axis_line_offset": true,
+      "opening_centers": true,
+      "radius": true,
+      "span": true
+    },
+    "feature_match": {
+      "axis_angle_error_rad": 0.0,
+      "axis_line_offset_mm": 0.0,
+      "opening_center_max_error_mm": 0.0,
+      "radius_error_mm": 0.0,
+      "span_error_mm": 0.0
+    },
+    "feature_match_pass": true,
+    "geometry_pass": true,
+    "max_face_p95_mm": 1.509950825320741,
+    "max_face_p95_ratio": 0.020177566640095568,
+    "rebuild_sha256": "485e98c2967c954626abd470f1acae33ca5dee6e01af4f2c8e24c6b3669b951d",
+    "reference_sha256": "19297b837c824f5de90535092494ba5b9a3be1b6d823aab7014e14626e19b9a6",
+    "surface_mode": "diagnostic_only",
+    "surface_pass": null,
+    "surface_sort_value": 0.020177566640095568,
+    "symmetric_p95_mm": 1.4983449323077134,
+    "symmetric_p95_ratio": 0.020022476371087346,
+    "valid_single_solid": true,
+    "validation_schema": "gate2-candidate-validation-0.1",
+    "volume_error_mm3": 5.820766091346741e-11,
+    "volume_limit_mm3": 4.742920367320511e-05,
+    "volume_pass": true
+  },
+  "selected_candidate_id": "coupled-face-002-face-003-face-004",
+  "source_step_sha256": "19297b837c824f5de90535092494ba5b9a3be1b6d823aab7014e14626e19b9a6"
+}

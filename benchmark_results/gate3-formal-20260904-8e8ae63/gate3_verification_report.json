@@ -1,0 +1,75 @@
+{
+  "ambiguous_count": 0,
+  "automatic_success_count": 5,
+  "checks": {
+    "all_five_successful": true,
+    "automatic_success_at_least_3": true,
+    "environment_complete": true,
+    "environment_present": true,
+    "frozen_benchmark_hashes_match": true,
+    "git_clean_at_start": true,
+    "git_commit_recorded": true,
+    "manifest_case_set": true,
+    "manifest_schema": true,
+    "manual_cases_have_one_audited_correction": true,
+    "packages_complete_5_of_5": true,
+    "successful_cases_feature_match_pass": true,
+    "successful_cases_geometry_pass": true,
+    "supported_cases_not_relabelled_unsupported": true,
+    "validation_protocol_hash_matches": true,
+    "validation_protocol_recorded": true
+  },
+  "failed_count": 0,
+  "feature_match_pass_count": 5,
+  "gate_pass": true,
+  "geometry_pass_count": 5,
+  "manual_success_count": 0,
+  "package_complete_count": 5,
+  "per_case": {
+    "D-H01": {
+      "feature_match_pass": true,
+      "geometry_pass": true,
+      "invalid": [],
+      "missing": [],
+      "package_complete": true,
+      "terminal_status": "automatic_success"
+    },
+    "D-H02": {
+      "feature_match_pass": true,
+      "geometry_pass": true,
+      "invalid": [],
+      "missing": [],
+      "package_complete": true,
+      "terminal_status": "automatic_success"
+    },
+    "D-H03": {
+      "feature_match_pass": true,
+      "geometry_pass": true,
+      "invalid": [],
+      "missing": [],
+      "package_complete": true,
+      "terminal_status": "automatic_success"
+    },
+    "D-H04": {
+      "feature_match_pass": true,
+      "geometry_pass": true,
+      "invalid": [],
+      "missing": [],
+      "package_complete": true,
+      "terminal_status": "automatic_success"
+    },
+    "D-H05": {
+      "feature_match_pass": true,
+      "geometry_pass": true,
+      "invalid": [],
+      "missing": [],
+      "package_complete": true,
+      "terminal_status": "automatic_success"
+    }
+  },
+  "run_id": "gate3-formal-20260904-8e8ae63",
+  "stop_loss_triggered": false,
+  "target_automatic_at_least_4": true,
+  "unsupported_count": 0,
+  "verifier_schema": "gate3-verifier-0.2"
+}

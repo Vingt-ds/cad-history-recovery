@@ -1,0 +1,26 @@
+{
+  "benchmark_manifest_sha256": "c92ac078a5feccce3f7fd53fe4c67a5fbd30c276bb27418948ad46c1a62c8e30",
+  "case_ids": [
+    "D-H01",
+    "D-H02",
+    "D-H03",
+    "D-H04",
+    "D-H05"
+  ],
+  "created_at_utc": "2026-09-04T05:21:46.273480+00:00",
+  "environment_ref": "environment.json",
+  "git_commit": "8e8ae6333ae77c5c4d91053855398adfaf077833",
+  "git_dirty_at_start": false,
+  "manifest_schema": "gate3-run-manifest-0.1",
+  "matrix_sha256": "ca0dcfc3b7019dc85e98c701f7afa7a2543b0a448a52b78637de8425ffaac701",
+  "run_id": "gate3-formal-20260904-8e8ae63",
+  "schema_versions": {
+    "brep_summary": "brep-summary-0.1",
+    "coupled_candidates": "coupled-through-hole-candidates-0.1",
+    "sequence": "cadseq-0.2"
+  },
+  "seed_policy": "first_8_bytes_of_reference_step_sha256_shared_by_comparison_pair",
+  "selection_rule": "development && through_hole && case_id in D-H01..D-H05",
+  "validation_protocol_ref": "../../config/gate3_validation_protocol.json",
+  "validation_protocol_sha256": "d0372098d2403d8cf96eb5c269354cf5c936b9fdef09b52878a91acc3f99c662"
+}

@@ -1,0 +1,43 @@
+{
+  "base_geometry_pass": true,
+  "bbox_coordinate_errors_mm": {
+    "xmax": 0.0,
+    "xmin": 0.0,
+    "ymax": 0.0,
+    "ymin": 0.0,
+    "zmax": 0.0,
+    "zmin": 0.0
+  },
+  "bbox_max_coordinate_error_mm": 0.0,
+  "bbox_pass": true,
+  "feature_checks": {
+    "axis_angle": true,
+    "axis_line_offset": true,
+    "opening_centers": true,
+    "radius": true,
+    "span": true
+  },
+  "feature_match": {
+    "axis_angle_error_rad": 0.0,
+    "axis_line_offset_mm": 0.0,
+    "opening_center_max_error_mm": 0.0,
+    "radius_error_mm": 0.0,
+    "span_error_mm": 0.0
+  },
+  "feature_match_pass": true,
+  "geometry_pass": true,
+  "max_face_p95_mm": 1.3715689836282932,
+  "max_face_p95_ratio": 0.021781915036586465,
+  "rebuild_sha256": "50195393c27e125cc8bc0c33c6e1c5467b097c96c82d908b654a8755cd004b46",
+  "reference_sha256": "e79dcea2e5e0adc5349626f8629b23b5e0b763f69cd8435e96cd9ac5f4e1f689",
+  "surface_mode": "diagnostic_only",
+  "surface_pass": null,
+  "surface_sort_value": 0.021781915036586465,
+  "symmetric_p95_mm": 1.2844494303020857,
+  "symmetric_p95_ratio": 0.020398367631222356,
+  "valid_single_solid": true,
+  "validation_schema": "gate2-candidate-validation-0.1",
+  "volume_error_mm3": 7.639755494892597e-11,
+  "volume_limit_mm3": 3.354442486839375e-05,
+  "volume_pass": true
+}

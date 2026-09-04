@@ -1,0 +1,37 @@
+{
+  "cases": {
+    "D-H01": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-002-face-003-face-004",
+      "terminal_status": "automatic_success"
+    },
+    "D-H02": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-004-face-005-face-006",
+      "terminal_status": "automatic_success"
+    },
+    "D-H03": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-000-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "D-H04": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-002-face-003-face-004",
+      "terminal_status": "automatic_success"
+    },
+    "D-H05": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-002-face-003-face-004",
+      "terminal_status": "automatic_success"
+    }
+  },
+  "finalization_schema": "gate3-finalization-0.1",
+  "run_id": "gate3-formal-20260904-8e8ae63",
+  "terminal_status_counts": {
+    "automatic_success": 5,
+    "failed": 0,
+    "manual_success": 0,
+    "unsupported": 0
+  }
+}

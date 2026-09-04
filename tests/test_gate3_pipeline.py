@@ -218,7 +218,7 @@ class Gate3VerifierTests(unittest.TestCase):
                     path = case_dir / relative
                     path.parent.mkdir(parents=True, exist_ok=True)
                     if path.suffix == ".json":
-                        value = {"valid_step": True} if "input_metadata" in path.name else ({"geometry_pass": True} if "validation_metrics" in path.name else {})
+                        value = {"valid_step": True} if "input_metadata" in path.name else ({"geometry_pass": True, "feature_match_pass": True} if "validation_metrics" in path.name else {})
                         path.write_text(json.dumps(value), encoding="utf-8")
                     else:
                         path.write_bytes(b"evidence")
@@ -226,8 +226,23 @@ class Gate3VerifierTests(unittest.TestCase):
                 (case_dir / "final_status.json").write_text(json.dumps(status), encoding="utf-8")
             report = verify_gate3.verify_run(run_dir)
             self.assertTrue(report["gate_pass"])
+            self.assertEqual(report["verifier_schema"], "gate3-verifier-0.2")
             self.assertEqual(report["automatic_success_count"], 5)
+            self.assertEqual(report["feature_match_pass_count"], 5)
             self.assertEqual(report["package_complete_count"], 5)
+
+            metrics_path = run_dir / "cases" / "D-H05" / "validation" / "validation_metrics.json"
+            metrics_path.write_text(
+                json.dumps({"geometry_pass": True, "feature_match_pass": False}),
+                encoding="utf-8",
+            )
+            report = verify_gate3.verify_run(run_dir)
+            self.assertFalse(report["gate_pass"])
+            self.assertFalse(report["checks"]["successful_cases_feature_match_pass"])
+            metrics_path.write_text(
+                json.dumps({"geometry_pass": True, "feature_match_pass": True}),
+                encoding="utf-8",
+            )
 
             (root / "config" / "gate3_validation_protocol.json").write_text("{}", encoding="utf-8")
             self.assertFalse(verify_gate3.verify_run(run_dir)["gate_pass"])

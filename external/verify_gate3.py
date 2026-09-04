@@ -62,9 +62,10 @@ def verify_run(run_dir):
                 hashlib.sha256(protocol_path.read_bytes()).hexdigest() == protocol_hash
             )
     per_case = {}
-    automatic = manual = failed = unsupported = ambiguous = geometry = complete = 0
+    automatic = manual = failed = unsupported = ambiguous = geometry = feature_match = complete = 0
     manual_audit_pass = True
     success_geometry_pass = True
+    success_feature_match_pass = True
     for case_id in EXPECTED_CASE_IDS:
         case_dir = run_dir / "cases" / case_id
         audit = result_package.audit_case_package(case_dir)
@@ -90,16 +91,24 @@ def verify_run(run_dir):
         if status.get("ambiguous") is True:
             ambiguous += 1
         geometry_pass = False
+        feature_match_pass = False
         metrics_path = case_dir / "validation" / "validation_metrics.json"
         if metrics_path.is_file():
-            geometry_pass = _read_json(metrics_path).get("geometry_pass") is True
+            metrics = _read_json(metrics_path)
+            geometry_pass = metrics.get("geometry_pass") is True
+            feature_match_pass = metrics.get("feature_match_pass") is True
         if geometry_pass:
             geometry += 1
+        if feature_match_pass:
+            feature_match += 1
         if terminal in {"automatic_success", "manual_success"} and not geometry_pass:
             success_geometry_pass = False
+        if terminal in {"automatic_success", "manual_success"} and not feature_match_pass:
+            success_feature_match_pass = False
         per_case[case_id] = {
             "terminal_status": terminal,
             "geometry_pass": geometry_pass,
+            "feature_match_pass": feature_match_pass,
             "package_complete": audit["complete"],
             "missing": audit["missing"],
             "invalid": audit["invalid"],
@@ -118,11 +127,12 @@ def verify_run(run_dir):
         "all_five_successful": automatic + manual == 5,
         "manual_cases_have_one_audited_correction": manual_audit_pass,
         "successful_cases_geometry_pass": success_geometry_pass,
+        "successful_cases_feature_match_pass": success_feature_match_pass,
         "packages_complete_5_of_5": complete == 5,
         "supported_cases_not_relabelled_unsupported": unsupported == 0,
     }
     return {
-        "verifier_schema": "gate3-verifier-0.1",
+        "verifier_schema": "gate3-verifier-0.2",
         "run_id": manifest.get("run_id"),
         "gate_pass": all(checks.values()),
         "target_automatic_at_least_4": automatic >= 4,
@@ -133,6 +143,7 @@ def verify_run(run_dir):
         "unsupported_count": unsupported,
         "ambiguous_count": ambiguous,
         "geometry_pass_count": geometry,
+        "feature_match_pass_count": feature_match,
         "package_complete_count": complete,
         "checks": checks,
         "per_case": per_case,

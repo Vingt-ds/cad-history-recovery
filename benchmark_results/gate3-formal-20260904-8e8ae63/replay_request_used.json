@@ -1,0 +1,12 @@
+{
+  "case_ids": [
+    "D-H04",
+    "D-H01",
+    "D-H02",
+    "D-H03",
+    "D-H05"
+  ],
+  "request_version": "gate3-replay-0.1",
+  "run_id": "gate3-formal-20260904-8e8ae63",
+  "run_relative_path": "benchmark_results/gate3-formal-20260904-8e8ae63"
+}

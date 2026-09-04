@@ -2,7 +2,20 @@
 
 This repository contains a deterministic, semi-automatic pipeline under development for converting history-free B-rep/STEP models into plausible, replayable CAD construction sequences.
 
-> **Current status:** Gate 0, Gate 1, and Gate 2 are closed. The frozen 30-case B-rep input set remains unchanged. Within the frozen ten-case development single-extrusion subset, the Gate 2 fact-derived pipeline automatically inferred, Fusion-replayed, and geometrically validated 10/10 cases. This result does not claim arbitrary B-rep history recovery.
+> **Current status:** Gate 0 through Gate 3 are closed. The frozen 30-case B-rep input set remains unchanged. Gate 2 automatically inferred, Fusion-replayed, and geometrically validated 10/10 frozen development single-extrusion cases. Gate 3 did the same for 5/5 frozen development cases containing one supported through cylindrical Cut. These results do not claim held-out performance or arbitrary B-rep history recovery.
+
+## Gate 3 completed scope
+
+- coupled recovery of one Line-only base extrusion and one straight through cylindrical Cut;
+- outer-wire base matching that is not invalidated by circular inner wires;
+- paired circular openings and their connecting cylindrical face as explicit Cut evidence;
+- deterministic `cadseq-0.2` synthesis of `Sketch -> New Extrusion -> Sketch on operation_cap -> Cut through_all`;
+- CadQuery validation of the complete hypothesis before Fusion replay;
+- hard analytic checks for hole radius, undirected axis, axis-line offset, opening centres and span;
+- a thin `Gate3SequenceReplay` adapter reusing the validated Gate 2 and Gate 1 replay layers;
+- immutable manifests, inference evidence, native F3D, replay STEP, validation metrics and terminal statuses.
+
+The formal run `gate3-formal-20260904-8e8ae63` produced 5/5 automatic successes, 5/5 geometry passes, 5/5 analytic hole-feature matches and 5/5 complete result packages, with no ambiguity or manual correction. The verified report is available at [`benchmark_results/gate3-formal-20260904-8e8ae63/gate3_verification_report.json`](benchmark_results/gate3-formal-20260904-8e8ae63/gate3_verification_report.json), with the closure summary at [`logs/gate3/gate3_closure_report.md`](logs/gate3/gate3_closure_report.md).
 
 ## Gate 2 completed scope
 
@@ -65,20 +78,20 @@ The environment definition is in [`environment/environment.yml`](environment/env
 ## Repository layout
 
 ```text
-benchmark_results/ Immutable Gate 2 formal runs and per-case result packages
+benchmark_results/ Immutable Gate 2 and Gate 3 formal runs and per-case result packages
 benchmarks/        Frozen 30-case STEP input set, manifest, hashes, lock, and thumbnails
-config/            Gate 0 input, Gate 1 replay request, and frozen Gate 2 validation protocol
-docs/              Reuse audit, sequence schemas, and Gate 2 design/implementation plans
+config/            Gate inputs and frozen Gate 2/Gate 3 validation protocols
+docs/              Reuse audit, sequence schemas, and Gate design/implementation plans
 environment/     Conda definition and verified package record
 evidence/        Gate 0 evidence and Gate 1 Fusion replay screenshots
 external/        B-rep inspection, inference, validation, pipeline, and Gate verification tools
-fusion_scripts/  Gate 0 export plus Gate 1 and Gate 2 replay scripts
-logs/            Structured run logs and Gate 0/Gate 1/Gate 2 verification reports
+fusion_scripts/  Gate 0 export plus Gate 1, Gate 2 and Gate 3 replay scripts
+logs/            Structured run logs and Gate closure/verification reports
 models/          Native Fusion and STEP evidence models
 replay_outputs/  Native F3D, STEP, and JSON replay evidence
 sequences/       Known-valid and intentionally invalid cadseq fixtures
 shared/          Pure-standard-library frame and sequence validation modules
-tests/           Automated Gate 0/Gate 1/Gate 2 regression tests
+tests/           Automated Gate 0 through Gate 3 regression tests
 ```
 
 ## Reproduce the external checks
@@ -103,13 +116,14 @@ python -m unittest discover -s tests -v
 python external/verify_gate0.py --project-root .
 python external/verify_gate1.py
 python external/verify_gate2.py benchmark_results/gate2-formal-20260903-e93dc2f
+python external/verify_gate3.py benchmark_results/gate3-formal-20260904-8e8ae63
 ```
 
 The smoke test expects the committed Gate 0 STEP evidence under `models/`. It generates or refreshes `models/cadquery_box.step` and `logs/external_python.json`.
 
 ## Fusion scripts
 
-In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export, `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay, and `fusion_scripts/Gate2SequenceReplay` for a pipeline-prepared Gate 2 batch request.
+In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export, `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay, `fusion_scripts/Gate2SequenceReplay` for a pipeline-prepared Gate 2 batch request, and `fusion_scripts/Gate3SequenceReplay` for a pipeline-prepared Gate 3 through-hole batch request.
 
 The Gate 0 smoke script:
 
@@ -123,6 +137,8 @@ The Gate 0 smoke script:
 The committed `run01` and `run02` outputs are frozen evidence. The script intentionally refuses to overwrite them. Use a disposable checkout or preserve/move those four run artifacts before performing a fresh two-run experiment.
 
 The Gate 2 adapter creates a fresh Fusion document for each case, reuses the validated Gate 1 Sketch/New Extrude core, creates inferred construction planes parametrically, and refuses to overwrite existing case outputs. The completed formal request is preserved as `benchmark_results/gate2-formal-20260903-e93dc2f/replay_request_used.json`; no active replay request remains in `config/` after closure.
+
+The Gate 3 adapter adds a semantic operation-cap circular sketch and `Cut + through_all` while reusing the earlier replay layers. Its completed formal request is preserved as `benchmark_results/gate3-formal-20260904-8e8ae63/replay_request_used.json`; no active Gate 3 replay request remains in `config/` after closure.
 
 ## Gate 0 evidence
 
@@ -161,6 +177,14 @@ Gate 2 does **not** claim:
 - mixed curves, arcs, splines, inner or multiple profile loops, or profiles outside the verified 3--8 Line range;
 - multi-feature recovery such as automatic holes, fillets, chamfers, revolves, sweeps, lofts, shells, or patterns;
 - universal validity of the calibrated surface thresholds outside the frozen Gate 2 protocol and environment.
+
+Gate 3 does **not** claim:
+
+- held-out performance or generalization beyond the five frozen development through-hole cases;
+- blind, tapered, stepped, counterbored, countersunk, threaded, multiple, patterned, intersecting or non-circular hole recovery;
+- recovery of a through hole without two explicit circular openings and one connecting cylindrical face;
+- convexity as a hard hole criterion, or a calibrated universal surface-distance threshold;
+- recovery of the designer's unique original construction history.
 
 ## References and reuse boundary
 

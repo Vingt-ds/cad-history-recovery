@@ -1,0 +1,11 @@
+{
+  "metadata_schema": "gate3-input-metadata-0.1",
+  "model_id": "D-H05",
+  "relative_path": "benchmarks/inputs/development/D-H05.step",
+  "run_id": "gate3-formal-20260904-8e8ae63",
+  "source": "fusion_manual",
+  "source_step_sha256": "19297b837c824f5de90535092494ba5b9a3be1b6d823aab7014e14626e19b9a6",
+  "split": "development",
+  "units": "mm",
+  "valid_step": true
+}

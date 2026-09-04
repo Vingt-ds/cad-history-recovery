@@ -1,0 +1,38 @@
+{
+  "body_count": 1,
+  "case_id": "D-H02",
+  "face_count": 7,
+  "fusion_version": "2704.1.53",
+  "model_id": "D-H02",
+  "operations": [
+    {
+      "operation_id": "sketch_base",
+      "profile_count": 1,
+      "status": "success"
+    },
+    {
+      "operation_id": "extrude_base",
+      "status": "success"
+    },
+    {
+      "operation_id": "sketch_hole",
+      "profile_count": 2,
+      "status": "success"
+    },
+    {
+      "operation_id": "cut_hole",
+      "status": "success",
+      "volume_after_cm3": 63.30562842102148,
+      "volume_before_cm3": 64.51200000000001
+    }
+  ],
+  "outputs": {
+    "f3d": "replay.f3d",
+    "step": "replay.step"
+  },
+  "python_version": "3.14.0",
+  "replay_mode": "automatic",
+  "sequence_sha256": "a8ec745f909db76fb5ddd32a5718b5c08b3e4763ad3bebdcc372fe24b53e3033",
+  "status": "success",
+  "world_frame_max_error_mm": 0.0
+}
