@@ -1,0 +1,11 @@
+{
+  "awaiting_fusion_case_ids": [
+    "D-H01",
+    "D-H02",
+    "D-H03",
+    "D-H04",
+    "D-H05"
+  ],
+  "failed_case_ids": [],
+  "run_id": "gate3-cp4-preflight"
+}

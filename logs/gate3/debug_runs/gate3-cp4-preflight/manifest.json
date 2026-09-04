@@ -1,0 +1,13 @@
+{
+  "case_ids": [
+    "D-H01",
+    "D-H02",
+    "D-H03",
+    "D-H04",
+    "D-H05"
+  ],
+  "manifest_schema": "gate3-debug-manifest-0.1",
+  "run_id": "gate3-cp4-preflight",
+  "run_kind": "debug",
+  "terminal_gate_claim": false
+}

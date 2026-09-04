@@ -1,0 +1,15 @@
+{
+  "ambiguous": false,
+  "completed_stages": [
+    "input_validation",
+    "brep_inspection",
+    "through_hole_fact_analysis",
+    "coupled_candidate_generation",
+    "external_reconstruction_validation",
+    "sequence_generation"
+  ],
+  "inference_log_schema": "gate3-inference-log-0.1",
+  "model_id": "D-H01",
+  "selected_candidate_id": "coupled-face-002-face-003-face-004",
+  "status": "awaiting_fusion"
+}

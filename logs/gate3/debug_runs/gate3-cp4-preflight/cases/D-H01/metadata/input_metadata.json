@@ -1,0 +1,11 @@
+{
+  "metadata_schema": "gate3-input-metadata-0.1",
+  "model_id": "D-H01",
+  "relative_path": "benchmarks/inputs/development/D-H01.step",
+  "run_id": "gate3-cp4-preflight",
+  "source": "cadquery",
+  "source_step_sha256": "61fd254610009834700a9b5a23d491ed98cfcfa6bb5d5ff613760e7465d05a5e",
+  "split": "development",
+  "units": "mm",
+  "valid_step": true
+}

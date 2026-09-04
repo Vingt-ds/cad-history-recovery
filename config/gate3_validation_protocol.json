@@ -1,0 +1,27 @@
+{
+  "frozen": true,
+  "feature_conditions": {
+    "axis_angular_tolerance_rad": 1e-08,
+    "axis_line_offset_tolerance_mm": 1e-06,
+    "opening_center_tolerance_mm": 1e-06,
+    "radius_tolerance_mm": 1e-06,
+    "span_tolerance_mm": 1e-06
+  },
+  "hard_conditions": {
+    "bbox_coordinate_tolerance_mm": 1e-06,
+    "single_valid_solid": true,
+    "volume_absolute_tolerance_mm3": 1e-06,
+    "volume_relative_tolerance": 1e-09
+  },
+  "protocol_schema": "gate3-validation-0.1",
+  "sampling": {
+    "minimum_per_face": 32,
+    "seed_policy": "first_8_bytes_of_reference_step_sha256_shared_by_comparison_pair",
+    "total_budget": 4096
+  },
+  "selection_rule": "frozen matrix development through_hole D-H01..D-H05",
+  "surface": {
+    "mode": "diagnostic_only",
+    "reason": "No Gate 3 separation threshold has been established"
+  }
+}

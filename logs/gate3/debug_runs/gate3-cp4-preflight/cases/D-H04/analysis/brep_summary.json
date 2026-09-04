@@ -1,0 +1,1254 @@
+{
+  "brep_summary_schema": "brep-summary-0.1",
+  "canonicalization": {
+    "direction_decimals": 12,
+    "linear_decimals": 9,
+    "negative_zero_normalized": true,
+    "parameter_decimals": 12,
+    "wire_cycle_start": "lexicographically_minimal_rotation_without_reversal"
+  },
+  "model_id": "D-H04",
+  "solid_count": 1,
+  "solids": [
+    {
+      "bbox_mm": {
+        "xmax": 6.0,
+        "xmin": -15.0,
+        "ymax": 50.0,
+        "ymin": 0.0,
+        "zmax": 32.0,
+        "zmin": 0.0
+      },
+      "centroid_mm": [
+        -4.5,
+        24.70808591,
+        16.129739596
+      ],
+      "edges": [
+        {
+          "bbox_mm": {
+            "xmax": -15.0,
+            "xmin": -15.0,
+            "ymax": 0.0,
+            "ymin": 0.0,
+            "zmax": 32.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            -15.0,
+            0.0,
+            16.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "origin_mm": [
+              -15.0,
+              0.0,
+              32.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-000",
+          "is_closed": false,
+          "length_mm": 32.0,
+          "parameter_range": [
+            0.0,
+            32.0
+          ],
+          "vertex_ids": [
+            "vertex-000",
+            "vertex-001"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": -15.0,
+            "xmin": -15.0,
+            "ymax": 38.0,
+            "ymin": 30.0,
+            "zmax": 16.0,
+            "zmin": 8.0
+          },
+          "centroid_mm": [
+            -15.0,
+            34.0,
+            12.0
+          ],
+          "circle_form": "full_circle",
+          "curve_parameters": {
+            "axis_direction": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "center_mm": [
+              -15.0,
+              34.0,
+              12.0
+            ],
+            "radius_mm": 4.0,
+            "x_direction": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          "curve_type": "circle",
+          "edge_id": "edge-001",
+          "is_closed": true,
+          "length_mm": 25.132741229,
+          "parameter_range": [
+            0.0,
+            6.28318530718
+          ],
+          "vertex_ids": [
+            "vertex-002"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": -15.0,
+            "xmin": -15.0,
+            "ymax": 50.0,
+            "ymin": 0.0,
+            "zmax": 0.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            -15.0,
+            25.0,
+            0.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "origin_mm": [
+              -15.0,
+              0.0,
+              0.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-002",
+          "is_closed": false,
+          "length_mm": 50.0,
+          "parameter_range": [
+            0.0,
+            50.0
+          ],
+          "vertex_ids": [
+            "vertex-000",
+            "vertex-003"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": -15.0,
+            "xmin": -15.0,
+            "ymax": 50.0,
+            "ymin": 0.0,
+            "zmax": 32.0,
+            "zmin": 32.0
+          },
+          "centroid_mm": [
+            -15.0,
+            25.0,
+            32.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "origin_mm": [
+              -15.0,
+              50.0,
+              32.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-003",
+          "is_closed": false,
+          "length_mm": 50.0,
+          "parameter_range": [
+            0.0,
+            50.0
+          ],
+          "vertex_ids": [
+            "vertex-001",
+            "vertex-004"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": -15.0,
+            "xmin": -15.0,
+            "ymax": 50.0,
+            "ymin": 50.0,
+            "zmax": 32.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            -15.0,
+            50.0,
+            16.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "origin_mm": [
+              -15.0,
+              50.0,
+              0.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-004",
+          "is_closed": false,
+          "length_mm": 32.0,
+          "parameter_range": [
+            0.0,
+            32.0
+          ],
+          "vertex_ids": [
+            "vertex-003",
+            "vertex-004"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 0.0,
+            "ymin": 0.0,
+            "zmax": 0.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            -4.5,
+            0.0,
+            0.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "origin_mm": [
+              6.0,
+              0.0,
+              0.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-005",
+          "is_closed": false,
+          "length_mm": 21.0,
+          "parameter_range": [
+            0.0,
+            21.0
+          ],
+          "vertex_ids": [
+            "vertex-000",
+            "vertex-005"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 0.0,
+            "ymin": 0.0,
+            "zmax": 32.0,
+            "zmin": 32.0
+          },
+          "centroid_mm": [
+            -4.5,
+            0.0,
+            32.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "origin_mm": [
+              6.0,
+              0.0,
+              32.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-006",
+          "is_closed": false,
+          "length_mm": 21.0,
+          "parameter_range": [
+            0.0,
+            21.0
+          ],
+          "vertex_ids": [
+            "vertex-001",
+            "vertex-006"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 34.0,
+            "ymin": 34.0,
+            "zmax": 8.0,
+            "zmin": 8.0
+          },
+          "centroid_mm": [
+            -4.5,
+            34.0,
+            8.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "origin_mm": [
+              7.0,
+              34.0,
+              8.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-007",
+          "is_closed": false,
+          "length_mm": 21.0,
+          "parameter_range": [
+            1.0,
+            22.0
+          ],
+          "vertex_ids": [
+            "vertex-002",
+            "vertex-007"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 50.0,
+            "ymin": 50.0,
+            "zmax": 0.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            -4.5,
+            50.0,
+            0.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "origin_mm": [
+              6.0,
+              50.0,
+              0.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-008",
+          "is_closed": false,
+          "length_mm": 21.0,
+          "parameter_range": [
+            0.0,
+            21.0
+          ],
+          "vertex_ids": [
+            "vertex-003",
+            "vertex-008"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 50.0,
+            "ymin": 50.0,
+            "zmax": 32.0,
+            "zmin": 32.0
+          },
+          "centroid_mm": [
+            -4.5,
+            50.0,
+            32.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "origin_mm": [
+              6.0,
+              50.0,
+              32.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-009",
+          "is_closed": false,
+          "length_mm": 21.0,
+          "parameter_range": [
+            0.0,
+            21.0
+          ],
+          "vertex_ids": [
+            "vertex-004",
+            "vertex-009"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": 6.0,
+            "ymax": 0.0,
+            "ymin": 0.0,
+            "zmax": 32.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            6.0,
+            0.0,
+            16.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "origin_mm": [
+              6.0,
+              0.0,
+              32.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-010",
+          "is_closed": false,
+          "length_mm": 32.0,
+          "parameter_range": [
+            0.0,
+            32.0
+          ],
+          "vertex_ids": [
+            "vertex-005",
+            "vertex-006"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": 6.0,
+            "ymax": 38.0,
+            "ymin": 30.0,
+            "zmax": 16.0,
+            "zmin": 8.0
+          },
+          "centroid_mm": [
+            6.0,
+            34.0,
+            12.0
+          ],
+          "circle_form": "full_circle",
+          "curve_parameters": {
+            "axis_direction": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "center_mm": [
+              6.0,
+              34.0,
+              12.0
+            ],
+            "radius_mm": 4.0,
+            "x_direction": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          "curve_type": "circle",
+          "edge_id": "edge-011",
+          "is_closed": true,
+          "length_mm": 25.132741229,
+          "parameter_range": [
+            0.0,
+            6.28318530718
+          ],
+          "vertex_ids": [
+            "vertex-007"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": 6.0,
+            "ymax": 50.0,
+            "ymin": 0.0,
+            "zmax": 0.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            6.0,
+            25.0,
+            0.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "origin_mm": [
+              6.0,
+              0.0,
+              0.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-012",
+          "is_closed": false,
+          "length_mm": 50.0,
+          "parameter_range": [
+            0.0,
+            50.0
+          ],
+          "vertex_ids": [
+            "vertex-005",
+            "vertex-008"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": 6.0,
+            "ymax": 50.0,
+            "ymin": 0.0,
+            "zmax": 32.0,
+            "zmin": 32.0
+          },
+          "centroid_mm": [
+            6.0,
+            25.0,
+            32.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "origin_mm": [
+              6.0,
+              50.0,
+              32.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-013",
+          "is_closed": false,
+          "length_mm": 50.0,
+          "parameter_range": [
+            0.0,
+            50.0
+          ],
+          "vertex_ids": [
+            "vertex-006",
+            "vertex-009"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": 6.0,
+            "ymax": 50.0,
+            "ymin": 50.0,
+            "zmax": 32.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            6.0,
+            50.0,
+            16.0
+          ],
+          "curve_parameters": {
+            "direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "origin_mm": [
+              6.0,
+              50.0,
+              0.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-014",
+          "is_closed": false,
+          "length_mm": 32.0,
+          "parameter_range": [
+            0.0,
+            32.0
+          ],
+          "vertex_ids": [
+            "vertex-008",
+            "vertex-009"
+          ]
+        }
+      ],
+      "face_ids": [
+        "face-000",
+        "face-001",
+        "face-002",
+        "face-003",
+        "face-004",
+        "face-005",
+        "face-006"
+      ],
+      "faces": [
+        {
+          "area_mm2": 1050.0,
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 50.0,
+            "ymin": 0.0,
+            "zmax": 0.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            -4.5,
+            25.0,
+            0.0
+          ],
+          "face_id": "face-000",
+          "orientation": "forward",
+          "parameter_bounds": {
+            "u_max": 50.0,
+            "u_min": 0.0,
+            "v_max": 0.0,
+            "v_min": -21.0
+          },
+          "surface_parameters": {
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "origin_mm": [
+              6.0,
+              0.0,
+              0.0
+            ],
+            "x_direction": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          "surface_type": "plane",
+          "wire_uses": [
+            {
+              "orientation": "forward",
+              "wire_id": "wire-004"
+            }
+          ]
+        },
+        {
+          "area_mm2": 1050.0,
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 50.0,
+            "ymin": 0.0,
+            "zmax": 32.0,
+            "zmin": 32.0
+          },
+          "centroid_mm": [
+            -4.5,
+            25.0,
+            32.0
+          ],
+          "face_id": "face-001",
+          "orientation": "forward",
+          "parameter_bounds": {
+            "u_max": 50.0,
+            "u_min": 0.0,
+            "v_max": 0.0,
+            "v_min": -21.0
+          },
+          "surface_parameters": {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "origin_mm": [
+              6.0,
+              50.0,
+              32.0
+            ],
+            "x_direction": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          "surface_type": "plane",
+          "wire_uses": [
+            {
+              "orientation": "forward",
+              "wire_id": "wire-005"
+            }
+          ]
+        },
+        {
+          "area_mm2": 1549.734517543,
+          "bbox_mm": {
+            "xmax": -15.0,
+            "xmin": -15.0,
+            "ymax": 50.0,
+            "ymin": 0.0,
+            "zmax": 32.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            -15.0,
+            24.70808591,
+            16.129739596
+          ],
+          "face_id": "face-002",
+          "orientation": "reversed",
+          "parameter_bounds": {
+            "u_max": 16.0,
+            "u_min": -16.0,
+            "v_max": 25.0,
+            "v_min": -25.0
+          },
+          "surface_parameters": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "origin_mm": [
+              -15.0,
+              25.0,
+              16.0
+            ],
+            "x_direction": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "surface_type": "plane",
+          "wire_uses": [
+            {
+              "orientation": "reversed",
+              "wire_id": "wire-001"
+            },
+            {
+              "orientation": "reversed",
+              "wire_id": "wire-003"
+            }
+          ]
+        },
+        {
+          "area_mm2": 1549.734517543,
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": 6.0,
+            "ymax": 50.0,
+            "ymin": 0.0,
+            "zmax": 32.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            6.0,
+            24.70808591,
+            16.129739596
+          ],
+          "face_id": "face-003",
+          "orientation": "forward",
+          "parameter_bounds": {
+            "u_max": 16.0,
+            "u_min": -16.0,
+            "v_max": 25.0,
+            "v_min": -25.0
+          },
+          "surface_parameters": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "origin_mm": [
+              6.0,
+              25.0,
+              16.0
+            ],
+            "x_direction": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "surface_type": "plane",
+          "wire_uses": [
+            {
+              "orientation": "forward",
+              "wire_id": "wire-007"
+            },
+            {
+              "orientation": "forward",
+              "wire_id": "wire-008"
+            }
+          ]
+        },
+        {
+          "area_mm2": 527.787565803,
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 38.0,
+            "ymin": 30.0,
+            "zmax": 16.0,
+            "zmin": 8.0
+          },
+          "centroid_mm": [
+            -4.5,
+            34.0,
+            12.0
+          ],
+          "face_id": "face-004",
+          "orientation": "reversed",
+          "parameter_bounds": {
+            "u_max": 6.28318530718,
+            "u_min": 0.0,
+            "v_max": 22.0,
+            "v_min": 1.0
+          },
+          "surface_parameters": {
+            "axis_direction": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "axis_origin_mm": [
+              7.0,
+              34.0,
+              12.0
+            ],
+            "radius_mm": 4.0,
+            "x_direction": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          "surface_type": "cylinder",
+          "wire_uses": [
+            {
+              "orientation": "reversed",
+              "wire_id": "wire-002"
+            }
+          ]
+        },
+        {
+          "area_mm2": 672.0,
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 0.0,
+            "ymin": 0.0,
+            "zmax": 32.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            -4.5,
+            0.0,
+            16.0
+          ],
+          "face_id": "face-005",
+          "orientation": "forward",
+          "parameter_bounds": {
+            "u_max": 32.0,
+            "u_min": 0.0,
+            "v_max": 0.0,
+            "v_min": -21.0
+          },
+          "surface_parameters": {
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "origin_mm": [
+              6.0,
+              0.0,
+              32.0
+            ],
+            "x_direction": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          "surface_type": "plane",
+          "wire_uses": [
+            {
+              "orientation": "forward",
+              "wire_id": "wire-000"
+            }
+          ]
+        },
+        {
+          "area_mm2": 672.0,
+          "bbox_mm": {
+            "xmax": 6.0,
+            "xmin": -15.0,
+            "ymax": 50.0,
+            "ymin": 50.0,
+            "zmax": 32.0,
+            "zmin": 0.0
+          },
+          "centroid_mm": [
+            -4.5,
+            50.0,
+            16.0
+          ],
+          "face_id": "face-006",
+          "orientation": "forward",
+          "parameter_bounds": {
+            "u_max": 32.0,
+            "u_min": 0.0,
+            "v_max": 0.0,
+            "v_min": -21.0
+          },
+          "surface_parameters": {
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "origin_mm": [
+              6.0,
+              50.0,
+              0.0
+            ],
+            "x_direction": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "surface_type": "plane",
+          "wire_uses": [
+            {
+              "orientation": "forward",
+              "wire_id": "wire-006"
+            }
+          ]
+        }
+      ],
+      "is_valid": true,
+      "solid_id": "solid-000",
+      "surface_area_mm2": 7071.256600888,
+      "vertices": [
+        {
+          "point_mm": [
+            -15.0,
+            0.0,
+            0.0
+          ],
+          "vertex_id": "vertex-000"
+        },
+        {
+          "point_mm": [
+            -15.0,
+            0.0,
+            32.0
+          ],
+          "vertex_id": "vertex-001"
+        },
+        {
+          "point_mm": [
+            -15.0,
+            34.0,
+            8.0
+          ],
+          "vertex_id": "vertex-002"
+        },
+        {
+          "point_mm": [
+            -15.0,
+            50.0,
+            0.0
+          ],
+          "vertex_id": "vertex-003"
+        },
+        {
+          "point_mm": [
+            -15.0,
+            50.0,
+            32.0
+          ],
+          "vertex_id": "vertex-004"
+        },
+        {
+          "point_mm": [
+            6.0,
+            0.0,
+            0.0
+          ],
+          "vertex_id": "vertex-005"
+        },
+        {
+          "point_mm": [
+            6.0,
+            0.0,
+            32.0
+          ],
+          "vertex_id": "vertex-006"
+        },
+        {
+          "point_mm": [
+            6.0,
+            34.0,
+            8.0
+          ],
+          "vertex_id": "vertex-007"
+        },
+        {
+          "point_mm": [
+            6.0,
+            50.0,
+            0.0
+          ],
+          "vertex_id": "vertex-008"
+        },
+        {
+          "point_mm": [
+            6.0,
+            50.0,
+            32.0
+          ],
+          "vertex_id": "vertex-009"
+        }
+      ],
+      "volume_mm3": 32544.424868394,
+      "wires": [
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-000",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-005",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-010",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-006",
+              "orientation": "forward"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-000"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-000",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-003",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-004",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-002",
+              "orientation": "reversed"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-001"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-001",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-007",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-011",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-007",
+              "orientation": "forward"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-002"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-001",
+              "orientation": "reversed"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-003"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-002",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-008",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-012",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-005",
+              "orientation": "forward"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-004"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-003",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-006",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-013",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-009",
+              "orientation": "forward"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-005"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-004",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-009",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-014",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-008",
+              "orientation": "forward"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-006"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-010",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-012",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-014",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-013",
+              "orientation": "forward"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-007"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-011",
+              "orientation": "forward"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-008"
+        }
+      ]
+    }
+  ],
+  "source_step_sha256": "e79dcea2e5e0adc5349626f8629b23b5e0b763f69cd8435e96cd9ac5f4e1f689",
+  "topology_counts": {
+    "edges": 15,
+    "faces": 7,
+    "vertices": 10,
+    "wires": 9
+  },
+  "units": "mm"
+}

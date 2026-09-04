@@ -1,0 +1,11 @@
+{
+  "autodeskProduct": "Fusion",
+  "type": "script",
+  "author": "Shuo Ding",
+  "description": {
+    "": "Gate 3 cadseq-0.2 through-hole batch replay adapter"
+  },
+  "version": "0.1.0",
+  "supportedOS": "windows",
+  "editEnabled": true
+}
