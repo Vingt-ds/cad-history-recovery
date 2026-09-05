@@ -1,0 +1,102 @@
+{
+  "ambiguous": false,
+  "candidate_set": [
+    {
+      "base_face_id": "face-001",
+      "boundary_match_kind": "translated_full_circle",
+      "candidate_id": "extrusion-face-001-face-002",
+      "checks": {
+        "area_match": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_full_circle",
+            "matched_edges": 1
+          },
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": -1.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 25.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 1.0,
+          "pass": true,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 25.0,
+      "extrusion_direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "opposite_face_id": "face-002",
+      "rejection_reasons": [],
+      "score_components": {
+        "passed_hard_checks": 6,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "status": "accepted"
+    }
+  ],
+  "candidates_schema": "gate4-candidate-evidence-0.1",
+  "pre_fusion_validation": {
+    "bbox_coordinate_errors_mm": {
+      "xmax": 0.0,
+      "xmin": 0.0,
+      "ymax": 0.0,
+      "ymin": 0.0,
+      "zmax": 0.0,
+      "zmin": 0.0
+    },
+    "bbox_max_coordinate_error_mm": 0.0,
+    "bbox_pass": true,
+    "geometry_pass": true,
+    "max_face_p95_mm": 0.8145369867987922,
+    "max_face_p95_ratio": 0.019322668171583773,
+    "surface_mode": "threshold",
+    "surface_pass": true,
+    "surface_sort_value": 0.019322668171583773,
+    "symmetric_p95_mm": 0.7918436736542813,
+    "symmetric_p95_ratio": 0.018784331218551657,
+    "valid_single_solid": true,
+    "validation_schema": "gate2-candidate-validation-0.1",
+    "volume_error_mm3": 0.0,
+    "volume_limit_mm3": 1.2309733552923256e-05,
+    "volume_pass": true
+  },
+  "route": {
+    "cylinder_face_count": 1,
+    "cylindrical_boundary_evidence": true,
+    "full_circle_edge_count": 2,
+    "hole_fact_group_count": 1,
+    "inner_circular_opening_evidence": false,
+    "reason": "no_inner_circular_opening_and_cylindrical_void_pair",
+    "route": "gate2",
+    "routing_schema": "gate4-content-route-0.1",
+    "supported_hole_group_count": 0
+  },
+  "selected_candidate_id": "extrusion-face-001-face-002",
+  "source_step_sha256": "d50f1285e656e34347f95e614785e93f42e73e2bbd6631c52095a171d7d893a3"
+}

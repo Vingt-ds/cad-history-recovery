@@ -1,0 +1,8 @@
+{
+  "ambiguous": true,
+  "error_summary": "Gate 2 supports global-axis offsets and rotation about global X",
+  "failure_code": "unsupported_absolute_frame",
+  "failure_stage": "fusion_replay",
+  "not_applicable_reason": "No replay entity was available for validation",
+  "terminal_status": "failed"
+}

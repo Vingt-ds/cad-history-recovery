@@ -1,0 +1,6 @@
+{
+  "ambiguous": false,
+  "not_applicable_reason": "No replayable hypothesis exists inside the frozen Gate 2/3 scope",
+  "scope_rule": "hole_like_geometry_outside_frozen_gate3_scope",
+  "terminal_status": "unsupported"
+}

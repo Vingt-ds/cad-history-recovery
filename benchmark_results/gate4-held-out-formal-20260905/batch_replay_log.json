@@ -1,0 +1,388 @@
+{
+  "attempted_replay_count": 13,
+  "cases": [
+    {
+      "body_count": 1,
+      "case_id": "T-C01",
+      "face_count": 6,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-9fd2d8dcb347fa1f",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "92269f3b1bb3ae53509e4bf44e5ee6ceeec9de751712f63fd82abcc794972bcd",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-H01",
+      "face_count": 7,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-f5098ea092e29991",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        },
+        {
+          "operation_id": "sketch_hole",
+          "profile_count": 2,
+          "status": "success"
+        },
+        {
+          "operation_id": "cut_hole",
+          "status": "success",
+          "volume_after_cm3": 38.463272226531274,
+          "volume_before_cm3": 39.672000000000004
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "e301c4dde0bd8702c04f499aabefcbff0f43dfe47568f84dfd4ec5610bdaaeee",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-H02",
+      "face_count": 7,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-55f8ace601939488",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        },
+        {
+          "operation_id": "sketch_hole",
+          "profile_count": 2,
+          "status": "success"
+        },
+        {
+          "operation_id": "cut_hole",
+          "status": "success",
+          "volume_after_cm3": 38.389203673205046,
+          "volume_before_cm3": 39.96000000000001
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "8355506803986e9ec9ebe420624fda2f0b36e215ec40b448cba79dca2f0beef9",
+      "status": "success",
+      "world_frame_max_error_mm": 2.220446049250313e-15
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-H03",
+      "face_count": 7,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-492a2147b215fcbe",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        },
+        {
+          "operation_id": "sketch_hole",
+          "profile_count": 2,
+          "status": "success"
+        },
+        {
+          "operation_id": "cut_hole",
+          "status": "success",
+          "volume_after_cm3": 22.424247839896374,
+          "volume_before_cm3": 23.040000000000003
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "31b8163fc9366c6eb7b782354a8f5bbf089c03d4d10930f37248bc61ef10a342",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-H04",
+      "face_count": 7,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-7f3b30b579ba55ee",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        },
+        {
+          "operation_id": "sketch_hole",
+          "profile_count": 2,
+          "status": "success"
+        },
+        {
+          "operation_id": "cut_hole",
+          "status": "success",
+          "volume_after_cm3": 26.095221315766103,
+          "volume_before_cm3": 27.0
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "eeb81080fef618d41a91a318d5ee187f44a59b29906f8a01b5a2e99a80dce901",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-S01",
+      "face_count": 9,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-a1fd7868b80e5411",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "6c3b9e4b4ace8efc8ad6d935757bdf773122fb4dbe7007e3f400e62885bdf53f",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-S02",
+      "face_count": 5,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-7f96401bb95e40b1",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "093bd51e8012539c7e0715bc89e167d8187997fb3537c7b8af16a99a9b2158b2",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-S03",
+      "face_count": 7,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-fed530af55a09e63",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "abe07d10bd8179e6c447ce80a28ab45604f14ac8c6e7eef12c9f26a1b4e118ce",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-S04",
+      "face_count": 3,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-d50f1285e656e343",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "4420775c88af93f70707610fc6cfaee22bb8881b068d05b37fc2b48fd1ea5af0",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-S05",
+      "face_count": 8,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-9fa76c65ac841fe6",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "a6d44f5037798a27a0d583cbf5927f56ba500c5b9d8f2bfd99d24c213a9375a8",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-S06",
+      "face_count": 8,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-f9fdb78a1e46b078",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "f00f24f9649a9cff92c0dec64ae64f96cd9fdefe8db058fcc4f338aa261b18bc",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    },
+    {
+      "case_id": "T-S07",
+      "error": "Gate 2 supports global-axis offsets and rotation about global X",
+      "error_code": "unsupported_absolute_frame",
+      "fusion_version": "2704.1.53",
+      "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+      "status": "failure",
+      "traceback": "Traceback (most recent call last):\n  File \"E:/研究生/申请/墨尔本/第七批/Xingang Li/Project/Project/cad-history-recovery/.worktrees/gate4-formal-heldout/fusion_scripts/Gate4SequenceReplay/Gate4SequenceReplay.py\", line 142, in run\n    records.append(gate2._replay_case(app, core, case_id, case_paths))\n                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\.worktrees\\gate4-formal-heldout\\fusion_scripts\\Gate2SequenceReplay\\Gate2SequenceReplay.py\", line 244, in _replay_case\n    operation_records, world_frame_max_error_mm = core._run_sequence(\n                                                  ~~~~~~~~~~~~~~~~~~^\n        sequence,\n        ^^^^^^^^^\n    ...<4 lines>...\n        plane_resolver=resolver,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\.worktrees\\gate4-formal-heldout\\fusion_scripts\\Gate1SequenceReplay\\Gate1SequenceReplay.py\", line 253, in _run_sequence\n    plane = plane_resolver(\n        component,\n    ...<3 lines>...\n        units,\n    )\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\.worktrees\\gate4-formal-heldout\\fusion_scripts\\Gate2SequenceReplay\\Gate2SequenceReplay.py\", line 241, in <lambda>\n    resolver = lambda comp, op, angle, features, units: _plane_resolver(\n                                                        ~~~~~~~~~~~~~~~^\n        core, comp, op, angle, features, units\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\.worktrees\\gate4-formal-heldout\\fusion_scripts\\Gate2SequenceReplay\\Gate2SequenceReplay.py\", line 212, in _plane_resolver\n    return _absolute_frame_plane(\n        component,\n    ...<2 lines>...\n        angular_tolerance,\n    )\n  File \"E:\\研究生\\申请\\墨尔本\\第七批\\Xingang Li\\Project\\Project\\cad-history-recovery\\.worktrees\\gate4-formal-heldout\\fusion_scripts\\Gate2SequenceReplay\\Gate2SequenceReplay.py\", line 188, in _absolute_frame_plane\n    raise ReplayError(\n    ...<2 lines>...\n    )\n_gate4_gate2_adapter_current.ReplayError: Gate 2 supports global-axis offsets and rotation about global X\n"
+    },
+    {
+      "body_count": 1,
+      "case_id": "T-S08",
+      "face_count": 10,
+      "fusion_version": "2704.1.53",
+      "model_id": "shape-ef56d0dfa51d86df",
+      "operations": [
+        {
+          "operation_id": "sketch_base",
+          "profile_count": 1,
+          "status": "success"
+        },
+        {
+          "operation_id": "extrude_base",
+          "status": "success"
+        }
+      ],
+      "outputs": {
+        "f3d": "replay.f3d",
+        "step": "replay.step"
+      },
+      "python_version": "3.14.0",
+      "replay_mode": "automatic",
+      "sequence_sha256": "5752ac4f24ac79b1b85a61a27543609d9be2d1ffc67fc92eea3c4c3517ecb579",
+      "status": "success",
+      "world_frame_max_error_mm": 0.0
+    }
+  ],
+  "failure_count": 1,
+  "request_sha256": "b0b3f58f5665df864caf25ea5585d3eba63002408ca5063ec5a9ff54f153fc3c",
+  "requested_case_count": 15,
+  "run_id": "gate4-held-out-formal-20260905",
+  "status": "complete",
+  "success_count": 12
+}

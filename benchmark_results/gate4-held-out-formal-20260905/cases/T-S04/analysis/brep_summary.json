@@ -1,0 +1,386 @@
+{
+  "brep_summary_schema": "brep-summary-0.1",
+  "canonicalization": {
+    "direction_decimals": 12,
+    "linear_decimals": 9,
+    "negative_zero_normalized": true,
+    "parameter_decimals": 12,
+    "wire_cycle_start": "lexicographically_minimal_rotation_without_reversal"
+  },
+  "model_id": "shape-d50f1285e656e343",
+  "solid_count": 1,
+  "solids": [
+    {
+      "bbox_mm": {
+        "xmax": 30.0,
+        "xmin": 6.0,
+        "ymax": 22.0,
+        "ymin": -2.0,
+        "zmax": 6.0,
+        "zmin": -19.0
+      },
+      "centroid_mm": [
+        18.0,
+        10.0,
+        -6.5
+      ],
+      "edges": [
+        {
+          "bbox_mm": {
+            "xmax": 30.0,
+            "xmin": 30.0,
+            "ymax": 10.0,
+            "ymin": 10.0,
+            "zmax": 6.0,
+            "zmin": -19.0
+          },
+          "centroid_mm": [
+            30.0,
+            10.0,
+            -6.5
+          ],
+          "curve_parameters": {
+            "direction": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "origin_mm": [
+              30.0,
+              10.0,
+              6.0
+            ]
+          },
+          "curve_type": "line",
+          "edge_id": "edge-000",
+          "is_closed": false,
+          "length_mm": 25.0,
+          "parameter_range": [
+            0.0,
+            25.0
+          ],
+          "vertex_ids": [
+            "vertex-000",
+            "vertex-001"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 30.0,
+            "xmin": 6.0,
+            "ymax": 22.0,
+            "ymin": -2.0,
+            "zmax": -19.0,
+            "zmin": -19.0
+          },
+          "centroid_mm": [
+            18.0,
+            10.0,
+            -19.0
+          ],
+          "circle_form": "full_circle",
+          "curve_parameters": {
+            "axis_direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "center_mm": [
+              18.0,
+              10.0,
+              -19.0
+            ],
+            "radius_mm": 12.0,
+            "x_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "curve_type": "circle",
+          "edge_id": "edge-001",
+          "is_closed": true,
+          "length_mm": 75.398223686,
+          "parameter_range": [
+            0.0,
+            6.28318530718
+          ],
+          "vertex_ids": [
+            "vertex-000"
+          ]
+        },
+        {
+          "bbox_mm": {
+            "xmax": 30.0,
+            "xmin": 6.0,
+            "ymax": 22.0,
+            "ymin": -2.0,
+            "zmax": 6.0,
+            "zmin": 6.0
+          },
+          "centroid_mm": [
+            18.0,
+            10.0,
+            6.0
+          ],
+          "circle_form": "full_circle",
+          "curve_parameters": {
+            "axis_direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "center_mm": [
+              18.0,
+              10.0,
+              6.0
+            ],
+            "radius_mm": 12.0,
+            "x_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "curve_type": "circle",
+          "edge_id": "edge-002",
+          "is_closed": true,
+          "length_mm": 75.398223686,
+          "parameter_range": [
+            0.0,
+            6.28318530718
+          ],
+          "vertex_ids": [
+            "vertex-001"
+          ]
+        }
+      ],
+      "face_ids": [
+        "face-000",
+        "face-001",
+        "face-002"
+      ],
+      "faces": [
+        {
+          "area_mm2": 1884.955592154,
+          "bbox_mm": {
+            "xmax": 30.0,
+            "xmin": 6.0,
+            "ymax": 22.0,
+            "ymin": -2.0,
+            "zmax": 6.0,
+            "zmin": -19.0
+          },
+          "centroid_mm": [
+            18.0,
+            10.0,
+            -6.5
+          ],
+          "face_id": "face-000",
+          "orientation": "forward",
+          "parameter_bounds": {
+            "u_max": 6.28318530718,
+            "u_min": 0.0,
+            "v_max": 0.0,
+            "v_min": -25.0
+          },
+          "surface_parameters": {
+            "axis_direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "axis_origin_mm": [
+              18.0,
+              10.0,
+              6.0
+            ],
+            "radius_mm": 12.0,
+            "x_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "surface_type": "cylinder",
+          "wire_uses": [
+            {
+              "orientation": "forward",
+              "wire_id": "wire-000"
+            }
+          ]
+        },
+        {
+          "area_mm2": 452.389342117,
+          "bbox_mm": {
+            "xmax": 30.0,
+            "xmin": 6.0,
+            "ymax": 22.0,
+            "ymin": -2.0,
+            "zmax": -19.0,
+            "zmin": -19.0
+          },
+          "centroid_mm": [
+            18.0,
+            10.0,
+            -19.0
+          ],
+          "face_id": "face-001",
+          "orientation": "reversed",
+          "parameter_bounds": {
+            "u_max": 12.0,
+            "u_min": -12.0,
+            "v_max": 12.0,
+            "v_min": -12.0
+          },
+          "surface_parameters": {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "origin_mm": [
+              18.0,
+              10.0,
+              -19.0
+            ],
+            "x_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "surface_type": "plane",
+          "wire_uses": [
+            {
+              "orientation": "reversed",
+              "wire_id": "wire-001"
+            }
+          ]
+        },
+        {
+          "area_mm2": 452.389342117,
+          "bbox_mm": {
+            "xmax": 30.0,
+            "xmin": 6.0,
+            "ymax": 22.0,
+            "ymin": -2.0,
+            "zmax": 6.0,
+            "zmin": 6.0
+          },
+          "centroid_mm": [
+            18.0,
+            10.0,
+            6.0
+          ],
+          "face_id": "face-002",
+          "orientation": "forward",
+          "parameter_bounds": {
+            "u_max": 12.0,
+            "u_min": -12.0,
+            "v_max": 12.0,
+            "v_min": -12.0
+          },
+          "surface_parameters": {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "origin_mm": [
+              18.0,
+              10.0,
+              6.0
+            ],
+            "x_direction": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "surface_type": "plane",
+          "wire_uses": [
+            {
+              "orientation": "forward",
+              "wire_id": "wire-002"
+            }
+          ]
+        }
+      ],
+      "is_valid": true,
+      "solid_id": "solid-000",
+      "surface_area_mm2": 2789.734276388,
+      "vertices": [
+        {
+          "point_mm": [
+            30.0,
+            10.0,
+            -19.0
+          ],
+          "vertex_id": "vertex-000"
+        },
+        {
+          "point_mm": [
+            30.0,
+            10.0,
+            6.0
+          ],
+          "vertex_id": "vertex-001"
+        }
+      ],
+      "volume_mm3": 11309.733552923,
+      "wires": [
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-000",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-001",
+              "orientation": "forward"
+            },
+            {
+              "edge_id": "edge-000",
+              "orientation": "reversed"
+            },
+            {
+              "edge_id": "edge-002",
+              "orientation": "reversed"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-000"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-001",
+              "orientation": "reversed"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-001"
+        },
+        {
+          "edge_uses": [
+            {
+              "edge_id": "edge-002",
+              "orientation": "forward"
+            }
+          ],
+          "is_closed": true,
+          "wire_id": "wire-002"
+        }
+      ]
+    }
+  ],
+  "source_step_sha256": "d50f1285e656e34347f95e614785e93f42e73e2bbd6631c52095a171d7d893a3",
+  "topology_counts": {
+    "edges": 3,
+    "faces": 3,
+    "vertices": 2,
+    "wires": 3
+  },
+  "units": "mm"
+}

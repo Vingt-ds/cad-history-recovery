@@ -1,0 +1,132 @@
+{
+  "corrections": [],
+  "model_id": "shape-4cd2276e503e7f2d",
+  "operations": [
+    {
+      "dependencies": [],
+      "loops": [
+        {
+          "loop_id": "base_outer",
+          "loop_type": "outer",
+          "primitives": [
+            {
+              "end": [
+                8.999999999,
+                14.0
+              ],
+              "primitive_id": "line_1",
+              "start": [
+                9.0,
+                -14.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -9.0,
+                14.0
+              ],
+              "primitive_id": "line_2",
+              "start": [
+                8.999999999,
+                14.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -9.0,
+                -14.0
+              ],
+              "primitive_id": "line_3",
+              "start": [
+                -9.0,
+                14.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                9.0,
+                -14.0
+              ],
+              "primitive_id": "line_4",
+              "start": [
+                -9.0,
+                -14.0
+              ],
+              "type": "line"
+            }
+          ]
+        }
+      ],
+      "operation_id": "sketch_base",
+      "operation_type": "sketch",
+      "replay_status": "pending",
+      "sketch_plane": {
+        "frame": {
+          "normal": [
+            0.707106781175,
+            0.0,
+            -0.707106781198
+          ],
+          "origin": [
+            6.363961031,
+            14.0,
+            6.363961031
+          ],
+          "x_axis": [
+            0.707106781198,
+            0.0,
+            0.707106781175
+          ]
+        },
+        "frame_provenance": {
+          "base_face_id": "face-002",
+          "source_face_outward_normal": [
+            -0.707106781187,
+            0.0,
+            0.707106781187
+          ],
+          "source_step_sha256": "4cd2276e503e7f2da08dda20436919e9b1dbc4b34fbb01662f7cc28f62b1d1b9"
+        },
+        "frame_source": "inferred_brep",
+        "semantic_reference": {
+          "type": "absolute_frame"
+        }
+      }
+    },
+    {
+      "boolean_type": "new",
+      "dependencies": [
+        "sketch_base"
+      ],
+      "direction": [
+        0.707106781175,
+        0.0,
+        -0.707106781198
+      ],
+      "extent": {
+        "distance_mm": 44.0,
+        "type": "distance"
+      },
+      "operation_id": "extrude_base",
+      "operation_type": "extrude",
+      "profile": {
+        "inner_loop_ids": [],
+        "outer_loop_id": "base_outer",
+        "sketch_id": "sketch_base"
+      },
+      "replay_status": "pending"
+    }
+  ],
+  "replay_mode": "automatic",
+  "replay_status": "pending",
+  "schema_version": "cadseq-0.2",
+  "source_step_sha256": "4cd2276e503e7f2da08dda20436919e9b1dbc4b34fbb01662f7cc28f62b1d1b9",
+  "tolerance": {
+    "angular_rad": 1e-08,
+    "length_mm": 1e-06
+  },
+  "units": "mm"
+}

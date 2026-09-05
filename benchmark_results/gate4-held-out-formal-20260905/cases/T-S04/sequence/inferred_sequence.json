@@ -1,0 +1,93 @@
+{
+  "corrections": [],
+  "model_id": "shape-d50f1285e656e343",
+  "operations": [
+    {
+      "dependencies": [],
+      "loops": [
+        {
+          "loop_id": "base_outer",
+          "loop_type": "outer",
+          "primitives": [
+            {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "primitive_id": "circle_1",
+              "radius_mm": 12.0,
+              "type": "circle"
+            }
+          ]
+        }
+      ],
+      "operation_id": "sketch_base",
+      "operation_type": "sketch",
+      "replay_status": "pending",
+      "sketch_plane": {
+        "frame": {
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "origin": [
+            18.0,
+            10.0,
+            -19.0
+          ],
+          "x_axis": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "frame_provenance": {
+          "base_face_id": "face-001",
+          "source_face_outward_normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "source_step_sha256": "d50f1285e656e34347f95e614785e93f42e73e2bbd6631c52095a171d7d893a3"
+        },
+        "frame_source": "inferred_brep",
+        "semantic_reference": {
+          "type": "absolute_frame"
+        }
+      }
+    },
+    {
+      "boolean_type": "new",
+      "dependencies": [
+        "sketch_base"
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "extent": {
+        "distance_mm": 25.0,
+        "type": "distance"
+      },
+      "operation_id": "extrude_base",
+      "operation_type": "extrude",
+      "profile": {
+        "inner_loop_ids": [],
+        "outer_loop_id": "base_outer",
+        "sketch_id": "sketch_base"
+      },
+      "replay_status": "pending"
+    }
+  ],
+  "replay_mode": "automatic",
+  "replay_status": "pending",
+  "schema_version": "cadseq-0.2",
+  "source_step_sha256": "d50f1285e656e34347f95e614785e93f42e73e2bbd6631c52095a171d7d893a3",
+  "tolerance": {
+    "angular_rad": 1e-08,
+    "length_mm": 1e-06
+  },
+  "units": "mm"
+}

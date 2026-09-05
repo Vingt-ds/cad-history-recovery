@@ -1,0 +1,22 @@
+{
+  "ambiguous": false,
+  "automatic_processing_seconds": 0.09138330002315342,
+  "failure_code": "NO_SUPPORTED_HYPOTHESIS",
+  "inference_log_schema": "gate4-inference-log-0.1",
+  "model_id": "T-C02",
+  "route": {
+    "cylinder_face_count": 12,
+    "cylindrical_boundary_evidence": false,
+    "full_circle_edge_count": 0,
+    "hole_fact_group_count": 12,
+    "inner_circular_opening_evidence": false,
+    "reason": "no_inner_circular_opening_and_cylindrical_void_pair",
+    "route": "gate2",
+    "routing_schema": "gate4-content-route-0.1",
+    "supported_hole_group_count": 0
+  },
+  "selected_candidate_id": null,
+  "semantic_outcome": "unsupported",
+  "source_step_sha256": "de209a0f091179afab253b540e04ffc3d5eda39e02669a24fa4767d1f81d825d",
+  "status": "unsupported"
+}

@@ -1,0 +1,92 @@
+{
+  "cases": {
+    "T-C01": {
+      "ambiguous": true,
+      "selected_candidate_id": "extrusion-face-002-face-003",
+      "terminal_status": "automatic_success"
+    },
+    "T-C02": {
+      "ambiguous": false,
+      "not_applicable_reason": "No replayable hypothesis exists inside the frozen Gate 2/3 scope",
+      "scope_rule": "no_gate2_candidate_passed_frozen_protocol",
+      "terminal_status": "unsupported"
+    },
+    "T-C03": {
+      "ambiguous": false,
+      "not_applicable_reason": "No replayable hypothesis exists inside the frozen Gate 2/3 scope",
+      "scope_rule": "hole_like_geometry_outside_frozen_gate3_scope",
+      "terminal_status": "unsupported"
+    },
+    "T-H01": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-002-face-003-face-004",
+      "terminal_status": "automatic_success"
+    },
+    "T-H02": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-002-face-003-face-004",
+      "terminal_status": "automatic_success"
+    },
+    "T-H03": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-000-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "T-H04": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-000-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "T-S01": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-000-face-001",
+      "terminal_status": "automatic_success"
+    },
+    "T-S02": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-002-face-003",
+      "terminal_status": "automatic_success"
+    },
+    "T-S03": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-000-face-001",
+      "terminal_status": "automatic_success"
+    },
+    "T-S04": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "T-S05": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-006-face-007",
+      "terminal_status": "automatic_success"
+    },
+    "T-S06": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-006-face-007",
+      "terminal_status": "automatic_success"
+    },
+    "T-S07": {
+      "ambiguous": true,
+      "error_summary": "Gate 2 supports global-axis offsets and rotation about global X",
+      "failure_code": "unsupported_absolute_frame",
+      "failure_stage": "fusion_replay",
+      "not_applicable_reason": "No replay entity was available for validation",
+      "terminal_status": "failed"
+    },
+    "T-S08": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-001-face-002",
+      "terminal_status": "automatic_success"
+    }
+  },
+  "evaluation_split": "held_out",
+  "finalization_schema": "gate4-finalization-0.1",
+  "run_id": "gate4-held-out-formal-20260905",
+  "terminal_status_counts": {
+    "automatic_success": 12,
+    "failed": 1,
+    "unsupported": 2
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "benchmark_manifest_sha256": "c92ac078a5feccce3f7fd53fe4c67a5fbd30c276bb27418948ad46c1a62c8e30",
+  "case_count": 15,
+  "case_ids": [
+    "T-C01",
+    "T-C02",
+    "T-C03",
+    "T-H01",
+    "T-H02",
+    "T-H03",
+    "T-H04",
+    "T-S01",
+    "T-S02",
+    "T-S03",
+    "T-S04",
+    "T-S05",
+    "T-S06",
+    "T-S07",
+    "T-S08"
+  ],
+  "created_at_utc": "2026-09-05T05:13:41.810337+00:00",
+  "environment_ref": "environment.json",
+  "evaluation_split": "held_out",
+  "expected_labels_loaded": false,
+  "freeze_lock_sha256": "c06df2a16a5126f72bddfe492f460062ffd9978545fff4c037827dc2f2928342",
+  "git_commit": "3d04273301cdacb8936707164f492427aab3273c",
+  "git_dirty_at_start": false,
+  "input_inventory_sha256": "c91ff6646dadcbb7cbd766d6dcdf117b50e8c6ca14edcc621ef084fcc5eb48be",
+  "manifest_schema": "gate4-run-manifest-0.1",
+  "manual_correction_policy": "automatic_only",
+  "run_id": "gate4-held-out-formal-20260905",
+  "schema_versions": {
+    "brep_summary": "brep-summary-0.1",
+    "semantic_inference": "gate4-semantic-inference-0.1",
+    "sequence": "cadseq-0.2",
+    "validation": "gate4-validation-0.1"
+  }
+}

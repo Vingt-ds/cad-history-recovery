@@ -1,0 +1,156 @@
+{
+  "corrections": [],
+  "model_id": "shape-9fa76c65ac841fe6",
+  "operations": [
+    {
+      "dependencies": [],
+      "loops": [
+        {
+          "loop_id": "base_outer",
+          "loop_type": "outer",
+          "primitives": [
+            {
+              "end": [
+                0.357142857,
+                1.571428571
+              ],
+              "primitive_id": "line_1",
+              "start": [
+                0.357142857,
+                -20.428571429
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                25.357142857,
+                1.571428571
+              ],
+              "primitive_id": "line_2",
+              "start": [
+                0.357142857,
+                1.571428571
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                25.357142857,
+                12.571428571
+              ],
+              "primitive_id": "line_3",
+              "start": [
+                25.357142857,
+                1.571428571
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -14.642857143,
+                12.571428571
+              ],
+              "primitive_id": "line_4",
+              "start": [
+                25.357142857,
+                12.571428571
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -14.642857143,
+                -20.428571429
+              ],
+              "primitive_id": "line_5",
+              "start": [
+                -14.642857143,
+                12.571428571
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                0.357142857,
+                -20.428571429
+              ],
+              "primitive_id": "line_6",
+              "start": [
+                -14.642857143,
+                -20.428571429
+              ],
+              "type": "line"
+            }
+          ]
+        }
+      ],
+      "operation_id": "sketch_base",
+      "operation_type": "sketch",
+      "replay_status": "pending",
+      "sketch_plane": {
+        "frame": {
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "origin": [
+            8.642857143,
+            17.0,
+            25.428571429
+          ],
+          "x_axis": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "frame_provenance": {
+          "base_face_id": "face-006",
+          "source_face_outward_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "source_step_sha256": "9fa76c65ac841fe64a9bfd4d81c5a8df88ed2c186d002c4a005d8c1d71b49879"
+        },
+        "frame_source": "inferred_brep",
+        "semantic_reference": {
+          "type": "absolute_frame"
+        }
+      }
+    },
+    {
+      "boolean_type": "new",
+      "dependencies": [
+        "sketch_base"
+      ],
+      "direction": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "extent": {
+        "distance_mm": 14.0,
+        "type": "distance"
+      },
+      "operation_id": "extrude_base",
+      "operation_type": "extrude",
+      "profile": {
+        "inner_loop_ids": [],
+        "outer_loop_id": "base_outer",
+        "sketch_id": "sketch_base"
+      },
+      "replay_status": "pending"
+    }
+  ],
+  "replay_mode": "automatic",
+  "replay_status": "pending",
+  "schema_version": "cadseq-0.2",
+  "source_step_sha256": "9fa76c65ac841fe64a9bfd4d81c5a8df88ed2c186d002c4a005d8c1d71b49879",
+  "tolerance": {
+    "angular_rad": 1e-08,
+    "length_mm": 1e-06
+  },
+  "units": "mm"
+}

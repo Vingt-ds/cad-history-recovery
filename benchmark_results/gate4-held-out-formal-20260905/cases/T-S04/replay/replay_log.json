@@ -1,0 +1,27 @@
+{
+  "body_count": 1,
+  "case_id": "T-S04",
+  "face_count": 3,
+  "fusion_version": "2704.1.53",
+  "model_id": "shape-d50f1285e656e343",
+  "operations": [
+    {
+      "operation_id": "sketch_base",
+      "profile_count": 1,
+      "status": "success"
+    },
+    {
+      "operation_id": "extrude_base",
+      "status": "success"
+    }
+  ],
+  "outputs": {
+    "f3d": "replay.f3d",
+    "step": "replay.step"
+  },
+  "python_version": "3.14.0",
+  "replay_mode": "automatic",
+  "sequence_sha256": "4420775c88af93f70707610fc6cfaee22bb8881b068d05b37fc2b48fd1ea5af0",
+  "status": "success",
+  "world_frame_max_error_mm": 0.0
+}

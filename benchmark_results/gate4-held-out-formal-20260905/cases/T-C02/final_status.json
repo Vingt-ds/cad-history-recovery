@@ -1,0 +1,6 @@
+{
+  "ambiguous": false,
+  "not_applicable_reason": "No replayable hypothesis exists inside the frozen Gate 2/3 scope",
+  "scope_rule": "no_gate2_candidate_passed_frozen_protocol",
+  "terminal_status": "unsupported"
+}

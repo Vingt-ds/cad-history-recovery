@@ -1,0 +1,22 @@
+{
+  "ambiguous": false,
+  "automatic_processing_seconds": 0.018156300066038966,
+  "failure_code": "NO_SUPPORTED_HYPOTHESIS",
+  "inference_log_schema": "gate4-inference-log-0.1",
+  "model_id": "T-C03",
+  "route": {
+    "cylinder_face_count": 1,
+    "cylindrical_boundary_evidence": true,
+    "full_circle_edge_count": 2,
+    "hole_fact_group_count": 1,
+    "inner_circular_opening_evidence": true,
+    "reason": "hole_like_geometry_outside_frozen_gate3_scope",
+    "route": "unsupported",
+    "routing_schema": "gate4-content-route-0.1",
+    "supported_hole_group_count": 0
+  },
+  "selected_candidate_id": null,
+  "semantic_outcome": "unsupported",
+  "source_step_sha256": "aca58ca469f3158d89e4ca360f89dd1914106a2c71e9939e64a2667b411354d9",
+  "status": "unsupported"
+}

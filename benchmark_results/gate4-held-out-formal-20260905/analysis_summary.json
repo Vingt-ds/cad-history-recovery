@@ -1,0 +1,24 @@
+{
+  "analysis_summary_schema": "gate4-analysis-summary-0.1",
+  "awaiting_fusion_case_ids": [
+    "T-C01",
+    "T-H01",
+    "T-H02",
+    "T-H03",
+    "T-H04",
+    "T-S01",
+    "T-S02",
+    "T-S03",
+    "T-S04",
+    "T-S05",
+    "T-S06",
+    "T-S07",
+    "T-S08"
+  ],
+  "failed_case_ids": [],
+  "run_id": "gate4-held-out-formal-20260905",
+  "unsupported_case_ids": [
+    "T-C02",
+    "T-C03"
+  ]
+}

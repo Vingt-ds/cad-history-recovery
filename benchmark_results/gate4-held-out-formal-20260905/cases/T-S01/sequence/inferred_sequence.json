@@ -1,0 +1,160 @@
+{
+  "corrections": [],
+  "model_id": "shape-a1fd7868b80e5411",
+  "operations": [
+    {
+      "dependencies": [],
+      "loops": [
+        {
+          "loop_id": "base_outer",
+          "loop_type": "outer",
+          "primitives": [
+            {
+              "end": [
+                36.0,
+                23.0
+              ],
+              "primitive_id": "line_1",
+              "start": [
+                36.0,
+                9.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                17.0,
+                23.0
+              ],
+              "primitive_id": "line_2",
+              "start": [
+                36.0,
+                23.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                24.0,
+                46.0
+              ],
+              "primitive_id": "line_3",
+              "start": [
+                17.0,
+                23.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                0.0,
+                41.0
+              ],
+              "primitive_id": "line_4",
+              "start": [
+                24.0,
+                46.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -14.0,
+                53.0
+              ],
+              "primitive_id": "line_5",
+              "start": [
+                0.0,
+                41.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                -14.0,
+                9.0
+              ],
+              "primitive_id": "line_6",
+              "start": [
+                -14.0,
+                53.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                36.0,
+                9.0
+              ],
+              "primitive_id": "line_7",
+              "start": [
+                -14.0,
+                9.0
+              ],
+              "type": "line"
+            }
+          ]
+        }
+      ],
+      "operation_id": "sketch_base",
+      "operation_type": "sketch",
+      "replay_status": "pending",
+      "sketch_plane": {
+        "frame": {
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "origin": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x_axis": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "frame_source": "origin_named",
+        "semantic_reference": {
+          "role": "XY",
+          "type": "origin_plane"
+        }
+      }
+    },
+    {
+      "boolean_type": "new",
+      "dependencies": [
+        "sketch_base"
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "extent": {
+        "distance_mm": 17.0,
+        "type": "distance"
+      },
+      "operation_id": "extrude_base",
+      "operation_type": "extrude",
+      "profile": {
+        "inner_loop_ids": [],
+        "outer_loop_id": "base_outer",
+        "sketch_id": "sketch_base"
+      },
+      "replay_status": "pending"
+    }
+  ],
+  "replay_mode": "automatic",
+  "replay_status": "pending",
+  "schema_version": "cadseq-0.2",
+  "source_step_sha256": "a1fd7868b80e5411faaa4a1a6409ca25a50e2ae593f8d05fae4d4f5f8793ceb6",
+  "tolerance": {
+    "angular_rad": 1e-08,
+    "length_mm": 1e-06
+  },
+  "units": "mm"
+}

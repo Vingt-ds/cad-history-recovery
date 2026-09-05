@@ -1,0 +1,11 @@
+{
+  "metadata_schema": "gate4-input-metadata-0.1",
+  "model_id": "T-S01",
+  "relative_path": "benchmarks/inputs/held_out/T-S01.step",
+  "run_id": "gate4-held-out-formal-20260905",
+  "source": "cadquery",
+  "source_step_sha256": "a1fd7868b80e5411faaa4a1a6409ca25a50e2ae593f8d05fae4d4f5f8793ceb6",
+  "split": "held_out",
+  "units": "mm",
+  "valid_step": true
+}
