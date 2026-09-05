@@ -1,0 +1,18 @@
+{
+  "environment_schema": "gate4-environment-0.1",
+  "external_python": {
+    "executable": "C:\\Users\\29548\\.conda\\envs\\cadseq\\python.exe",
+    "version": "3.11.16"
+  },
+  "fusion": {
+    "python_version": "3.14.0",
+    "version": "2704.1.53"
+  },
+  "packages": {
+    "cadquery": "2.8.0",
+    "numpy": "2.4.6",
+    "ocp": "7.9.3.1",
+    "scipy": "1.17.1"
+  },
+  "platform": "Windows-10-10.0.22621-SP0"
+}

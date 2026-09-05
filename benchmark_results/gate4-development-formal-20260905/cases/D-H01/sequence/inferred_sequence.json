@@ -1,0 +1,197 @@
+{
+  "corrections": [],
+  "model_id": "shape-61fd254610009834",
+  "operations": [
+    {
+      "dependencies": [],
+      "loops": [
+        {
+          "loop_id": "base_outer",
+          "loop_type": "outer",
+          "primitives": [
+            {
+              "end": [
+                55.0,
+                38.0
+              ],
+              "primitive_id": "line_1",
+              "start": [
+                55.0,
+                0.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                0.0,
+                38.0
+              ],
+              "primitive_id": "line_2",
+              "start": [
+                55.0,
+                38.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                0.0,
+                0.0
+              ],
+              "primitive_id": "line_3",
+              "start": [
+                0.0,
+                38.0
+              ],
+              "type": "line"
+            },
+            {
+              "end": [
+                55.0,
+                0.0
+              ],
+              "primitive_id": "line_4",
+              "start": [
+                0.0,
+                0.0
+              ],
+              "type": "line"
+            }
+          ]
+        }
+      ],
+      "operation_id": "sketch_base",
+      "operation_type": "sketch",
+      "replay_status": "pending",
+      "sketch_plane": {
+        "frame": {
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "origin": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x_axis": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "frame_source": "origin_named",
+        "semantic_reference": {
+          "role": "XY",
+          "type": "origin_plane"
+        }
+      }
+    },
+    {
+      "boolean_type": "new",
+      "dependencies": [
+        "sketch_base"
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "extent": {
+        "distance_mm": 20.0,
+        "type": "distance"
+      },
+      "operation_id": "extrude_base",
+      "operation_type": "extrude",
+      "profile": {
+        "inner_loop_ids": [],
+        "outer_loop_id": "base_outer",
+        "sketch_id": "sketch_base"
+      },
+      "replay_status": "pending"
+    },
+    {
+      "dependencies": [
+        "extrude_base"
+      ],
+      "loops": [
+        {
+          "loop_id": "hole_profile",
+          "loop_type": "outer",
+          "primitives": [
+            {
+              "center": [
+                27.5,
+                19.0
+              ],
+              "primitive_id": "circle_1",
+              "radius_mm": 5.0,
+              "type": "circle"
+            }
+          ]
+        }
+      ],
+      "operation_id": "sketch_hole",
+      "operation_type": "sketch",
+      "replay_status": "pending",
+      "sketch_plane": {
+        "frame": {
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "origin": [
+            0.0,
+            0.0,
+            20.0
+          ],
+          "x_axis": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "semantic_reference": {
+          "offset_mm": 0.0,
+          "operation_id": "extrude_base",
+          "role": "positive_end_cap",
+          "type": "operation_cap"
+        }
+      }
+    },
+    {
+      "boolean_type": "cut",
+      "dependencies": [
+        "extrude_base",
+        "sketch_hole"
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "extent": {
+        "type": "through_all"
+      },
+      "operation_id": "cut_hole",
+      "operation_type": "extrude",
+      "profile": {
+        "inner_loop_ids": [],
+        "outer_loop_id": "hole_profile",
+        "sketch_id": "sketch_hole"
+      },
+      "replay_status": "pending"
+    }
+  ],
+  "replay_mode": "automatic",
+  "replay_status": "pending",
+  "schema_version": "cadseq-0.2",
+  "source_step_sha256": "61fd254610009834700a9b5a23d491ed98cfcfa6bb5d5ff613760e7465d05a5e",
+  "tolerance": {
+    "angular_rad": 1e-08,
+    "length_mm": 1e-06
+  },
+  "units": "mm"
+}

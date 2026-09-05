@@ -1,0 +1,21 @@
+{
+  "ambiguous": false,
+  "automatic_processing_seconds": 0.5271014999598265,
+  "inference_log_schema": "gate4-inference-log-0.1",
+  "model_id": "D-H01",
+  "route": {
+    "cylinder_face_count": 1,
+    "cylindrical_boundary_evidence": true,
+    "full_circle_edge_count": 2,
+    "hole_fact_group_count": 1,
+    "inner_circular_opening_evidence": true,
+    "reason": "one_supported_inner_opening_and_cylindrical_void",
+    "route": "gate3",
+    "routing_schema": "gate4-content-route-0.1",
+    "supported_hole_group_count": 1
+  },
+  "selected_candidate_id": "coupled-face-002-face-003-face-004",
+  "semantic_outcome": "candidate_selected",
+  "source_step_sha256": "61fd254610009834700a9b5a23d491ed98cfcfa6bb5d5ff613760e7465d05a5e",
+  "status": "awaiting_fusion"
+}

@@ -1,0 +1,38 @@
+{
+  "body_count": 1,
+  "case_id": "D-H04",
+  "face_count": 7,
+  "fusion_version": "2704.1.53",
+  "model_id": "shape-e79dcea2e5e0adc5",
+  "operations": [
+    {
+      "operation_id": "sketch_base",
+      "profile_count": 1,
+      "status": "success"
+    },
+    {
+      "operation_id": "extrude_base",
+      "status": "success"
+    },
+    {
+      "operation_id": "sketch_hole",
+      "profile_count": 2,
+      "status": "success"
+    },
+    {
+      "operation_id": "cut_hole",
+      "status": "success",
+      "volume_after_cm3": 32.54442486839378,
+      "volume_before_cm3": 33.6
+    }
+  ],
+  "outputs": {
+    "f3d": "replay.f3d",
+    "step": "replay.step"
+  },
+  "python_version": "3.14.0",
+  "replay_mode": "automatic",
+  "sequence_sha256": "d82e826911744fce477a5b70fdc94b40b35b45dffe52bb564765cea7ba3cac43",
+  "status": "success",
+  "world_frame_max_error_mm": 0.0
+}

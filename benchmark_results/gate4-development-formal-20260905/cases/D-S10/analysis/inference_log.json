@@ -1,0 +1,21 @@
+{
+  "ambiguous": false,
+  "automatic_processing_seconds": 0.11920499999541789,
+  "inference_log_schema": "gate4-inference-log-0.1",
+  "model_id": "D-S10",
+  "route": {
+    "cylinder_face_count": 0,
+    "cylindrical_boundary_evidence": false,
+    "full_circle_edge_count": 0,
+    "hole_fact_group_count": 0,
+    "inner_circular_opening_evidence": false,
+    "reason": "no_inner_circular_opening_and_cylindrical_void_pair",
+    "route": "gate2",
+    "routing_schema": "gate4-content-route-0.1",
+    "supported_hole_group_count": 0
+  },
+  "selected_candidate_id": "extrusion-face-000-face-001",
+  "semantic_outcome": "candidate_selected",
+  "source_step_sha256": "3b203cf5e140eeb66059b7150942a5c390196e87d9c5b0d4143c9fc0f09e343f",
+  "status": "awaiting_fusion"
+}

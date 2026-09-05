@@ -1,0 +1,883 @@
+{
+  "case_count": 15,
+  "evaluation_split": "development",
+  "files": [
+    {
+      "path": "analysis_summary.json",
+      "sha256": "ea6e1fffeb3d2a25bd1567760dc11da6b2d48cdc02baeaed0b464c01dd3d0c01",
+      "size_bytes": 397
+    },
+    {
+      "path": "batch_replay_log.json",
+      "sha256": "40968b13c364cee11fbd8c35d45756d73d5297c2c8a5752bfea240fc1af1c839",
+      "size_bytes": 13155
+    },
+    {
+      "path": "cases/D-H01/analysis/brep_summary.json",
+      "sha256": "ae0f810d981040afed500d397dca825f2d53c3262f39e7b1fd23ed09e0d0e370",
+      "size_bytes": 27537
+    },
+    {
+      "path": "cases/D-H01/analysis/candidates.json",
+      "sha256": "64a9e533b9d3893a7e5f83ad695756b67f08b07b27dc3423b3776260121dbd19",
+      "size_bytes": 4859
+    },
+    {
+      "path": "cases/D-H01/analysis/inference_log.json",
+      "sha256": "4cee3a0893e6ef157946a80245667c29e8cf5b862be585d142d68011bc74119e",
+      "size_bytes": 761
+    },
+    {
+      "path": "cases/D-H01/final_status.json",
+      "sha256": "4282cf60eaf9c4f0445b4b866f1d4ebcb6c95d482ea5cdcf390b7a33fc8bf99c",
+      "size_bytes": 132
+    },
+    {
+      "path": "cases/D-H01/metadata/input_metadata.json",
+      "sha256": "a2e461fbfe1b286583efbb69e602b6da045f8288cbcf2cc6d3db4bd24287968b",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-H01/replay/replay.f3d",
+      "sha256": "913d56d91eae0788f653b1b5186d8626aefc1e1bb506bc87c539aa33d0a1921a",
+      "size_bytes": 53652
+    },
+    {
+      "path": "cases/D-H01/replay/replay.step",
+      "sha256": "4efe0dfcad690a2f4058be15d4ef18647b1a2fab0c9112dc670c10fc99ccf291",
+      "size_bytes": 10547
+    },
+    {
+      "path": "cases/D-H01/replay/replay_log.json",
+      "sha256": "ca44a24b48c5346caf00300cc20b722a8e7a1e8a7425c40f972acc2f0269ef66",
+      "size_bytes": 921
+    },
+    {
+      "path": "cases/D-H01/sequence/inferred_sequence.json",
+      "sha256": "d44cab58cb1e84081d1d05db621096721fbd8ec5e68aaf9fa9c5cbed17561e53",
+      "size_bytes": 4181
+    },
+    {
+      "path": "cases/D-H01/validation/validation_metrics.json",
+      "sha256": "2540fa45e48380c7f843b8052285a294cd77221e9536d62473f925dbf4bffba7",
+      "size_bytes": 1613
+    },
+    {
+      "path": "cases/D-H01/work/candidate.step",
+      "sha256": "d959595722ddbe91b50b7159cce36460b3a0302b5aaf238ba58a467cd9978c66",
+      "size_bytes": 19083
+    },
+    {
+      "path": "cases/D-H02/analysis/brep_summary.json",
+      "sha256": "ec27e8d9974717ddff9f802e4ff3f98cf58df33acc688c72f6f822e927fd141f",
+      "size_bytes": 27659
+    },
+    {
+      "path": "cases/D-H02/analysis/candidates.json",
+      "sha256": "f414bdf3e4cc52dd123c733889ebe74ddf41d4b7412baabb8165f2230af19fe0",
+      "size_bytes": 4860
+    },
+    {
+      "path": "cases/D-H02/analysis/inference_log.json",
+      "sha256": "1a43a8cd385c8ee4b673027090b96e9c6f7c13dedd8c6ec73b3e07e611d5e749",
+      "size_bytes": 762
+    },
+    {
+      "path": "cases/D-H02/final_status.json",
+      "sha256": "85a91007510b0b9a2c1722eb3ad918a479fccb7bbaa3004c60203433930ce659",
+      "size_bytes": 132
+    },
+    {
+      "path": "cases/D-H02/metadata/input_metadata.json",
+      "sha256": "2c5fed613f23d8cd4d1d2ae05495de69f82c1c4302b035dc1392210afb6cee7b",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-H02/replay/replay.f3d",
+      "sha256": "fd79147f4b5531a7d8dbede49d7bb8806af44da1103bc0d641af5b8ce374e790",
+      "size_bytes": 53555
+    },
+    {
+      "path": "cases/D-H02/replay/replay.step",
+      "sha256": "cbccc1f8e171779ddf3d7d9c69794e6bceed4e74a32791dc176cb4e4cef43b65",
+      "size_bytes": 10563
+    },
+    {
+      "path": "cases/D-H02/replay/replay_log.json",
+      "sha256": "ab110fff8e49f70fc1a726eca08ce1273267a54598958f66849f9efd7974a067",
+      "size_bytes": 919
+    },
+    {
+      "path": "cases/D-H02/sequence/inferred_sequence.json",
+      "sha256": "aa7be95556da3328c6cf9a39ee1c771d9ec0143baf20a76c261531d3c7514bd3",
+      "size_bytes": 4189
+    },
+    {
+      "path": "cases/D-H02/validation/validation_metrics.json",
+      "sha256": "e134d321d84dd7f123cfcdb11767b5bf4c37ddf78dd751f816b12361a7b8d57d",
+      "size_bytes": 1611
+    },
+    {
+      "path": "cases/D-H02/work/candidate.step",
+      "sha256": "1939f46edb68f02f6fbc4a63305e1f43bc578d5188d287a0e1f0d45699e32c08",
+      "size_bytes": 19095
+    },
+    {
+      "path": "cases/D-H03/analysis/brep_summary.json",
+      "sha256": "7181ff4cc9af88b60432553423315100915b31d7372f920f022ef295d785cfc2",
+      "size_bytes": 27607
+    },
+    {
+      "path": "cases/D-H03/analysis/candidates.json",
+      "sha256": "0be479008865a7d1aa2b6298758bc8510010b7f44337fe326978fe4978008ce7",
+      "size_bytes": 4859
+    },
+    {
+      "path": "cases/D-H03/analysis/inference_log.json",
+      "sha256": "a7b4ccadfdf82860e43a7f34096db1911066fcff1d09fe0050814213c9e7e7d1",
+      "size_bytes": 762
+    },
+    {
+      "path": "cases/D-H03/final_status.json",
+      "sha256": "a7f25ee39552d8eb0ac3e5b48bd731e776e07c051917c4b7c3ffef8039d6cd97",
+      "size_bytes": 132
+    },
+    {
+      "path": "cases/D-H03/metadata/input_metadata.json",
+      "sha256": "9f429a0f35caa71340ea064dbb22ee230151f206b4108437eb36c72532078961",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-H03/replay/replay.f3d",
+      "sha256": "eab514205c1ec7572d610fafe1d9275b42f4bc6d96b0a767048732c202a3603f",
+      "size_bytes": 53296
+    },
+    {
+      "path": "cases/D-H03/replay/replay.step",
+      "sha256": "2a74aeeeaa640625df65a737b372a2506143fbb49391410909a396f856843e09",
+      "size_bytes": 10558
+    },
+    {
+      "path": "cases/D-H03/replay/replay_log.json",
+      "sha256": "6d69be9d822c944b167e0bc8d78301c67c3e8e853732df089bb5d66650e6c679",
+      "size_bytes": 909
+    },
+    {
+      "path": "cases/D-H03/sequence/inferred_sequence.json",
+      "sha256": "a0f6a6c63069fc2ab2eb918f09577bd54fb93bdd88112eb0a0170cac213060a4",
+      "size_bytes": 4194
+    },
+    {
+      "path": "cases/D-H03/validation/validation_metrics.json",
+      "sha256": "667b248a0938699b27c76a03afef6587d2dbb2ff20c3befeaff930759063d983",
+      "size_bytes": 1613
+    },
+    {
+      "path": "cases/D-H03/work/candidate.step",
+      "sha256": "50c8836b4443b446827430f744a56c6258882f9a85dad33b31df86fd1a1d8621",
+      "size_bytes": 19093
+    },
+    {
+      "path": "cases/D-H04/analysis/brep_summary.json",
+      "sha256": "f06778d998b1d0ac2f17576bfee6d7f4444aa6c54438f0c77181b3398242cd7e",
+      "size_bytes": 27616
+    },
+    {
+      "path": "cases/D-H04/analysis/candidates.json",
+      "sha256": "44d98f4fa1955ae55520acbe97a5918c89d3045d6de3ae26ab4bebec30f64688",
+      "size_bytes": 4858
+    },
+    {
+      "path": "cases/D-H04/analysis/inference_log.json",
+      "sha256": "b7d1d679026f560de27f6eaba2f45030f0ad8f7fcb4e2d88b083f5134e388c07",
+      "size_bytes": 762
+    },
+    {
+      "path": "cases/D-H04/final_status.json",
+      "sha256": "4282cf60eaf9c4f0445b4b866f1d4ebcb6c95d482ea5cdcf390b7a33fc8bf99c",
+      "size_bytes": 132
+    },
+    {
+      "path": "cases/D-H04/metadata/input_metadata.json",
+      "sha256": "21a80f678847e17364883debd5a90f859b7d853221a24c7c2e725fce56847988",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-H04/replay/replay.f3d",
+      "sha256": "48fd1bb9d80d07dc10ea3b6ab3daf96a7507ee1d2e5ef2603f74f4f2a851b44d",
+      "size_bytes": 54535
+    },
+    {
+      "path": "cases/D-H04/replay/replay.step",
+      "sha256": "b1de668ccd96a5308120cf563aa7beeafdd85aa2f0a48b654bdd6160e9a95d30",
+      "size_bytes": 10569
+    },
+    {
+      "path": "cases/D-H04/replay/replay_log.json",
+      "sha256": "e7149a74f5855e248c7334a43ec65a594de3c384ffebcbcd11c40d51d3ee5bda",
+      "size_bytes": 906
+    },
+    {
+      "path": "cases/D-H04/sequence/inferred_sequence.json",
+      "sha256": "d82e826911744fce477a5b70fdc94b40b35b45dffe52bb564765cea7ba3cac43",
+      "size_bytes": 4629
+    },
+    {
+      "path": "cases/D-H04/validation/validation_metrics.json",
+      "sha256": "f66260f018b4e425243c4343e7223d73f283493219a3628f74ccab841882246d",
+      "size_bytes": 1612
+    },
+    {
+      "path": "cases/D-H04/work/candidate.step",
+      "sha256": "3bd24a4af47999767f40fdff4b3d6e24d9bfddbefbf55c609f6722e6db1d33d2",
+      "size_bytes": 19098
+    },
+    {
+      "path": "cases/D-H05/analysis/brep_summary.json",
+      "sha256": "a1337af3feda9e3b0d2b7813d76979920a4e36c22f3f9a674155555c22303504",
+      "size_bytes": 27627
+    },
+    {
+      "path": "cases/D-H05/analysis/candidates.json",
+      "sha256": "c3a1f59f5e29b3274ba0572c67b90225ff1391ec400df972dc64b439046f21bc",
+      "size_bytes": 4859
+    },
+    {
+      "path": "cases/D-H05/analysis/inference_log.json",
+      "sha256": "5611a18994d750028bb6779ec1dcb39ed06d95d8ee305c24e74f301cfc8a0d43",
+      "size_bytes": 760
+    },
+    {
+      "path": "cases/D-H05/final_status.json",
+      "sha256": "4282cf60eaf9c4f0445b4b866f1d4ebcb6c95d482ea5cdcf390b7a33fc8bf99c",
+      "size_bytes": 132
+    },
+    {
+      "path": "cases/D-H05/metadata/input_metadata.json",
+      "sha256": "7c98f298d92e57519d7bfd50216b7cae253a5f1ec5a9fc3310a5c10c9badda0c",
+      "size_bytes": 373
+    },
+    {
+      "path": "cases/D-H05/replay/replay.f3d",
+      "sha256": "558f7401d62bda5e621ece06c6e6cb3f54de8e4d79643e534113140947149e4b",
+      "size_bytes": 52641
+    },
+    {
+      "path": "cases/D-H05/replay/replay.step",
+      "sha256": "f97ac5040a5a4fa7d666c2c85f33eef9d1a0df30487524f1ecf822f0c7fbd972",
+      "size_bytes": 10559
+    },
+    {
+      "path": "cases/D-H05/replay/replay_log.json",
+      "sha256": "be19559a5052a76b112997f3073f448a56bb9b59974f2e7d9ce3e25028cf1d34",
+      "size_bytes": 906
+    },
+    {
+      "path": "cases/D-H05/sequence/inferred_sequence.json",
+      "sha256": "04be4d94581be87eefcfc489f360d3971c3d56314cdf3b1c578f467c0fb6b447",
+      "size_bytes": 4181
+    },
+    {
+      "path": "cases/D-H05/validation/validation_metrics.json",
+      "sha256": "f4a6661e9d9e1bdfc63400a76dc82759c2aad74cd715b519e93ec20714a2a0ea",
+      "size_bytes": 1593
+    },
+    {
+      "path": "cases/D-H05/work/candidate.step",
+      "sha256": "dff6b69f5b524c2e3b1276410f052f7dc6b15fcd84845db5186340029e5c7536",
+      "size_bytes": 19089
+    },
+    {
+      "path": "cases/D-S01/analysis/brep_summary.json",
+      "sha256": "cd8b61104155861c4cce1665b2442df2e2638827816ec0c28f9efd8a6e515b1a",
+      "size_bytes": 22011
+    },
+    {
+      "path": "cases/D-S01/analysis/candidates.json",
+      "sha256": "d25251d97751a8552a973ba7dcc8e4491c773f5bcdae3cf0e0fdd5cf3ed82d88",
+      "size_bytes": 24960
+    },
+    {
+      "path": "cases/D-S01/analysis/inference_log.json",
+      "sha256": "ef8b5c3143f976faa906823ce2da261c45693ce926eb61418820f6b8f6601781",
+      "size_bytes": 759
+    },
+    {
+      "path": "cases/D-S01/final_status.json",
+      "sha256": "e656f3731542807510bda082e609fe3f786e25e90e45e2e425477364e3648856",
+      "size_bytes": 124
+    },
+    {
+      "path": "cases/D-S01/metadata/input_metadata.json",
+      "sha256": "3d49ca1aff54999aa9f05faf690d89640056384d0b66e94353a7cc072f0237e4",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S01/replay/replay.f3d",
+      "sha256": "e03245e9a69465bda7c91224f47d7e5f1d0354997541ac4ea860bc41ef8ce32a",
+      "size_bytes": 44669
+    },
+    {
+      "path": "cases/D-S01/replay/replay.step",
+      "sha256": "5d30d47ad02a980c5ed8a52dea99dbbc3bf01717280f417fa8215dfc84f8f78a",
+      "size_bytes": 9059
+    },
+    {
+      "path": "cases/D-S01/replay/replay_log.json",
+      "sha256": "05c7fdb35d7a91d8a2db92860504414022860306c0288d5eb6dd715bdec80de7",
+      "size_bytes": 642
+    },
+    {
+      "path": "cases/D-S01/sequence/inferred_sequence.json",
+      "sha256": "d088eb68b09b5b7921307bb2766c1e9b367f1a2be68943d7f256aa4e691bbeab",
+      "size_bytes": 2651
+    },
+    {
+      "path": "cases/D-S01/validation/validation_metrics.json",
+      "sha256": "a5ec9e721b660ddfe57c0ffc0e6ae3f8bb635fce5b58611b6e6da48e93b2d306",
+      "size_bytes": 1163
+    },
+    {
+      "path": "cases/D-S01/work/candidate_rebuilds/extrusion-face-000-face-001.step",
+      "sha256": "f748585311bb6c415e37d99c84d23f740d40f52d362569d82b60992c275a6051",
+      "size_bytes": 15455
+    },
+    {
+      "path": "cases/D-S01/work/candidate_rebuilds/extrusion-face-002-face-003.step",
+      "sha256": "51e656a1419abdd84a3a907ee61a72bfd401deb8a66d606ebe5b74fe5f47f497",
+      "size_bytes": 15455
+    },
+    {
+      "path": "cases/D-S01/work/candidate_rebuilds/extrusion-face-004-face-005.step",
+      "sha256": "3b8212232f92a6d20e40002f2b0f060d115d2a558a2124d9c407c651cceec99c",
+      "size_bytes": 15455
+    },
+    {
+      "path": "cases/D-S02/analysis/brep_summary.json",
+      "sha256": "daeed55610bbcdfa4b703fba4cfd35052a8225035496368aef07c21f0f791a16",
+      "size_bytes": 17879
+    },
+    {
+      "path": "cases/D-S02/analysis/candidates.json",
+      "sha256": "64ab32d79cda3ff3cda14abc698be548343ca5a37c65be42085b8e17840bcd5e",
+      "size_bytes": 17627
+    },
+    {
+      "path": "cases/D-S02/analysis/inference_log.json",
+      "sha256": "6e9b975e78371f3f96963ce5a5a55208b8c8be647e23aeb2f466b67ca566ee23",
+      "size_bytes": 760
+    },
+    {
+      "path": "cases/D-S02/final_status.json",
+      "sha256": "4688f353637af5856a0a6addccc50d881f0c45a8a9000b75f01cac6bb0a3c46c",
+      "size_bytes": 125
+    },
+    {
+      "path": "cases/D-S02/metadata/input_metadata.json",
+      "sha256": "cf9f53d2836c4160422d1c4a266a1a14ab0fc48f1bef220fb42898147e0f19f4",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S02/replay/replay.f3d",
+      "sha256": "40f6ae96da5a4a72ec10c4834abcc9f33c48c5c9ba4cd96cd9df2b5142791281",
+      "size_bytes": 45422
+    },
+    {
+      "path": "cases/D-S02/replay/replay.step",
+      "sha256": "0674b59d995bc0307f8950762a0e333490eef9c27d6004a1ad141a5fab609eb5",
+      "size_bytes": 8136
+    },
+    {
+      "path": "cases/D-S02/replay/replay_log.json",
+      "sha256": "f092778230dc9e4f65ca60d319af9bcdea60cedea41877a84274a1da2856c1c6",
+      "size_bytes": 642
+    },
+    {
+      "path": "cases/D-S02/sequence/inferred_sequence.json",
+      "sha256": "8adee5a66023965639fb047f4f6d3d1b2d54ad7afae52e4be362e1d36ff69568",
+      "size_bytes": 2393
+    },
+    {
+      "path": "cases/D-S02/validation/validation_metrics.json",
+      "sha256": "1d1bcc51b356ccdf7310ef5721b0c3095668bf3c61b708cf5e5df6b321008adf",
+      "size_bytes": 1272
+    },
+    {
+      "path": "cases/D-S02/work/candidate_rebuilds/extrusion-face-001-face-002.step",
+      "sha256": "d58e804874f0531372c5436b5cbd17483af824de882a8250cf52836db0afe7d8",
+      "size_bytes": 12644
+    },
+    {
+      "path": "cases/D-S03/analysis/brep_summary.json",
+      "sha256": "5b9bac5e3f928da2712fce1169cfc69c62dc7463b32a28faf2df673e51ecc9ed",
+      "size_bytes": 27366
+    },
+    {
+      "path": "cases/D-S03/analysis/candidates.json",
+      "sha256": "61261b16ac257ef4c706321063605776e3257c52d392e3f761da93cb1c7f15b3",
+      "size_bytes": 35727
+    },
+    {
+      "path": "cases/D-S03/analysis/inference_log.json",
+      "sha256": "7e8e1d44e33829e55d8cfa64b0fa698afe4736e6c38e7189c40e8f29f78a39fc",
+      "size_bytes": 760
+    },
+    {
+      "path": "cases/D-S03/final_status.json",
+      "sha256": "d310796c22f40d9bea13c06e72d0140ea22eecf36c122ca72260f76cbd1d161b",
+      "size_bytes": 125
+    },
+    {
+      "path": "cases/D-S03/metadata/input_metadata.json",
+      "sha256": "70ca3eb711da838eae36449d52c8ea009a3598acd1d932aca562e27b2d1cb5d9",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S03/replay/replay.f3d",
+      "sha256": "8ba048858d12a56485a782ce2b0d318ebf80194cea756f648a204a54a5552d8c",
+      "size_bytes": 47549
+    },
+    {
+      "path": "cases/D-S03/replay/replay.step",
+      "sha256": "7b2830ea75bbc61300f9589aac394e09d9c44c2298ab858e74754675af35cc49",
+      "size_bytes": 10652
+    },
+    {
+      "path": "cases/D-S03/replay/replay_log.json",
+      "sha256": "6f29e5791cc4deb6fc7a94142097b34ab5f1e2332b02606f96203436c5a832b0",
+      "size_bytes": 642
+    },
+    {
+      "path": "cases/D-S03/sequence/inferred_sequence.json",
+      "sha256": "d88d23453a1727bf902ec6f902850636ed41f9cf2cc75db4ddb596fdf091e27c",
+      "size_bytes": 3368
+    },
+    {
+      "path": "cases/D-S03/validation/validation_metrics.json",
+      "sha256": "ee8ce134f5656374c848756ffcddba643833bfb19efdeca7cc5ac7a11634142e",
+      "size_bytes": 1253
+    },
+    {
+      "path": "cases/D-S03/work/candidate_rebuilds/extrusion-face-000-face-001.step",
+      "sha256": "af33d39a5e87a9fd9f603c4d5169942611cd03438226500cec0f31bad8d0eb0d",
+      "size_bytes": 19571
+    },
+    {
+      "path": "cases/D-S04/analysis/brep_summary.json",
+      "sha256": "c3be3b840b29b617f01103005d9ca7e97c7d61d84bd2c558ddab43761695594a",
+      "size_bytes": 31338
+    },
+    {
+      "path": "cases/D-S04/analysis/candidates.json",
+      "sha256": "a85b1a039e157c0a9f94f6b03c2ceb6bf7c3d5250643648ad883d5ca2683de26",
+      "size_bytes": 46716
+    },
+    {
+      "path": "cases/D-S04/analysis/inference_log.json",
+      "sha256": "43edede85b5ce65dfe30617f303c737d391288b992bf9502121303a7b296f102",
+      "size_bytes": 760
+    },
+    {
+      "path": "cases/D-S04/final_status.json",
+      "sha256": "19d5c37c96506364d9eb9270161d10e3cff6dfbd1d3cb52f20ab22e9dc07a6e2",
+      "size_bytes": 125
+    },
+    {
+      "path": "cases/D-S04/metadata/input_metadata.json",
+      "sha256": "2a95c191d558547fe7db906f01705c3dfa7fb3cfb6d3d9e68e17aed4491aa9d3",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S04/replay/replay.f3d",
+      "sha256": "432d54ecfff9b31d3be2a6a537eb70acb0e961ae4e35b481a253efa883fe265b",
+      "size_bytes": 46716
+    },
+    {
+      "path": "cases/D-S04/replay/replay.step",
+      "sha256": "6a30daf189f6c6e067b4488f0b366b697f9ee68548035458a6e5405e853f7a2f",
+      "size_bytes": 11444
+    },
+    {
+      "path": "cases/D-S04/replay/replay_log.json",
+      "sha256": "87600c531a5de2e7e6fb6dfa657bf794175ece01de45cd2dcdbd30463c7288ec",
+      "size_bytes": 642
+    },
+    {
+      "path": "cases/D-S04/sequence/inferred_sequence.json",
+      "sha256": "58ebf124248868e6cce7112814374f6f312b8aa073aaf78398057cd49501a903",
+      "size_bytes": 3183
+    },
+    {
+      "path": "cases/D-S04/validation/validation_metrics.json",
+      "sha256": "ee6eca72d0472e8bf1b890680afb3feda9a11887d48299c91ea89e644056dda4",
+      "size_bytes": 1178
+    },
+    {
+      "path": "cases/D-S04/work/candidate_rebuilds/extrusion-face-006-face-007.step",
+      "sha256": "48a6d8c7e5ae8108b66794422d1312b83d7eb15e00caf65d0181d65497324ab5",
+      "size_bytes": 22130
+    },
+    {
+      "path": "cases/D-S05/analysis/brep_summary.json",
+      "sha256": "d27dcd8069b2ad0b5f263ed8051634c66a38898324865039bcc0b621975ed5fa",
+      "size_bytes": 40693
+    },
+    {
+      "path": "cases/D-S05/analysis/candidates.json",
+      "sha256": "2632483bac408bbc10cdc4167f4e971b2fb3fbc749dd720b3ad922604cf89f6d",
+      "size_bytes": 73755
+    },
+    {
+      "path": "cases/D-S05/analysis/inference_log.json",
+      "sha256": "087ad5d14430aca383f72f7af784adfa800c7f5f84efae343369a397f8722c0b",
+      "size_bytes": 760
+    },
+    {
+      "path": "cases/D-S05/final_status.json",
+      "sha256": "4310f1184cce055bc33177854c24b07f42c3abccedffb244882a82fb09c08bf5",
+      "size_bytes": 125
+    },
+    {
+      "path": "cases/D-S05/metadata/input_metadata.json",
+      "sha256": "d96429cb63b2990ace80dfbab6488facffffd95d91b4b2d4ff67731965958b28",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S05/replay/replay.f3d",
+      "sha256": "666bb0bd596db319b87d2e641736827d3d45a9ca05a8a93472ba656e1c749820",
+      "size_bytes": 48643
+    },
+    {
+      "path": "cases/D-S05/replay/replay.step",
+      "sha256": "48a5f433489168f3b31d442a660f31990a31a28a51ec08d92b12f9f8bfbbd00b",
+      "size_bytes": 13878
+    },
+    {
+      "path": "cases/D-S05/replay/replay_log.json",
+      "sha256": "f0f3870e1a0728da2580011fc7691324449797a93aa0cd78ad3f23edbefcb712",
+      "size_bytes": 643
+    },
+    {
+      "path": "cases/D-S05/sequence/inferred_sequence.json",
+      "sha256": "499b29a57f4f943f35b917d567423834d16a2d591fa0f732163ff48453e6f546",
+      "size_bytes": 4122
+    },
+    {
+      "path": "cases/D-S05/validation/validation_metrics.json",
+      "sha256": "b62616bfb95e7b8f3834a738597a4c388224e1ad0384b608f61684092276c51a",
+      "size_bytes": 1195
+    },
+    {
+      "path": "cases/D-S05/work/candidate_rebuilds/extrusion-face-008-face-009.step",
+      "sha256": "08d655cbf57cc05041ae3f690e29e15562360084eb405dc79d730a8d313bd1fe",
+      "size_bytes": 29034
+    },
+    {
+      "path": "cases/D-S06/analysis/brep_summary.json",
+      "sha256": "ae2197877c388ee9dadd55a9d850f3ebaf5a06935013c49e039479dcd2c7d0fe",
+      "size_bytes": 40677
+    },
+    {
+      "path": "cases/D-S06/analysis/candidates.json",
+      "sha256": "9837b6f78bded580971493d4dd6496a62e436f02cfe12f1cbba46b5cec766d0c",
+      "size_bytes": 73646
+    },
+    {
+      "path": "cases/D-S06/analysis/inference_log.json",
+      "sha256": "9b2257df45047061d2b1fe07a4cdd68d197fda3cda358f10f8a3caa4ee984781",
+      "size_bytes": 758
+    },
+    {
+      "path": "cases/D-S06/final_status.json",
+      "sha256": "4688f353637af5856a0a6addccc50d881f0c45a8a9000b75f01cac6bb0a3c46c",
+      "size_bytes": 125
+    },
+    {
+      "path": "cases/D-S06/metadata/input_metadata.json",
+      "sha256": "e55508a9094ad97d97bd1b63bac6b7c95da4757df09187c5fda30ade41142a16",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S06/replay/replay.f3d",
+      "sha256": "7ab1f5c894ecce0fb545b513fe7a3bae33a780bf5e761ce468e2c862ccab46ae",
+      "size_bytes": 50794
+    },
+    {
+      "path": "cases/D-S06/replay/replay.step",
+      "sha256": "a0e87037d1df8cc028c28d76e08222811c2bab3c282a4d7c7eca30a6d9729065",
+      "size_bytes": 13876
+    },
+    {
+      "path": "cases/D-S06/replay/replay_log.json",
+      "sha256": "474734a3cec68244235b8cb67517882a4c1f0a84b58db91814ad10390e7f152c",
+      "size_bytes": 643
+    },
+    {
+      "path": "cases/D-S06/sequence/inferred_sequence.json",
+      "sha256": "eb8e842b62545a5e331fc42a14f28892bcc05f49e575282474c721b7c5b53573",
+      "size_bytes": 4019
+    },
+    {
+      "path": "cases/D-S06/validation/validation_metrics.json",
+      "sha256": "a3aeb611b0a5186d24b4f3ac77e8dd943374141e2f4fee982557f77b0350986a",
+      "size_bytes": 1221
+    },
+    {
+      "path": "cases/D-S06/work/candidate_rebuilds/extrusion-face-001-face-002.step",
+      "sha256": "2913f5fdca8ac53b75325c91e78d2b29a06ba5115f984d9627b06e2bca746119",
+      "size_bytes": 29045
+    },
+    {
+      "path": "cases/D-S07/analysis/brep_summary.json",
+      "sha256": "fb79fc04f331149ad11ba31c4955d8b26ef20e85dc13d5ea83b5237aeb5ed98a",
+      "size_bytes": 8564
+    },
+    {
+      "path": "cases/D-S07/analysis/candidates.json",
+      "sha256": "b74bf2202a1bc8caec784535a4609207fe96a199952d0afb48ee3c966ed20a91",
+      "size_bytes": 2714
+    },
+    {
+      "path": "cases/D-S07/analysis/inference_log.json",
+      "sha256": "0d72d3606d876bd6df281171c2abb7d99a66da2aa2488ad5e012ab4166879c31",
+      "size_bytes": 759
+    },
+    {
+      "path": "cases/D-S07/final_status.json",
+      "sha256": "4688f353637af5856a0a6addccc50d881f0c45a8a9000b75f01cac6bb0a3c46c",
+      "size_bytes": 125
+    },
+    {
+      "path": "cases/D-S07/metadata/input_metadata.json",
+      "sha256": "b4dabb9e09fe79fabb112257a34587fe72ca8d67addefa8c82a67681719004b4",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S07/replay/replay.f3d",
+      "sha256": "2dd32f3845f84966a4b570350eea727c58676e08144d9cb9cf8cbd0f98813f5e",
+      "size_bytes": 51835
+    },
+    {
+      "path": "cases/D-S07/replay/replay.step",
+      "sha256": "0f208cca133a4087cca18a98392e17bbb6d6380a8b5e6f2f10ea892b653f0666",
+      "size_bytes": 5668
+    },
+    {
+      "path": "cases/D-S07/replay/replay_log.json",
+      "sha256": "003754722c763fb82fdd33161656cd5a1bc6566b92ff30e0b0ce8c0d182b3262",
+      "size_bytes": 642
+    },
+    {
+      "path": "cases/D-S07/sequence/inferred_sequence.json",
+      "sha256": "614c8b619d066f26a08c08f9ca47b03f070691e2d021029903c664fbf570cf44",
+      "size_bytes": 1816
+    },
+    {
+      "path": "cases/D-S07/validation/validation_metrics.json",
+      "sha256": "906b0af9d1c8cc853f6f119a910c7171e47e345c8acf5dab3c58d6cbc86422ea",
+      "size_bytes": 1216
+    },
+    {
+      "path": "cases/D-S07/work/candidate_rebuilds/extrusion-face-001-face-002.step",
+      "sha256": "7442bb0679105191c2c46308e7af5dd094951a75052e7cfff16d2626aacc59ca",
+      "size_bytes": 5674
+    },
+    {
+      "path": "cases/D-S08/analysis/brep_summary.json",
+      "sha256": "5639232ae4e436f1c25576e1b4c4c2a59d655d7df269f4eff7f485316bd3835b",
+      "size_bytes": 32012
+    },
+    {
+      "path": "cases/D-S08/analysis/candidates.json",
+      "sha256": "6038a9304a220fd01091e32526966516620d3483e0233c592cdc6200385fbd85",
+      "size_bytes": 46983
+    },
+    {
+      "path": "cases/D-S08/analysis/inference_log.json",
+      "sha256": "6f528f9b2737193101478ff5eed141e81e42594d0dd475c98c54cb44faa0e208",
+      "size_bytes": 760
+    },
+    {
+      "path": "cases/D-S08/final_status.json",
+      "sha256": "d310796c22f40d9bea13c06e72d0140ea22eecf36c122ca72260f76cbd1d161b",
+      "size_bytes": 125
+    },
+    {
+      "path": "cases/D-S08/metadata/input_metadata.json",
+      "sha256": "cc9722ede57535255a8e930185b76ef4c81f1feb69cf778e08868a2101d4a867",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S08/replay/replay.f3d",
+      "sha256": "0ebb7db6af59aff8e078bb60b0735f6a71f58cdf105f87e3aea8b2be87185307",
+      "size_bytes": 45647
+    },
+    {
+      "path": "cases/D-S08/replay/replay.step",
+      "sha256": "003b75c997fe84d33ed6d873c243e0834f55d735a896483ffff75ff2884576fe",
+      "size_bytes": 11953
+    },
+    {
+      "path": "cases/D-S08/replay/replay_log.json",
+      "sha256": "49cb31f840eaef4dd343a7e97a9c8720a0cd5763d6d5482ca26e78b466dafaeb",
+      "size_bytes": 642
+    },
+    {
+      "path": "cases/D-S08/sequence/inferred_sequence.json",
+      "sha256": "d2f8ccb74bd60c4f315304e5e95ae05f9208a95c58aa0bb21a29a11c6014a30a",
+      "size_bytes": 3568
+    },
+    {
+      "path": "cases/D-S08/validation/validation_metrics.json",
+      "sha256": "6e4888a10d5c3a800189f366b7cd658f13ea03aa3a279bdfcfe989ad3e7d5980",
+      "size_bytes": 1323
+    },
+    {
+      "path": "cases/D-S08/work/candidate_rebuilds/extrusion-face-000-face-001.step",
+      "sha256": "a75693cb030f718d4fe861142c86bd284b22dbe5da8870e989d2a1bbd504d803",
+      "size_bytes": 22949
+    },
+    {
+      "path": "cases/D-S09/analysis/brep_summary.json",
+      "sha256": "dd0dfbaed622c64cf629d85b798b1b6f2a62e96114069c2c7db61ab11a20d668",
+      "size_bytes": 22993
+    },
+    {
+      "path": "cases/D-S09/analysis/candidates.json",
+      "sha256": "1514c1db414ca55717d59bfd27e1f56d426edf27b9ad40d9675b2cea7ac28eb3",
+      "size_bytes": 25455
+    },
+    {
+      "path": "cases/D-S09/analysis/inference_log.json",
+      "sha256": "f088a7dc64c68d620b5803e2051b9a79b38891ef582f7b3c01b19ae731267ae1",
+      "size_bytes": 759
+    },
+    {
+      "path": "cases/D-S09/final_status.json",
+      "sha256": "1f4ef5fa1b36e5929fabff04dfd3c15dbb3f24ff2b2e308088507ee06ffd80ed",
+      "size_bytes": 124
+    },
+    {
+      "path": "cases/D-S09/metadata/input_metadata.json",
+      "sha256": "8f66b8b387c62f7e7dc361a37a394a50add572effeba29bd612d8085dd2cb802",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S09/replay/replay.f3d",
+      "sha256": "890af80d369817c2756c12564e929a33aa912d34b888d192be711ef4d54c39c3",
+      "size_bytes": 49827
+    },
+    {
+      "path": "cases/D-S09/replay/replay.step",
+      "sha256": "c7781f15c3f101caeeeaf822494558c3d7a77a438fccd3607a3b335dc9c3087d",
+      "size_bytes": 10072
+    },
+    {
+      "path": "cases/D-S09/replay/replay_log.json",
+      "sha256": "285d738bf788571b8300dfe94fe3b6e965da212a4201c944e9b8e1aef3a1dcb7",
+      "size_bytes": 660
+    },
+    {
+      "path": "cases/D-S09/sequence/inferred_sequence.json",
+      "sha256": "7f82529cc94b3a39cb0a6d325deb2d6823ac4deebcee60d00560c19b527881f7",
+      "size_bytes": 2989
+    },
+    {
+      "path": "cases/D-S09/validation/validation_metrics.json",
+      "sha256": "13b5222f54553c698651d9e6f8673adf282481f0291e7b71e038ea3c1329a7bf",
+      "size_bytes": 1343
+    },
+    {
+      "path": "cases/D-S09/work/candidate_rebuilds/extrusion-face-000-face-001.step",
+      "sha256": "53d4a212b96c55a45256c54f105c168098fc2528b8de39002d024f294abd945a",
+      "size_bytes": 16672
+    },
+    {
+      "path": "cases/D-S09/work/candidate_rebuilds/extrusion-face-002-face-003.step",
+      "sha256": "6535de9146c21d4686d49133b06e794a45169d6676cee5b2b37ce55348ce5dbf",
+      "size_bytes": 16495
+    },
+    {
+      "path": "cases/D-S09/work/candidate_rebuilds/extrusion-face-004-face-005.step",
+      "sha256": "13a00a2776e063bea0b12e7c72147ae9b6a19baf77195d17269d848f90de38cf",
+      "size_bytes": 16617
+    },
+    {
+      "path": "cases/D-S10/analysis/brep_summary.json",
+      "sha256": "3a20007a2ba18625d0b0eebae7dafb224cfb9080d23424464d6f532040343e72",
+      "size_bytes": 36676
+    },
+    {
+      "path": "cases/D-S10/analysis/candidates.json",
+      "sha256": "6afca7a5ab5fdfaf66a7ca062fbba7f0ebb1c1ddc41c5a8a410b919b44091c12",
+      "size_bytes": 60228
+    },
+    {
+      "path": "cases/D-S10/analysis/inference_log.json",
+      "sha256": "331ea60b0010018b960f3e022410e070694bee2120a3c05f2f91be4619fbf350",
+      "size_bytes": 760
+    },
+    {
+      "path": "cases/D-S10/final_status.json",
+      "sha256": "d310796c22f40d9bea13c06e72d0140ea22eecf36c122ca72260f76cbd1d161b",
+      "size_bytes": 125
+    },
+    {
+      "path": "cases/D-S10/metadata/input_metadata.json",
+      "sha256": "179fb0a442a0521318d770671179bf55622c4d8efa566dbd6c7b8193c79db1db",
+      "size_bytes": 368
+    },
+    {
+      "path": "cases/D-S10/replay/replay.f3d",
+      "sha256": "89dd818a024668366ec1d08b87a92b2099f612aa53fab0e819060e66d9bdb052",
+      "size_bytes": 50945
+    },
+    {
+      "path": "cases/D-S10/replay/replay.step",
+      "sha256": "9382c3bc5e14bcf4e3eeb5006f583092ed9e4b544ab29a2dcb595db4185cd322",
+      "size_bytes": 13064
+    },
+    {
+      "path": "cases/D-S10/replay/replay_log.json",
+      "sha256": "6cc2dc3f1d5d6b36d118571a7f785efc71cebdebaef385a2bea7ba8795de1329",
+      "size_bytes": 642
+    },
+    {
+      "path": "cases/D-S10/sequence/inferred_sequence.json",
+      "sha256": "2f66b2b7789e7ea93ba14f76b36fafd50623793177ffd6165d2ef25aa184407a",
+      "size_bytes": 3953
+    },
+    {
+      "path": "cases/D-S10/validation/validation_metrics.json",
+      "sha256": "cedd4e6b4d822678faae8d4a040e392b815a141a4863fb937d3c4f52cd763840",
+      "size_bytes": 1250
+    },
+    {
+      "path": "cases/D-S10/work/candidate_rebuilds/extrusion-face-000-face-001.step",
+      "sha256": "712fc2bca872b541c8c8fff6cb7a898d850295a7db1834afa7a266eff04cb25e",
+      "size_bytes": 26347
+    },
+    {
+      "path": "environment.json",
+      "sha256": "5b9faeffafc2f073c4ea5e465283ae64f6b5df6cf15b7cc415eb1d2927dc44f2",
+      "size_bytes": 428
+    },
+    {
+      "path": "finalization_summary.json",
+      "sha256": "fb718bf3d70c1bacd0ec29896d6da1df2645729bbe2bf88bf7363c7388930bf9",
+      "size_bytes": 2578
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "330353bb76eab7c9cab4deb6aa4272f09e6def4d2e1313b79dbbda356695c00c",
+      "size_bytes": 1126
+    }
+  ],
+  "git_commit": "3d04273301cdacb8936707164f492427aab3273c",
+  "package_complete_count": 15,
+  "run_id": "gate4-development-formal-20260905",
+  "seal_schema": "gate4-run-seal-0.1",
+  "terminal_status_counts": {
+    "automatic_success": 15
+  }
+}

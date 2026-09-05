@@ -1,0 +1,85 @@
+{
+  "cases": {
+    "D-H01": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-002-face-003-face-004",
+      "terminal_status": "automatic_success"
+    },
+    "D-H02": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-004-face-005-face-006",
+      "terminal_status": "automatic_success"
+    },
+    "D-H03": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-000-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "D-H04": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-002-face-003-face-004",
+      "terminal_status": "automatic_success"
+    },
+    "D-H05": {
+      "ambiguous": false,
+      "selected_candidate_id": "coupled-face-002-face-003-face-004",
+      "terminal_status": "automatic_success"
+    },
+    "D-S01": {
+      "ambiguous": true,
+      "selected_candidate_id": "extrusion-face-002-face-003",
+      "terminal_status": "automatic_success"
+    },
+    "D-S02": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "D-S03": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-000-face-001",
+      "terminal_status": "automatic_success"
+    },
+    "D-S04": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-006-face-007",
+      "terminal_status": "automatic_success"
+    },
+    "D-S05": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-008-face-009",
+      "terminal_status": "automatic_success"
+    },
+    "D-S06": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "D-S07": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-001-face-002",
+      "terminal_status": "automatic_success"
+    },
+    "D-S08": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-000-face-001",
+      "terminal_status": "automatic_success"
+    },
+    "D-S09": {
+      "ambiguous": true,
+      "selected_candidate_id": "extrusion-face-004-face-005",
+      "terminal_status": "automatic_success"
+    },
+    "D-S10": {
+      "ambiguous": false,
+      "selected_candidate_id": "extrusion-face-000-face-001",
+      "terminal_status": "automatic_success"
+    }
+  },
+  "evaluation_split": "development",
+  "finalization_schema": "gate4-finalization-0.1",
+  "run_id": "gate4-development-formal-20260905",
+  "terminal_status_counts": {
+    "automatic_success": 15
+  }
+}

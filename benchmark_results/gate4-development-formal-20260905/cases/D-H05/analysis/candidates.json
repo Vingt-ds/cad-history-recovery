@@ -1,0 +1,188 @@
+{
+  "ambiguous": false,
+  "candidate_set": [
+    {
+      "candidate_id": "coupled-face-002-face-003-face-004",
+      "checks": [
+        {
+          "measurement": {
+            "status": "accepted"
+          },
+          "name": "accepted_hole_fact_group",
+          "passed": true,
+          "reason": null
+        },
+        {
+          "measurement": {
+            "end_faces": [
+              {
+                "face_id": "face-002",
+                "orientation": "reversed"
+              },
+              {
+                "face_id": "face-003",
+                "orientation": "forward"
+              }
+            ],
+            "supported_orientations": [
+              "forward",
+              "reversed"
+            ]
+          },
+          "name": "supported_end_face_orientations",
+          "passed": true,
+          "reason": null
+        },
+        {
+          "measurement": {
+            "normal_dot": -1.0,
+            "tolerance": 1e-08
+          },
+          "name": "opposite_end_face_normals",
+          "passed": true,
+          "reason": null
+        },
+        {
+          "measurement": {
+            "distance_mm": 20.0,
+            "tolerance_mm": 1e-06
+          },
+          "name": "positive_base_distance",
+          "passed": true,
+          "reason": null
+        },
+        {
+          "measurement": {
+            "cut_direction": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "normal_dot_cut_direction": -1.0,
+            "support_face_id": "face-003",
+            "support_face_outward_normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "tolerance": 1e-08
+          },
+          "name": "cut_direction_into_material_from_support_face",
+          "passed": true,
+          "reason": null
+        },
+        {
+          "measurement": {
+            "residual_mm": 0.0,
+            "tolerance_mm": 1e-06
+          },
+          "name": "end_face_centroid_alignment",
+          "passed": true,
+          "reason": null
+        },
+        {
+          "measurement": {
+            "expected_edge_count": 4,
+            "matched_edge_pairs": [
+              [
+                "edge-000",
+                "edge-003"
+              ],
+              [
+                "edge-007",
+                "edge-009"
+              ],
+              [
+                "edge-008",
+                "edge-010"
+              ],
+              [
+                "edge-011",
+                "edge-014"
+              ]
+            ],
+            "tolerance_mm": 1e-06
+          },
+          "name": "outer_wire_translation",
+          "passed": true,
+          "reason": null
+        },
+        {
+          "measurement": {
+            "coverage": 1.0,
+            "required": 1.0
+          },
+          "name": "outer_side_connection_coverage",
+          "passed": true,
+          "reason": null
+        },
+        {
+          "measurement": {
+            "absolute_dot": 1.0,
+            "tolerance": 1e-08
+          },
+          "name": "hole_axis_parallel_to_base",
+          "passed": true,
+          "reason": null
+        },
+        {
+          "measurement": {
+            "base_distance_mm": 20.0,
+            "cylinder_span_mm": 20.0,
+            "error_mm": 0.0,
+            "tolerance_mm": 1e-06
+          },
+          "name": "cylinder_span_matches_base_distance",
+          "passed": true,
+          "reason": null
+        }
+      ],
+      "rejection_reasons": [],
+      "status": "accepted"
+    }
+  ],
+  "candidates_schema": "gate4-candidate-evidence-0.1",
+  "pre_fusion_validation": {
+    "base_geometry_pass": true,
+    "bbox_coordinate_errors_mm": {
+      "xmax": 0.0,
+      "xmin": 0.0,
+      "ymax": 0.0,
+      "ymin": 0.0,
+      "zmax": 0.0,
+      "zmin": 0.0
+    },
+    "feature_checks": {
+      "axis_angle": true,
+      "axis_line_offset": true,
+      "opening_centers": true,
+      "radius": true,
+      "span": true
+    },
+    "feature_match": {
+      "axis_angle_error_rad": 0.0,
+      "axis_line_offset_mm": 0.0,
+      "opening_center_max_error_mm": 0.0,
+      "radius_error_mm": 0.0,
+      "span_error_mm": 0.0
+    },
+    "feature_match_pass": true,
+    "geometry_pass": true,
+    "surface_sort_value": 0.020177566640095568,
+    "valid_single_solid": true,
+    "volume_error_mm3": 5.820766091346741e-11
+  },
+  "route": {
+    "cylinder_face_count": 1,
+    "cylindrical_boundary_evidence": true,
+    "full_circle_edge_count": 2,
+    "hole_fact_group_count": 1,
+    "inner_circular_opening_evidence": true,
+    "reason": "one_supported_inner_opening_and_cylindrical_void",
+    "route": "gate3",
+    "routing_schema": "gate4-content-route-0.1",
+    "supported_hole_group_count": 1
+  },
+  "selected_candidate_id": "coupled-face-002-face-003-face-004",
+  "source_step_sha256": "19297b837c824f5de90535092494ba5b9a3be1b6d823aab7014e14626e19b9a6"
+}
