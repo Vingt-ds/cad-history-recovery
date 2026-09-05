@@ -54,6 +54,76 @@ def _count_total(count, total):
     return {"count": count, "total": total}
 
 
+def _optional_json(path):
+    path = Path(path)
+    return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else None
+
+
+def collect_case_records(development_run, held_out_run, labels):
+    records = []
+    for run_dir in (Path(development_run), Path(held_out_run)):
+        manifest = _optional_json(run_dir / "manifest.json")
+        for case_id in manifest.get("case_ids", []):
+            case_dir = run_dir / "cases" / case_id
+            label = labels[case_id]
+            status = _optional_json(case_dir / "final_status.json")
+            inference = _optional_json(case_dir / "analysis" / "inference_log.json")
+            replay = _optional_json(case_dir / "replay" / "replay_log.json")
+            metrics = _optional_json(
+                case_dir / "validation" / "validation_metrics.json"
+            )
+            correction = _optional_json(
+                case_dir / "sequence" / "manual_correction.json"
+            )
+            audit = gate4_pipeline.audit_gate4_case_package(case_dir)
+            records.append(
+                {
+                    "case_id": case_id,
+                    "run_id": manifest.get("run_id"),
+                    **label,
+                    "terminal_status": status.get("terminal_status"),
+                    "ambiguous": bool(status.get("ambiguous")),
+                    "package_complete": bool(audit.get("complete")),
+                    "package_issues": audit.get("issues", []),
+                    "route": (inference.get("route") or {}).get("route"),
+                    "fusion_attempted": replay is not None,
+                    "fusion_failed": replay is not None
+                    and replay.get("status") != "success",
+                    "geometry_validated": metrics is not None,
+                    "geometry_pass": metrics.get("geometry_pass")
+                    if metrics is not None
+                    else None,
+                    "volume_iou": metrics.get("volume_iou")
+                    if metrics is not None
+                    else None,
+                    "symmetric_difference_ratio": metrics.get(
+                        "symmetric_difference_ratio"
+                    )
+                    if metrics is not None
+                    else None,
+                    "validation_mode": metrics.get("validation_mode")
+                    if metrics is not None
+                    else None,
+                    "boolean_validation_failed": metrics.get(
+                        "boolean_validation_failed"
+                    )
+                    if metrics is not None
+                    else None,
+                    "automatic_processing_seconds": inference.get(
+                        "automatic_processing_seconds", 0.0
+                    ),
+                    "manual_correction_count": correction.get(
+                        "correction_count", 0
+                    )
+                    if correction is not None
+                    else 0,
+                    "failure_stage": status.get("failure_stage"),
+                    "failure_code": status.get("failure_code"),
+                }
+            )
+    return records
+
+
 def _summary(records):
     supported = [record for record in records if record["expected_scope"] == "supported"]
     unsupported = [record for record in records if record["expected_scope"] == "unsupported"]
