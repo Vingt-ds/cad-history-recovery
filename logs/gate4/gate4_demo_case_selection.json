@@ -1,0 +1,15 @@
+{
+  "cases": [
+    {
+      "case_id": "T-S01",
+      "reason": "Held-out seven-edge non-rectangular single extrusion; automatic Gate 2 route, unambiguous result, Fusion replay, frozen geometry pass and volume_iou=1.0.",
+      "role": "single_extrusion_demo"
+    },
+    {
+      "case_id": "T-H03",
+      "reason": "Held-out YZ-oriented base plus one through cylindrical cut; automatic Gate 3 route, unambiguous result, Fusion replay, analytic feature checks, frozen geometry pass and volume_iou=1.0.",
+      "role": "through_hole_demo"
+    }
+  ],
+  "selection_schema": "gate4-demo-selection-0.1"
+}

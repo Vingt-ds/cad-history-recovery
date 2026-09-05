@@ -2,7 +2,21 @@
 
 This repository contains a deterministic, semi-automatic pipeline under development for converting history-free B-rep/STEP models into plausible, replayable CAD construction sequences.
 
-> **Current status:** Gate 0 through Gate 3 are closed. The frozen 30-case B-rep input set remains unchanged. Gate 2 automatically inferred, Fusion-replayed, and geometrically validated 10/10 frozen development single-extrusion cases. Gate 3 did the same for 5/5 frozen development cases containing one supported through cylindrical Cut. These results do not claim held-out performance or arbitrary B-rep history recovery.
+> **Current status:** Gate 0 through Gate 4 are closed. Gate 4 evaluated one frozen implementation commit on all 15 development and all 15 held-out cases without held-out semantic tuning or reruns. The 30/30 packages are complete; 26/27 supported cases were automatic successes, 2/2 unsupported cases were correctly rejected, and the one supported failure (`T-S07`) is preserved. These results do not claim arbitrary B-rep history recovery.
+
+## Gate 4 completed scope
+
+- one fact-driven router whose semantic inference cannot inspect case IDs, filenames, parent directories or expected labels;
+- one frozen evaluation commit (`3d04273301cdacb8936707164f492427aab3273c`) used by both formal splits;
+- 15/15 formal development and 15/15 one-attempt held-out result packages with independent seals;
+- seal-gated expected-label release only after both raw runs were complete;
+- separate reporting of supported success, unsupported rejection, package completeness, Fusion failure, ambiguity and geometry validation;
+- Boolean volume IoU where available, with `surface_only` retained as a separate diagnostic fallback;
+- structured preservation of failures and scope rejections without post-result relabelling.
+
+The formal evaluation produced 15/15 development automatic successes and 11/12 supported held-out automatic successes. Both unsupported held-out cases were correctly rejected. `T-S07` remains failed at Fusion replay with `unsupported_absolute_frame`; it was not retried. Across both splits, 27/27 validated cases passed their frozen Gate 2 or Gate 3 geometry protocol, 25 produced volume IoU values, two used surface-only fallback, and 30/30 packages passed the completeness audit.
+
+The unified report is [`logs/gate4/gate4_verification_report.json`](logs/gate4/gate4_verification_report.json), detailed statistics are in [`logs/gate4/gate4_statistics.json`](logs/gate4/gate4_statistics.json), and the interpretation boundary is documented in [`logs/gate4/gate4_closure_report.md`](logs/gate4/gate4_closure_report.md).
 
 ## Gate 3 completed scope
 
@@ -78,20 +92,20 @@ The environment definition is in [`environment/environment.yml`](environment/env
 ## Repository layout
 
 ```text
-benchmark_results/ Immutable Gate 2 and Gate 3 formal runs and per-case result packages
+benchmark_results/ Immutable Gate 2, Gate 3 and Gate 4 formal runs and per-case result packages
 benchmarks/        Frozen 30-case STEP input set, manifest, hashes, lock, and thumbnails
-config/            Gate inputs and frozen Gate 2/Gate 3 validation protocols
+config/            Gate inputs and frozen Gate 2/Gate 3/Gate 4 evaluation protocols
 docs/              Reuse audit, sequence schemas, and Gate design/implementation plans
 environment/     Conda definition and verified package record
 evidence/        Gate 0 evidence and Gate 1 Fusion replay screenshots
 external/        B-rep inspection, inference, validation, pipeline, and Gate verification tools
-fusion_scripts/  Gate 0 export plus Gate 1, Gate 2 and Gate 3 replay scripts
-logs/            Structured run logs and Gate closure/verification reports
+fusion_scripts/  Gate 0 export plus Gate 1 through Gate 4 replay scripts
+logs/            Structured run logs, statistics, failure taxonomies and Gate reports
 models/          Native Fusion and STEP evidence models
 replay_outputs/  Native F3D, STEP, and JSON replay evidence
 sequences/       Known-valid and intentionally invalid cadseq fixtures
 shared/          Pure-standard-library frame and sequence validation modules
-tests/           Automated Gate 0 through Gate 3 regression tests
+tests/           Automated Gate 0 through Gate 4 regression tests
 ```
 
 ## Reproduce the external checks
@@ -117,13 +131,14 @@ python external/verify_gate0.py --project-root .
 python external/verify_gate1.py
 python external/verify_gate2.py benchmark_results/gate2-formal-20260903-e93dc2f
 python external/verify_gate3.py benchmark_results/gate3-formal-20260904-8e8ae63
+python external/verify_gate4.py --project-root . --development-run benchmark_results/gate4-development-formal-20260905 --held-out-run benchmark_results/gate4-held-out-formal-20260905
 ```
 
 The smoke test expects the committed Gate 0 STEP evidence under `models/`. It generates or refreshes `models/cadquery_box.step` and `logs/external_python.json`.
 
 ## Fusion scripts
 
-In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export, `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay, `fusion_scripts/Gate2SequenceReplay` for a pipeline-prepared Gate 2 batch request, and `fusion_scripts/Gate3SequenceReplay` for a pipeline-prepared Gate 3 through-hole batch request.
+In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export, `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay, `fusion_scripts/Gate2SequenceReplay` for a pipeline-prepared Gate 2 batch request, `fusion_scripts/Gate3SequenceReplay` for a pipeline-prepared Gate 3 through-hole batch request, and `fusion_scripts/Gate4SequenceReplay` for a frozen Gate 4 batch request.
 
 The Gate 0 smoke script:
 
@@ -139,6 +154,8 @@ The committed `run01` and `run02` outputs are frozen evidence. The script intent
 The Gate 2 adapter creates a fresh Fusion document for each case, reuses the validated Gate 1 Sketch/New Extrude core, creates inferred construction planes parametrically, and refuses to overwrite existing case outputs. The completed formal request is preserved as `benchmark_results/gate2-formal-20260903-e93dc2f/replay_request_used.json`; no active replay request remains in `config/` after closure.
 
 The Gate 3 adapter adds a semantic operation-cap circular sketch and `Cut + through_all` while reusing the earlier replay layers. Its completed formal request is preserved as `benchmark_results/gate3-formal-20260904-8e8ae63/replay_request_used.json`; no active Gate 3 replay request remains in `config/` after closure.
+
+The Gate 4 adapter routes each prepared sequence through the already validated Gate 2 or Gate 3 replay layer. Formal execution is recorded by each run's manifest, batch replay log, per-case replay logs and immutable seal; no active Gate 4 replay request remains in `config/` after closure.
 
 ## Gate 0 evidence
 
@@ -185,6 +202,15 @@ Gate 3 does **not** claim:
 - recovery of a through hole without two explicit circular openings and one connecting cylindrical face;
 - convexity as a hard hole criterion, or a calibrated universal surface-distance threshold;
 - recovery of the designer's unique original construction history.
+
+Gate 4 does **not** claim:
+
+- perfect supported held-out recovery: `T-S07` remains a frozen Fusion replay failure;
+- that surface-only validation is equivalent to a successfully computed volume IoU;
+- that benchmark completeness is equivalent to algorithmic success;
+- that the 25 near-unity IoU values define a new universal acceptance threshold;
+- support for blind or multiple holes, fillets, chamfers, revolves, sweeps, lofts, shells, patterns or general CAD feature graphs;
+- recovery of the unique original designer history or generalization beyond the frozen 30-case benchmark.
 
 ## References and reuse boundary
 

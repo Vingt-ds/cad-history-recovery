@@ -1,0 +1,126 @@
+{
+  "by_split": {
+    "development": {
+      "ambiguous_case_count": 2,
+      "average_automatic_processing_seconds": 0.16901849334438643,
+      "average_manual_correction_count": 0.0,
+      "case_count": 15,
+      "failure_counts": {},
+      "fusion_replay_failure": {
+        "count": 0,
+        "total": 15
+      },
+      "geometry_pass": {
+        "count": 15,
+        "total": 15
+      },
+      "package_complete": {
+        "count": 15,
+        "total": 15
+      },
+      "supported_after_manual_success": {
+        "count": 15,
+        "total": 15
+      },
+      "supported_automatic_success": {
+        "count": 15,
+        "total": 15
+      },
+      "surface_only_count": 0,
+      "unsupported_correct_rejection": {
+        "count": 0,
+        "total": 0
+      },
+      "volume_iou": {
+        "count": 15,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 0.9999999999999998
+      }
+    },
+    "held_out": {
+      "ambiguous_case_count": 2,
+      "average_automatic_processing_seconds": 0.167393200014097,
+      "average_manual_correction_count": 0.0,
+      "case_count": 15,
+      "failure_counts": {
+        "fusion_replay:unsupported_absolute_frame": 1
+      },
+      "fusion_replay_failure": {
+        "count": 1,
+        "total": 13
+      },
+      "geometry_pass": {
+        "count": 12,
+        "total": 12
+      },
+      "package_complete": {
+        "count": 15,
+        "total": 15
+      },
+      "supported_after_manual_success": {
+        "count": 11,
+        "total": 12
+      },
+      "supported_automatic_success": {
+        "count": 11,
+        "total": 12
+      },
+      "surface_only_count": 2,
+      "unsupported_correct_rejection": {
+        "count": 2,
+        "total": 2
+      },
+      "volume_iou": {
+        "count": 10,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 0.9999999999999998
+      }
+    }
+  },
+  "overall": {
+    "ambiguous_case_count": 4,
+    "average_automatic_processing_seconds": 0.1682058466792417,
+    "average_manual_correction_count": 0.0,
+    "case_count": 30,
+    "failure_counts": {
+      "fusion_replay:unsupported_absolute_frame": 1
+    },
+    "fusion_replay_failure": {
+      "count": 1,
+      "total": 28
+    },
+    "geometry_pass": {
+      "count": 27,
+      "total": 27
+    },
+    "package_complete": {
+      "count": 30,
+      "total": 30
+    },
+    "supported_after_manual_success": {
+      "count": 26,
+      "total": 27
+    },
+    "supported_automatic_success": {
+      "count": 26,
+      "total": 27
+    },
+    "surface_only_count": 2,
+    "unsupported_correct_rejection": {
+      "count": 2,
+      "total": 2
+    },
+    "volume_iou": {
+      "count": 25,
+      "max": 1.0,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 0.9999999999999998
+    }
+  },
+  "statistics_schema": "gate4-statistics-0.1"
+}

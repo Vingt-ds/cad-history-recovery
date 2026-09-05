@@ -1,0 +1,22 @@
+{
+  "evaluation_commit": "3d04273301cdacb8936707164f492427aab3273c",
+  "fixes": [
+    {
+      "commit": "e7d310cbf980b80840740da363d49d43388f7e6b",
+      "formal_artifacts_modified": false,
+      "kind": "package_auditor_contract_fix",
+      "semantic_results_changed": false,
+      "summary": "Permit a non-empty rejected candidate set for an unsupported case after candidate generation was entered; continue to reject fabricated empty candidate evidence and forbidden sequence/replay/validation artifacts.",
+      "trigger": "T-C02 retained legitimate rejected candidate evidence and was incorrectly marked package-incomplete by the first post-run audit."
+    },
+    {
+      "commit": "af02d7ddaa473705a8eb871d0110e2fb782637cd",
+      "formal_artifacts_modified": false,
+      "kind": "seal_checkout_portability_fix",
+      "semantic_results_changed": false,
+      "summary": "Allow only LF/CRLF normalization for tracked JSON artifacts when verifying an existing byte inventory; binary artifacts and semantic text changes still require exact hashes.",
+      "trigger": "Git core.autocrlf changed JSON working-tree bytes when the sealed development evidence commit was combined into the closure worktree."
+    }
+  ],
+  "record_schema": "gate4-post-run-packaging-fixes-0.1"
+}

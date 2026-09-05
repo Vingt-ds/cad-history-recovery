@@ -1,0 +1,70 @@
+{
+  "evaluation_commit": "3d04273301cdacb8936707164f492427aab3273c",
+  "failure_taxonomy_schema": "gate4-failure-taxonomy-0.1",
+  "held_out_attempt_count": 1,
+  "observed_failed": [
+    {
+      "case_id": "T-S07",
+      "classification": "frozen_executor_capability_limit",
+      "error_summary": "Gate 2 supports global-axis offsets and rotation about global X",
+      "expected_scope": "supported",
+      "failure_code": "unsupported_absolute_frame",
+      "failure_stage": "fusion_replay",
+      "retry_eligible": false,
+      "terminal_status": "failed"
+    }
+  ],
+  "observed_unsupported": [
+    {
+      "case_id": "T-C02",
+      "classification": "correct_frozen_scope_rejection",
+      "expected_scope": "unsupported",
+      "not_applicable_reason": "No replayable hypothesis exists inside the frozen Gate 2/3 scope",
+      "scope_rule": "no_gate2_candidate_passed_frozen_protocol",
+      "terminal_status": "unsupported"
+    },
+    {
+      "case_id": "T-C03",
+      "classification": "correct_frozen_scope_rejection",
+      "expected_scope": "unsupported",
+      "not_applicable_reason": "No replayable hypothesis exists inside the frozen Gate 2/3 scope",
+      "scope_rule": "hole_like_geometry_outside_frozen_gate3_scope",
+      "terminal_status": "unsupported"
+    }
+  ],
+  "retry_policy": {
+    "nonretryable_failure_codes": [
+      "AMBIGUOUS_CANDIDATE_FAILURE",
+      "FUSION_GEOMETRIC_OPERATION_FAILURE",
+      "GEOMETRY_MISMATCH",
+      "NO_SUPPORTED_HYPOTHESIS",
+      "ROUTING_REJECTION",
+      "SCHEMA_REJECTION",
+      "VALIDATION_FAILURE"
+    ],
+    "retryable_failure_codes": [
+      "EXPORT_IO_FAILURE",
+      "FUSION_LAUNCH_FAILURE",
+      "LOGGING_FAILURE",
+      "PACKAGE_WRITE_FAILURE",
+      "PATH_IO_FAILURE"
+    ],
+    "source": "config/gate4_retry_policy.json"
+  },
+  "validation_fallbacks": [
+    {
+      "boolean_validation_failed": true,
+      "case_id": "T-H02",
+      "geometry_pass": true,
+      "validation_mode": "surface_only",
+      "volume_iou": null
+    },
+    {
+      "boolean_validation_failed": true,
+      "case_id": "T-H04",
+      "geometry_pass": true,
+      "validation_mode": "surface_only",
+      "volume_iou": null
+    }
+  ]
+}

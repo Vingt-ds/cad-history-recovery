@@ -1,0 +1,19 @@
+{
+  "automatic_success_count": 27,
+  "checks": {
+    "clean_start_snapshots": true,
+    "development_seal": true,
+    "freeze_integrity": true,
+    "held_out_seal": true,
+    "held_out_single_execution": true,
+    "label_firewall_at_run_time": true,
+    "package_completeness_30_of_30": true,
+    "same_evaluation_commit": true,
+    "split_roles": true
+  },
+  "failed_checks": [],
+  "gate_pass": true,
+  "package_complete_count": 30,
+  "success_rate_is_gate_condition": false,
+  "verification_schema": "gate4-verification-0.1"
+}
