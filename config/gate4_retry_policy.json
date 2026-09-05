@@ -1,0 +1,25 @@
+{
+  "frozen": true,
+  "nonretryable_failure_codes": [
+    "AMBIGUOUS_CANDIDATE_FAILURE",
+    "FUSION_GEOMETRIC_OPERATION_FAILURE",
+    "GEOMETRY_MISMATCH",
+    "NO_SUPPORTED_HYPOTHESIS",
+    "ROUTING_REJECTION",
+    "SCHEMA_REJECTION",
+    "VALIDATION_FAILURE"
+  ],
+  "requirements": [
+    "preserve_first_attempt",
+    "semantic_hash_inventory_unchanged",
+    "formal_development_rerun_complete"
+  ],
+  "retry_policy_schema": "gate4-retry-policy-0.1",
+  "retryable_failure_codes": [
+    "EXPORT_IO_FAILURE",
+    "FUSION_LAUNCH_FAILURE",
+    "LOGGING_FAILURE",
+    "PACKAGE_WRITE_FAILURE",
+    "PATH_IO_FAILURE"
+  ]
+}

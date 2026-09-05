@@ -39,6 +39,22 @@ class Gate4VerifierTests(unittest.TestCase):
                 "cases": [],
             },
         )
+        semantic_source = root / "external" / "semantic.py"
+        semantic_source.parent.mkdir(parents=True)
+        semantic_source.write_text("value = 1\n", encoding="utf-8")
+        semantic_path = root / "config" / "gate4_semantic_hash_inventory.json"
+        write_json(
+            semantic_path,
+            {
+                "semantic_hash_inventory_schema": "gate4-semantic-hashes-0.1",
+                "hash_mode": "sha256_lf_normalized_text",
+                "files": {
+                    "external/semantic.py": gate4_pipeline._semantic_sha256(
+                        semantic_source
+                    )
+                },
+            },
+        )
         write_json(
             root / "config" / "gate4_freeze_lock.json",
             {
@@ -48,7 +64,10 @@ class Gate4VerifierTests(unittest.TestCase):
                 "files": {
                     "config/gate4_input_inventory.json": hashlib.sha256(
                         inventory_path.read_bytes()
-                    ).hexdigest()
+                    ).hexdigest(),
+                    "config/gate4_semantic_hash_inventory.json": hashlib.sha256(
+                        semantic_path.read_bytes()
+                    ).hexdigest(),
                 },
             },
         )

@@ -1,0 +1,12 @@
+{
+  "evaluation_commit_binding": "containing_git_commit",
+  "files": {
+    "config/gate4_evaluation_protocol.json": "4c7e6dda51e27a584ec50cc5b2a9c485701d7bdfc991140c470e7a06919a9dd7",
+    "config/gate4_input_inventory.json": "c91ff6646dadcbb7cbd766d6dcdf117b50e8c6ca14edcc621ef084fcc5eb48be",
+    "config/gate4_retry_policy.json": "23603f198eb9c706c227e2281be59e81dae77240f13701d676728316c7217425",
+    "config/gate4_routing_policy.json": "a8bf2144adc0c5476a784e74ad6fcb458da7b1657318a5fdfc8fa34484a308d6",
+    "config/gate4_semantic_hash_inventory.json": "2a85c4e2d09ed14998e130427582c8c0e946fc00ed56b3d863984cef66a1cec9"
+  },
+  "freeze_schema": "gate4-freeze-lock-0.1",
+  "frozen": true
+}

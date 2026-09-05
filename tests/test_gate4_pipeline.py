@@ -54,6 +54,22 @@ class Gate4PipelineTests(unittest.TestCase):
                 )
         inventory_path = config / "gate4_input_inventory.json"
         write_json(inventory_path, inventory)
+        semantic_source = code_root / "external" / "semantic.py"
+        semantic_source.parent.mkdir(parents=True)
+        semantic_source.write_text("value = 1\n", encoding="utf-8")
+        semantic_path = config / "gate4_semantic_hash_inventory.json"
+        write_json(
+            semantic_path,
+            {
+                "semantic_hash_inventory_schema": "gate4-semantic-hashes-0.1",
+                "hash_mode": "sha256_lf_normalized_text",
+                "files": {
+                    "external/semantic.py": gate4_pipeline._semantic_sha256(
+                        semantic_source
+                    )
+                },
+            },
+        )
         freeze = {
             "freeze_schema": "gate4-freeze-lock-0.1",
             "frozen": True,
@@ -61,7 +77,10 @@ class Gate4PipelineTests(unittest.TestCase):
             "files": {
                 "config/gate4_input_inventory.json": hashlib.sha256(
                     inventory_path.read_bytes()
-                ).hexdigest()
+                ).hexdigest(),
+                "config/gate4_semantic_hash_inventory.json": hashlib.sha256(
+                    semantic_path.read_bytes()
+                ).hexdigest(),
             },
         }
         write_json(config / "gate4_freeze_lock.json", freeze)
@@ -113,6 +132,13 @@ class Gate4PipelineTests(unittest.TestCase):
                     code_root, results_root, "gate4-dev", "development", {}
                 )
             inventory.write_bytes(original)
+            semantic_source = code_root / "external" / "semantic.py"
+            semantic_source.write_text("value = 2\n", encoding="utf-8")
+            with self.assertRaises(gate4_pipeline.Gate4PipelineError):
+                self._create_formal(
+                    code_root, results_root, "gate4-dev", "development", {}
+                )
+            semantic_source.write_text("value = 1\n", encoding="utf-8")
             self._create_formal(
                 code_root, results_root, "gate4-dev", "development", {}
             )

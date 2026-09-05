@@ -1,0 +1,31 @@
+{
+  "decision_order": [
+    "exactly_one_supported_inner_opening_and_cylindrical_void_pair_to_gate3",
+    "hole_like_geometry_outside_gate3_scope_to_unsupported",
+    "otherwise_gate2"
+  ],
+  "forbidden_semantic_inputs": [
+    "case_id",
+    "filename",
+    "parent_directory",
+    "family",
+    "expected_scope",
+    "expected_behavior",
+    "geometry_parameters"
+  ],
+  "frozen": true,
+  "gate3_requires": [
+    "one_accepted_through_hole_fact_group",
+    "paired_planar_inner_circular_openings",
+    "one_connecting_straight_cylindrical_face"
+  ],
+  "rename_and_parent_path_invariance_required": true,
+  "routing_policy_schema": "gate4-routing-policy-0.1",
+  "semantic_inputs": [
+    "step_geometry",
+    "source_step_sha256",
+    "work_directory",
+    "frozen_gate2_protocol",
+    "frozen_gate3_protocol"
+  ]
+}

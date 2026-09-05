@@ -1,0 +1,29 @@
+{
+  "files": {
+    ".gitattributes": "42f52a06d1f744cae10f73cae909315590896a65c2b078297b7e19d751cdbd82",
+    "config/gate2_validation_protocol.json": "8656e3882ee8c71c310b3ad5afe85177cf8e1d2e67d1bff6d03e13d64148c05a",
+    "config/gate3_validation_protocol.json": "d0372098d2403d8cf96eb5c269354cf5c936b9fdef09b52878a91acc3f99c662",
+    "external/brep_inspection.py": "b3d811f6f288217588da2dde136b5aa39aabacd192cd8961707c92b823cd7155",
+    "external/candidate_validation.py": "1712404201e7ff56fe37123ccd8885ceabf245dd997e5b6aa90c30d1028f5c98",
+    "external/extrusion_inference.py": "5def890a6fccd9b4b6a07b16a6395ec8a4af27524189c243c74d532806d92502",
+    "external/gate2_pipeline.py": "99ac6b0ea6f6f2bdc61f2b0b537a6930f75cbe8360492324a560e5b308a432d9",
+    "external/gate3_pipeline.py": "2bac59b1371f7a13788f70c6cc4240cd4c97538ccb931827014fe54c884b352a",
+    "external/gate4_inference.py": "dfcde14241345cf1e0e2618bd43bb76447cad70dd5cb1eadab6a9f7427b923db",
+    "external/gate4_pipeline.py": "8203f5b4350bc7b1846da29838031ba6fc3950fdc29cda77397b0d17ac585e0a",
+    "external/gate4_policy.py": "bd70c6a0f2922f5862c91c37067854a1e64fd504ce1aa5e04cef3e2e42a83936",
+    "external/gate4_reporting.py": "fe57e4f0138468a854c96e79f47c8610249147193a0b516756187db0461ce1cb",
+    "external/gate4_validation.py": "bdfb9af82051b96fc3944fbc35114c6f8da19859d1200f93d1a9cac6b063046a",
+    "external/geometry_validation.py": "aee194f51fb0492e86a963abd4fd1778bd1a87613930ea9da9fad908d2a8d7cf",
+    "external/profile_reconstruction.py": "4f68c11843c943f74febd2c9d70a712d14cf61f22d3ac8383d6b0e306b865d80",
+    "external/result_package.py": "ecf14b9e16239c23afd9f1040357a96e9727b016efe97bdb6f8111f4d65a6ad6",
+    "external/through_hole_inference.py": "52ef774b758dcdbbe8d4bb15ffb107acd2fd8f585b1aab710e99f1a79ebda91d",
+    "external/through_hole_reconstruction.py": "ef7dd71ec942fc969caf82a2ae73623c0c53cbd283f9a9d2a567fc7c1994a67d",
+    "external/topology_adjacency.py": "dbd1892eff21f23c1ee5dcdd9b35611266f6999f7a4527bc4d79ddde92afde30",
+    "external/verify_gate4.py": "ed5910c239f2ac8203c7a1a2bf644d1222d6635287d21b04a55111c2b1b2bf0b",
+    "fusion_scripts/Gate1SequenceReplay/Gate1SequenceReplay.py": "dc0d419e572432999f39e6b1c4d8f7dd400961c6a3a8e189ad076cb9862ac1c3",
+    "fusion_scripts/Gate2SequenceReplay/Gate2SequenceReplay.py": "b744489934a3eca9eb376889e3a6145d4339d1355654fb358dead15fc93c07c5",
+    "fusion_scripts/Gate4SequenceReplay/Gate4SequenceReplay.py": "a4b6a6460998ea0258da42b40b1d3933e12687fc011c66333b197fff557722d9"
+  },
+  "hash_mode": "sha256_lf_normalized_text",
+  "semantic_hash_inventory_schema": "gate4-semantic-hashes-0.1"
+}

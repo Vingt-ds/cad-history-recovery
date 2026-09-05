@@ -27,6 +27,11 @@ def _sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def _semantic_sha256(path):
+    normalized = Path(path).read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(normalized).hexdigest()
+
+
 def _read_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
@@ -67,7 +72,11 @@ def _verify_freeze(code_root):
     if lock.get("evaluation_commit_binding") != "containing_git_commit":
         raise Gate4PipelineError("invalid_evaluation_commit_binding")
     files = lock.get("files")
-    if not isinstance(files, dict) or "config/gate4_input_inventory.json" not in files:
+    if (
+        not isinstance(files, dict)
+        or "config/gate4_input_inventory.json" not in files
+        or "config/gate4_semantic_hash_inventory.json" not in files
+    ):
         raise Gate4PipelineError("freeze_file_inventory_missing")
     for relative, expected in files.items():
         path = (code_root / relative).resolve()
@@ -75,6 +84,21 @@ def _verify_freeze(code_root):
             raise Gate4PipelineError("freeze_file_missing")
         if _sha256(path) != expected:
             raise Gate4PipelineError("freeze_file_hash_mismatch")
+    semantic = _read_json(code_root / "config" / "gate4_semantic_hash_inventory.json")
+    if (
+        semantic.get("semantic_hash_inventory_schema")
+        != "gate4-semantic-hashes-0.1"
+        or semantic.get("hash_mode") != "sha256_lf_normalized_text"
+        or not isinstance(semantic.get("files"), dict)
+        or not semantic["files"]
+    ):
+        raise Gate4PipelineError("semantic_hash_inventory_invalid")
+    for relative, expected in semantic["files"].items():
+        path = (code_root / relative).resolve()
+        if not path.is_relative_to(code_root.resolve()) or not path.is_file():
+            raise Gate4PipelineError("semantic_file_missing")
+        if _semantic_sha256(path) != expected:
+            raise Gate4PipelineError("semantic_file_hash_mismatch")
     return lock_path, lock
 
 

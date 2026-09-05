@@ -1,0 +1,246 @@
+{
+  "benchmark_manifest_sha256": "c92ac078a5feccce3f7fd53fe4c67a5fbd30c276bb27418948ad46c1a62c8e30",
+  "cases": [
+    {
+      "case_id": "D-H01",
+      "path": "benchmarks/inputs/development/D-H01.step",
+      "sha256": "61fd254610009834700a9b5a23d491ed98cfcfa6bb5d5ff613760e7465d05a5e",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-H02",
+      "path": "benchmarks/inputs/development/D-H02.step",
+      "sha256": "532d6a6b8461bc4dd1d55ee412478152ab9a688b3a8e3746918d7fb776a46c88",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-H03",
+      "path": "benchmarks/inputs/development/D-H03.step",
+      "sha256": "7befa39708ea2f4ec5a6f867a99d9c54def642b719bb9db6b3bb44a5c6c7f0a3",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-H04",
+      "path": "benchmarks/inputs/development/D-H04.step",
+      "sha256": "e79dcea2e5e0adc5349626f8629b23b5e0b763f69cd8435e96cd9ac5f4e1f689",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-H05",
+      "path": "benchmarks/inputs/development/D-H05.step",
+      "sha256": "19297b837c824f5de90535092494ba5b9a3be1b6d823aab7014e14626e19b9a6",
+      "source": "fusion_manual",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S01",
+      "path": "benchmarks/inputs/development/D-S01.step",
+      "sha256": "b58b5c4886db8ceb58f72f5224f6bf7783109ff6a7a2384257e8dd7842455048",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S02",
+      "path": "benchmarks/inputs/development/D-S02.step",
+      "sha256": "19b6f62d433a09219217e19915efbf6db009493159226c05a30f2c63dc218715",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S03",
+      "path": "benchmarks/inputs/development/D-S03.step",
+      "sha256": "b2adfed35199cb0a859a9d1fc72331abbc0c3dd4ce299b689eef70daf14fa4e4",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S04",
+      "path": "benchmarks/inputs/development/D-S04.step",
+      "sha256": "9bdfcae1e8d698f6952f1f76ad948ae077c9bdf6d81b6b27e7734f9947323245",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S05",
+      "path": "benchmarks/inputs/development/D-S05.step",
+      "sha256": "a9dcf9bd60de3e0b3cf0e61ad51777310df883aa234bf5a33d1890efdb293d39",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S06",
+      "path": "benchmarks/inputs/development/D-S06.step",
+      "sha256": "c4163a85e200790b016d2c77eb97fed31cfd2fd2e435e888ed0b490ac6b8f5d6",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S07",
+      "path": "benchmarks/inputs/development/D-S07.step",
+      "sha256": "0416e9c3a62fa9ceef0ef1170e69bdbb8a5f76c9cc5a0dc5188447d4f6d4e0b9",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S08",
+      "path": "benchmarks/inputs/development/D-S08.step",
+      "sha256": "42bf51057113c3c8a515770fe743d15a7b1ae30eea9cd32d03a0d00ad05db8f5",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S09",
+      "path": "benchmarks/inputs/development/D-S09.step",
+      "sha256": "92991300e3bd1395d9e45f4d57e5994d8e137646053b258040e7633bebe17507",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "D-S10",
+      "path": "benchmarks/inputs/development/D-S10.step",
+      "sha256": "3b203cf5e140eeb66059b7150942a5c390196e87d9c5b0d4143c9fc0f09e343f",
+      "source": "cadquery",
+      "split": "development",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-C01",
+      "path": "benchmarks/inputs/held_out/T-C01.step",
+      "sha256": "9fd2d8dcb347fa1ffab2793c387fa9daa0b25b3f38e03d1e7aa275072dbfc154",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-C02",
+      "path": "benchmarks/inputs/held_out/T-C02.step",
+      "sha256": "de209a0f091179afab253b540e04ffc3d5eda39e02669a24fa4767d1f81d825d",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-C03",
+      "path": "benchmarks/inputs/held_out/T-C03.step",
+      "sha256": "aca58ca469f3158d89e4ca360f89dd1914106a2c71e9939e64a2667b411354d9",
+      "source": "fusion_manual",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-H01",
+      "path": "benchmarks/inputs/held_out/T-H01.step",
+      "sha256": "f5098ea092e299917b168aa003ddbe51c7c2e75978088b53144d8b24e95cffd1",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-H02",
+      "path": "benchmarks/inputs/held_out/T-H02.step",
+      "sha256": "55f8ace601939488618d77c6ffa7a5d9ef9d25d8a243372453722aa11e3f36f7",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-H03",
+      "path": "benchmarks/inputs/held_out/T-H03.step",
+      "sha256": "492a2147b215fcbe54c5b28cb2986007a457cd1ec6c395971cdb4088884d5c21",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-H04",
+      "path": "benchmarks/inputs/held_out/T-H04.step",
+      "sha256": "7f3b30b579ba55ee6375bace146b4c2e44467510bf94e7d9a53b85b703f8e7de",
+      "source": "fusion_manual",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-S01",
+      "path": "benchmarks/inputs/held_out/T-S01.step",
+      "sha256": "a1fd7868b80e5411faaa4a1a6409ca25a50e2ae593f8d05fae4d4f5f8793ceb6",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-S02",
+      "path": "benchmarks/inputs/held_out/T-S02.step",
+      "sha256": "7f96401bb95e40b14894028993210c10ccd1ac379699b4c1a4b963162abebe58",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-S03",
+      "path": "benchmarks/inputs/held_out/T-S03.step",
+      "sha256": "fed530af55a09e63b04b0c69f3ffd845fe4eb92dab07ea409a5c9fd57e191972",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-S04",
+      "path": "benchmarks/inputs/held_out/T-S04.step",
+      "sha256": "d50f1285e656e34347f95e614785e93f42e73e2bbd6631c52095a171d7d893a3",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-S05",
+      "path": "benchmarks/inputs/held_out/T-S05.step",
+      "sha256": "9fa76c65ac841fe64a9bfd4d81c5a8df88ed2c186d002c4a005d8c1d71b49879",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-S06",
+      "path": "benchmarks/inputs/held_out/T-S06.step",
+      "sha256": "f9fdb78a1e46b0786f6ff7a52ccf31e65315029edcb046553edf3f79af8e3663",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-S07",
+      "path": "benchmarks/inputs/held_out/T-S07.step",
+      "sha256": "4cd2276e503e7f2da08dda20436919e9b1dbc4b34fbb01662f7cc28f62b1d1b9",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    },
+    {
+      "case_id": "T-S08",
+      "path": "benchmarks/inputs/held_out/T-S08.step",
+      "sha256": "ef56d0dfa51d86dfbd0ce02acb4ee4b71c24964e88479439423ebfdf60203b74",
+      "source": "cadquery",
+      "split": "held_out",
+      "units": "mm"
+    }
+  ],
+  "input_inventory_schema": "gate4-input-inventory-0.1"
+}

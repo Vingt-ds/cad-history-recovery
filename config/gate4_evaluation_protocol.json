@@ -1,0 +1,31 @@
+{
+  "benchmark_manifest_sha256": "c92ac078a5feccce3f7fd53fe4c67a5fbd30c276bb27418948ad46c1a62c8e30",
+  "boolean_failure_fallback": "surface_only",
+  "boolean_failure_volume_iou": null,
+  "case_count": 30,
+  "case_matrix_sha256": "ca0dcfc3b7019dc85e98c701f7afa7a2543b0a448a52b78637de8425ffaac701",
+  "evaluation_protocol_schema": "gate4-evaluation-0.1",
+  "expected_labels_release": "after_both_raw_runs_are_sealed",
+  "formal_execution_order": [
+    "development",
+    "seal",
+    "held_out",
+    "seal"
+  ],
+  "formal_runs_use_same_evaluation_commit": true,
+  "frozen": true,
+  "gate2_protocol_sha256": "8656e3882ee8c71c310b3ad5afe85177cf8e1d2e67d1bff6d03e13d64148c05a",
+  "gate3_protocol_sha256": "d0372098d2403d8cf96eb5c269354cf5c936b9fdef09b52878a91acc3f99c662",
+  "geometry_pass_source": "frozen_gate2_or_gate3_protocol",
+  "held_out_execution_count": 1,
+  "manual_correction_policy": "automatic_only",
+  "package_completeness_required": "30_of_30",
+  "primary_volume_metric": "volume_iou",
+  "split_counts": {
+    "development": 15,
+    "held_out": 15
+  },
+  "success_rate_is_gate_condition": false,
+  "surface_only_role": "diagnostic_completion_only",
+  "symmetric_difference_ratio": "one_minus_volume_iou"
+}
