@@ -559,6 +559,31 @@ def _file_inventory(run_dir):
     ]
 
 
+def _sealed_inventory_matches(run_dir, sealed_files):
+    current = _file_inventory(run_dir)
+    if not isinstance(sealed_files, list):
+        return False
+    expected_by_path = {entry.get("path"): entry for entry in sealed_files}
+    current_by_path = {entry.get("path"): entry for entry in current}
+    if expected_by_path.keys() != current_by_path.keys():
+        return False
+    for relative, expected in expected_by_path.items():
+        if expected == current_by_path[relative]:
+            continue
+        if Path(relative).suffix.lower() != ".json":
+            return False
+        raw = (Path(run_dir) / relative).read_bytes()
+        lf = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        variants = (lf, lf.replace(b"\n", b"\r\n"))
+        if not any(
+            len(data) == expected.get("size_bytes")
+            and hashlib.sha256(data).hexdigest() == expected.get("sha256")
+            for data in variants
+        ):
+            return False
+    return True
+
+
 def audit_gate4_case_package(case_dir):
     case_dir = Path(case_dir)
     base = result_package.audit_case_package(case_dir)
@@ -658,12 +683,11 @@ def verify_seal(run_dir):
         return {"valid": False, "reason": "seal_missing"}
     try:
         seal = _read_json(seal_path)
-        current = _file_inventory(run_dir)
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         return {"valid": False, "reason": str(exc)}
     valid = (
         seal.get("seal_schema") == "gate4-run-seal-0.1"
         and seal.get("case_count") == 15
-        and seal.get("files") == current
+        and _sealed_inventory_matches(run_dir, seal.get("files"))
     )
     return {"valid": valid, "reason": None if valid else "file_inventory_mismatch"}

@@ -211,6 +211,27 @@ class Gate4PipelineTests(unittest.TestCase):
             self.assertFalse(gate4_pipeline.verify_seal(run_dir)["valid"])
             self.assertEqual(seal["case_count"], 15)
 
+    def test_seal_accepts_only_line_ending_normalization_for_text_artifacts(self):
+        with tempfile.TemporaryDirectory() as directory:
+            code_root, results_root = self._roots(directory)
+            run_dir, cases = self._create_formal(
+                code_root,
+                results_root,
+                "gate4-development-formal",
+                "development",
+                {},
+            )
+            self._complete_unsupported_cases(run_dir, [case["case_id"] for case in cases])
+            gate4_pipeline.seal_run(run_dir)
+            status_path = run_dir / "cases" / cases[0]["case_id"] / "final_status.json"
+            lf = status_path.read_bytes().replace(b"\r\n", b"\n")
+            status_path.write_bytes(lf.replace(b"\n", b"\r\n"))
+
+            self.assertTrue(gate4_pipeline.verify_seal(run_dir)["valid"])
+
+            status_path.write_bytes(status_path.read_bytes().replace(b"fixture", b"changed"))
+            self.assertFalse(gate4_pipeline.verify_seal(run_dir)["valid"])
+
     def test_analysis_passes_only_path_sha_workdir_and_protocols_to_semantics(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
