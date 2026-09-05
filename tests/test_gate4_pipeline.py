@@ -342,6 +342,42 @@ class Gate4PipelineTests(unittest.TestCase):
             self.assertFalse(audit["complete"])
             self.assertIn("manual_success_forbidden", audit["issues"])
 
+    def test_gate4_package_audit_allows_rejected_candidate_evidence_for_unsupported(self):
+        with tempfile.TemporaryDirectory() as directory:
+            case_dir = Path(directory) / "case"
+            write_json(case_dir / "metadata" / "input_metadata.json", {"valid_step": True})
+            write_json(case_dir / "analysis" / "brep_summary.json", {})
+            write_json(
+                case_dir / "analysis" / "inference_log.json",
+                {"status": "unsupported", "semantic_outcome": "unsupported"},
+            )
+            write_json(
+                case_dir / "analysis" / "candidates.json",
+                {
+                    "candidate_set": [
+                        {
+                            "candidate_id": "candidate-1",
+                            "status": "rejected",
+                            "rejection_reasons": ["side_connection_coverage"],
+                        }
+                    ],
+                    "selected_candidate_id": None,
+                },
+            )
+            write_json(
+                case_dir / "final_status.json",
+                {
+                    "terminal_status": "unsupported",
+                    "ambiguous": False,
+                    "scope_rule": "no_candidate_passed_frozen_protocol",
+                    "not_applicable_reason": "No replayable hypothesis",
+                },
+            )
+
+            audit = gate4_pipeline.audit_gate4_case_package(case_dir)
+
+        self.assertTrue(audit["complete"], audit)
+
     def test_unsupported_case_has_no_fake_candidates_or_sequence(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

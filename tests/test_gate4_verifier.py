@@ -1,5 +1,6 @@
 import hashlib
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -135,6 +136,79 @@ class Gate4VerifierTests(unittest.TestCase):
 
         self.assertFalse(report["gate_pass"])
         self.assertIn("held_out_seal", report["failed_checks"])
+
+    def test_freeze_integrity_uses_evaluation_commit_after_packaging_tool_change(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            semantic_source = root / "external" / "semantic.py"
+            semantic_source.parent.mkdir(parents=True)
+            semantic_source.write_text("value = 1\n", encoding="utf-8")
+            inventory_path = root / "config" / "gate4_input_inventory.json"
+            write_json(inventory_path, {"input_inventory_schema": "fixture"})
+            semantic_path = root / "config" / "gate4_semantic_hash_inventory.json"
+            write_json(
+                semantic_path,
+                {
+                    "semantic_hash_inventory_schema": "gate4-semantic-hashes-0.1",
+                    "hash_mode": "sha256_lf_normalized_text",
+                    "files": {
+                        "external/semantic.py": gate4_pipeline._semantic_sha256(
+                            semantic_source
+                        )
+                    },
+                },
+            )
+            write_json(
+                root / "config" / "gate4_freeze_lock.json",
+                {
+                    "freeze_schema": "gate4-freeze-lock-0.1",
+                    "frozen": True,
+                    "evaluation_commit_binding": "containing_git_commit",
+                    "files": {
+                        "config/gate4_input_inventory.json": hashlib.sha256(
+                            inventory_path.read_bytes()
+                        ).hexdigest(),
+                        "config/gate4_semantic_hash_inventory.json": hashlib.sha256(
+                            semantic_path.read_bytes()
+                        ).hexdigest(),
+                    },
+                },
+            )
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                ["git", "config", "core.autocrlf", "false"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(["git", "add", "."], cwd=root, check=True, capture_output=True)
+            subprocess.run(
+                [
+                    "git",
+                    "-c",
+                    "user.name=Gate4 Test",
+                    "-c",
+                    "user.email=gate4@example.invalid",
+                    "commit",
+                    "-m",
+                    "freeze",
+                ],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            commit = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            semantic_source.write_text("value = 2\n", encoding="utf-8")
+
+            integrity = verify_gate4._freeze_integrity(root, commit)
+
+        self.assertTrue(integrity)
 
 
 if __name__ == "__main__":

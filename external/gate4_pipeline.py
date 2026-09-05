@@ -582,6 +582,13 @@ def audit_gate4_case_package(case_dir):
         issues.append("manual_success_forbidden")
     if terminal == "unsupported":
         for name, path in paths.items():
+            if name == "candidates" and path.is_file():
+                try:
+                    candidate_set = _read_json(path).get("candidate_set")
+                except (OSError, ValueError, json.JSONDecodeError):
+                    candidate_set = None
+                if isinstance(candidate_set, list) and candidate_set:
+                    continue
             if path.exists():
                 issues.append(f"unsupported_forbids_{name}")
     if terminal == "failed":

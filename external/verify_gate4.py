@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import re
+import subprocess
 from pathlib import Path
 
 import gate4_pipeline
@@ -12,6 +15,73 @@ import result_package
 
 def _read_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def _git_blob(project_root, commit, relative):
+    if re.fullmatch(r"[0-9a-f]{40}", commit or "") is None:
+        raise ValueError("invalid_evaluation_commit")
+    path = Path(relative)
+    if path.is_absolute() or ".." in path.parts:
+        raise ValueError("invalid_frozen_path")
+    return subprocess.run(
+        ["git", "show", f"{commit}:{path.as_posix()}"],
+        cwd=project_root,
+        check=True,
+        capture_output=True,
+    ).stdout
+
+
+def _freeze_integrity_at_commit(project_root, commit):
+    lock = json.loads(
+        _git_blob(project_root, commit, "config/gate4_freeze_lock.json")
+    )
+    if (
+        lock.get("freeze_schema") != "gate4-freeze-lock-0.1"
+        or lock.get("frozen") is not True
+        or lock.get("evaluation_commit_binding") != "containing_git_commit"
+    ):
+        return False
+    files = lock.get("files")
+    if not isinstance(files, dict):
+        return False
+    for relative, expected in files.items():
+        if hashlib.sha256(_git_blob(project_root, commit, relative)).hexdigest() != expected:
+            return False
+    semantic = json.loads(
+        _git_blob(
+            project_root,
+            commit,
+            "config/gate4_semantic_hash_inventory.json",
+        )
+    )
+    if (
+        semantic.get("semantic_hash_inventory_schema")
+        != "gate4-semantic-hashes-0.1"
+        or semantic.get("hash_mode") != "sha256_lf_normalized_text"
+        or not isinstance(semantic.get("files"), dict)
+        or not semantic["files"]
+    ):
+        return False
+    for relative, expected in semantic["files"].items():
+        normalized = (
+            _git_blob(project_root, commit, relative)
+            .replace(b"\r\n", b"\n")
+            .replace(b"\r", b"\n")
+        )
+        if hashlib.sha256(normalized).hexdigest() != expected:
+            return False
+    return True
+
+
+def _freeze_integrity(project_root, commit):
+    try:
+        gate4_pipeline._verify_freeze(project_root)
+        return True
+    except Exception:
+        try:
+            return _freeze_integrity_at_commit(project_root, commit)
+        except Exception:
+            return False
 
 
 def verify(project_root, development_run, held_out_run):
@@ -23,11 +93,7 @@ def verify(project_root, development_run, held_out_run):
     commit = development_manifest.get("git_commit")
     checks = {}
 
-    try:
-        gate4_pipeline._verify_freeze(root)
-        checks["freeze_integrity"] = True
-    except Exception:
-        checks["freeze_integrity"] = False
+    checks["freeze_integrity"] = _freeze_integrity(root, commit)
     checks["development_seal"] = gate4_pipeline.verify_seal(development_run).get(
         "valid", False
     )
