@@ -65,6 +65,12 @@ class ConfigTests(unittest.TestCase):
             path.write_bytes(payload)
             self.assertEqual(sha256_file(path), hashlib.sha256(payload).hexdigest())
 
+    def test_gate0_shared_config_is_git_binary_to_preserve_frozen_hash(self):
+        attributes = (PROJECT_ROOT / ".gitattributes").read_text(
+            encoding="utf-8"
+        ).splitlines()
+        self.assertIn("config/gate0_box.json binary", attributes)
+
     def test_fusion_manifest_matches_installed_script_contract(self):
         manifest_path = (
             PROJECT_ROOT

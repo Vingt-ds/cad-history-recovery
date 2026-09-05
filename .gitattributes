@@ -1,4 +1,5 @@
 *.step binary
+config/gate0_box.json binary
 config/gate2_validation_protocol.json binary
 config/gate3_validation_protocol.json binary
 config/gate4_*.json binary
