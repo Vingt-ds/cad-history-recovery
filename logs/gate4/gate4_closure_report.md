@@ -56,6 +56,7 @@ Two audit-only defects were closed after raw execution:
 
 1. The package auditor initially rejected `T-C02` because a legitimate non-empty rejected candidate set remained after candidate generation. Commit `e7d310c` corrected only the conditional package rule; it did not change routing, inference, sequence synthesis, thresholds, Fusion execution or case outcomes.
 2. Combining the two evidence histories exposed that Git `core.autocrlf` can alter JSON checkout bytes while preserving content. Commit `af02d7d` allows only LF/CRLF normalization for JSON during seal verification. Binary artifacts and semantic text changes remain hash-sensitive, and the formal run contents and seals were not rewritten.
+3. The cross-Gate verification found the same checkout risk in the byte-hashed Gate 0 shared configuration. Commit `2604975` marks only `config/gate0_box.json` as Git binary; its committed bytes and all three historical execution hashes remain unchanged.
 
 The evaluation-time frozen files continue to be verified from commit C. These post-run fixes are recorded in `gate4_post_run_packaging_fixes.json` and must not be represented as evaluation-time semantic code.
 

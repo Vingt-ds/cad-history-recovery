@@ -16,6 +16,14 @@
       "semantic_results_changed": false,
       "summary": "Allow only LF/CRLF normalization for tracked JSON artifacts when verifying an existing byte inventory; binary artifacts and semantic text changes still require exact hashes.",
       "trigger": "Git core.autocrlf changed JSON working-tree bytes when the sealed development evidence commit was combined into the closure worktree."
+    },
+    {
+      "commit": "26049751c86983391ccf352ad3560f51b8d9cb2f",
+      "formal_artifacts_modified": false,
+      "kind": "legacy_gate0_hash_checkout_portability_fix",
+      "semantic_results_changed": false,
+      "summary": "Mark the frozen Gate 0 shared JSON configuration as Git binary so its byte-level SHA-256 remains identical across Windows checkouts.",
+      "trigger": "The final cross-Gate verifier found that core.autocrlf changed config/gate0_box.json working-tree bytes while its committed blob and all three recorded execution hashes still matched."
     }
   ],
   "record_schema": "gate4-post-run-packaging-fixes-0.1"
