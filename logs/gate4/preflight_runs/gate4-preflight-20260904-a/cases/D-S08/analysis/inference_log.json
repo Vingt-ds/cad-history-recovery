@@ -1,0 +1,21 @@
+{
+  "ambiguous": false,
+  "automatic_processing_seconds": 0.12871980003546923,
+  "inference_log_schema": "gate4-inference-log-0.1",
+  "model_id": "D-S08",
+  "route": {
+    "cylinder_face_count": 0,
+    "cylindrical_boundary_evidence": false,
+    "full_circle_edge_count": 0,
+    "hole_fact_group_count": 0,
+    "inner_circular_opening_evidence": false,
+    "reason": "no_inner_circular_opening_and_cylindrical_void_pair",
+    "route": "gate2",
+    "routing_schema": "gate4-content-route-0.1",
+    "supported_hole_group_count": 0
+  },
+  "selected_candidate_id": "extrusion-face-000-face-001",
+  "semantic_outcome": "candidate_selected",
+  "source_step_sha256": "42bf51057113c3c8a515770fe743d15a7b1ae30eea9cd32d03a0d00ad05db8f5",
+  "status": "awaiting_fusion"
+}

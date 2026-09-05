@@ -107,11 +107,13 @@ def inspect_and_infer_step(
     result = {
         "semantic_inference_schema": "gate4-semantic-inference-0.1",
         "source_step_sha256": source_sha256,
+        "brep_summary": summary,
         "route": route,
         "semantic_outcome": "unsupported"
         if route["route"] == "unsupported"
         else None,
         "ambiguous": False,
+        "candidate_generation_entered": False,
         "candidate_set": [],
         "selected_candidate_id": None,
         "selected_sequence": None,
@@ -121,6 +123,7 @@ def inspect_and_infer_step(
         result["unsupported_rule"] = route["reason"]
         return result
     if route["route"] == "gate2":
+        result["candidate_generation_entered"] = True
         validated = candidate_validation.validate_inferred_facts(
             path,
             summary,
@@ -156,6 +159,7 @@ def inspect_and_infer_step(
         )
         return result
 
+    result["candidate_generation_entered"] = True
     coupled = through_hole_inference.generate_coupled_candidates(
         summary, adjacency, hole_facts
     )

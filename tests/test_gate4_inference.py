@@ -154,6 +154,8 @@ class LabelFirewallTests(unittest.TestCase):
         self.assertTrue(all(output == outputs[0] for output in outputs[1:]))
         self.assertEqual(outputs[0]["route"]["route"], "gate3")
         self.assertEqual(outputs[0]["semantic_outcome"], "candidate_selected")
+        self.assertEqual(outputs[0]["brep_summary"]["source_step_sha256"], digest)
+        self.assertTrue(outputs[0]["candidate_generation_entered"])
 
     def test_plain_extrusion_uses_gate2_without_case_metadata(self):
         source = PROJECT_ROOT / "benchmarks" / "inputs" / "development" / "D-S04.step"
@@ -171,6 +173,8 @@ class LabelFirewallTests(unittest.TestCase):
         self.assertEqual(result["route"]["route"], "gate2")
         self.assertEqual(result["semantic_outcome"], "candidate_selected")
         self.assertIsNotNone(result["selected_sequence"])
+        self.assertEqual(result["brep_summary"]["source_step_sha256"], digest)
+        self.assertTrue(result["candidate_generation_entered"])
 
     def test_filleted_extrusion_returns_unsupported_without_expected_label(self):
         gate2_protocol, gate3_protocol = self._protocols()

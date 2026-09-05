@@ -1,0 +1,986 @@
+{
+  "ambiguous": true,
+  "candidate_set": [
+    {
+      "base_face_id": "face-000",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-000-face-001",
+      "checks": {
+        "area_match": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 4
+          },
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": -1.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 40.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 1.0,
+          "pass": true,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 40.0,
+      "extrusion_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "opposite_face_id": "face-001",
+      "rejection_reasons": [],
+      "score_components": {
+        "passed_hard_checks": 6,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "status": "accepted"
+    },
+    {
+      "base_face_id": "face-002",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-002-face-003",
+      "checks": {
+        "area_match": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 4
+          },
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": -1.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 20.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 1.0,
+          "pass": true,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 20.0,
+      "extrusion_direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "opposite_face_id": "face-003",
+      "rejection_reasons": [],
+      "score_components": {
+        "passed_hard_checks": 6,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "status": "accepted"
+    },
+    {
+      "base_face_id": "face-004",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-004-face-005",
+      "checks": {
+        "area_match": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 4
+          },
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 0.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": -1.0,
+          "pass": true,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 60.0,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 1.0,
+          "pass": true,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 60.0,
+      "extrusion_direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "opposite_face_id": "face-005",
+      "rejection_reasons": [],
+      "score_components": {
+        "passed_hard_checks": 6,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "status": "accepted"
+    },
+    {
+      "base_face_id": "face-000",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-000-face-002",
+      "checks": {
+        "area_match": {
+          "measured": 0.5,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 2.360679774997898,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 22.360679774997898,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 22.360679775,
+      "extrusion_direction": [
+        0.0,
+        0.894427191,
+        -0.4472135955
+      ],
+      "opposite_face_id": "face-002",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-000",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-000-face-003",
+      "checks": {
+        "area_match": {
+          "measured": 0.5,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 2.360679774997898,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 22.360679774997898,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 22.360679775,
+      "extrusion_direction": [
+        0.0,
+        0.894427191,
+        0.4472135955
+      ],
+      "opposite_face_id": "face-003",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-000",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-000-face-004",
+      "checks": {
+        "area_match": {
+          "measured": 0.3333333333333333,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 16.055512754639892,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 36.05551275463989,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 36.055512755,
+      "extrusion_direction": [
+        -0.832050294338,
+        0.554700196225,
+        0.0
+      ],
+      "opposite_face_id": "face-004",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-000",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-000-face-005",
+      "checks": {
+        "area_match": {
+          "measured": 0.3333333333333333,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 16.055512754639892,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 36.05551275463989,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 36.055512755,
+      "extrusion_direction": [
+        0.832050294338,
+        0.554700196225,
+        0.0
+      ],
+      "opposite_face_id": "face-005",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-001",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-001-face-002",
+      "checks": {
+        "area_match": {
+          "measured": 0.5,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 2.360679774997898,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 22.360679774997898,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 22.360679775,
+      "extrusion_direction": [
+        0.0,
+        -0.894427191,
+        -0.4472135955
+      ],
+      "opposite_face_id": "face-002",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-001",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-001-face-003",
+      "checks": {
+        "area_match": {
+          "measured": 0.5,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 2.360679774997898,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 22.360679774997898,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 22.360679775,
+      "extrusion_direction": [
+        0.0,
+        -0.894427191,
+        0.4472135955
+      ],
+      "opposite_face_id": "face-003",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-001",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-001-face-004",
+      "checks": {
+        "area_match": {
+          "measured": 0.3333333333333333,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 16.055512754639892,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 36.05551275463989,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 36.055512755,
+      "extrusion_direction": [
+        -0.832050294338,
+        -0.554700196225,
+        0.0
+      ],
+      "opposite_face_id": "face-004",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-001",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-001-face-005",
+      "checks": {
+        "area_match": {
+          "measured": 0.3333333333333333,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 16.055512754639892,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 36.05551275463989,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 36.055512755,
+      "extrusion_direction": [
+        0.832050294338,
+        -0.554700196225,
+        0.0
+      ],
+      "opposite_face_id": "face-005",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-002",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-002-face-004",
+      "checks": {
+        "area_match": {
+          "measured": 0.6666666666666666,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 21.622776601683793,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 31.622776601683793,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 31.622776602,
+      "extrusion_direction": [
+        -0.948683298051,
+        0.0,
+        0.316227766017
+      ],
+      "opposite_face_id": "face-004",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-002",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-002-face-005",
+      "checks": {
+        "area_match": {
+          "measured": 0.6666666666666666,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 21.622776601683793,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 31.622776601683793,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 31.622776602,
+      "extrusion_direction": [
+        0.948683298051,
+        0.0,
+        0.316227766017
+      ],
+      "opposite_face_id": "face-005",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-003",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-003-face-004",
+      "checks": {
+        "area_match": {
+          "measured": 0.6666666666666666,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 21.622776601683793,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 31.622776601683793,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 31.622776602,
+      "extrusion_direction": [
+        -0.948683298051,
+        0.0,
+        -0.316227766017
+      ],
+      "opposite_face_id": "face-004",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "status": "rejected"
+    },
+    {
+      "base_face_id": "face-003",
+      "boundary_match_kind": "translated_lines",
+      "candidate_id": "extrusion-face-003-face-005",
+      "checks": {
+        "area_match": {
+          "measured": 0.6666666666666666,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "boundary_translation_match": {
+          "measured": {
+            "kind": "translated_lines",
+            "matched_edges": 0
+          },
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "centroid_alignment": {
+          "measured": 21.622776601683793,
+          "pass": false,
+          "tolerance": 1e-06
+        },
+        "opposite_normals": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1e-09
+        },
+        "positive_separation": {
+          "measured": 31.622776601683793,
+          "pass": true,
+          "tolerance": 1e-06
+        },
+        "side_connection_coverage": {
+          "measured": 0.0,
+          "pass": false,
+          "tolerance": 1.0
+        }
+      },
+      "distance_mm": 31.622776602,
+      "extrusion_direction": [
+        0.948683298051,
+        0.0,
+        -0.316227766017
+      ],
+      "opposite_face_id": "face-005",
+      "rejection_reasons": [
+        "opposite_normals",
+        "centroid_alignment",
+        "area_match",
+        "boundary_translation_match",
+        "side_connection_coverage"
+      ],
+      "score_components": {
+        "passed_hard_checks": 1,
+        "total_hard_checks": 6
+      },
+      "source_face_outward_normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "status": "rejected"
+    }
+  ],
+  "candidates_schema": "gate4-candidate-evidence-0.1",
+  "pre_fusion_validation": {
+    "bbox_coordinate_errors_mm": {
+      "xmax": 0.0,
+      "xmin": 0.0,
+      "ymax": 0.0,
+      "ymin": 0.0,
+      "zmax": 0.0,
+      "zmin": 0.0
+    },
+    "bbox_max_coordinate_error_mm": 0.0,
+    "bbox_pass": true,
+    "geometry_pass": true,
+    "max_face_p95_mm": 1.4935958549239838,
+    "max_face_p95_ratio": 0.019959014155111657,
+    "surface_mode": "threshold",
+    "surface_pass": true,
+    "surface_sort_value": 0.019959014155111657,
+    "symmetric_p95_mm": 1.4140951531073616,
+    "symmetric_p95_ratio": 0.018896641340090666,
+    "valid_single_solid": true,
+    "validation_schema": "gate2-candidate-validation-0.1",
+    "volume_error_mm3": 0.0,
+    "volume_limit_mm3": 4.9e-05,
+    "volume_pass": true
+  },
+  "route": {
+    "cylinder_face_count": 0,
+    "cylindrical_boundary_evidence": false,
+    "full_circle_edge_count": 0,
+    "hole_fact_group_count": 0,
+    "inner_circular_opening_evidence": false,
+    "reason": "no_inner_circular_opening_and_cylindrical_void_pair",
+    "route": "gate2",
+    "routing_schema": "gate4-content-route-0.1",
+    "supported_hole_group_count": 0
+  },
+  "selected_candidate_id": "extrusion-face-002-face-003",
+  "source_step_sha256": "b58b5c4886db8ceb58f72f5224f6bf7783109ff6a7a2384257e8dd7842455048"
+}

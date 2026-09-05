@@ -1,0 +1,24 @@
+{
+  "case_ids": [
+    "D-H01",
+    "D-H02",
+    "D-H03",
+    "D-H04",
+    "D-H05",
+    "D-S01",
+    "D-S02",
+    "D-S03",
+    "D-S04",
+    "D-S05",
+    "D-S06",
+    "D-S07",
+    "D-S08",
+    "D-S09",
+    "D-S10"
+  ],
+  "evaluation_split": "development",
+  "expected_labels_loaded": false,
+  "manifest_schema": "gate4-preflight-manifest-0.1",
+  "run_id": "gate4-preflight-20260904-a",
+  "terminal_gate_claim": false
+}
