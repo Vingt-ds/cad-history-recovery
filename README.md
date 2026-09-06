@@ -19,6 +19,54 @@ After checking out the tagged commit, verify the baseline with:
 python tools/verify_gate0_4_baseline.py --project-root . --require-tag
 ```
 
+## Gate 5 delivery and single-case reproduction
+
+Gate 5 is a delivery layer over the frozen Gate 0-4 research baseline. It adds documentation, a single-development-case demonstration wrapper, local presentation-package checks, and backup-media instructions. It does not modify the frozen inference, Fusion modelling core, validators, protocols, benchmark, formal result packages, or baseline tag. The separate controlled multi-operation research question is Gate 6 and is not part of this delivery branch.
+
+Create the environment from `environment/environment.yml`, activate it, and prepare the fixed README example:
+
+```powershell
+conda env create -f environment/environment.yml
+conda activate cadseq
+
+python tools/gate5_demo.py prepare `
+  --project-root . `
+  --case-id D-S04 `
+  --output-root runs/gate5
+```
+
+In an installed, launched, and signed-in Autodesk Fusion, load and run `fusion_scripts/Gate5DemoWrapper`. The wrapper delegates replay to the frozen Gate 2 executor; it does not implement a parallel modelling path. Then use the run directory printed by `prepare`:
+
+```powershell
+python tools/gate5_demo.py finalize `
+  --project-root . `
+  --run-dir runs/gate5/<run-id>
+
+python tools/gate5_demo.py verify `
+  --project-root . `
+  --run-dir runs/gate5/<run-id>
+```
+
+All generated demonstration files remain under the ignored `runs/` directory and are labelled `demonstration_only` and `formal_evaluation=false`. `D-S01` is intentionally unavailable to fresh demo inference: the ambiguity presentation reads its sealed Gate 4 development artifact only.
+
+Status terms are distinct:
+
+- `supported` means a candidate exists inside the frozen Gate 2/3 language; it is not a uniqueness claim;
+- `ambiguous=true` is an independent flag indicating that multiple candidates satisfy the frozen acceptance contract;
+- `unsupported` means no frozen supported hypothesis is accepted and replay is not attempted;
+- executor failure means inference reached replay but the frozen Fusion execution path did not produce trusted replay evidence;
+- geometry failure means replay artifacts exist but fail the frozen route-specific validator.
+
+`T-S07` remains the frozen `unsupported_absolute_frame` executor failure. It is not relabelled as unsupported or history ambiguity and is not rerun for Gate 5.
+
+Detailed delivery instructions:
+
+- [Single-case reproduction guide](docs/gate5_reproduction_guide.md)
+- [Three-demo runbook](docs/gate5_demo_runbook.md)
+- [Licence and third-party audit](docs/gate5_license_audit.md)
+- [Local delivery package](docs/gate5_delivery_package.md)
+- [PPT and video asset index](docs/gate5_media_index.md)
+
 ## Gate 4 completed scope
 
 - one fact-driven router whose semantic inference cannot inspect case IDs, filenames, parent directories or expected labels;
