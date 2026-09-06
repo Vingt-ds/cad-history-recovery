@@ -1,0 +1,261 @@
+{
+  "allowed_pack_paths": [
+    "README.md",
+    "config/gate0_4_baseline_manifest.json",
+    "docs/benchmark_v1_card.md",
+    "docs/dr_li_gate0_4_technical_brief.md",
+    "docs/gate0_4_research_baseline.md",
+    "docs/superpowers/specs/2026-09-06-gate0-4-research-baseline-pack-design.md",
+    "tests/test_baseline_verifier.py",
+    "tools/verify_gate0_4_baseline.py"
+  ],
+  "baseline_id": "gate0-4-frozen-baseline-v1",
+  "baseline_manifest_schema": "gate0-4-baseline-manifest-0.1",
+  "benchmark_artifacts": [
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "benchmarks/case_matrix.json",
+      "role": "frozen_case_matrix",
+      "sha256": "1e6c24c6fce6fabb21d9cdbf3b5dd59d2549274355793e9f7f6796226ad69837"
+    },
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "benchmarks/manifest.json",
+      "role": "frozen_benchmark_manifest",
+      "sha256": "fdea0d8c341a3ec0b921fe6ad652ca45058d8b7d8f4295f362a23b455df99ae5"
+    },
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "benchmarks/freeze.lock.json",
+      "role": "benchmark_freeze_lock",
+      "sha256": "d8625403193c96438f1c1e7bb8ab8f5ac627e4245fa9377b8561c8fd5284e979"
+    }
+  ],
+  "design_provenance": [
+    {
+      "hash_source": "containing_git_commit",
+      "path": "docs/superpowers/specs/2026-09-06-gate0-4-research-baseline-pack-design.md",
+      "role": "baseline_pack_design_decision",
+      "sha256": "6e940d0ce2538ecc671d542899021d9fb89f258e70ca0cf2740e3c9c8c772d0c"
+    }
+  ],
+  "formal_runs": [
+    {
+      "artifacts": [
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate2-formal-20260903-e93dc2f/manifest.json",
+          "role": "gate2_run_manifest",
+          "sha256": "d26252d6a912160fa3a7ae64f3922d66b6527f8c6b4e4e74d02192cb4ab6b309"
+        },
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate2-formal-20260903-e93dc2f/environment.json",
+          "role": "gate2_environment_snapshot",
+          "sha256": "434e31e49becac7d581477d092036fc2d1d3db29298339709c1ac480c83c671a"
+        }
+      ],
+      "directory": "benchmark_results/gate2-formal-20260903-e93dc2f",
+      "gate": "gate2",
+      "run_id": "gate2-formal-20260903-e93dc2f",
+      "seal_required": false
+    },
+    {
+      "artifacts": [
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate3-formal-20260904-8e8ae63/manifest.json",
+          "role": "gate3_run_manifest",
+          "sha256": "0afa417b1f8540ff916c8e3a584677746e31f5c22b0b036e2d180a47ddd632f8"
+        },
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate3-formal-20260904-8e8ae63/environment.json",
+          "role": "gate3_environment_snapshot",
+          "sha256": "4d3de1e46c13bc6bda6d2ccee708640f49d2d3f3a03e7291f733886c3cf69a9c"
+        }
+      ],
+      "directory": "benchmark_results/gate3-formal-20260904-8e8ae63",
+      "gate": "gate3",
+      "run_id": "gate3-formal-20260904-8e8ae63",
+      "seal_required": false
+    },
+    {
+      "artifacts": [
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate4-development-formal-20260905/manifest.json",
+          "role": "gate4_development_run_manifest",
+          "sha256": "330353bb76eab7c9cab4deb6aa4272f09e6def4d2e1313b79dbbda356695c00c"
+        },
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate4-development-formal-20260905/environment.json",
+          "role": "gate4_development_environment_snapshot",
+          "sha256": "ca71ba22c27bdc387c8d79f21c9e90facd2cc4ce532e19f959532db16a2fa43c"
+        },
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate4-development-formal-20260905/seal.json",
+          "role": "gate4_development_seal",
+          "sha256": "4a913e8da3fde41724ae745cacbd3f667a458a54acfd3ff541a3ba1975e98bbf"
+        }
+      ],
+      "directory": "benchmark_results/gate4-development-formal-20260905",
+      "gate": "gate4-development",
+      "run_id": "gate4-development-formal-20260905",
+      "seal_required": true
+    },
+    {
+      "artifacts": [
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate4-held-out-formal-20260905/manifest.json",
+          "role": "gate4_held_out_run_manifest",
+          "sha256": "79cfc4009b612697eee1b246b28ef85729d86fc1dbfe9b1d2738fef54bd89276"
+        },
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate4-held-out-formal-20260905/environment.json",
+          "role": "gate4_held_out_environment_snapshot",
+          "sha256": "ca71ba22c27bdc387c8d79f21c9e90facd2cc4ce532e19f959532db16a2fa43c"
+        },
+        {
+          "hash_source": "technical_baseline_commit",
+          "path": "benchmark_results/gate4-held-out-formal-20260905/seal.json",
+          "role": "gate4_held_out_seal",
+          "sha256": "8d70b8736c110c169d4c58922fc2482c8562f2463b9f07a70cfea96202b527d1"
+        }
+      ],
+      "directory": "benchmark_results/gate4-held-out-formal-20260905",
+      "gate": "gate4-held-out",
+      "run_id": "gate4-held-out-formal-20260905",
+      "seal_required": true
+    }
+  ],
+  "frozen_protocols": [
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "config/gate2_validation_protocol.json",
+      "role": "gate2_validation_protocol",
+      "sha256": "8656e3882ee8c71c310b3ad5afe85177cf8e1d2e67d1bff6d03e13d64148c05a"
+    },
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "config/gate3_validation_protocol.json",
+      "role": "gate3_validation_protocol",
+      "sha256": "d0372098d2403d8cf96eb5c269354cf5c936b9fdef09b52878a91acc3f99c662"
+    },
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "config/gate4_evaluation_protocol.json",
+      "role": "gate4_evaluation_protocol",
+      "sha256": "4c7e6dda51e27a584ec50cc5b2a9c485701d7bdfc991140c470e7a06919a9dd7"
+    },
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "config/gate4_routing_policy.json",
+      "role": "gate4_routing_policy",
+      "sha256": "a8bf2144adc0c5476a784e74ad6fcb458da7b1657318a5fdfc8fa34484a308d6"
+    },
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "config/gate4_retry_policy.json",
+      "role": "gate4_retry_policy",
+      "sha256": "23603f198eb9c706c227e2281be59e81dae77240f13701d676728316c7217425"
+    },
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "config/gate4_input_inventory.json",
+      "role": "gate4_input_inventory",
+      "sha256": "c91ff6646dadcbb7cbd766d6dcdf117b50e8c6ca14edcc621ef084fcc5eb48be"
+    },
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "config/gate4_semantic_hash_inventory.json",
+      "role": "gate4_semantic_hash_inventory",
+      "sha256": "2a85c4e2d09ed14998e130427582c8c0e946fc00ed56b3d863984cef66a1cec9"
+    },
+    {
+      "hash_source": "technical_baseline_commit",
+      "path": "config/gate4_freeze_lock.json",
+      "role": "gate4_freeze_lock",
+      "sha256": "c06df2a16a5126f72bddfe492f460062ffd9978545fff4c037827dc2f2928342"
+    }
+  ],
+  "gate4_evaluation_commit": "3d04273301cdacb8936707164f492427aab3273c",
+  "interpretation_documents": [
+    {
+      "hash_source": "containing_git_commit",
+      "path": "docs/gate0_4_research_baseline.md",
+      "role": "research_baseline_interpretation",
+      "sha256": "0d3088fe9ad56c374d2779d43ec8b8752333491ba17315a3f6b5b78f44dc7486"
+    },
+    {
+      "hash_source": "containing_git_commit",
+      "path": "docs/benchmark_v1_card.md",
+      "role": "benchmark_scope_and_bias_card",
+      "sha256": "c3ba717c65541581d516eea0515115f5a27247f1a125334c4976e6d71d925353"
+    },
+    {
+      "hash_source": "containing_git_commit",
+      "path": "docs/dr_li_gate0_4_technical_brief.md",
+      "role": "technical_briefing_interface",
+      "sha256": "7ecf7c5133a99b446bdca7e92ffaeef264ff1d8da44c0a9d0d8bbd1de22e479b"
+    }
+  ],
+  "non_duplication": {
+    "benchmark_inputs": "reference_only",
+    "environment_snapshots": "reference_only",
+    "result_packages": "reference_only"
+  },
+  "tag_message": {
+    "normalization": "utf8_lf_single_trailing_newline",
+    "sha256": "f965d43b3aa3bc2d7cce528b42a833269e9fb24cd8790a50377292578d619ffe"
+  },
+  "tag_name": "gate0-4-frozen-baseline-v1",
+  "tag_target_binding": "containing_git_commit",
+  "technical_baseline_commit": "aafd082ccb296584364227ebc9203e44c7d13832",
+  "verification_reports": [
+    {
+      "format": "markdown",
+      "gate": "gate0",
+      "hash_source": "technical_baseline_commit",
+      "path": "logs/gate0_report.md",
+      "role": "gate0_verification_report",
+      "sha256": "4d42f8e3290987fe3012c6b6d6daee166e3e1dbdca84c35f7700604e6066e8a7"
+    },
+    {
+      "format": "markdown",
+      "gate": "gate1",
+      "hash_source": "technical_baseline_commit",
+      "path": "logs/gate1_report.md",
+      "role": "gate1_verification_report",
+      "sha256": "798e856a66f5a66a5c07e37293ff36f867104d7d336ad833137b1b7f09ba6108"
+    },
+    {
+      "format": "json",
+      "gate": "gate2",
+      "hash_source": "technical_baseline_commit",
+      "path": "benchmark_results/gate2-formal-20260903-e93dc2f/gate2_verification_report.json",
+      "role": "gate2_verification_report",
+      "sha256": "b685c3dee56a1e7e24264cab22bab52d38991276cc218ff42ea8b6febe81713c"
+    },
+    {
+      "format": "json",
+      "gate": "gate3",
+      "hash_source": "technical_baseline_commit",
+      "path": "benchmark_results/gate3-formal-20260904-8e8ae63/gate3_verification_report.json",
+      "role": "gate3_verification_report",
+      "sha256": "f659bd3c08d00ec2e86592998e2a7a996cddf0602649746870da1eafa0fa3687"
+    },
+    {
+      "format": "json",
+      "gate": "gate4",
+      "hash_source": "technical_baseline_commit",
+      "path": "logs/gate4/gate4_verification_report.json",
+      "role": "gate4_verification_report",
+      "sha256": "b6d78786c8143bac4c67a4f88da101036f2f44932fa73fbc92ba958f264a57e5"
+    }
+  ]
+}

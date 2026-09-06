@@ -4,6 +4,21 @@ This repository contains a deterministic, semi-automatic pipeline under developm
 
 > **Current status:** Gate 0 through Gate 4 are closed. Gate 4 evaluated one frozen implementation commit on all 15 development and all 15 held-out cases without held-out semantic tuning or reruns. The 30/30 packages are complete; 26/27 supported cases were automatic successes, 2/2 unsupported cases were correctly rejected, and the one supported failure (`T-S07`) is preserved. These results do not claim arbitrary B-rep history recovery.
 
+## Gate 0-4 frozen research baseline
+
+The auditable research checkpoint is indexed by [`config/gate0_4_baseline_manifest.json`](config/gate0_4_baseline_manifest.json) and anchored by the annotated tag `gate0-4-frozen-baseline-v1`. The manifest references existing Git evidence; it does not duplicate benchmark inputs, environments, or result packages.
+
+- Research interpretation: [`docs/gate0_4_research_baseline.md`](docs/gate0_4_research_baseline.md)
+- Benchmark composition and limitations: [`docs/benchmark_v1_card.md`](docs/benchmark_v1_card.md)
+- 10-15 minute technical briefing outline: [`docs/dr_li_gate0_4_technical_brief.md`](docs/dr_li_gate0_4_technical_brief.md)
+- Packaging design provenance: [`docs/superpowers/specs/2026-09-06-gate0-4-research-baseline-pack-design.md`](docs/superpowers/specs/2026-09-06-gate0-4-research-baseline-pack-design.md)
+
+After checking out the tagged commit, verify the baseline with:
+
+```powershell
+python tools/verify_gate0_4_baseline.py --project-root . --require-tag
+```
+
 ## Gate 4 completed scope
 
 - one fact-driven router whose semantic inference cannot inspect case IDs, filenames, parent directories or expected labels;
