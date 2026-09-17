@@ -44,6 +44,8 @@ The command prints JSON containing the newly created run directory. It refuses h
 
 The wrapper reads only `runs/gate5_active_request.json`. It validates that the request resolves to one immediate child of `runs/gate5/`, then delegates document creation and replay to the frozen `Gate2SequenceReplay._replay_case` implementation. It contains no sketch, extrusion, cut, inference, or geometry-validation implementation.
 
+The delegated frozen executor creates a temporary Fusion document, exports the F3D and STEP artifacts, records the replay log, and then closes that temporary document. The wrapper completion message confirms that the replay artifacts were written; it does not promise that the generated model remains open in the live Fusion viewport.
+
 ## Finalize and verify
 
 Replace `<run-id>` with the run directory printed by `prepare`:
@@ -59,6 +61,18 @@ python tools/gate5_demo.py verify `
 ```
 
 `finalize` invokes the existing route-specific Gate 2 or Gate 3 validator. It then moves the active request into the run directory as `replay_request_used.json`, preventing accidental reuse. A second finalization is rejected.
+
+## Inspect the replay artifacts
+
+Use the artifacts according to their separate evidence roles:
+
+- `replay/replay.f3d` is the parametric audit archive for the Fusion feature tree and timeline.
+- `replay/replay.step` is the final-geometry visualization and the input to the frozen route-specific geometry validator.
+- `replay/replay_log.json`, `validation/validation_metrics.json`, and `final_status.json` record execution, validation, and terminal status.
+
+On the observed Windows environment with Fusion `2704.1.53`, reopening a local `replay.f3d` may show the body node, feature tree, and timeline while leaving the viewport blank. A blank F3D viewport alone is not a replay-failure or geometry-failure result. Confirm the run with `gate5_demo.py verify`; when it returns `valid=true`, use the exported STEP for final-geometry inspection and retain the F3D as the parameterized audit artifact.
+
+If `verify` returns `valid=false`, reports errors, or identifies missing artifacts, stop. Do not use a STEP, screenshot, or backup video to represent that run as successful. Do not edit the F3D, JSON, parameters, thresholds, or input in an attempt to repair a demonstration run.
 
 ## Demonstration package layout
 

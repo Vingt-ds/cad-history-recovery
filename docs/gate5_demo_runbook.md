@@ -11,7 +11,7 @@ The three demonstrations explain the frozen Gate 0-4 evidence chain. They do not
 3. In a separate clean checkout at `gate0-4-frozen-baseline-v1`, run the Gate 0-4 baseline verifier with `--require-tag`. Do not run that verifier with the Gate 5 delivery commit as `HEAD`, because its frozen contract intentionally requires `HEAD` to equal the baseline-tag target.
 4. Confirm Fusion is installed, running, and signed in.
 5. Confirm no `runs/gate5_active_request.json` remains from a previous demonstration.
-6. Open each backup JSON, STEP, F3D, screenshot, and MP4 before the session.
+6. Open each backup JSON, STEP, screenshot, and MP4 before the session. Inspect the F3D feature tree and timeline when its viewport renders normally; do not rely on the F3D viewport as the only visual confirmation of final geometry.
 
 ## Demo 1 — D-S04 single extrusion
 
@@ -21,7 +21,7 @@ Purpose: show a non-rectangular development example through the complete demonst
 2. Show the JSON output and the demonstration-only manifest fields.
 3. Run `Gate5DemoWrapper` in Fusion.
 4. Run `finalize`, then `verify`.
-5. Open `sequence/inferred_sequence.json`, `replay/replay.f3d`, `replay/replay.step`, and `validation/validation_metrics.json`.
+5. Open `sequence/inferred_sequence.json`, use `replay/replay.step` to show the final geometry, and open `validation/validation_metrics.json`. Inspect `replay/replay.f3d` for its feature tree and timeline only when its viewport renders normally.
 6. State only that this development case produced a plausible executable sequence accepted by the frozen route-specific validator.
 
 ## Demo 2 — D-H01 base plus one through hole
@@ -31,7 +31,7 @@ Purpose: show the frozen coupled base-extrusion and straight through-cut route.
 1. Repeat the complete prepare, Fusion replay, finalize, and verify sequence for `D-H01`.
 2. Show the accepted hole evidence in `analysis/candidates.json`.
 3. Show the `New Extrusion` followed by `Cut + through_all` operations in the inferred sequence.
-4. Open the replayed Fusion document and validation metrics.
+4. Use `replay/replay.step` to show the final base-plus-through-hole geometry, then open the validation metrics. Inspect `replay/replay.f3d` for its feature tree and timeline only when its viewport renders normally.
 5. Do not generalize the observation to blind, stepped, multiple, intersecting, threaded, or otherwise untested holes.
 
 ## Demo 3 — D-S01 sealed ambiguity evidence
@@ -60,3 +60,9 @@ The `prepare` command intentionally rejects `D-S01` with `sealed_artifact_only`.
 ## Backup policy
 
 Each demo has a local MP4 and PNG with the fixed names in `docs/gate5_media_index.md`. If live Fusion execution is unstable, switch to the matching backup without changing code, data, parameters, thresholds, or artifacts.
+
+The STEP, F3D, and JSON artifacts have separate evidence roles. The exported STEP is the final-geometry visualization and route-specific validation input. The F3D is the parametric audit archive for the feature tree and timeline. The replay logs record execution status and artifact provenance.
+
+On the observed Windows environment with Fusion `2704.1.53`, a locally reopened F3D may retain its body node, feature tree, and timeline while the viewport remains blank. This display-restoration behavior does not by itself establish replay or geometry failure. If it occurs, do not troubleshoot or alter the document during the presentation; show the verified STEP and the matching PNG or MP4 instead.
+
+The visual fallback is permitted only after `gate5_demo.py verify` returns `valid=true` for the prepared run. If verification fails or reports a missing artifact, stop the demonstration and do not use the STEP, screenshot, or video to claim a successful run.
