@@ -21,6 +21,8 @@ python tools/verify_gate0_4_baseline.py --project-root . --require-tag
 
 ## Gate 5 delivery and single-case reproduction
 
+**Stage status:** technical implementation and presentation delivery complete; final media recording and package closure pending. [Download the stage PPT](presentations/gate5/gate5_technical_briefing.pptx) and read the [stage audit and recording boundary](docs/gate5_stage_delivery.md). The planned `gate5-delivery-v1` final tag has not been created. Static walkthrough videos are supplementary and do not fulfill the real recording requirement.
+
 Gate 5 is a delivery layer over the frozen Gate 0-4 research baseline. It adds documentation, a single-development-case demonstration wrapper, local presentation-package checks, and backup-media instructions. It does not modify the frozen inference, Fusion modelling core, validators, protocols, benchmark, formal result packages, or baseline tag. The separate controlled multi-operation research question is Gate 6 and is not part of this delivery branch.
 
 Create the environment from `environment/environment.yml`, activate it, and prepare the fixed README example:

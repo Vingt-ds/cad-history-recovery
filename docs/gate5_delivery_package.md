@@ -1,5 +1,9 @@
 # Gate 5 Local Delivery Package
 
+## Stage delivery update
+
+The presentation is separately tracked in Git by explicit user approval; see `gate5_stage_delivery.md`. Final recording/package closure is pending. The old static-media package is retained as `delivery_package/supplementary_artifact_walkthroughs_20260906/`, with its original manifests, and is not the final delivery package. The layout below is the target for future real recordings. Do not create the final `gate5-delivery-v1` tag or final delivery snapshot in this round; the name remains a planned identifier. Historical preflight PASS does not establish current final-package completion.
+
 ## Authority model
 
 The private GitHub repository is authoritative for code, auditable documentation, frozen protocols, and formal evidence. The local delivery package is a presentation carrier for Dr. Li; it is not a second source of code or experimental truth.
