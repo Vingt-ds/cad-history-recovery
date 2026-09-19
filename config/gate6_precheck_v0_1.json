@@ -1,0 +1,36 @@
+{
+  "contract_version": "gate6-precheck-0.1",
+  "authority": "exported_and_reimported_STEP",
+  "execution_authorization": "not_granted",
+  "baseline_commit": "c3e448525e9424383e847332f4d0afc1444e7380",
+  "definition_source_commit": "ca90c888a4d41649523c32c33de4139acc585411",
+  "definition_source_blob": "b7abbc8fa82ff252e1c563d2626cfdfee7e2e72a",
+  "units": {"length": "mm", "area": "mm2", "volume": "mm3"},
+  "frame": {"origin": [0,0,0], "x": [1,0,0], "y": [0,1,0], "z": [0,0,1], "handedness": "right"},
+  "solids": {
+    "B": {"min": [0,0,0], "max": [40,30,20]},
+    "J": {"min": [32,7,5], "max": [48,19,14]},
+    "C_OS": {"min": [36,11,8], "max": [44,16,12]},
+    "C_DE": {"min": [8,21,3], "max": [14,26,10]}
+  },
+  "tolerances": {
+    "volume_mm3": 0.001, "surface_mm": 0.0001,
+    "parameter_length_mm": 0.00001, "parameter_angle_rad": 0.00000001,
+    "parameter_area_mm2": 0.001, "operation_mm3": 0.01,
+    "connectivity_mm3": 0.01, "gap_mm": 1,
+    "separation_volume_mm3": 10, "separation_surface_mm": 0.1,
+    "normal_probe_distance_mm": 0.001, "solid_classifier_mm": 0.0000001,
+    "polygon_boundary_mm": 0.00001, "zero_direction_component": 0.000000000001
+  },
+  "repeatability": {"volume_mm3": 0.001, "surface_mm": 0.0001, "topology": "attributed_graph_equivalence"},
+  "sampling": {"grid_per_cell_axis": 64, "seed": null, "edge_points": [0,0.5,1], "aggregation": "max_of_both_directional_maxima"},
+  "graph": {"max_nodes": 10000, "max_search_states": 1000000, "nodes": ["Solid","Shell","Face","Wire","EdgeUse","Edge","Vertex"]},
+  "expected": {
+    "OS": {"B":24000,"J":1728,"C":160,"after_J":24864,"after_C":23920,"final_JC":24704,"final_CJ":24864,"difference":160,"join_on_base":864,"cut_after_join":160,"cut_on_base":80,"join_after_cut":944,"connectivity_on_base":864,"connectivity_after_cut":784,"shells_JC":2,"shells_CJ":1},
+    "DE": {"B":24000,"J":1728,"C":210,"after_J":24864,"after_C":23790,"final_JC":24654,"final_CJ":24654,"difference":0,"join_on_base":864,"cut_after_join":210,"cut_on_base":210,"join_after_cut":864,"connectivity_on_base":864,"connectivity_after_cut":864,"shells_JC":2,"shells_CJ":2}
+  },
+  "rounds": [["OS_JC_R1","DE_CJ_R1","OS_CJ_R1","DE_JC_R1"],["DE_JC_R2","OS_CJ_R2","DE_CJ_R2","OS_JC_R2"],["OS_CJ_R3","DE_JC_R3","OS_JC_R3","DE_CJ_R3"]],
+  "environment": {"fusion":"2704.1.53","fusion_python":"3.14.0","external_python":"3.11.16","cadquery":"2.8.0","ocp":"7.9.3.1","numpy":"2.4.6","scipy":"1.17.1","os":"Windows-10-10.0.22621-SP0"},
+  "required_step_assets": ["base.step","join_tool.step","cut_tool.step","after_modifier_1.step","final.step"],
+  "failure_stages": {"specification_binding_failure":"binding","dirty_execution_worktree":"binding","environment_mismatch":"environment","schema_invalid":"binding","tool_identity_failure":"tool_identity","target_role_violation":"execution","replay_failure":"execution","invalid_result_solid":"analytic_validation","operation_no_effect":"analytic_validation","join_connectivity_failure":"analytic_validation","analytic_expectation_mismatch":"analytic_validation","repeatability_failure":"repeatability","disjoint_margin_failure":"analytic_validation","observable_equivalence_failure":"comparison","separation_margin_failure":"comparison","unsupported_observable_type":"observable_extraction","comparison_indeterminate":"comparison","evidence_integrity_failure":"evidence_integrity","run_order_violation":"binding","execution_interrupted":"execution"}
+}
