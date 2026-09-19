@@ -1,0 +1,19 @@
+{
+  "schema": "gate5-stage-recording-provenance-0.1",
+  "stage_commit_A": "2367376b9760fd712752f02a6950f9d64acd7bb8",
+  "recording_source_commit": "2367376b9760fd712752f02a6950f9d64acd7bb8",
+  "recording_source_policy": "Create a clean worktree at Commit A. Do not record from this provenance commit, latest branch, or Gate 6 code.",
+  "baseline_commit": "c3e448525e9424383e847332f4d0afc1444e7380",
+  "presentation": {
+    "path": "presentations/gate5/gate5_technical_briefing.pptx",
+    "sha256": "eab884ba3b0666a07b69e6f5aeea5842cc1c03dbc735d5ba7d34ee4b0ff41602",
+    "bytes": 8643916,
+    "slides": 14
+  },
+  "recording_status": "pending_until_after_Gate_6",
+  "final_closure_status": "pending",
+  "final_delivery_tag_created": false,
+  "planned_final_delivery_tag": "gate5-delivery-v1",
+  "D_S01_source_mode": "sealed_artifact_only",
+  "static_media_role": "supplementary_non_authoritative"
+}
