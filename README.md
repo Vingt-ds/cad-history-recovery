@@ -174,10 +174,13 @@ Autodesk Fusion is a separately installed, signed-in external prerequisite.
 
 ## Reproduce the frozen checks
 
-From the repository root, verify the frozen baseline tag:
+The baseline verifier is intentionally bound to the historical baseline tag. Verify it in a separate detached worktree rather than at the later delivery commit:
 
 ```powershell
-python tools/verify_gate0_4_baseline.py --project-root . --require-tag
+git worktree add --detach ../cad-history-baseline-verify gate0-4-frozen-baseline-v1
+python ../cad-history-baseline-verify/tools/verify_gate0_4_baseline.py `
+  --project-root ../cad-history-baseline-verify `
+  --require-tag
 ```
 
 Run the full regression suite:
