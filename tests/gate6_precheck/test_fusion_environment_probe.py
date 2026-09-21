@@ -97,7 +97,7 @@ class FusionEnvironmentProbeTests(unittest.TestCase):
             self.module,
             _fusion_python_version=lambda: "3.14.0",
             _platform_string=lambda: "Windows-10-10.0.22621-SP0",
-            _process_creation_time=lambda: "2026-09-20T00:00:00Z",
+            _process_creation_time_detail=lambda: ("2026-09-20T00:00:00Z", None),
         )
 
     def test_manifest_is_a_windows_fusion_script(self):
@@ -106,6 +106,51 @@ class FusionEnvironmentProbeTests(unittest.TestCase):
         self.assertEqual(value["type"], "script")
         self.assertEqual(value["supportedOS"], "windows")
         self.assertIn("environment", value["description"][""].lower())
+
+    def test_process_identity_uses_explicit_winapi_bindings(self):
+        """Fusion's embedded Python must not rely on ctypes' implicit bindings."""
+        class Kernel32:
+            class Function:
+                def __init__(self, callback):
+                    self.callback = callback
+
+                def __call__(self, *args):
+                    return self.callback(*args)
+
+            def __init__(self):
+                self.GetCurrentProcess = self.Function(lambda: -1)
+                self.GetProcessTimes = self.Function(self._get_process_times)
+
+            @staticmethod
+            def _get_process_times(handle, creation, exit_time, kernel, user):
+                creation.dwLowDateTime = 2457927680
+                creation.dwHighDateTime = 31226545
+                return 1
+
+        class FakeCtypes:
+            class Structure:
+                pass
+
+            c_uint32 = int
+            c_void_p = int
+            c_int = int
+            WinDLL = staticmethod(lambda name, use_last_error: Kernel32())
+
+            @staticmethod
+            def POINTER(value):
+                return value
+
+            @staticmethod
+            def byref(value):
+                return value
+
+            @staticmethod
+            def get_last_error():
+                return 0
+
+        value, diagnostic = self.module._process_creation_time_from_winapi(FakeCtypes)
+        self.assertEqual(value, "2026-01-01T00:00:00Z")
+        self.assertIsNone(diagnostic)
 
     def test_probe_writes_one_exclusive_bound_response_without_documents(self):
         with tempfile.TemporaryDirectory(prefix="qualification-") as folder, self.runtime:
@@ -153,7 +198,7 @@ class FusionEnvironmentProbeTests(unittest.TestCase):
                 self.module,
                 _fusion_python_version=lambda: "3.14.0",
                 _platform_string=lambda: "Windows-10-10.0.22621-SP0",
-                _process_creation_time=lambda: None,
+                _process_creation_time_detail=lambda: (None, "test unavailable"),
             ), self.assertRaises(self.module.ProbeError) as caught:
                 self.module._execute_probe(
                     FakeApp(), str(challenge_path), expected_hash, seal_hash,

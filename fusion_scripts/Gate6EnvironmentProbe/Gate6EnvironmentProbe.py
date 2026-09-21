@@ -91,30 +91,61 @@ def _platform_string():
     return platform.platform()
 
 
-def _process_creation_time():
-    if os.name != "nt":
-        return None
-    try:
-        import ctypes
-        from ctypes import wintypes
+def _process_creation_time_from_winapi(ctypes_module):
+    class FILETIME(ctypes_module.Structure):
+        _fields_ = [
+            ("dwLowDateTime", ctypes_module.c_uint32),
+            ("dwHighDateTime", ctypes_module.c_uint32),
+        ]
 
-        creation = wintypes.FILETIME()
-        exit_time = wintypes.FILETIME()
-        kernel = wintypes.FILETIME()
-        user = wintypes.FILETIME()
-        handle = ctypes.windll.kernel32.GetCurrentProcess()
-        if not ctypes.windll.kernel32.GetProcessTimes(
-            handle, ctypes.byref(creation), ctypes.byref(exit_time),
-            ctypes.byref(kernel), ctypes.byref(user)
+    try:
+        kernel32 = ctypes_module.WinDLL("kernel32", use_last_error=True)
+        get_current_process = kernel32.GetCurrentProcess
+        get_current_process.argtypes = []
+        get_current_process.restype = ctypes_module.c_void_p
+        get_process_times = kernel32.GetProcessTimes
+        get_process_times.argtypes = [
+            ctypes_module.c_void_p,
+            ctypes_module.POINTER(FILETIME),
+            ctypes_module.POINTER(FILETIME),
+            ctypes_module.POINTER(FILETIME),
+            ctypes_module.POINTER(FILETIME),
+        ]
+        get_process_times.restype = ctypes_module.c_int
+        creation = FILETIME()
+        exit_time = FILETIME()
+        kernel = FILETIME()
+        user = FILETIME()
+        handle = get_current_process()
+        if not get_process_times(
+            handle, ctypes_module.byref(creation), ctypes_module.byref(exit_time),
+            ctypes_module.byref(kernel), ctypes_module.byref(user)
         ):
-            return None
+            return None, "GetProcessTimes failed (WinError {})".format(
+                ctypes_module.get_last_error()
+            )
         ticks = (creation.dwHighDateTime << 32) + creation.dwLowDateTime
         seconds = ticks / 10000000.0 - 11644473600.0
         return datetime.datetime.fromtimestamp(
             seconds, datetime.timezone.utc
-        ).isoformat().replace("+00:00", "Z")
-    except Exception:
-        return None
+        ).isoformat().replace("+00:00", "Z"), None
+    except Exception as exc:
+        return None, "{}: {}".format(type(exc).__name__, exc)
+
+
+def _process_creation_time_detail():
+    if os.name != "nt":
+        return None, "Windows process identity is unavailable on this platform"
+    try:
+        import ctypes
+    except Exception as exc:
+        return None, "{}: {}".format(type(exc).__name__, exc)
+    return _process_creation_time_from_winapi(ctypes)
+
+
+def _process_creation_time():
+    timestamp, _ = _process_creation_time_detail()
+    return timestamp
 
 
 def _scripts_metadata(app):
@@ -209,9 +240,14 @@ def _execute_probe(
         safe_challenge, expected_challenge_sha256, expected_challenge_seal_sha256
     )
     challenge = _load_challenge(safe_challenge, expected_challenge_sha256)
-    process_start = _process_creation_time()
+    process_start, process_identity_diagnostic = _process_creation_time_detail()
     if not process_start or UTC_INSTANT_RE.fullmatch(process_start) is None:
-        raise ProbeError("PF_PROCESS_IDENTITY_UNAVAILABLE", "Fusion process creation time is unavailable")
+        raise ProbeError(
+            "PF_PROCESS_IDENTITY_UNAVAILABLE",
+            "Fusion process creation time is unavailable ({})".format(
+                process_identity_diagnostic or "no diagnostic"
+            ),
+        )
     try:
         datetime.datetime.fromisoformat(process_start[:-1] + "+00:00")
     except ValueError as exc:
