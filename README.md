@@ -2,7 +2,7 @@
 
 This repository contains a deterministic, semi-automatic pipeline under development for converting history-free B-rep/STEP models into plausible, replayable CAD construction sequences.
 
-> **Current status:** Gate 0 through Gate 4 are closed. Gate 4 evaluated one frozen implementation commit on all 15 development and all 15 held-out cases without held-out semantic tuning or reruns. The 30/30 packages are complete; 26/27 supported cases were automatic successes, 2/2 unsupported cases were correctly rejected, and the one supported failure (`T-S07`) is preserved. These results do not claim arbitrary B-rep history recovery.
+> **Current status:** Gate 0 through Gate 4 are closed. Gate 4 evaluated one frozen implementation commit on all 15 development and all 15 held-out cases without held-out semantic tuning or reruns. The 30/30 packages are complete; 26/27 supported cases were automatic successes, 2/2 unsupported cases were correctly rejected, and the one supported failure (`T-S07`) is preserved. Gate 6 pre-execution qualification code is frozen on the `gate6-operation-precheck` branch, but its formal 12-run oracle campaign has not been authorized or run. These results do not claim arbitrary B-rep history recovery.
 
 ## Gate 0-4 frozen research baseline
 
@@ -18,6 +18,20 @@ After checking out the tagged commit, verify the baseline with:
 ```powershell
 python tools/verify_gate0_4_baseline.py --project-root . --require-tag
 ```
+
+## Gate 6 pre-execution qualification
+
+Gate 6 is an operation-order experiment design, not a completed multi-operation recovery result. Its frozen contract defines two fixed tool solids, a base solid, exact operation-effect and positive-volume connectivity gates, analytic volume expectations, and an observable final B-rep comparison contract. The qualification implementation on this branch provides:
+
+- a frozen-byte contract loader and exact rational analytic checks;
+- sealed, qualification-only evidence packages that cannot create formal campaign paths;
+- an external STEP comparator with declared topology levels and gauge normalization;
+- a Fusion qualification script plus a read-only Fusion environment probe; and
+- a fail-closed preflight report whose most positive possible outcome is `READY_FOR_REVIEW_NOT_AUTHORIZED`.
+
+The research definition, operation-pair rationale, frozen precheck contract, and current execution status are recorded in [`docs/research_directions/`](docs/research_directions/): [`gate6_problem_definition.md`](docs/research_directions/gate6_problem_definition.md), [`gate6_selection_review.md`](docs/research_directions/gate6_selection_review.md), [`gate6_precheck_v0_1.md`](docs/research_directions/gate6_precheck_v0_1.md), and [`gate6_preexecution_status.md`](docs/research_directions/gate6_preexecution_status.md).
+
+This branch does **not** contain a formal Gate 6 run. The formal campaign is `NOT_STARTED`, with zero oracle replays; no inference system or Gate 6 benchmark has been implemented or evaluated.
 
 ## Gate 4 completed scope
 
@@ -114,13 +128,13 @@ docs/              Reuse audit, sequence schemas, and Gate design/implementation
 environment/     Conda definition and verified package record
 evidence/        Gate 0 evidence and Gate 1 Fusion replay screenshots
 external/        B-rep inspection, inference, validation, pipeline, and Gate verification tools
-fusion_scripts/  Gate 0 export plus Gate 1 through Gate 4 replay scripts
+fusion_scripts/  Gate 0 export, Gate 1 through Gate 4 replay scripts, and Gate 6 qualification/probe scripts
 logs/            Structured run logs, statistics, failure taxonomies and Gate reports
 models/          Native Fusion and STEP evidence models
 replay_outputs/  Native F3D, STEP, and JSON replay evidence
 sequences/       Known-valid and intentionally invalid cadseq fixtures
 shared/          Pure-standard-library frame and sequence validation modules
-tests/           Automated Gate 0 through Gate 4 regression tests
+tests/           Automated Gate 0 through Gate 6 qualification regression tests
 ```
 
 ## Reproduce the external checks
@@ -153,7 +167,7 @@ The smoke test expects the committed Gate 0 STEP evidence under `models/`. It ge
 
 ## Fusion scripts
 
-In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export, `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay, `fusion_scripts/Gate2SequenceReplay` for a pipeline-prepared Gate 2 batch request, `fusion_scripts/Gate3SequenceReplay` for a pipeline-prepared Gate 3 through-hole batch request, and `fusion_scripts/Gate4SequenceReplay` for a frozen Gate 4 batch request.
+In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export, `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay, `fusion_scripts/Gate2SequenceReplay` for a pipeline-prepared Gate 2 batch request, `fusion_scripts/Gate3SequenceReplay` for a pipeline-prepared Gate 3 through-hole batch request, and `fusion_scripts/Gate4SequenceReplay` for a frozen Gate 4 batch request. Gate 6 scripts are qualification-only: `Gate6EnvironmentProbe` records the live environment without opening a document, while `Gate6QualificationReplay` refuses formal campaign geometry and execution paths.
 
 The Gate 0 smoke script:
 
@@ -226,6 +240,13 @@ Gate 4 does **not** claim:
 - that the 25 near-unity IoU values define a new universal acceptance threshold;
 - support for blind or multiple holes, fillets, chamfers, revolves, sweeps, lofts, shells, patterns or general CAD feature graphs;
 - recovery of the unique original designer history or generalization beyond the frozen 30-case benchmark.
+
+Gate 6 does **not** claim:
+
+- that any formal operation-order oracle replay has been performed;
+- an authorized or completed 12-run campaign, a recovered multi-operation construction sequence, or a benchmark result;
+- that geometric equality alone establishes observational B-rep equivalence; or
+- recovery of the unique original designer history.
 
 ## References and reuse boundary
 
