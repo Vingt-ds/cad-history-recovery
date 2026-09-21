@@ -1,0 +1,11 @@
+{
+  "autodeskProduct": "Fusion",
+  "type": "script",
+  "author": "Shuo Ding",
+  "description": {
+    "": "Gate 6 qualification-only fixed-tool replay and export adapter"
+  },
+  "version": "0.1.0",
+  "supportedOS": "windows",
+  "editEnabled": true
+}

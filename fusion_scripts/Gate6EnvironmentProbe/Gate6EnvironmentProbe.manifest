@@ -1,0 +1,11 @@
+{
+  "autodeskProduct": "Fusion",
+  "type": "script",
+  "author": "Shuo Ding",
+  "description": {
+    "": "Gate 6 read-only environment preflight probe"
+  },
+  "version": "0.1.0",
+  "supportedOS": "windows",
+  "editEnabled": true
+}
