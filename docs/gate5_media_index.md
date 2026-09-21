@@ -1,12 +1,12 @@
 # Gate 5 Media Index
 
-## Current stage boundary
+## Current delivery boundary
 
-The PPT is now tracked at `presentations/gate5/gate5_technical_briefing.pptx` by explicit user approval. See `docs/gate5_stage_delivery.md`. The original static MP4s and their historical package/checksums are archived locally under `delivery_package/supplementary_artifact_walkthroughs_20260906/`; they are **supplementary / non-authoritative** and must not populate the final `videos/` entries below. Real recordings are pending and will use the exact Commit A identified by the follow-up recording provenance record.
+The PPT is tracked at `presentations/gate5/gate5_technical_briefing.pptx`. See `docs/gate5_stage_delivery.md`. The source project description requires a live demo but does not require submitted recordings. The original static MP4s and their historical checksums are archived locally under `delivery_package/supplementary_artifact_walkthroughs_20260906/`; they are **supplementary / non-authoritative** and must not be described as Fusion operation recordings. If recorded backups are later requested, use the exact source commit identified by the recording provenance record.
 
-## Historical Checkpoint A and final asset names
+## Optional recorded-backup asset names
 
-The table specifies final required asset roles, not the completion of recordings. Earlier Checkpoint A static walkthroughs are preserved separately. None of these assets is formal experimental evidence.
+The table specifies fixed names and roles only if a recorded backup package is requested. Earlier static walkthroughs are preserved separately. None of these assets is formal experimental evidence.
 
 | Asset | Case | Role | Git policy |
 | --- | --- | --- | --- |

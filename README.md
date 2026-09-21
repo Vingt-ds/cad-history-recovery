@@ -1,43 +1,216 @@
 # Rule-based CAD Construction Sequence Synthesis from B-rep Models
 
-This repository contains a deterministic, semi-automatic pipeline under development for converting history-free B-rep/STEP models into plausible, replayable CAD construction sequences.
+This repository implements a deterministic, semi-automatic and rule-based pipeline that converts history-free STEP/B-rep models into plausible, replayable CAD construction sequences.
 
-> **Current status:** Gate 0 through Gate 4 are closed. Gate 4 evaluated one frozen implementation commit on all 15 development and all 15 held-out cases without held-out semantic tuning or reruns. The 30/30 packages are complete; 26/27 supported cases were automatic successes, 2/2 unsupported cases were correctly rejected, and the one supported failure (`T-S07`) is preserved. These results do not claim arbitrary B-rep history recovery.
+The project addresses the practical question posed in the original project description:
 
-## Gate 0-4 frozen research baseline
+> Can the final geometry and topology of a B-rep model constrain an executable CAD construction explanation?
 
-The auditable research checkpoint is indexed by [`config/gate0_4_baseline_manifest.json`](config/gate0_4_baseline_manifest.json) and anchored by the annotated tag `gate0-4-frozen-baseline-v1`. The manifest references existing Git evidence; it does not duplicate benchmark inputs, environments, or result packages.
+The output is an auditable construction explanation that can be replayed in Autodesk Fusion and checked against the input geometry. The project does **not** claim recovery of the unique original designer history.
 
-- Research interpretation: [`docs/gate0_4_research_baseline.md`](docs/gate0_4_research_baseline.md)
-- Benchmark composition and limitations: [`docs/benchmark_v1_card.md`](docs/benchmark_v1_card.md)
-- 10-15 minute technical briefing outline: [`docs/dr_li_gate0_4_technical_brief.md`](docs/dr_li_gate0_4_technical_brief.md)
-- Packaging design provenance: [`docs/superpowers/specs/2026-09-06-gate0-4-research-baseline-pack-design.md`](docs/superpowers/specs/2026-09-06-gate0-4-research-baseline-pack-design.md)
+## Final project status
 
-After checking out the tagged commit, verify the baseline with:
+The repository contains the completed research implementation and delivery materials for the verified project scope:
+
+| Required deliverable | Repository evidence | Status |
+| --- | --- | --- |
+| Rule-based code repository | `external/`, `shared/`, `fusion_scripts/`, `tools/` | Complete |
+| Executable sequence schema | [`docs/sequence_schema_v0.1.md`](docs/sequence_schema_v0.1.md), [`docs/sequence_schema_v0.2.md`](docs/sequence_schema_v0.2.md) | Complete |
+| Curated benchmark | [`benchmarks/`](benchmarks/), 30 frozen cases | Complete |
+| Generated sequences, logs and replay outputs | [`benchmark_results/`](benchmark_results/) | Complete under condition-dependent package rules |
+| Validation metrics and reports | [`logs/gate4/`](logs/gate4/) and per-case result packages | Complete |
+| Final presentation | [`presentations/gate5/gate5_technical_briefing.pptx`](presentations/gate5/gate5_technical_briefing.pptx) | Complete |
+| Three representative demonstrations | D-S04, D-H01 and D-S01; see [`docs/gate5_demo_runbook.md`](docs/gate5_demo_runbook.md) | Prepared for the live presentation |
+
+The three existing short MP4 walkthroughs are supplementary artifact explanations. The project description requires a final presentation with a live demo; it does not require submitted operation recordings. If recorded backup videos are requested later, they must show real Fusion operation and must follow the provenance rules in [`docs/gate5_media_index.md`](docs/gate5_media_index.md).
+
+## Supported construction scope
+
+The frozen implementation supports two controlled construction classes:
+
+1. **Single extrusion**
+   - one planar outer profile;
+   - either a closed 3-8-edge Line loop or one complete Circle;
+   - one `New` extrusion with a positive distance;
+   - named XY/XZ/YZ origin planes or a deterministic audited B-rep frame.
+
+2. **Base extrusion with one straight through cylindrical cut**
+   - one Line-profile base extrusion;
+   - two explicit circular openings;
+   - one connecting cylindrical face;
+   - one semantic operation-cap Sketch;
+   - one `Cut + through_all` operation.
+
+The project deliberately excludes learning-based inference. It also excludes general fillet, chamfer, revolve, sweep, loft, shell, pattern, blind-hole, multiple-hole and arbitrary feature-graph recovery.
+
+## End-to-end workflow
+
+```text
+History-free STEP/B-rep
+        |
+        v
+Canonical geometry and topology facts
+        |
+        v
+Rule-based candidate hypotheses
+        |
+        v
+Candidate reconstruction, validation and deterministic ranking
+        |
+        v
+Executable cadseq JSON
+        |
+        v
+Autodesk Fusion replay -> F3D + STEP + execution log
+        |
+        v
+Route-specific geometry validation
+        |
+        v
+Auditable result package
+```
+
+The inference layer reads geometry and topology evidence rather than filenames, case IDs or expected labels. Expected labels are introduced only after sealed formal runs for statistical reporting.
+
+## Sequence representation
+
+The project defines two compatible schema versions:
+
+- `cadseq-0.1` defines Sketch and Extrude operations, profile geometry, references and replay constraints.
+- `cadseq-0.2` adds auditable root-frame provenance without broadening the operation vocabulary.
+
+The schema distinguishes:
+
+- named origin-plane references;
+- deterministic frames inferred from the observed B-rep;
+- semantic references such as an operation cap;
+- an audited `absolute_fallback` mode for manual correction;
+- validation failures, unsupported scope and executor failures.
+
+The formal Gate 4 evaluation used zero manual corrections. The repository supplies the audited correction representation but does not provide an interactive CAD editing interface.
+
+## Benchmark
+
+The benchmark contains 30 frozen models:
+
+| Split | Composition | Cases |
+| --- | --- | ---: |
+| Development | 10 single extrusions and 5 base-plus-through-hole constructions | 15 |
+| Frozen held-out | 8 single extrusions, 4 base-plus-through-hole constructions, 1 ambiguity control and 2 unsupported controls | 15 |
+| Total | All categories | 30 |
+
+Source-construction provenance comprises 27 CadQuery-generated models and three models manually constructed in Fusion. The held-out split was reserved from semantic development after the benchmark freeze. It is a frozen held-out set, not a blind, secret or independently sourced dataset.
+
+Authoritative benchmark records:
+
+- [`benchmarks/case_matrix.json`](benchmarks/case_matrix.json)
+- [`benchmarks/manifest.json`](benchmarks/manifest.json)
+- [`benchmarks/freeze.lock.json`](benchmarks/freeze.lock.json)
+- [`docs/benchmark_v1_card.md`](docs/benchmark_v1_card.md)
+
+## Frozen evaluation results
+
+The final frozen evaluation used one implementation and one set of protocols for both the development and held-out splits.
+
+| Observation | Result | Interpretation |
+| --- | ---: | --- |
+| Terminal automatic successes | 27/30 | Overall terminal outcome |
+| Supported-case automatic recoveries | 26/27 | One supported case reached Fusion but failed at the executor boundary |
+| Unsupported controls correctly rejected | 2/2 | Filleted and blind-hole controls |
+| Geometry passes | 27/27 | Cases with trusted replay evidence |
+| Conditionally complete result packages | 30/30 | Package completeness is not algorithmic success |
+| Volume-IoU results | 25 | Two additional cases used surface-only validation |
+| Manual corrections during formal evaluation | 0 | The frozen evaluation remained automatic |
+| Cases retaining `ambiguous=true` | 4 | Ambiguity is independent of terminal success |
+
+`T-S07` is the preserved supported failure. Semantic inference produced a candidate, but the frozen Fusion executor rejected its absolute RY45 frame as `unsupported_absolute_frame`. The case was not retried, relabelled as unsupported or presented as history ambiguity.
+
+Authoritative reports:
+
+- [`logs/gate4/gate4_verification_report.json`](logs/gate4/gate4_verification_report.json)
+- [`logs/gate4/gate4_statistics.json`](logs/gate4/gate4_statistics.json)
+- [`logs/gate4/gate4_closure_report.md`](logs/gate4/gate4_closure_report.md)
+- [`docs/gate0_4_research_baseline.md`](docs/gate0_4_research_baseline.md)
+
+## Representative demonstrations
+
+The final presentation uses three development examples with different evidence roles:
+
+| Case | Purpose | Execution rule |
+| --- | --- | --- |
+| `D-S04` | Single-extrusion end-to-end path | Fresh delivery-layer inference, Fusion replay and frozen validation |
+| `D-H01` | Base extrusion plus one straight through cylindrical cut | Fresh delivery-layer inference, Fusion replay and frozen validation |
+| `D-S01` | Multiple accepted construction hypotheses | Read-only view of the sealed Gate 4 artifact; no fresh inference or JSON editing |
+
+Gate 5 demonstrations have `evidence_role=demonstration_only` and `formal_evaluation=false`. They explain the frozen results but do not change benchmark statistics.
+
+Operational guidance:
+
+- [`docs/gate5_demo_runbook.md`](docs/gate5_demo_runbook.md)
+- [`docs/gate5_reproduction_guide.md`](docs/gate5_reproduction_guide.md)
+- [`docs/gate5_media_index.md`](docs/gate5_media_index.md)
+
+## Environment
+
+The verified baseline environment is:
+
+| Component | Verified version |
+| --- | --- |
+| Autodesk Fusion | 2704.1.53 |
+| Conda Python | 3.11.16 |
+| CadQuery | 2.8.0 |
+| OCP | 7.9.3.1 |
+| NumPy | 2.4.6 |
+| SciPy | 1.17.1 |
+
+Create the external Python environment with:
+
+```powershell
+conda env create -f environment/environment.yml
+conda activate cadseq
+```
+
+Autodesk Fusion is a separately installed, signed-in external prerequisite.
+
+## Reproduce the frozen checks
+
+From the repository root, verify the frozen baseline tag:
 
 ```powershell
 python tools/verify_gate0_4_baseline.py --project-root . --require-tag
 ```
 
-## Gate 5 delivery and single-case reproduction
-
-**Stage status:** technical implementation and presentation delivery complete; final media recording and package closure pending. [Download the stage PPT](presentations/gate5/gate5_technical_briefing.pptx) and read the [stage audit and recording boundary](docs/gate5_stage_delivery.md). The planned `gate5-delivery-v1` final tag has not been created. Static walkthrough videos are supplementary and do not fulfill the real recording requirement.
-
-Gate 5 is a delivery layer over the frozen Gate 0-4 research baseline. It adds documentation, a single-development-case demonstration wrapper, local presentation-package checks, and backup-media instructions. It does not modify the frozen inference, Fusion modelling core, validators, protocols, benchmark, formal result packages, or baseline tag. The separate controlled multi-operation research question is Gate 6 and is not part of this delivery branch.
-
-Create the environment from `environment/environment.yml`, activate it, and prepare the fixed README example:
+Run the full regression suite:
 
 ```powershell
-conda env create -f environment/environment.yml
-conda activate cadseq
+python -m unittest discover -s tests -v
+```
 
+Run the gate-specific verifiers:
+
+```powershell
+python external/verify_gate0.py --project-root .
+python external/verify_gate1.py
+python external/verify_gate2.py benchmark_results/gate2-formal-20260903-e93dc2f
+python external/verify_gate3.py benchmark_results/gate3-formal-20260904-8e8ae63
+python external/verify_gate4.py `
+  --project-root . `
+  --development-run benchmark_results/gate4-development-formal-20260905 `
+  --held-out-run benchmark_results/gate4-held-out-formal-20260905
+```
+
+## Reproduce a delivery demonstration
+
+Prepare the fixed D-S04 demonstration:
+
+```powershell
 python tools/gate5_demo.py prepare `
   --project-root . `
   --case-id D-S04 `
   --output-root runs/gate5
 ```
 
-In an installed, launched, and signed-in Autodesk Fusion, load and run `fusion_scripts/Gate5DemoWrapper`. The wrapper delegates replay to the frozen Gate 2 executor; it does not implement a parallel modelling path. Then use the run directory printed by `prepare`:
+In Fusion, open **Utilities -> Scripts and Add-ins**, load `fusion_scripts/Gate5DemoWrapper`, and run it once. Then finalize and verify the run:
 
 ```powershell
 python tools/gate5_demo.py finalize `
@@ -49,236 +222,59 @@ python tools/gate5_demo.py verify `
   --run-dir runs/gate5/<run-id>
 ```
 
-All generated demonstration files remain under the ignored `runs/` directory and are labelled `demonstration_only` and `formal_evaluation=false`. `D-S01` is intentionally unavailable to fresh demo inference: the ambiguity presentation reads its sealed Gate 4 development artifact only.
+Generated demonstrations remain under the ignored `runs/` directory. They do not overwrite formal evaluation evidence.
 
-Status terms are distinct:
-
-- `supported` means a candidate exists inside the frozen Gate 2/3 language; it is not a uniqueness claim;
-- `ambiguous=true` is an independent flag indicating that multiple candidates satisfy the frozen acceptance contract;
-- `unsupported` means no frozen supported hypothesis is accepted and replay is not attempted;
-- executor failure means inference reached replay but the frozen Fusion execution path did not produce trusted replay evidence;
-- geometry failure means replay artifacts exist but fail the frozen route-specific validator.
-
-`T-S07` remains the frozen `unsupported_absolute_frame` executor failure. It is not relabelled as unsupported or history ambiguity and is not rerun for Gate 5.
-
-Detailed delivery instructions:
-
-- [Single-case reproduction guide](docs/gate5_reproduction_guide.md)
-- [Three-demo runbook](docs/gate5_demo_runbook.md)
-- [Licence and third-party audit](docs/gate5_license_audit.md)
-- [Local delivery package](docs/gate5_delivery_package.md)
-- [PPT and video asset index](docs/gate5_media_index.md)
-
-## Gate 4 completed scope
-
-- one fact-driven router whose semantic inference cannot inspect case IDs, filenames, parent directories or expected labels;
-- one frozen evaluation commit (`3d04273301cdacb8936707164f492427aab3273c`) used by both formal splits;
-- 15/15 formal development and 15/15 one-attempt held-out result packages with independent seals;
-- seal-gated expected-label release only after both raw runs were complete;
-- separate reporting of supported success, unsupported rejection, package completeness, Fusion failure, ambiguity and geometry validation;
-- Boolean volume IoU where available, with `surface_only` retained as a separate diagnostic fallback;
-- structured preservation of failures and scope rejections without post-result relabelling.
-
-The formal evaluation produced 15/15 development automatic successes and 11/12 supported held-out automatic successes. Both unsupported held-out cases were correctly rejected. `T-S07` remains failed at Fusion replay with `unsupported_absolute_frame`; it was not retried. Across both splits, 27/27 validated cases passed their frozen Gate 2 or Gate 3 geometry protocol, 25 produced volume IoU values, two used surface-only fallback, and 30/30 packages passed the completeness audit.
-
-The unified report is [`logs/gate4/gate4_verification_report.json`](logs/gate4/gate4_verification_report.json), detailed statistics are in [`logs/gate4/gate4_statistics.json`](logs/gate4/gate4_statistics.json), and the interpretation boundary is documented in [`logs/gate4/gate4_closure_report.md`](logs/gate4/gate4_closure_report.md).
-
-## Gate 3 completed scope
-
-- coupled recovery of one Line-only base extrusion and one straight through cylindrical Cut;
-- outer-wire base matching that is not invalidated by circular inner wires;
-- paired circular openings and their connecting cylindrical face as explicit Cut evidence;
-- deterministic `cadseq-0.2` synthesis of `Sketch -> New Extrusion -> Sketch on operation_cap -> Cut through_all`;
-- CadQuery validation of the complete hypothesis before Fusion replay;
-- hard analytic checks for hole radius, undirected axis, axis-line offset, opening centres and span;
-- a thin `Gate3SequenceReplay` adapter reusing the validated Gate 2 and Gate 1 replay layers;
-- immutable manifests, inference evidence, native F3D, replay STEP, validation metrics and terminal statuses.
-
-The formal run `gate3-formal-20260904-8e8ae63` produced 5/5 automatic successes, 5/5 geometry passes, 5/5 analytic hole-feature matches and 5/5 complete result packages, with no ambiguity or manual correction. The verified report is available at [`benchmark_results/gate3-formal-20260904-8e8ae63/gate3_verification_report.json`](benchmark_results/gate3-formal-20260904-8e8ae63/gate3_verification_report.json), with the closure summary at [`logs/gate3/gate3_closure_report.md`](logs/gate3/gate3_closure_report.md).
-
-## Gate 2 completed scope
-
-- one STEP import feeding a deterministic CadQuery/OCP B-rep fact layer;
-- canonical Solid/Face/Wire/Edge/Vertex facts and minimal attributed face adjacency;
-- explainable extrusion hypotheses with retained acceptance and rejection evidence;
-- one simple 3--8-edge Line-only outer profile or one standalone complete Circle;
-- `cadseq-0.2` root-frame provenance for named origin planes and inferred B-rep frames;
-- CadQuery candidate reconstruction, deterministic final ranking, and calibrated geometry validation;
-- a Gate 2 Fusion batch adapter reusing the Gate 1 Sketch/New Extrude replay core;
-- immutable run-level manifests, environment snapshots, case logs, native F3D files, replay STEP files, validation metrics, and terminal statuses.
-
-The formal run `gate2-formal-20260903-e93dc2f` produced 10/10 automatic successes, 10/10 geometry passes, and 10/10 complete result packages. `D-S01` and `D-S09` retain `ambiguous=true` because multiple histories satisfy the frozen acceptance protocol. Two earlier infrastructure-failure runs are preserved and are not counted as algorithm outcomes.
-
-The verified Gate 2 report is available at [`benchmark_results/gate2-formal-20260903-e93dc2f/gate2_verification_report.json`](benchmark_results/gate2-formal-20260903-e93dc2f/gate2_verification_report.json), with the closure summary at [`logs/gate2/gate2_closure_report.md`](logs/gate2/gate2_closure_report.md). The audited completion tag is `gate2-forward-path`.
-
-## Gate 1 completed scope
-
-- 30 fixed raw STEP inputs: 15 development and 15 held-out;
-- 27 deterministic CadQuery sources and three Fusion-manual sources;
-- schema v0.1 known-sequence examples for a box and a box with one through-hole;
-- one shared pure-standard-library validator used by external Python and Fusion replay;
-- explicit rejection fixtures for unsupported Cut distance, broken loop references, invalid operation-cap references, and invalid frames.
-- Fusion replay of Line/Circle sketches, outer loops, `New + distance`, semantic `operation_cap`, and `Cut + through_all`;
-- XY/XZ/YZ origin planes plus fixed RX30/RY45 frame cases with world-coordinate checks;
-- explicit `semantic_reference_failed` handling and audited absolute-frame fallback;
-- deterministic geometry inspection and bidirectional sampled surface-distance calibration;
-- three stable box replays and three stable box-with-through-hole replays, with native F3D, STEP, JSON logs, and screenshots.
-
-The benchmark is frozen by `benchmarks/manifest.json` and `benchmarks/freeze.lock.json`. After the freeze, the 15-case held-out split is excluded from rule and threshold development. It is a frozen held-out set, not a blind or previously unseen set.
-
-The verified Gate 1 report is available at [`logs/gate1_report.md`](logs/gate1_report.md).
-
-## Gate 0 scope
-
-Gate 0 establishes the execution boundary required by later inference work:
-
-- a shared millimetre-based JSON configuration;
-- manual Fusion modelling, STEP export, and STEP re-import evidence;
-- a Fusion Python script that creates a fresh `60 x 40 x 20 mm` box and exports STEP;
-- two independent Fusion script runs, each producing one body with six faces;
-- CadQuery/OCP generation and re-import of a box STEP;
-- CadQuery/OCP inspection of the two Fusion STEP files and the manual box-with-through-hole STEP;
-- matching SHA-256 records proving that Fusion and external Python read the same JSON;
-- automated tests and a consolidated PASS/FAIL report.
-
-The verified Gate 0 report is available at [`logs/gate0_report.md`](logs/gate0_report.md).
-
-## Verified environment
-
-| Component | Verified version |
-| --- | --- |
-| Autodesk Fusion | 2704.1.53 |
-| Conda Python | 3.11.16 |
-| CadQuery | 2.8.0 |
-| OCP | 7.9.3.1 |
-
-The environment definition is in [`environment/environment.yml`](environment/environment.yml). The accompanying `pip-freeze.txt` is an audit record from the verified Conda environment, not the preferred installation method.
-
-## Repository layout
+## Repository structure
 
 ```text
-benchmark_results/ Immutable Gate 2, Gate 3 and Gate 4 formal runs and per-case result packages
-benchmarks/        Frozen 30-case STEP input set, manifest, hashes, lock, and thumbnails
-config/            Gate inputs and frozen Gate 2/Gate 3/Gate 4 evaluation protocols
-docs/              Reuse audit, sequence schemas, and Gate design/implementation plans
-environment/     Conda definition and verified package record
-evidence/        Gate 0 evidence and Gate 1 Fusion replay screenshots
-external/        B-rep inspection, inference, validation, pipeline, and Gate verification tools
-fusion_scripts/  Gate 0 export plus Gate 1 through Gate 4 replay scripts
-logs/            Structured run logs, statistics, failure taxonomies and Gate reports
-models/          Native Fusion and STEP evidence models
-replay_outputs/  Native F3D, STEP, and JSON replay evidence
-sequences/       Known-valid and intentionally invalid cadseq fixtures
-shared/          Pure-standard-library frame and sequence validation modules
-tests/           Automated Gate 0 through Gate 4 regression tests
+benchmark_results/  Frozen formal runs, replay artifacts, metrics and per-case packages
+benchmarks/          Frozen 30-case input set, case matrix, hashes and thumbnails
+config/              Frozen protocols, routing policy, inventories and manifests
+docs/                Schemas, benchmark card, research interpretation and demo guidance
+environment/         Conda environment definition and verified package snapshot
+evidence/            Gate 0 and Gate 1 screenshots and supporting execution evidence
+external/            B-rep inspection, inference, reconstruction, validation and reporting
+fusion_scripts/      Fusion scripts for model creation and executable sequence replay
+logs/                Gate reports, statistics, closure records and failure taxonomy
+models/              Native Fusion and STEP evidence models
+presentations/       Final technical presentation
+replay_outputs/      Committed Gate 1 native and neutral-format replay evidence
+sequences/           Valid and intentionally invalid cadseq fixtures
+shared/              Shared frame and sequence validators used by Python and Fusion
+tests/               Regression, invariance, packaging and protocol tests
+tools/               Baseline verification and delivery-demonstration utilities
 ```
 
-## Reproduce the external checks
+## Evidence and provenance
 
-Create and activate the environment:
+The frozen scientific baseline is anchored by the annotated tag:
 
-```powershell
-conda env create -f environment/environment.yml
-conda activate cadseq
+```text
+gate0-4-frozen-baseline-v1
 ```
 
-Run the CadQuery/OCP smoke test from the repository root:
+The baseline manifest is [`config/gate0_4_baseline_manifest.json`](config/gate0_4_baseline_manifest.json). It binds benchmark inputs, protocols, formal runs and verification reports to recorded hashes and Git provenance.
 
-```powershell
-python external/cadquery_smoke.py
-```
+Formal result packages are immutable evidence. Demonstration runs, presentation screenshots and supplementary media are explanatory delivery artifacts and are not new scientific evaluations.
 
-Run the regression tests and consolidated verifier:
+## Limitations
 
-```powershell
-python -m unittest discover -s tests -v
-python external/verify_gate0.py --project-root .
-python external/verify_gate1.py
-python external/verify_gate2.py benchmark_results/gate2-formal-20260903-e93dc2f
-python external/verify_gate3.py benchmark_results/gate3-formal-20260904-8e8ae63
-python external/verify_gate4.py --project-root . --development-run benchmark_results/gate4-development-formal-20260905 --held-out-run benchmark_results/gate4-held-out-formal-20260905
-```
-
-The smoke test expects the committed Gate 0 STEP evidence under `models/`. It generates or refreshes `models/cadquery_box.step` and `logs/external_python.json`.
-
-## Fusion scripts
-
-In Fusion, open **Utilities -> Scripts and Add-ins**. Use `fusion_scripts/Gate0BoxExport` for the Gate 0 smoke export, `fusion_scripts/Gate1SequenceReplay` for Gate 1 known-sequence replay, `fusion_scripts/Gate2SequenceReplay` for a pipeline-prepared Gate 2 batch request, `fusion_scripts/Gate3SequenceReplay` for a pipeline-prepared Gate 3 through-hole batch request, and `fusion_scripts/Gate4SequenceReplay` for a frozen Gate 4 batch request.
-
-The Gate 0 smoke script:
-
-1. reads `config/gate0_box.json`;
-2. validates the schema and millimetre units;
-3. creates a new Fusion design document;
-4. sketches and extrudes a rectangular box;
-5. verifies one body and six faces;
-6. exports STEP and writes a structured run log.
-
-The committed `run01` and `run02` outputs are frozen evidence. The script intentionally refuses to overwrite them. Use a disposable checkout or preserve/move those four run artifacts before performing a fresh two-run experiment.
-
-The Gate 2 adapter creates a fresh Fusion document for each case, reuses the validated Gate 1 Sketch/New Extrude core, creates inferred construction planes parametrically, and refuses to overwrite existing case outputs. The completed formal request is preserved as `benchmark_results/gate2-formal-20260903-e93dc2f/replay_request_used.json`; no active replay request remains in `config/` after closure.
-
-The Gate 3 adapter adds a semantic operation-cap circular sketch and `Cut + through_all` while reusing the earlier replay layers. Its completed formal request is preserved as `benchmark_results/gate3-formal-20260904-8e8ae63/replay_request_used.json`; no active Gate 3 replay request remains in `config/` after closure.
-
-The Gate 4 adapter routes each prepared sequence through the already validated Gate 2 or Gate 3 replay layer. Formal execution is recorded by each run's manifest, batch replay log, per-case replay logs and immutable seal; no active Gate 4 replay request remains in `config/` after closure.
-
-## Gate 0 evidence
-
-- `manual_box_hole.f3d`: native Fusion model with Sketch/Extrude/Sketch/Cut history;
-- `manual_box_hole.step`: exported history-free B-rep;
-- `manual_box_hole_reimported.f3d`: STEP imported into a fresh Fusion document;
-- `01_original_timeline.png` and `02_reimported_timeline.png`: evidence that geometry is retained while the original feature timeline is lost;
-- `fusion_run01.json`, `fusion_run02.json`, and `external_python.json`: structured execution records.
-
-## Current limitations
-
-Gate 0 did **not** implement:
-
-- automatic feature or construction-history inference;
-- the final editable sequence schema;
-- ambiguity handling or manual sequence correction;
-- production geometric-distance or volume-IoU validation;
-- benchmark development/test splits;
-- advanced operations such as fillet, chamfer, revolve, sweep, loft, shell, or patterns.
-
-Those capabilities were deferred to later gates. Learning-based inference remains outside the project scope.
-
-Gate 1 does **not** claim:
-
-- automatic B-rep feature or construction-history inference;
-- `Add/Join`, `Cut + distance`, blind holes, multiple holes, or fillet/chamfer recovery;
-- arbitrary Face/Edge/Vertex references or general topological naming;
-- a universal geometric acceptance threshold or production volume-IoU acceptance rule;
-- byte-for-byte deterministic Fusion STEP exports; the verified claim is geometric stability.
-
-Gate 2 does **not** claim:
-
-- recovery of the designer's unique original construction history;
-- generalization beyond the frozen ten-case development single-extrusion subset;
-- held-out benchmark performance, which remains reserved for the later frozen evaluation;
-- mixed curves, arcs, splines, inner or multiple profile loops, or profiles outside the verified 3--8 Line range;
-- multi-feature recovery such as automatic holes, fillets, chamfers, revolves, sweeps, lofts, shells, or patterns;
-- universal validity of the calibrated surface thresholds outside the frozen Gate 2 protocol and environment.
-
-Gate 3 does **not** claim:
-
-- held-out performance or generalization beyond the five frozen development through-hole cases;
-- blind, tapered, stepped, counterbored, countersunk, threaded, multiple, patterned, intersecting or non-circular hole recovery;
-- recovery of a through hole without two explicit circular openings and one connecting cylindrical face;
-- convexity as a hard hole criterion, or a calibrated universal surface-distance threshold;
-- recovery of the designer's unique original construction history.
-
-Gate 4 does **not** claim:
-
-- perfect supported held-out recovery: `T-S07` remains a frozen Fusion replay failure;
-- that surface-only validation is equivalent to a successfully computed volume IoU;
-- that benchmark completeness is equivalent to algorithmic success;
-- that the 25 near-unity IoU values define a new universal acceptance threshold;
-- support for blind or multiple holes, fillets, chamfers, revolves, sweeps, lofts, shells, patterns or general CAD feature graphs;
-- recovery of the unique original designer history or generalization beyond the frozen 30-case benchmark.
+- The system recovers plausible executable explanations, not the unique original feature history.
+- The supported feature vocabulary is intentionally narrow.
+- The benchmark is small, curated and dominated by one procedural generator.
+- Exporter and CAD-kernel diversity is limited.
+- The held-out split is frozen but not independently sourced or statistically representative.
+- Near-unity IoU values on this benchmark do not define a universal tolerance.
+- Surface-only validation is reported separately from volume IoU.
+- The repository has an audited manual-correction representation but no interactive correction UI.
+- External validity for arbitrary industrial B-rep models remains unknown.
 
 ## References and reuse boundary
 
-Gate 0 uses Autodesk Fusion's installed Python API and CadQuery/OCP as infrastructure. Fusion 360 Gallery and Analysis Situs were reviewed as architectural references only; their search systems and source code are not dependencies of this repository. See [`docs/gate0_reuse_audit.md`](docs/gate0_reuse_audit.md).
+DeepCAD, WHUCAD and VideoCAD informed the project context and comparison boundary. No learning-based implementation or third-party research code was copied into the pipeline. See:
 
-No project licence is granted at this stage. The repository remains private while the research prototype is under evaluation.
+- [`docs/third_party_and_references.md`](docs/third_party_and_references.md)
+- [`docs/gate0_reuse_audit.md`](docs/gate0_reuse_audit.md)
+- [`docs/gate5_license_audit.md`](docs/gate5_license_audit.md)
+
+This is a private research repository. The absence of a root software licence means that access does not grant permission to copy, modify or redistribute the code or data.

@@ -1,14 +1,14 @@
 # Gate 5 Local Delivery Package
 
-## Stage delivery update
+## Optional backup-package boundary
 
-The presentation is separately tracked in Git by explicit user approval; see `gate5_stage_delivery.md`. Final recording/package closure is pending. The old static-media package is retained as `delivery_package/supplementary_artifact_walkthroughs_20260906/`, with its original manifests, and is not the final delivery package. The layout below is the target for future real recordings. Do not create the final `gate5-delivery-v1` tag or final delivery snapshot in this round; the name remains a planned identifier. Historical preflight PASS does not establish current final-package completion.
+The source project description requires a final presentation with a live demo; it does not require submitted video files. The presentation is tracked in Git; see `gate5_stage_delivery.md`. This document defines an optional local backup package only if recorded media are requested later. The old static-media package is retained as `delivery_package/supplementary_artifact_walkthroughs_20260906/`, with its original manifests, and is not a real-operation recording package. Historical preflight PASS does not establish completion of an optional recorded-media package.
 
 ## Authority model
 
 The private GitHub repository is authoritative for code, auditable documentation, frozen protocols, and formal evidence. The local delivery package is a presentation carrier for Dr. Li; it is not a second source of code or experimental truth.
 
-The package is generated outside Git at:
+If requested, the package is generated outside Git at:
 
 ```text
 delivery_package/gate5-delivery-v1_20260924/
@@ -34,7 +34,7 @@ gate5-delivery-v1_20260924/
 └── SHA256SUMS.txt
 ```
 
-## Checkpoint A preflight
+## Optional Checkpoint A preflight
 
 Before PPT production, create all non-PPT files and run:
 
@@ -52,7 +52,7 @@ python tools/gate5_delivery.py verify `
 
 Preflight rejects a missing required video or screenshot, a hash/size mismatch, an extra unregistered file, a copied benchmark/result directory, an unsafe package path, or an unignored package directory. The PPT must not be present in preflight mode.
 
-## Checkpoint B final verification
+## Optional Checkpoint B final verification
 
 After Checkpoint A approval, create the PPT and the annotated `gate5-delivery-v1` tag at the final delivery commit. Regenerate and verify the package in final mode:
 
