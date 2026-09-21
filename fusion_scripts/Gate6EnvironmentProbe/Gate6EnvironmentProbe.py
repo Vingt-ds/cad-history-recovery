@@ -77,7 +77,7 @@ def _safe_external_path(path, project_root):
             or any(FORMAL_RUN_RE.fullmatch(part) for part in parts)
             or any(part.startswith("gate6-precheck-0.1") for part in parts)):
         raise ProbeError("PF_UNSAFE_PATH", "Formal campaign-like paths are forbidden")
-    if not any(part in ("temp", "tmp", "qualification") or part.startswith("qualification-")
+    if not any(part in ("temp", "tmp", "qualification", "gate6-qualification") or part.startswith("qualification-")
                for part in parts):
         raise ProbeError("PF_UNSAFE_PATH", "Path must be under a temp or qualification location")
     return candidate

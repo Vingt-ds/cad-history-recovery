@@ -175,6 +175,12 @@ class FusionEnvironmentProbeTests(unittest.TestCase):
                 )
             self.assertEqual(caught.exception.code, "PF_CHALLENGE_INVALID")
 
+    def test_probe_accepts_gate6_qualification_root(self):
+        path = r"E:\gate6-qualification\challenge\preflight_challenge.json"
+        self.assertEqual(
+            self.module._safe_external_path(path, str(PROJECT_ROOT)), path
+        )
+
     def test_probe_rejects_formal_or_repo_paths_before_app_access(self):
         class ExplosiveApp:
             @property
