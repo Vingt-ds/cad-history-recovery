@@ -280,4 +280,4 @@ DeepCAD, WHUCAD and VideoCAD informed the project context and comparison boundar
 - [`docs/gate0_reuse_audit.md`](docs/gate0_reuse_audit.md)
 - [`docs/gate5_license_audit.md`](docs/gate5_license_audit.md)
 
-This is a private research repository. The absence of a root software licence means that access does not grant permission to copy, modify or redistribute the code or data.
+This repository is publicly accessible for project review. No root software licence is provided; public access does not grant permission to copy, modify or redistribute the code or data.

@@ -2,7 +2,7 @@
 
 ## Project licence boundary
 
-This private research repository does not currently grant permission to copy, modify, or distribute the project code or data. The absence of a project licence is deliberate; access to the private repository is not a software licence. Any later public release requires a separate ownership, data-rights, dependency-notice, and licence decision.
+This repository is publicly accessible for project review but does not currently grant permission to copy, modify, or distribute the project code or data. The absence of a project licence is deliberate; public access is not a software licence. Any future licensed release requires a separate ownership, data-rights, dependency-notice, and licence decision.
 
 No third-party source code was copied into the Gate 5 delivery layer. Installed libraries and Autodesk Fusion are invoked through their public or installed APIs. The earlier architecture-only reuse review remains in `docs/third_party_and_references.md` and `docs/gate0_reuse_audit.md`.
 

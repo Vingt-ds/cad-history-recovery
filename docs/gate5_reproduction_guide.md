@@ -10,7 +10,7 @@ The inference input remains a history-free STEP/B-rep. Case identifiers are used
 
 - Windows with Git and Conda available.
 - Autodesk Fusion installed, launched, and signed in. Fusion is an external prerequisite and is not installed by this repository.
-- The private repository checkout, including the frozen benchmark inputs.
+- The public repository checkout, including the frozen benchmark inputs.
 
 ## Create the Python environment
 
